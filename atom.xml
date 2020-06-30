@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-06-26T08:12:30.791Z</updated>
+  <updated>2020-06-30T06:22:59.860Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,6 +17,212 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>ThinkPHP6.0学习</title>
+    <link href="http://yoursite.com/2020/06/30/ThinkPHP6-0%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2020/06/30/ThinkPHP6-0%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-06-30T05:47:58.000Z</published>
+    <updated>2020-06-30T06:22:59.860Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h1 id=&quot;ThinkPHP6-0学习&quot;&gt;&lt;a href=&quot;#ThinkPHP6-0学习&quot; class=&quot;headerlink&quot; title=&quot;ThinkPHP6.0学习&quot;&gt;&lt;/a&gt;ThinkPHP6.0学习&lt;/h1&gt;&lt;p&gt;&lt;a href=&quot;https://www.kancloud.cn/manual/thinkphp6_0/1037483&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;目录结构 · ThinkPHP6.0完全开发手册 · 看云&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;graph LR&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP框架 --&amp;gt; ThinkPHP&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP框架 --&amp;gt; Yii&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP框架 --&amp;gt; Codelgniter&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;PHP框架 --&amp;gt; Laravel&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.php.cn/php-weizijiaocheng-386709.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;PHP四大主流框架的优缺点总结-php教程-PHP中文网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PHP 查看版本的四种方法&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用 php 函数phpinfo();&lt;/p&gt;
+ &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; phpinfo();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用预定义常量PHP_VERSION查询：&lt;/p&gt;
+ &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; PHP_VERSION;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;使用phpversion()函数查询&lt;/p&gt;
+ &lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;&amp;lt;?php&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;echo&lt;/span&gt; phpversion();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;?&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在命令行输入php –v&lt;/p&gt;
+ &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;要将PHP的路径添加到环境变量 path 中&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ThinkPHP 6.0 版本的环境要求&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;PHP &amp;gt;= 7.1.0&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装 Compose ==&amp;gt; ThinkPHP 安装&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/categories/PHP/"/>
+    
+    
+      <category term="PHP" scheme="http://yoursite.com/tags/PHP/"/>
+    
+      <category term="框架" scheme="http://yoursite.com/tags/%E6%A1%86%E6%9E%B6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>前后端分离</title>
+    <link href="http://yoursite.com/2020/06/29/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/"/>
+    <id>http://yoursite.com/2020/06/29/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/</id>
+    <published>2020-06-29T11:34:06.000Z</published>
+    <updated>2020-06-29T11:58:57.481Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;a href=&quot;https://www.infoq.cn/article/mNfTT4UBk5PQl3JpNt6M&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前后端分离技术体系 - InfoQ&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.woshipm.com/pmd/3342034.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;产品经理懂点技术：前后端是如何“分家”的？ | 人人都是产品经理&lt;/a&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+      <category term="项目" scheme="http://yoursite.com/categories/%E9%A1%B9%E7%9B%AE/"/>
+    
+    
+      <category term="项目" scheme="http://yoursite.com/tags/%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Markdown 自定义HTML标签</title>
+    <link href="http://yoursite.com/2020/06/29/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/"/>
+    <id>http://yoursite.com/2020/06/29/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/</id>
+    <published>2020-06-29T03:51:20.000Z</published>
+    <updated>2020-06-29T04:05:41.712Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;错误代码或者报错&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;/blockquote&gt;
+
+    
+    </summary>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/categories/Markdown/"/>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>C# 部署数据库问题</title>
+    <link href="http://yoursite.com/2020/06/29/C-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/"/>
+    <id>http://yoursite.com/2020/06/29/C-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/</id>
+    <published>2020-06-29T03:46:04.000Z</published>
+    <updated>2020-06-29T04:23:08.466Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h2 id=&quot;报错-Additional-information-用户-‘sa’-登录失败。&quot;&gt;&lt;a href=&quot;#报错-Additional-information-用户-‘sa’-登录失败。&quot; class=&quot;headerlink&quot; title=&quot;报错 Additional information: 用户 ‘sa’ 登录失败。&quot;&gt;&lt;/a&gt;报错 Additional information: 用户 ‘sa’ 登录失败。&lt;/h2&gt;&lt;p&gt;这个报错说明了程序没有使用（IP地址(IP和端口号)和账户和密码）正常连接数据库（数据库）&lt;/p&gt;
+&lt;p&gt;程序连接数据库的流程&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;graph TB&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;软件连接数据库(软件连接数据库) --&amp;gt; 程序使用连接的用户名和密码&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;程序使用连接的用户名和密码 --&amp;gt; 连接数据库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;连接数据库--&amp;gt; 打开数据库&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;打开数据库 --&amp;gt; 数据库业务逻辑&amp;#123;数据库业务逻辑&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;数据库业务逻辑  --&amp;gt; 关闭数据库(关闭数据库)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/categories/C/"/>
+    
+    
+      <category term="C#" scheme="http://yoursite.com/tags/C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>树莓派4B 安装 Android TV</title>
+    <link href="http://yoursite.com/2020/06/28/%E6%A0%91%E8%8E%93%E6%B4%BE4B-%E5%AE%89%E8%A3%85-Android-TV/"/>
+    <id>http://yoursite.com/2020/06/28/%E6%A0%91%E8%8E%93%E6%B4%BE4B-%E5%AE%89%E8%A3%85-Android-TV/</id>
+    <published>2020-06-28T04:23:47.000Z</published>
+    <updated>2020-06-28T04:24:20.412Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;&lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?t=249796&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;如何在Raspberry Pi 4上安装android TV OS？ -树莓派论坛&lt;/a&gt;&lt;/p&gt;
+
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vue官网学习</title>
+    <link href="http://yoursite.com/2020/06/27/vue%E5%AE%98%E7%BD%91%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2020/06/27/vue%E5%AE%98%E7%BD%91%E5%AD%A6%E4%B9%A0/</id>
+    <published>2020-06-27T09:31:31.000Z</published>
+    <updated>2020-06-28T00:09:34.786Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h1 id=&quot;Vue官网学习&quot;&gt;&lt;a href=&quot;#Vue官网学习&quot; class=&quot;headerlink&quot; title=&quot;Vue官网学习&quot;&gt;&lt;/a&gt;Vue官网学习&lt;/h1&gt;&lt;h2 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h2&gt;&lt;h2 id=&quot;组件&quot;&gt;&lt;a href=&quot;#组件&quot; class=&quot;headerlink&quot; title=&quot;组件&quot;&gt;&lt;/a&gt;组件&lt;/h2&gt;&lt;h2 id=&quot;过渡和动画&quot;&gt;&lt;a href=&quot;#过渡和动画&quot; class=&quot;headerlink&quot; title=&quot;过渡和动画&quot;&gt;&lt;/a&gt;过渡和动画&lt;/h2&gt;&lt;h2 id=&quot;可复用性-amp-组合&quot;&gt;&lt;a href=&quot;#可复用性-amp-组合&quot; class=&quot;headerlink&quot; title=&quot;可复用性 &amp;amp; 组合&quot;&gt;&lt;/a&gt;可复用性 &amp;amp; 组合&lt;/h2&gt;&lt;h2 id=&quot;工具&quot;&gt;&lt;a href=&quot;#工具&quot; class=&quot;headerlink&quot; title=&quot;工具&quot;&gt;&lt;/a&gt;工具&lt;/h2&gt;&lt;h3 id=&quot;单文件组件&quot;&gt;&lt;a href=&quot;#单文件组件&quot; class=&quot;headerlink&quot; title=&quot;单文件组件&quot;&gt;&lt;/a&gt;单文件组件&lt;/h3&gt;&lt;p&gt;传统方式  ===&amp;gt; 单文件组件&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;传统方式&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/categories/Vue/"/>
+    
+    
+      <category term="Vue" scheme="http://yoursite.com/tags/Vue/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>VScode-settings.json</title>
+    <link href="http://yoursite.com/2020/06/27/VScode-settings-json/"/>
+    <id>http://yoursite.com/2020/06/27/VScode-settings-json/</id>
+    <published>2020-06-27T06:42:54.000Z</published>
+    <updated>2020-06-27T06:44:45.520Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;pre&gt;&lt;code&gt;&amp;quot;files.exclude&amp;quot;: {     &amp;quot;**/.classpath&amp;quot;: true,     &amp;quot;**/.project&amp;quot;: true,     &amp;quot;**/.settings&amp;quot;: true,     &amp;quot;**/.factorypsdf&amp;quot;: true   },
+
+
+
+sdfsddf&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>vscode-markdown添加typora的快捷键</title>
+    <link href="http://yoursite.com/2020/06/27/vscode-markdown%E6%B7%BB%E5%8A%A0typora%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+    <id>http://yoursite.com/2020/06/27/vscode-markdown%E6%B7%BB%E5%8A%A0typora%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</id>
+    <published>2020-06-27T04:47:47.000Z</published>
+    <updated>2020-06-27T05:06:08.867Z</updated>
+    
+    <summary type="html">
+    
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h1 id=&quot;VScode-使用Markdown-语法&quot;&gt;&lt;a href=&quot;#VScode-使用Markdown-语法&quot; class=&quot;headerlink&quot; title=&quot;VScode 使用Markdown 语法&quot;&gt;&lt;/a&gt;VScode 使用Markdown 语法&lt;/h1&gt;&lt;h1 id=&quot;操作&quot;&gt;&lt;a href=&quot;#操作&quot; class=&quot;headerlink&quot; title=&quot;操作&quot;&gt;&lt;/a&gt;操作&lt;/h1&gt;&lt;p&gt;同步预览：点击工作区右上角的同步预览按钮，即可实时浏览所写的内容&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/06/27/ONe7fvjdwlVR6H1.jpg&quot; alt=&quot;webp&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;插件&quot;&gt;&lt;a href=&quot;#插件&quot; class=&quot;headerlink&quot; title=&quot;插件&quot;&gt;&lt;/a&gt;插件&lt;/h1&gt;&lt;h2 id=&quot;Markdown-All-in-One&quot;&gt;&lt;a href=&quot;#Markdown-All-in-One&quot; class=&quot;headerlink&quot; title=&quot;Markdown All in One&quot;&gt;&lt;/a&gt;Markdown All in One&lt;/h2&gt;&lt;h2 id=&quot;Markdown-Preview-Enhanced&quot;&gt;&lt;a href=&quot;#Markdown-Preview-Enhanced&quot; class=&quot;headerlink&quot; title=&quot;Markdown Preview Enhanced&quot;&gt;&lt;/a&gt;Markdown Preview Enhanced&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;简介 - Markdown Preview Enhanced&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Markdown Preview Enhanced是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。在插件库中搜索markdown即可找到该插件，然后点击安装后重新加载。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/categories/Markdown/"/>
+    
+    
+      <category term="Markdown" scheme="http://yoursite.com/tags/Markdown/"/>
+    
+      <category term="VScode" scheme="http://yoursite.com/tags/VScode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>JS的三种事件绑定的方法</title>
     <link href="http://yoursite.com/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/JS%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95/"/>
     <id>http://yoursite.com/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/JS%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95/</id>
@@ -25,13 +231,13 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h1 id=&quot;JS的三种事件绑定的方法&quot;&gt;&lt;a href=&quot;#JS的三种事件绑定的方法&quot; class=&quot;headerlink&quot; title=&quot;JS的三种事件绑定的方法&quot;&gt;&lt;/a&gt;JS的三种事件绑定的方法&lt;/h1&gt;&lt;h2 id=&quot;一、HTML绑定&quot;&gt;&lt;a href=&quot;#一、HTML绑定&quot; class=&quot;headerlink&quot; title=&quot;一、HTML绑定&quot;&gt;&lt;/a&gt;一、HTML绑定&lt;/h2&gt;&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;button onclick=&lt;span class=&quot;string&quot;&gt;&quot;alert(&#39;Hello&#39;)&quot;&lt;/span&gt;&amp;gt;&amp;lt;&lt;span class=&quot;regexp&quot;&gt;/button&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;regexp&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;regexp&quot;&gt;&amp;lt;button onclick=&quot;eventHandler()&quot;&amp;gt;&amp;lt;/&lt;/span&gt;button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 括号&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;eventHandler&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	alert(&lt;span class=&quot;string&quot;&gt;&#39;Hello&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;二、Javascript绑定&quot;&gt;&lt;a href=&quot;#二、Javascript绑定&quot; class=&quot;headerlink&quot; title=&quot;二、Javascript绑定&quot;&gt;&lt;/a&gt;二、Javascript绑定&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;button id=&quot;btn-click&quot;&amp;gt;&amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;var btn = doucument.querySelector(&#39;#btn-click&#39;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//方法名带括号表示直接执行&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;btn.onclick = function()&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	alert(&#39;Hello&#39;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;当一个按钮绑定多个事件时只会执行，最后一个会取代前面的，解决方法第三种。&lt;/p&gt;
+&lt;h2 id=&quot;三、addEventListener&quot;&gt;&lt;a href=&quot;#三、addEventListener&quot; class=&quot;headerlink&quot; title=&quot;三、addEventListener()&quot;&gt;&lt;/a&gt;三、addEventListener()&lt;/h2&gt;&lt;p&gt;通过addEventListener()方法 增加一个事件监听器到某个物体,可以绑定多个事件&lt;/p&gt;
+&lt;figure class=&quot;highlight js&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; btn = doucument.querySelector(&lt;span class=&quot;string&quot;&gt;&#39;#btn-click&#39;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;btn.addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;click&#39;&lt;/span&gt;，sayHello);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//不需要（）&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;btn.addEventListener(&lt;span class=&quot;string&quot;&gt;&#39;click&#39;&lt;/span&gt;，sayYourName);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sayHello&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; alert(&lt;span class=&quot;string&quot;&gt;&#39;Hello!!!&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;sayYourName&lt;/span&gt;(&lt;span class=&quot;params&quot;&gt;&lt;/span&gt;)&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt; alert(&lt;span class=&quot;string&quot;&gt;&#39;Hello!!!&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//.addEventListener(监听的事件类型，事件处理函数);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -54,13 +260,17 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;h1 id=&quot;五种元素元素居中&quot;&gt;&lt;a href=&quot;#五种元素元素居中&quot; class=&quot;headerlink&quot; title=&quot;五种元素元素居中&quot;&gt;&lt;/a&gt;五种元素元素居中&lt;/h1&gt;&lt;figure class=&quot;highlight html&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;tag&quot;&gt;&amp;lt;&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt; &lt;span class=&quot;attr&quot;&gt;class&lt;/span&gt;=&lt;span class=&quot;string&quot;&gt;&quot;box&quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;tag&quot;&gt;&amp;lt;/&lt;span class=&quot;name&quot;&gt;section&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;一、CSS定位&quot;&gt;&lt;a href=&quot;#一、CSS定位&quot; class=&quot;headerlink&quot; title=&quot;一、CSS定位&quot;&gt;&lt;/a&gt;一、CSS定位&lt;/h2&gt;&lt;figure class=&quot;highlight&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;父元素   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;position&lt;/span&gt;: &lt;span class=&quot;selector-tag&quot;&gt;relative&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;子元素   &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;position&lt;/span&gt;: &lt;span class=&quot;selector-tag&quot;&gt;absolute&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;top&lt;/span&gt;: 50%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;left&lt;/span&gt;: 50%;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;transform: translate(-50px, -50px); //w/2 h/2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;section&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;100vh&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;background&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;#7e57c2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;position&lt;/span&gt;: relative;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-class&quot;&gt;.box&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;100px&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;100px&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;position&lt;/span&gt;: absolute;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;top&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;50%&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;left&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;50%&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    transform: translate(-50px, -50px); //w/2 h/2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;selector-tag&quot;&gt;background&lt;/span&gt;: &lt;span class=&quot;selector-id&quot;&gt;#4db6ac&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;二、CSS-flex&quot;&gt;&lt;a href=&quot;#二、CSS-flex&quot; class=&quot;headerlink&quot; title=&quot;二、CSS flex&quot;&gt;&lt;/a&gt;二、CSS flex&lt;/h2&gt;&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;父元素 &lt;span class=&quot;selector-tag&quot;&gt;display&lt;/span&gt;: &lt;span class=&quot;selector-tag&quot;&gt;flex&lt;/span&gt;; &lt;span class=&quot;selector-tag&quot;&gt;justify-content&lt;/span&gt;: &lt;span class=&quot;selector-tag&quot;&gt;center&lt;/span&gt;;&lt;span class=&quot;selector-tag&quot;&gt;align-items&lt;/span&gt;: &lt;span class=&quot;selector-tag&quot;&gt;center&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;figure class=&quot;highlight css&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-tag&quot;&gt;section&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;50vh&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;50vw&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;background&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;#7e57c2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;display&lt;/span&gt;: flex; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;justify-content&lt;/span&gt;: center;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;align-items&lt;/span&gt;: center;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;selector-class&quot;&gt;.box&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;width&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;100px&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;height&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;100px&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;attribute&quot;&gt;background&lt;/span&gt;: &lt;span class=&quot;number&quot;&gt;#4db6ac&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;三、CSS-Grid&quot;&gt;&lt;a href=&quot;#三、CSS-Grid&quot; class=&quot;headerlink&quot; title=&quot;三、CSS Grid&quot;&gt;&lt;/a&gt;三、CSS Grid&lt;/h2&gt;
     
     </summary>
     
@@ -936,13 +1146,14 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;#UI框架 动效 学习&lt;/p&gt;
+&lt;p&gt;二〇二〇年五月三十一日&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/05/30/gxfwrANW62sQa5l.jpg&quot; alt=&quot;1 (C:%5CUsers%5CAdministrator%5CPictures%5C%E5%A3%81%E7%BA%B8%5C1%20(6).jpg)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;2019最受欢迎的前端7个UI框架 - 知乎&lt;br&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/61403630&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://zhuanlan.zhihu.com/p/61403630&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2019年最流行的10个前端框架，设计师快来收藏！ | 优设网 - UISDC&lt;br&gt;&lt;a href=&quot;https://www.uisdc.com/2019-10-front-frame&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.uisdc.com/2019-10-front-frame&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5cc089eae51d456e7d189f9d#heading-32&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;前端动效库汇总&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;CSS-动画的基础知识-transition-transform-animation&quot;&gt;&lt;a href=&quot;#CSS-动画的基础知识-transition-transform-animation&quot; class=&quot;headerlink&quot; title=&quot;CSS 动画的基础知识  transition + transform + animation&quot;&gt;&lt;/a&gt;CSS 动画的基础知识  transition + transform + animation&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5a424a796fb9a045023be66c&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CSS3的动画属性 - 掘金&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://aotu.io/notes/2016/05/06/CSS3-3D-Animation/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;CSS3动画之3D动画 | Aotu.io「凹凸实验室」&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -959,13 +1170,8 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;&lt;p&gt;ul&amp;gt;li*10{这是第$个li}&lt;/p&gt;
+
     
     </summary>
     
@@ -1012,201 +1218,7 @@
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo学习</title>
-    <link href="http://yoursite.com/2020/06/19/%E9%9D%99%E6%80%81blog/Hexo/"/>
-    <id>http://yoursite.com/2020/06/19/%E9%9D%99%E6%80%81blog/Hexo/</id>
-    <published>2020-06-18T17:52:17.261Z</published>
-    <updated>2020-06-26T08:37:49.557Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软件/VSCode用法</title>
-    <link href="http://yoursite.com/2020/06/19/%E8%BD%AF%E4%BB%B6/VSCode%E7%94%A8%E6%B3%95/"/>
-    <id>http://yoursite.com/2020/06/19/%E8%BD%AF%E4%BB%B6/VSCode%E7%94%A8%E6%B3%95/</id>
-    <published>2020-06-18T17:51:45.432Z</published>
-    <updated>2020-06-26T07:26:08.865Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Web/网页效果/滚动视差</title>
-    <link href="http://yoursite.com/2020/06/11/Web/%E7%BD%91%E9%A1%B5%E6%95%88%E6%9E%9C/%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%B7%AE/"/>
-    <id>http://yoursite.com/2020/06/11/Web/%E7%BD%91%E9%A1%B5%E6%95%88%E6%9E%9C/%E6%BB%9A%E5%8A%A8%E8%A7%86%E5%B7%AE/</id>
-    <published>2020-06-11T07:17:22.872Z</published>
-    <updated>2020-06-26T07:26:15.185Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>软件/VScode插件</title>
-    <link href="http://yoursite.com/2020/06/08/%E8%BD%AF%E4%BB%B6/VScode%E6%8F%92%E4%BB%B6/"/>
-    <id>http://yoursite.com/2020/06/08/%E8%BD%AF%E4%BB%B6/VScode%E6%8F%92%E4%BB%B6/</id>
-    <published>2020-06-08T08:24:05.312Z</published>
-    <updated>2020-06-26T07:26:08.969Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>计算机图形学/计算机图形学</title>
-    <link href="http://yoursite.com/2020/06/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/"/>
-    <id>http://yoursite.com/2020/06/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/</id>
-    <published>2020-06-07T08:29:12.145Z</published>
-    <updated>2020-06-26T07:26:18.335Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Web/Babel 是一个JavaScript 编译器</title>
-    <link href="http://yoursite.com/2020/05/26/Web/Babel%20%E6%98%AF%E4%B8%80%E4%B8%AAJavaScript%20%E7%BC%96%E8%AF%91%E5%99%A8/"/>
-    <id>http://yoursite.com/2020/05/26/Web/Babel%20%E6%98%AF%E4%B8%80%E4%B8%AAJavaScript%20%E7%BC%96%E8%AF%91%E5%99%A8/</id>
-    <published>2020-05-25T17:03:15.288Z</published>
-    <updated>2020-06-26T07:26:09.160Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>树莓派/树莓派</title>
-    <link href="http://yoursite.com/2020/05/23/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE/"/>
-    <id>http://yoursite.com/2020/05/23/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE/</id>
-    <published>2020-05-23T06:58:06.032Z</published>
-    <updated>2020-06-26T07:26:08.929Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Web/iconAnfont/font</title>
-    <link href="http://yoursite.com/2020/05/15/Web/iconAnfont/font/"/>
-    <id>http://yoursite.com/2020/05/15/Web/iconAnfont/font/</id>
-    <published>2020-05-15T09:11:10.426Z</published>
-    <updated>2020-06-26T07:26:15.161Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot;
-        
-      
+      &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; class=&quot;aplayer-secondary-script-marker&quot;&gt;&lt;/script&gt;&lt;script class=&quot;meting-secondary-script-marker&quot; src=&quot;\assets\js\Meting.min.js&quot;&gt;&lt;/script&gt;
     
     </summary>
     
