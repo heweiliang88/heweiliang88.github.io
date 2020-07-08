@@ -28,7 +28,7 @@
 <meta property="og:description" content="第零篇、静态blog 生成页面 hexo、wordpress、hugo、jekyll Jekyll、Hugo、Hexo 是简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。Jekyll、Hugo、Hexo 也可以运行在 码云（Gitee.com） Pages">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-18T17:52:17.261Z">
-<meta property="article:modified_time" content="2020-06-26T08:37:49.557Z">
+<meta property="article:modified_time" content="2020-06-30T10:24:24.393Z">
 <meta property="article:author" content="heweiliang">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
@@ -235,7 +235,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-26 16:37:49" itemprop="dateModified" datetime="2020-06-26T16:37:49+08:00">2020-06-26</time>
+                <time title="修改时间：2020-06-30 18:24:24" itemprop="dateModified" datetime="2020-06-30T18:24:24+08:00">2020-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,7 +260,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>6.2k</span>
+              <span>6.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -288,7 +288,7 @@
 <p>Jekyll 使用文档：<a href="https://www.jekyll.com.cn/docs/home/" target="_blank" rel="noopener">https://www.jekyll.com.cn/docs/home/</a><br>Hugo 使用文档：<a href="https://gohugo.io/documentation/" target="_blank" rel="noopener">https://gohugo.io/documentation/</a><br>Hexo 使用文档：<a href="https://hexo.io/docs/" target="_blank" rel="noopener">https://hexo.io/docs/</a></p>
 <h2 id="Hexo学习"><a href="#Hexo学习" class="headerlink" title="Hexo学习"></a>Hexo学习</h2><p>官网：</p>
 <h3 id="hexo基础知识"><a href="#hexo基础知识" class="headerlink" title="hexo基础知识"></a>hexo基础知识</h3><h4 id="hexo概念"><a href="#hexo概念" class="headerlink" title="hexo概念"></a>hexo概念</h4><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 <a href="https://link.zhihu.com/?target=http%3A//daringfireball.net/projects/markdown/">Markdown</a>（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。</p>
-<h4 id="hexo目录结构"><a href="#hexo目录结构" class="headerlink" title="hexo目录结构"></a>hexo目录结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml</span><br><span class="line">├── package.json &#x2F;&#x2F; 应用程序的信息 下面有修改，从而运行脚本命令</span><br><span class="line">├── scaffolds  &#x2F;&#x2F;模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</span><br><span class="line">├── source &#x2F;&#x2F;资源文件夹是存放用户资源的地方。</span><br><span class="line">|   ├── _drafts &#x2F;&#x2F;文件夹中的草稿文章</span><br><span class="line">|   └── _posts &#x2F;&#x2F; 博客的md文件存放的地方</span><br><span class="line">└── themes  &#x2F;&#x2F; 主题文件</span><br></pre></td></tr></table></figure>
+<h4 id="hexo目录结构"><a href="#hexo目录结构" class="headerlink" title="hexo目录结构"></a>hexo目录结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">├── _config.yml 博客配置文件</span><br><span class="line">├── public：存放的是生成的页面</span><br><span class="line">├── scripts：脚本文件 </span><br><span class="line">├── package.json &#x2F;&#x2F; 应用程序的信息 下面有修改，从而运行脚本命令 项目所需模块项目的配置信息</span><br><span class="line">├── scaffolds  &#x2F;&#x2F;模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。命令生成文章等的模板</span><br><span class="line">├── db.json：source解析所得到的</span><br><span class="line">├── source &#x2F;&#x2F;资源文件夹是存放用户资源的地方。</span><br><span class="line">|   ├── _drafts &#x2F;&#x2F;文件夹中的草稿文章</span><br><span class="line">|   └── _posts &#x2F;&#x2F; 博客的md文件存放的地方</span><br><span class="line">└── themes  &#x2F;&#x2F; 主题文件</span><br></pre></td></tr></table></figure>
 
 <h3 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h3><p>要安装好 <code>git</code> 和``node.js`的环境</p>
 <p>安装Hexo</p>
@@ -423,8 +423,7 @@
 <p>评论功能插件</p>
 <p><a href="https://blog.csdn.net/qq_32454537/article/details/79482879" target="_blank" rel="noopener">Hexo-NexT主题添加评论功能（来必力、Hypercomments、畅言、友言）_请别抢我的狗熊-CSDN博客_hexo安装来必力评论插件next主题</a></p>
 <h3 id="next-版本-v-7-8"><a href="#next-版本-v-7-8" class="headerlink" title="next 版本 v 7.8"></a>next 版本 v 7.8</h3><p>Hypercomments评论</p>
-<p>Mastery</p>
-<p>畅言</p>
+<h2 id="Mastery"><a href="#Mastery" class="headerlink" title="Mastery"></a>Mastery</h2><p>畅言</p>
 <p>友言</p>
 <p>来必力</p>
 <h2 id="添加方法"><a href="#添加方法" class="headerlink" title="添加方法"></a>添加方法</h2><ol>
@@ -544,8 +543,8 @@
       <i class="fa fa-chevron-left"></i> 软件/VSCode用法
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/06/24/%E8%BD%AF%E4%BB%B6/Navicat%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AD%A6%E4%B9%A0/" rel="next" title="软件/Navicat软件的学习">
-      软件/Navicat软件的学习 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/06/22/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E8%B7%AF%E7%94%B1%E5%99%A8/" rel="next" title="日常生活/路由器">
+      日常生活/路由器 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -610,7 +609,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第零篇、静态blog-生成页面"><span class="nav-number">1.</span> <span class="nav-text">第零篇、静态blog 生成页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一篇、Hexo-博客框架"><span class="nav-number">2.</span> <span class="nav-text">第一篇、Hexo 博客框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo学习"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo基础知识"><span class="nav-number">2.1.1.</span> <span class="nav-text">hexo基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo概念"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">hexo概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo目录结构"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">hexo目录结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本配置"><span class="nav-number">2.1.2.</span> <span class="nav-text">基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件-config-yml"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">配置文件 _config.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blog部署"><span class="nav-number">2.2.</span> <span class="nav-text">blog部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">2.2.1.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到gitee上"><span class="nav-number">2.2.2.</span> <span class="nav-text">部署到gitee上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署优化"><span class="nav-number">2.2.3.</span> <span class="nav-text">部署优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二篇、Hexo主题以及配置文件"><span class="nav-number">3.</span> <span class="nav-text">第二篇、Hexo主题以及配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-theme-next-版本5-3"><span class="nav-number">3.1.</span> <span class="nav-text">hexo-theme-next 版本5.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next-版本-v-7-8"><span class="nav-number">3.1.1.</span> <span class="nav-text">next 版本 v 7.8</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加方法"><span class="nav-number">3.2.</span> <span class="nav-text">添加方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三篇、编辑-md文件"><span class="nav-number">4.</span> <span class="nav-text">第三篇、编辑 md文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改标签图标"><span class="nav-number">4.1.</span> <span class="nav-text">修改标签图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击出现桃心效果"><span class="nav-number">4.2.</span> <span class="nav-text">点击出现桃心效果</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第零篇、静态blog-生成页面"><span class="nav-number">1.</span> <span class="nav-text">第零篇、静态blog 生成页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第一篇、Hexo-博客框架"><span class="nav-number">2.</span> <span class="nav-text">第一篇、Hexo 博客框架</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo学习"><span class="nav-number">2.1.</span> <span class="nav-text">Hexo学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo基础知识"><span class="nav-number">2.1.1.</span> <span class="nav-text">hexo基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo概念"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">hexo概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#hexo目录结构"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">hexo目录结构</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本配置"><span class="nav-number">2.1.2.</span> <span class="nav-text">基本配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件-config-yml"><span class="nav-number">2.1.2.1.</span> <span class="nav-text">配置文件 _config.yml</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#blog部署"><span class="nav-number">2.2.</span> <span class="nav-text">blog部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到github"><span class="nav-number">2.2.1.</span> <span class="nav-text">部署到github</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到gitee上"><span class="nav-number">2.2.2.</span> <span class="nav-text">部署到gitee上</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署优化"><span class="nav-number">2.2.3.</span> <span class="nav-text">部署优化</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第二篇、Hexo主题以及配置文件"><span class="nav-number">3.</span> <span class="nav-text">第二篇、Hexo主题以及配置文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-theme-next-版本5-3"><span class="nav-number">3.1.</span> <span class="nav-text">hexo-theme-next 版本5.3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#next-版本-v-7-8"><span class="nav-number">3.1.1.</span> <span class="nav-text">next 版本 v 7.8</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mastery"><span class="nav-number">3.2.</span> <span class="nav-text">Mastery</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加方法"><span class="nav-number">3.3.</span> <span class="nav-text">添加方法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三篇、编辑-md文件"><span class="nav-number">4.</span> <span class="nav-text">第三篇、编辑 md文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改标签图标"><span class="nav-number">4.1.</span> <span class="nav-text">修改标签图标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击出现桃心效果"><span class="nav-number">4.2.</span> <span class="nav-text">点击出现桃心效果</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -626,20 +625,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -817,5 +816,5 @@ NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-epsilon2_1"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

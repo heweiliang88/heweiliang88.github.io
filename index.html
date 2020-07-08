@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/ThinkPHP6-0%E5%AD%A6%E4%B9%A0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/08/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89Ubuntu%2018.04%20%E7%B3%BB%E7%BB%9F/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -215,7 +215,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/30/ThinkPHP6-0%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">ThinkPHP6.0学习</a>
+            <a href="/2020/07/08/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89Ubuntu%2018.04%20%E7%B3%BB%E7%BB%9F/" class="post-title-link" itemprop="url">日常生活/树莓派/树莓派安Ubuntu 18.04 系统</a>
         </h2>
 
         <div class="post-meta">
@@ -226,16 +226,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-30 13:47:58 / 修改时间：14:22:59" itemprop="dateCreated datePublished" datetime="2020-06-30T13:47:58+08:00">2020-06-30</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a>
-                </span>
+              <time title="创建时间：2020-07-08 13:32:04 / 修改时间：23:49:10" itemprop="dateCreated datePublished" datetime="2020-07-08T13:32:04+08:00">2020-07-08</time>
             </span>
 
           <br>
@@ -244,7 +235,7 @@
                 <i class="fa fa-file-word-o"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>709</span>
+              <span>534</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -263,34 +254,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="ThinkPHP6-0学习"><a href="#ThinkPHP6-0学习" class="headerlink" title="ThinkPHP6.0学习"></a>ThinkPHP6.0学习</h1><p><a href="https://www.kancloud.cn/manual/thinkphp6_0/1037483" target="_blank" rel="noopener">目录结构 · ThinkPHP6.0完全开发手册 · 看云</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">PHP框架 --&gt; ThinkPHP</span><br><span class="line">PHP框架 --&gt; Yii</span><br><span class="line">PHP框架 --&gt; Codelgniter</span><br><span class="line">PHP框架 --&gt; Laravel</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://www.php.cn/php-weizijiaocheng-386709.html" target="_blank" rel="noopener">PHP四大主流框架的优缺点总结-php教程-PHP中文网</a></p>
-<p>PHP 查看版本的四种方法</p>
-<ol>
-<li><p>使用 php 函数phpinfo();</p>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> phpinfo();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用预定义常量PHP_VERSION查询：</p>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="keyword">echo</span> PHP_VERSION;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用phpversion()函数查询</p>
- <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">echo</span> phpversion();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在命令行输入php –v</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">要将PHP的路径添加到环境变量 path 中</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>ThinkPHP 6.0 版本的环境要求</p>
-<blockquote>
-<p>PHP &gt;= 7.1.0</p>
-</blockquote>
-<p>安装 Compose ==&gt; ThinkPHP 安装</p>
+          <h1 id="树莓派4B安装-Ubuntu-18-04-系统"><a href="#树莓派4B安装-Ubuntu-18-04-系统" class="headerlink" title="树莓派4B安装 Ubuntu 18.04 系统"></a>树莓派4B安装 Ubuntu 18.04 系统</h1><p>工具：balenaEtcher</p>
+<p>镜像：<a href="https://mirrors.ustc.edu.cn/ubuntu-cdimage/releases/18.04/release/ubuntu-18.04.4-preinstalled-server-armhf%2Braspi4.img.xz.zsync" target="_blank" rel="noopener">ubuntu-18.04.4-preinstalled-server-armhf+raspi4..&gt;</a></p>
+<h2 id="格式化SD卡"><a href="#格式化SD卡" class="headerlink" title="格式化SD卡"></a>格式化SD卡</h2><p>使用系统工具格式化SD卡</p>
+<h2 id="使用刻录工具"><a href="#使用刻录工具" class="headerlink" title="使用刻录工具"></a>使用刻录工具</h2><p>使用balenaEtcher 写入 SD卡中 </p>
+<h2 id="修改树莓派密码"><a href="#修改树莓派密码" class="headerlink" title="修改树莓派密码"></a>修改树莓派密码</h2><p>默认账号和密码都是：Ubuntu</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/06/30/ThinkPHP6-0%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+              <a class="btn" href="/2020/07/08/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E6%A0%91%E8%8E%93%E6%B4%BE/%E6%A0%91%E8%8E%93%E6%B4%BE%E5%AE%89Ubuntu%2018.04%20%E7%B3%BB%E7%BB%9F/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -314,7 +285,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/02/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90/kodi-emby%E6%90%AD%E5%BB%BA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -328,7 +299,202 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/29/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" class="post-title-link" itemprop="url">前后端分离</a>
+            <a href="/2020/07/02/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90/kodi-emby%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">kodi+emby搭建</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-02 09:18:47" itemprop="dateCreated datePublished" datetime="2020-07-02T09:18:47+08:00">2020-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-08 23:49:10" itemprop="dateModified" datetime="2020-07-08T23:49:10+08:00">2020-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AE%B6%E5%BA%AD%E5%AA%92%E4%BD%93%E8%AF%AD%E9%9F%B3%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index"><span itemprop="name">家庭媒体语音系统</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>26</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>元信息<strong>刮削器</strong></p>
+<p><a href="https://pockies.github.io/2019/03/25/everaver-emby-kodi/" target="_blank" rel="noopener">利用EverAver+Emby+Kodi</a></p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/07/02/%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB/%E7%94%B5%E8%A7%86%E7%9B%92%E5%AD%90/kodi-emby%E6%90%AD%E5%BB%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E8%BD%AF%E4%BB%B6/windows%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E8%BD%AF%E4%BB%B6/windows%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/" class="post-title-link" itemprop="url">windows</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-30 22:35:34" itemprop="dateCreated datePublished" datetime="2020-06-30T22:35:34+08:00">2020-06-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-08 23:49:10" itemprop="dateModified" datetime="2020-07-08T23:49:10+08:00">2020-07-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/window10/" itemprop="url" rel="index"><span itemprop="name">window10</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>23</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ol>
+<li><code>win + r : shell:startup</code> 开机启动 </li>
+</ol>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E8%BD%AF%E4%BB%B6/windows%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E9%9D%99%E6%80%81blog/%E5%9C%A8hexo-new%E6%97%B6%E4%BD%BF%E7%94%A8Markdown%E7%BC%96%E8%BE%91%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E9%9D%99%E6%80%81blog/%E5%9C%A8hexo-new%E6%97%B6%E4%BD%BF%E7%94%A8Markdown%E7%BC%96%E8%BE%91%E5%99%A8/" class="post-title-link" itemprop="url">在hexo new时使用Markdown编辑器</a>
         </h2>
 
         <div class="post-meta">
@@ -339,8 +505,455 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-06-29 19:34:06 / 修改时间：19:58:57" itemprop="dateCreated datePublished" datetime="2020-06-29T19:34:06+08:00">2020-06-29</time>
+              <time title="创建时间：2020-06-30 16:56:38 / 修改时间：17:10:08" itemprop="dateCreated datePublished" datetime="2020-06-30T16:56:38+08:00">2020-06-30</time>
             </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>757</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="在hexo-new时使用Markdown编辑器"><a href="#在hexo-new时使用Markdown编辑器" class="headerlink" title="在hexo new时使用Markdown编辑器"></a>在hexo new时使用Markdown编辑器</h1><h2 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h2><p>Tommy 指出，可以在 Hexo 目录下的 <code>scripts</code> 目录（若没有，则新建一个blog/scripts）中创建一个 JavaScript （openNewFile）脚本，监听 <code>hexo new</code> 这个动作。并在检测到 <code>hexo new</code> 之后，执行编辑器打开的命令。</p>
+<p>openNewFile.js中的代码</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> spawn = <span class="built_in">require</span>(<span class="string">'child_process'</span>).spawn;</span><br><span class="line">hexo.on(<span class="string">'new'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">    spawn(<span class="string">'C:/Program Files/Typora/Typora.exe '</span>, [data.path]);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//C:/Program Files/Typora/Typora.exe  自已 Typora 的目录</span></span><br></pre></td></tr></table></figure>
+
+<p><a href="https://blog.csdn.net/tianxintiandisheng/article/details/102381391" target="_blank" rel="noopener">在 hexo new 新建文件之后立即打开新建的 Markdown 文稿_天心天地生的博客-CSDN博客_hexo新建文件</a></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E9%9D%99%E6%80%81blog/%E5%9C%A8hexo-new%E6%97%B6%E4%BD%BF%E7%94%A8Markdown%E7%BC%96%E8%BE%91%E5%99%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E8%BD%AF%E4%BB%B6/%E5%9C%A8VScode%E9%87%8C%E4%BD%BF%E7%94%A8MySQL%E5%86%99%E7%9A%84sql%E6%9C%89%E7%BA%A2%E8%89%B2%E6%B3%A2%E6%B5%AA%E7%9A%84%E5%A4%84%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E8%BD%AF%E4%BB%B6/%E5%9C%A8VScode%E9%87%8C%E4%BD%BF%E7%94%A8MySQL%E5%86%99%E7%9A%84sql%E6%9C%89%E7%BA%A2%E8%89%B2%E6%B3%A2%E6%B5%AA%E7%9A%84%E5%A4%84%E7%90%86/" class="post-title-link" itemprop="url">在VScode里使用MySQL写的sql有红色波浪的处理</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-30 16:52:21 / 修改时间：16:53:25" itemprop="dateCreated datePublished" datetime="2020-06-30T16:52:21+08:00">2020-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/VScode/" itemprop="url" rel="index"><span itemprop="name">VScode</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>158</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="在VScode里使用MySQL写的sql有红色波浪的处理"><a href="#在VScode里使用MySQL写的sql有红色波浪的处理" class="headerlink" title="在VScode里使用MySQL写的sql有红色波浪的处理"></a>在VScode里使用MySQL写的sql有红色波浪的处理</h1><p>设置搜索<code>Intelli Sense: Enable Error Checking</code></p>
+<p>code - preferences- settings-extension- MSSQL configuration</p>
+<p>找到Intelli Sense: Enable Error Checking，取消就好了</p>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E8%BD%AF%E4%BB%B6/%E5%9C%A8VScode%E9%87%8C%E4%BD%BF%E7%94%A8MySQL%E5%86%99%E7%9A%84sql%E6%9C%89%E7%BA%A2%E8%89%B2%E6%B3%A2%E6%B5%AA%E7%9A%84%E5%A4%84%E7%90%86/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E9%9D%99%E6%80%81blog/hexo-%E6%96%B0%E5%BB%BA%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E9%9D%99%E6%80%81blog/hexo-%E6%96%B0%E5%BB%BA%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6/" class="post-title-link" itemprop="url">hexo 新建模板文件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-30 16:26:29 / 修改时间：16:50:06" itemprop="dateCreated datePublished" datetime="2020-06-30T16:26:29+08:00">2020-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>330</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="hexo-中-创建YAML模板文件问题"><a href="#hexo-中-创建YAML模板文件问题" class="headerlink" title="hexo 中 创建YAML模板文件问题"></a>hexo 中 创建YAML模板文件问题</h1><p>目录<code>.\scaffolds文件下</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line">- 分类</span><br><span class="line">tags:</span><br><span class="line">- 标签1</span><br><span class="line">- 标签2</span><br></pre></td></tr></table></figure>
+
+<p>经常要写同一类型的文章，懒得每篇文章都添加同样的<code>tags</code>和<code>categories</code>，因此可使用<code>scaffolds</code>创建模板，每次只需要<code>hexo new layout &quot;标题&quot;</code>即可生成相同样式的文章。<br> 但近期使用时发现一些问题，如下图所示，我创建了一个名为<code>Hexo</code>的模板，并正确放到<code>scaffolds</code>中：</p>
+<blockquote>
+<p>在scaffolds中创建模板时，模板标题<code>不能为大写</code>，中文也可以，但就是不能大写。</p>
+</blockquote>
+
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E9%9D%99%E6%80%81blog/hexo-%E6%96%B0%E5%BB%BA%E6%A8%A1%E6%9D%BF%E6%96%87%E4%BB%B6/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E8%BD%AF%E4%BB%B6/%E8%BD%AF%E4%BB%B6%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E8%BD%AF%E4%BB%B6/%E8%BD%AF%E4%BB%B6%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8/" class="post-title-link" itemprop="url">软件快速启动</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-30 16:19:54 / 修改时间：16:23:09" itemprop="dateCreated datePublished" datetime="2020-06-30T16:19:54+08:00">2020-06-30</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>22</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="系统变量path"><a href="#系统变量path" class="headerlink" title="系统变量path"></a>系统变量path</h2><h2 id="hexo-新建文件默认版本文件"><a href="#hexo-新建文件默认版本文件" class="headerlink" title="hexo 新建文件默认版本文件"></a>hexo 新建文件默认版本文件</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E8%BD%AF%E4%BB%B6/%E8%BD%AF%E4%BB%B6%E5%BF%AB%E9%80%9F%E5%90%AF%E5%8A%A8/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/%E9%9D%99%E6%80%81blog/Hexo%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0Gitee%E5%92%8CGithub/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/30/%E9%9D%99%E6%80%81blog/Hexo%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0Gitee%E5%92%8CGithub/" class="post-title-link" itemprop="url">Hexo同时部署到Gitee和Github</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-06-30 15:39:48 / 修改时间：16:23:09" itemprop="dateCreated datePublished" datetime="2020-06-30T15:39:48+08:00">2020-06-30</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>0</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/06/30/%E9%9D%99%E6%80%81blog/Hexo%E5%90%8C%E6%97%B6%E9%83%A8%E7%BD%B2%E5%88%B0Gitee%E5%92%8CGithub/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/06/29/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" class="post-title-link" itemprop="url">前后端分离</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-06-29 19:34:06" itemprop="dateCreated datePublished" datetime="2020-06-29T19:34:06+08:00">2020-06-29</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-30 15:24:41" itemprop="dateModified" datetime="2020-06-30T15:24:41+08:00">2020-06-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -381,7 +994,7 @@
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/06/29/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/#more" rel="contents">
+              <a class="btn" href="/2020/06/29/%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -405,7 +1018,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/%E9%9D%99%E6%80%81blog/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -419,7 +1032,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/06/29/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">Markdown 自定义HTML标签</a>
+            <a href="/2020/06/29/%E9%9D%99%E6%80%81blog/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/" class="post-title-link" itemprop="url">Markdown 自定义HTML标签</a>
         </h2>
 
         <div class="post-meta">
@@ -428,10 +1041,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-29 11:51:20 / 修改时间：12:05:41" itemprop="dateCreated datePublished" datetime="2020-06-29T11:51:20+08:00">2020-06-29</time>
+              <time title="创建时间：2020-06-29 11:51:20" itemprop="dateCreated datePublished" datetime="2020-06-29T11:51:20+08:00">2020-06-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-30 15:24:41" itemprop="dateModified" datetime="2020-06-30T15:24:41+08:00">2020-06-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -473,647 +1092,7 @@
 
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/06/29/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/29/C-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/29/C-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">C# 部署数据库问题</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-29 11:46:04 / 修改时间：12:23:08" itemprop="dateCreated datePublished" datetime="2020-06-29T11:46:04+08:00">2020-06-29</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C#</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>240</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="报错-Additional-information-用户-‘sa’-登录失败。"><a href="#报错-Additional-information-用户-‘sa’-登录失败。" class="headerlink" title="报错 Additional information: 用户 ‘sa’ 登录失败。"></a>报错 Additional information: 用户 ‘sa’ 登录失败。</h2><p>这个报错说明了程序没有使用（IP地址(IP和端口号)和账户和密码）正常连接数据库（数据库）</p>
-<p>程序连接数据库的流程</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">软件连接数据库(软件连接数据库) --&gt; 程序使用连接的用户名和密码</span><br><span class="line">程序使用连接的用户名和密码 --&gt; 连接数据库</span><br><span class="line">连接数据库--&gt; 打开数据库</span><br><span class="line">打开数据库 --&gt; 数据库业务逻辑&#123;数据库业务逻辑&#125;</span><br><span class="line">数据库业务逻辑  --&gt; 关闭数据库(关闭数据库)</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/29/C-%E9%83%A8%E7%BD%B2%E6%95%B0%E6%8D%AE%E5%BA%93%E9%97%AE%E9%A2%98/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/28/%E6%A0%91%E8%8E%93%E6%B4%BE4B-%E5%AE%89%E8%A3%85-Android-TV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/28/%E6%A0%91%E8%8E%93%E6%B4%BE4B-%E5%AE%89%E8%A3%85-Android-TV/" class="post-title-link" itemprop="url">树莓派4B 安装 Android TV</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-28 12:23:47 / 修改时间：12:24:20" itemprop="dateCreated datePublished" datetime="2020-06-28T12:23:47+08:00">2020-06-28</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>36</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=249796" target="_blank" rel="noopener">如何在Raspberry Pi 4上安装android TV OS？ -树莓派论坛</a></p>
-
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/28/%E6%A0%91%E8%8E%93%E6%B4%BE4B-%E5%AE%89%E8%A3%85-Android-TV/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/27/vue%E5%AE%98%E7%BD%91%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/27/vue%E5%AE%98%E7%BD%91%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">vue官网学习</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-27 17:31:31" itemprop="dateCreated datePublished" datetime="2020-06-27T17:31:31+08:00">2020-06-27</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-28 08:09:34" itemprop="dateModified" datetime="2020-06-28T08:09:34+08:00">2020-06-28</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Vue/" itemprop="url" rel="index"><span itemprop="name">Vue</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>3.6k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>3 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Vue官网学习"><a href="#Vue官网学习" class="headerlink" title="Vue官网学习"></a>Vue官网学习</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><h2 id="过渡和动画"><a href="#过渡和动画" class="headerlink" title="过渡和动画"></a>过渡和动画</h2><h2 id="可复用性-amp-组合"><a href="#可复用性-amp-组合" class="headerlink" title="可复用性 &amp; 组合"></a>可复用性 &amp; 组合</h2><h2 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h2><h3 id="单文件组件"><a href="#单文件组件" class="headerlink" title="单文件组件"></a>单文件组件</h3><p>传统方式  ===&gt; 单文件组件</p>
-<ol>
-<li>传统方式</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/27/vue%E5%AE%98%E7%BD%91%E5%AD%A6%E4%B9%A0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/27/VScode-settings-json/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/27/VScode-settings-json/" class="post-title-link" itemprop="url">VScode-settings.json</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-27 14:42:54 / 修改时间：14:44:45" itemprop="dateCreated datePublished" datetime="2020-06-27T14:42:54+08:00">2020-06-27</time>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>158</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <pre><code>&quot;files.exclude&quot;: {     &quot;**/.classpath&quot;: true,     &quot;**/.project&quot;: true,     &quot;**/.settings&quot;: true,     &quot;**/.factorypsdf&quot;: true   },
-
-
-
-sdfsddf</code></pre>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/27/VScode-settings-json/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/27/vscode-markdown%E6%B7%BB%E5%8A%A0typora%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/27/vscode-markdown%E6%B7%BB%E5%8A%A0typora%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/" class="post-title-link" itemprop="url">vscode-markdown添加typora的快捷键</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-27 12:47:47 / 修改时间：13:06:08" itemprop="dateCreated datePublished" datetime="2020-06-27T12:47:47+08:00">2020-06-27</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Markdown/" itemprop="url" rel="index"><span itemprop="name">Markdown</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>257</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="VScode-使用Markdown-语法"><a href="#VScode-使用Markdown-语法" class="headerlink" title="VScode 使用Markdown 语法"></a>VScode 使用Markdown 语法</h1><h1 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h1><p>同步预览：点击工作区右上角的同步预览按钮，即可实时浏览所写的内容</p>
-<p><img src="https://i.loli.net/2020/06/27/ONe7fvjdwlVR6H1.jpg" alt="webp"></p>
-<h1 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h1><h2 id="Markdown-All-in-One"><a href="#Markdown-All-in-One" class="headerlink" title="Markdown All in One"></a>Markdown All in One</h2><h2 id="Markdown-Preview-Enhanced"><a href="#Markdown-Preview-Enhanced" class="headerlink" title="Markdown Preview Enhanced"></a>Markdown Preview Enhanced</h2><p><a href="https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/" target="_blank" rel="noopener">简介 - Markdown Preview Enhanced</a></p>
-<p>Markdown Preview Enhanced是一个很好用的完善预览功能的插件，可以更加形象的展示所编写的pdf格式的文档样式。在插件库中搜索markdown即可找到该插件，然后点击安装后重新加载。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/27/vscode-markdown%E6%B7%BB%E5%8A%A0typora%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/JS%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/JS%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95/" class="post-title-link" itemprop="url">JS的三种事件绑定的方法</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-26 16:04:42 / 修改时间：16:12:30" itemprop="dateCreated datePublished" datetime="2020-06-26T16:04:42+08:00">2020-06-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>738</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="JS的三种事件绑定的方法"><a href="#JS的三种事件绑定的方法" class="headerlink" title="JS的三种事件绑定的方法"></a>JS的三种事件绑定的方法</h1><h2 id="一、HTML绑定"><a href="#一、HTML绑定" class="headerlink" title="一、HTML绑定"></a>一、HTML绑定</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;button onclick=<span class="string">"alert('Hello')"</span>&gt;&lt;<span class="regexp">/button&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">&lt;button onclick="eventHandler()"&gt;&lt;/</span>button&gt;</span><br><span class="line"><span class="comment">// 括号</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eventHandler</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="string">'Hello'</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、Javascript绑定"><a href="#二、Javascript绑定" class="headerlink" title="二、Javascript绑定"></a>二、Javascript绑定</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id="btn-click"&gt;&lt;/button&gt;</span><br><span class="line">var btn = doucument.querySelector('#btn-click');</span><br><span class="line"><span class="comment">//方法名带括号表示直接执行</span></span><br><span class="line">btn.onclick = function()&#123;</span><br><span class="line">	alert('Hello');</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>当一个按钮绑定多个事件时只会执行，最后一个会取代前面的，解决方法第三种。</p>
-<h2 id="三、addEventListener"><a href="#三、addEventListener" class="headerlink" title="三、addEventListener()"></a>三、addEventListener()</h2><p>通过addEventListener()方法 增加一个事件监听器到某个物体,可以绑定多个事件</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> btn = doucument.querySelector(<span class="string">'#btn-click'</span>)</span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>，sayHello);</span><br><span class="line"><span class="comment">//不需要（）</span></span><br><span class="line">btn.addEventListener(<span class="string">'click'</span>，sayYourName);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> alert(<span class="string">'Hello!!!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayYourName</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line"> alert(<span class="string">'Hello!!!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//.addEventListener(监听的事件类型，事件处理函数);</span></span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/JS%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9A%E7%9A%84%E6%96%B9%E6%B3%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/CSS%E4%BA%94%E7%A7%8D%E6%96%B9%E6%B3%95%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="heweiliang">
-      <meta itemprop="description" content="heweiliang blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="heweiliang blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/CSS%E4%BA%94%E7%A7%8D%E6%96%B9%E6%B3%95%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/" class="post-title-link" itemprop="url">CSS五种方法元素居中</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-06-26 15:59:22 / 修改时间：16:09:43" itemprop="dateCreated datePublished" datetime="2020-06-26T15:59:22+08:00">2020-06-26</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/CSS/" itemprop="url" rel="index"><span itemprop="name">CSS</span></a>
-                </span>
-            </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-file-word-o"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-clock-o"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="五种元素元素居中"><a href="#五种元素元素居中" class="headerlink" title="五种元素元素居中"></a>五种元素元素居中</h1><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"box"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">section</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="一、CSS定位"><a href="#一、CSS定位" class="headerlink" title="一、CSS定位"></a>一、CSS定位</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">父元素   </span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">relative</span>;</span><br><span class="line">子元素   </span><br><span class="line"><span class="selector-tag">position</span>: <span class="selector-tag">absolute</span>;</span><br><span class="line"><span class="selector-tag">top</span>: 50%;</span><br><span class="line"><span class="selector-tag">left</span>: 50%;</span><br><span class="line">transform: translate(-50px, -50px); //w/2 h/2</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#7e57c2</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">position</span>: absolute;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    transform: translate(-50px, -50px); //w/2 h/2</span><br><span class="line">    <span class="selector-tag">background</span>: <span class="selector-id">#4db6ac</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="二、CSS-flex"><a href="#二、CSS-flex" class="headerlink" title="二、CSS flex"></a>二、CSS flex</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">父元素 <span class="selector-tag">display</span>: <span class="selector-tag">flex</span>; <span class="selector-tag">justify-content</span>: <span class="selector-tag">center</span>;<span class="selector-tag">align-items</span>: <span class="selector-tag">center</span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">50vh</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">50vw</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#7e57c2</span>;</span><br><span class="line">    <span class="attribute">display</span>: flex; </span><br><span class="line">    <span class="attribute">justify-content</span>: center;</span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">    <span class="attribute">background</span>: <span class="number">#4db6ac</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="三、CSS-Grid"><a href="#三、CSS-Grid" class="headerlink" title="三、CSS Grid"></a>三、CSS Grid</h2>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/26/%E7%9F%A5%E8%AF%86%E7%A2%8E%E7%89%87/CSS%E4%BA%94%E7%A7%8D%E6%96%B9%E6%B3%95%E5%85%83%E7%B4%A0%E5%B1%85%E4%B8%AD/#more" rel="contents">
+              <a class="btn" href="/2020/06/29/%E9%9D%99%E6%80%81blog/Markdown-%E8%87%AA%E5%AE%9A%E4%B9%89HTML%E6%A0%87%E7%AD%BE/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1136,7 +1115,7 @@ sdfsddf</code></pre>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1204,20 +1183,20 @@ sdfsddf</code></pre>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">87</span>
+          <span class="site-state-item-count">96</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1380,5 +1359,5 @@ sdfsddf</code></pre>
   
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"live2d-widget-model-epsilon2_1"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

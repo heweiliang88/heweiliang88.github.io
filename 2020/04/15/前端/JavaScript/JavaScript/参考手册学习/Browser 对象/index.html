@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="BOM对象参考手册Window对象 Window 对象属性   属性 描述    closed 返回窗口是否已被关闭。   defaultStatus 设置或返回窗口状态栏中的默认文本。   document 对 Document 对象的只读引用。(请参阅对象)   frames 返回窗口中所有命名的框架。该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架。   hi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端&#x2F;JavaScript&#x2F;JavaScript&#x2F;参考手册学习&#x2F;Browser 对象">
+<meta property="og:url" content="http://yoursite.com/2020/04/15/%E5%89%8D%E7%AB%AF/JavaScript/JavaScript/%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%E5%AD%A6%E4%B9%A0/Browser%20%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="heweiliang blog">
+<meta property="og:description" content="BOM对象参考手册Window对象 Window 对象属性   属性 描述    closed 返回窗口是否已被关闭。   defaultStatus 设置或返回窗口状态栏中的默认文本。   document 对 Document 对象的只读引用。(请参阅对象)   frames 返回窗口中所有命名的框架。该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架。   hi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:%5CUsers%5CAdministrator%5CDesktop%5CStudyNote%5Cblogphoto%5Clamp.gif">
+<meta property="og:image" content="c:/Users/Administrator/Desktop/StudyNote/Web/JS/JavaScript/BOM(window%20浏览器窗口).png">
+<meta property="article:published_time" content="2020-04-15T01:47:24.442Z">
+<meta property="article:modified_time" content="2020-06-26T07:26:23.605Z">
+<meta property="article:author" content="heweiliang">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:%5CUsers%5CAdministrator%5CDesktop%5CStudyNote%5Cblogphoto%5Clamp.gif">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/15/%E5%89%8D%E7%AB%AF/JavaScript/JavaScript/%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%E5%AD%A6%E4%B9%A0/Browser%20%E5%AF%B9%E8%B1%A1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>前端/JavaScript/JavaScript/参考手册学习/Browser 对象 | heweiliang blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="heweiliang blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">heweiliang blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/15/%E5%89%8D%E7%AB%AF/JavaScript/JavaScript/%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%E5%AD%A6%E4%B9%A0/Browser%20%E5%AF%B9%E8%B1%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="heweiliang">
+      <meta itemprop="description" content="heweiliang blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="heweiliang blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前端/JavaScript/JavaScript/参考手册学习/Browser 对象<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/%E5%89%8D%E7%AB%AF/JavaScript/JavaScript/%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%E5%AD%A6%E4%B9%A0/Browser%20%E5%AF%B9%E8%B1%A1.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-15 09:47:24" itemprop="dateCreated datePublished" datetime="2020-04-15T09:47:24+08:00">2020-04-15</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-26 15:26:23" itemprop="dateModified" datetime="2020-06-26T15:26:23+08:00">2020-06-26</time>
+              </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>17k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>16 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="BOM对象参考手册"><a href="#BOM对象参考手册" class="headerlink" title="BOM对象参考手册"></a>BOM对象参考手册</h1><h3 id="Window对象"><a href="#Window对象" class="headerlink" title="Window对象"></a>Window对象</h3><hr>
+<h2 id="Window-对象属性"><a href="#Window-对象属性" class="headerlink" title="Window 对象属性"></a>Window 对象属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-closed.html" target="_blank" rel="noopener">closed</a></td>
+<td align="left">返回窗口是否已被关闭。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-defaultstatus.html" target="_blank" rel="noopener">defaultStatus</a></td>
+<td align="left">设置或返回窗口状态栏中的默认文本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/dom-obj-document.html" target="_blank" rel="noopener">document</a></td>
+<td align="left">对 Document 对象的只读引用。(请参阅<a href="https://www.runoob.com/jsref/dom-obj-document.html" target="_blank" rel="noopener">对象</a>)</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-frames.html" target="_blank" rel="noopener">frames</a></td>
+<td align="left">返回窗口中所有命名的框架。该集合是 Window 对象的数组，每个 Window 对象在窗口中含有一个框架。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/obj-history.html" target="_blank" rel="noopener">history</a></td>
+<td align="left">对 History 对象的只读引用。请参数 <a href="https://www.runoob.com/jsref/obj-history.html" target="_blank" rel="noopener">History 对象</a>。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-innerheight.html" target="_blank" rel="noopener">innerHeight</a></td>
+<td align="left">返回窗口的文档显示区的高度。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-innerheight.html" target="_blank" rel="noopener">innerWidth</a></td>
+<td align="left">返回窗口的文档显示区的宽度。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-localstorage.html" target="_blank" rel="noopener">localStorage</a></td>
+<td align="left">在浏览器中存储 key/value 对。没有过期时间。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-length.html" target="_blank" rel="noopener">length</a></td>
+<td align="left">设置或返回窗口中的框架数量。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/obj-location.html" target="_blank" rel="noopener">location</a></td>
+<td align="left">用于窗口或框架的 Location 对象。请参阅 <a href="https://www.runoob.com/jsref/obj-location.html" target="_blank" rel="noopener">Location 对象</a>。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-name.html" target="_blank" rel="noopener">name</a></td>
+<td align="left">设置或返回窗口的名称。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/obj-navigator.html" target="_blank" rel="noopener">navigator</a></td>
+<td align="left">对 Navigator 对象的只读引用。请参数 <a href="https://www.runoob.com/jsref/obj-navigator.html" target="_blank" rel="noopener">Navigator 对象</a>。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-opener.html" target="_blank" rel="noopener">opener</a></td>
+<td align="left">返回对创建此窗口的窗口的引用。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-outerheight.html" target="_blank" rel="noopener">outerHeight</a></td>
+<td align="left">返回窗口的外部高度，包含工具条与滚动条。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-outerheight.html" target="_blank" rel="noopener">outerWidth</a></td>
+<td align="left">返回窗口的外部宽度，包含工具条与滚动条。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-pagexoffset.html" target="_blank" rel="noopener">pageXOffset</a></td>
+<td align="left">设置或返回当前页面相对于窗口显示区左上角的 X 位置。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-pagexoffset.html" target="_blank" rel="noopener">pageYOffset</a></td>
+<td align="left">设置或返回当前页面相对于窗口显示区左上角的 Y 位置。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-parent.html" target="_blank" rel="noopener">parent</a></td>
+<td align="left">返回父窗口。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/obj-screen.html" target="_blank" rel="noopener">screen</a></td>
+<td align="left">对 Screen 对象的只读引用。请参数 <a href="https://www.runoob.com/jsref/obj-screen.html" target="_blank" rel="noopener">Screen 对象</a>。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-screenleft.html" target="_blank" rel="noopener">screenLeft</a></td>
+<td align="left">返回相对于屏幕窗口的x坐标</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-screenleft.html" target="_blank" rel="noopener">screenTop</a></td>
+<td align="left">返回相对于屏幕窗口的y坐标</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-screenx.html" target="_blank" rel="noopener">screenX</a></td>
+<td align="left">返回相对于屏幕窗口的x坐标</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-sessionstorage.html" target="_blank" rel="noopener">sessionStorage</a></td>
+<td align="left">在浏览器中存储 key/value 对。 在关闭窗口或标签页之后将会删除这些数据。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-screenx.html" target="_blank" rel="noopener">screenY</a></td>
+<td align="left">返回相对于屏幕窗口的y坐标</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-self.html" target="_blank" rel="noopener">self</a></td>
+<td align="left">返回对当前窗口的引用。等价于 Window 属性。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-status.html" target="_blank" rel="noopener">status</a></td>
+<td align="left">设置窗口状态栏的文本。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-top.html" target="_blank" rel="noopener">top</a></td>
+<td align="left">返回最顶层的父窗口。</td>
+</tr>
+</tbody></table>
+<h2 id="Window-对象方法"><a href="#Window-对象方法" class="headerlink" title="Window 对象方法"></a>Window 对象方法</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-alert.html" target="_blank" rel="noopener">alert()</a></td>
+<td align="left">显示带有一段消息和一个确认按钮的警告框。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-atob.html" target="_blank" rel="noopener">atob()</a></td>
+<td align="left">解码一个 base-64 编码的字符串。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-btoa.html" target="_blank" rel="noopener">btoa()</a></td>
+<td align="left">创建一个 base-64 编码的字符串。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-blur.html" target="_blank" rel="noopener">blur()</a></td>
+<td align="left">把键盘焦点从顶层窗口移开。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-clearinterval.html" target="_blank" rel="noopener">clearInterval()</a></td>
+<td align="left">取消由 setInterval() 设置的 timeout。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-cleartimeout.html" target="_blank" rel="noopener">clearTimeout()</a></td>
+<td align="left">取消由 setTimeout() 方法设置的 timeout。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-close.html" target="_blank" rel="noopener">close()</a></td>
+<td align="left">关闭浏览器窗口。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-confirm.html" target="_blank" rel="noopener">confirm()</a></td>
+<td align="left">显示带有一段消息以及确认按钮和取消按钮的对话框。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-createpopup.html" target="_blank" rel="noopener">createPopup()</a></td>
+<td align="left">创建一个 pop-up 窗口。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-focus.html" target="_blank" rel="noopener">focus()</a></td>
+<td align="left">把键盘焦点给予一个窗口。</td>
+</tr>
+<tr>
+<td align="left">getSelection()</td>
+<td align="left">返回一个 Selection 对象，表示用户选择的文本范围或光标的当前位置。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/jsref-getcomputedstyle.html" target="_blank" rel="noopener">getComputedStyle()</a></td>
+<td align="left">获取指定元素的 CSS 样式。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-matchmedia.html" target="_blank" rel="noopener">matchMedia()</a></td>
+<td align="left">该方法用来检查 media query 语句，它返回一个 MediaQueryList对象。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-moveby.html" target="_blank" rel="noopener">moveBy()</a></td>
+<td align="left">可相对窗口的当前坐标把它移动指定的像素。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-moveto.html" target="_blank" rel="noopener">moveTo()</a></td>
+<td align="left">把窗口的左上角移动到一个指定的坐标。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-open.html" target="_blank" rel="noopener">open()</a></td>
+<td align="left">打开一个新的浏览器窗口或查找一个已命名的窗口。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-print.html" target="_blank" rel="noopener">print()</a></td>
+<td align="left">打印当前窗口的内容。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-prompt.html" target="_blank" rel="noopener">prompt()</a></td>
+<td align="left">显示可提示用户输入的对话框。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-resizeby.html" target="_blank" rel="noopener">resizeBy()</a></td>
+<td align="left">按照指定的像素调整窗口的大小。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-resizeto.html" target="_blank" rel="noopener">resizeTo()</a></td>
+<td align="left">把窗口的大小调整到指定的宽度和高度。</td>
+</tr>
+<tr>
+<td align="left">scroll()</td>
+<td align="left">已废弃。 该方法已经使用了 <a href="https://www.runoob.com/jsref/met-win-scrollto.html" target="_blank" rel="noopener">scrollTo()</a> 方法来替代。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-scrollby.html" target="_blank" rel="noopener">scrollBy()</a></td>
+<td align="left">按照指定的像素值来滚动内容。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-scrollto.html" target="_blank" rel="noopener">scrollTo()</a></td>
+<td align="left">把内容滚动到指定的坐标。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-setinterval.html" target="_blank" rel="noopener">setInterval()</a></td>
+<td align="left">按照指定的周期（以毫秒计）来调用函数或计算表达式。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-settimeout.html" target="_blank" rel="noopener">setTimeout()</a></td>
+<td align="left">在指定的毫秒数后调用函数或计算表达式。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-win-stop.html" target="_blank" rel="noopener">stop()</a></td>
+<td align="left">停止页面载入。</td>
+</tr>
+</tbody></table>
+<h3 id="Navigator对象"><a href="#Navigator对象" class="headerlink" title="Navigator对象"></a>Navigator对象</h3><hr>
+<h2 id="Navigator-对象属性"><a href="#Navigator-对象属性" class="headerlink" title="Navigator 对象属性"></a>Navigator 对象属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-appcodename.html" target="_blank" rel="noopener">appCodeName</a></td>
+<td align="left">返回浏览器的代码名</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-appname.html" target="_blank" rel="noopener">appName</a></td>
+<td align="left">返回浏览器的名称</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-appversion.html" target="_blank" rel="noopener">appVersion</a></td>
+<td align="left">返回浏览器的平台和版本信息</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-cookieenabled.html" target="_blank" rel="noopener">cookieEnabled</a></td>
+<td align="left">返回指明浏览器中是否启用 cookie 的布尔值</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-platform.html" target="_blank" rel="noopener">platform</a></td>
+<td align="left">返回运行浏览器的操作系统平台</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-nav-useragent.html" target="_blank" rel="noopener">userAgent</a></td>
+<td align="left">返回由客户机发送服务器的user-agent 头部的值</td>
+</tr>
+</tbody></table>
+<h2 id="Navigator-对象方法"><a href="#Navigator-对象方法" class="headerlink" title="Navigator 对象方法"></a>Navigator 对象方法</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-nav-javaenabled.html" target="_blank" rel="noopener">javaEnabled()</a></td>
+<td align="left">指定是否在浏览器中启用Java</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-nav-taintenabled.html" target="_blank" rel="noopener">taintEnabled()</a></td>
+<td align="left">规定浏览器是否启用数据污点(data tainting)</td>
+</tr>
+</tbody></table>
+<h3 id="Screen对象"><a href="#Screen对象" class="headerlink" title="Screen对象"></a>Screen对象</h3><h2 id="Screen-对象属性"><a href="#Screen-对象属性" class="headerlink" title="Screen 对象属性"></a>Screen 对象属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-availheight.html" target="_blank" rel="noopener">availHeight</a></td>
+<td align="left">返回屏幕的高度（不包括Windows任务栏）</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-availwidth.html" target="_blank" rel="noopener">availWidth</a></td>
+<td align="left">返回屏幕的宽度（不包括Windows任务栏）</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-colordepth.html" target="_blank" rel="noopener">colorDepth</a></td>
+<td align="left">返回目标设备或缓冲器上的调色板的比特深度</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-height.html" target="_blank" rel="noopener">height</a></td>
+<td align="left">返回屏幕的总高度</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-pixeldepth.html" target="_blank" rel="noopener">pixelDepth</a></td>
+<td align="left">返回屏幕的颜色分辨率（每象素的位数）</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-screen-width.html" target="_blank" rel="noopener">width</a></td>
+<td align="left">返回屏幕的总宽度</td>
+</tr>
+</tbody></table>
+<h3 id="History对象"><a href="#History对象" class="headerlink" title="History对象"></a>History对象</h3><h2 id="History-对象属性"><a href="#History-对象属性" class="headerlink" title="History 对象属性"></a>History 对象属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-his-length.html" target="_blank" rel="noopener">length</a></td>
+<td align="left">返回历史列表中的网址数</td>
+</tr>
+</tbody></table>
+<h2 id="History-对象方法"><a href="#History-对象方法" class="headerlink" title="History 对象方法"></a>History 对象方法</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-his-back.html" target="_blank" rel="noopener">back()</a></td>
+<td align="left">加载 history 列表中的前一个 URL</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-his-forward.html" target="_blank" rel="noopener">forward()</a></td>
+<td align="left">加载 history 列表中的下一个 URL</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-his-go.html" target="_blank" rel="noopener">go()</a></td>
+<td align="left">加载 history 列表中的某个具体页面</td>
+</tr>
+</tbody></table>
+<h3 id="Location对象"><a href="#Location对象" class="headerlink" title="Location对象"></a>Location对象</h3><h2 id="Location-对象"><a href="#Location-对象" class="headerlink" title="Location 对象"></a>Location 对象</h2><p>Location 对象包含有关当前 URL 的信息。</p>
+<p>Location 对象是 window 对象的一部分，可通过 window.Location 属性对其进行访问。</p>
+<p><img src="C:%5CUsers%5CAdministrator%5CDesktop%5CStudyNote%5Cblogphoto%5Clamp.gif" alt="Note"><strong>注意：</strong> 没有应用于Location对象的公开标准，不过所有浏览器都支持该对象。</p>
+<hr>
+<h2 id="Location-对象属性"><a href="#Location-对象属性" class="headerlink" title="Location 对象属性"></a>Location 对象属性</h2><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-hash.html" target="_blank" rel="noopener">hash</a></td>
+<td align="left">返回一个URL的锚部分</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-host.html" target="_blank" rel="noopener">host</a></td>
+<td align="left">返回一个URL的主机名和端口</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-hostname.html" target="_blank" rel="noopener">hostname</a></td>
+<td align="left">返回URL的主机名</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-href.html" target="_blank" rel="noopener">href</a></td>
+<td align="left">返回完整的URL</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-pathname.html" target="_blank" rel="noopener">pathname</a></td>
+<td align="left">返回的URL路径名。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-port.html" target="_blank" rel="noopener">port</a></td>
+<td align="left">返回一个URL服务器使用的端口号</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-protocol.html" target="_blank" rel="noopener">protocol</a></td>
+<td align="left">返回一个URL协议</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-loc-search.html" target="_blank" rel="noopener">search</a></td>
+<td align="left">返回一个URL的查询部分</td>
+</tr>
+</tbody></table>
+<h2 id="Location-对象方法"><a href="#Location-对象方法" class="headerlink" title="Location 对象方法"></a>Location 对象方法</h2><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-loc-assign.html" target="_blank" rel="noopener">assign()</a></td>
+<td align="left">载入一个新的文档</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-loc-reload.html" target="_blank" rel="noopener">reload()</a></td>
+<td align="left">重新载入当前文档</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/met-loc-replace.html" target="_blank" rel="noopener">replace()</a></td>
+<td align="left">用新的文档替换当前文档</td>
+</tr>
+</tbody></table>
+<h2 id="JavaScript存储对象"><a href="#JavaScript存储对象" class="headerlink" title="JavaScript存储对象"></a>JavaScript存储对象</h2><p>Web 存储 API 提供了 sessionStorage （会话存储） 和 localStorage（本地存储）两个存储对象来对网页的数据进行添加、删除、修改、查询操作。</p>
+<ul>
+<li>localStorage 用于长久保存整个网站的数据，保存的数据没有过期时间，直到手动去除。</li>
+<li>sessionStorage 用于临时保存同一窗口(或标签页)的数据，在关闭窗口或标签页之后将会删除这些数据。</li>
+</ul>
+<h3 id="存储对象属性"><a href="#存储对象属性" class="headerlink" title="存储对象属性"></a>存储对象属性</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">length</td>
+<td align="left">返回存储对象中包含多少条数据。</td>
+</tr>
+</tbody></table>
+<h3 id="存储对象方法"><a href="#存储对象方法" class="headerlink" title="存储对象方法"></a>存储对象方法</h3><table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">key(<em>n</em>)</td>
+<td align="left">返回存储对象中第 <em>n</em> 个键的名称</td>
+</tr>
+<tr>
+<td align="left">getItem(<em>keyname</em>)</td>
+<td align="left">返回指定键的值</td>
+</tr>
+<tr>
+<td align="left">setItem(<em>keyname</em>, <em>value</em>)</td>
+<td align="left">添加键和值，如果对应的值存在，则更新该键对应的值。</td>
+</tr>
+<tr>
+<td align="left">removeItem(<em>keyname</em>)</td>
+<td align="left">移除键</td>
+</tr>
+<tr>
+<td align="left">clear()</td>
+<td align="left">清除存储对象中所有的键</td>
+</tr>
+</tbody></table>
+<h3 id="Web-存储-API"><a href="#Web-存储-API" class="headerlink" title="Web 存储 API"></a>Web 存储 API</h3><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-localstorage.html" target="_blank" rel="noopener">window.localStorage</a></td>
+<td align="left">在浏览器中存储 key/value 对。没有过期时间。</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.runoob.com/jsref/prop-win-sessionstorage.html" target="_blank" rel="noopener">window.sessionStorage</a></td>
+<td align="left">在浏览器中存储 key/value 对。 在关闭窗口或标签页之后将会删除这些数据。</td>
+</tr>
+</tbody></table>
+<h2 id="Brower-BOM"><a href="#Brower-BOM" class="headerlink" title="Brower BOM"></a>Brower BOM</h2><h6 id=""><a href="#" class="headerlink" title=""></a><img src="C:/Users/Administrator/Desktop/StudyNote/Web/JS/JavaScript/BOM(window 浏览器窗口).png" style="zoom:200%;" /></h6><h3 id="Window"><a href="#Window" class="headerlink" title="Window"></a>Window</h3><hr>
+<h3 id="Window-浏览器窗口"><a href="#Window-浏览器窗口" class="headerlink" title="Window 浏览器窗口"></a>Window <code>浏览器窗口</code></h3><hr>
+<p>浏览器对象模型(BOM)使JavaScript有能力与浏览器对话。</p>
+<p>所有浏览器都支持window对象。它表示浏览器窗口</p>
+<p>window尺寸 确定浏览器的尺寸 </p>
+<p><code>window.innerXXX &amp;&amp; document.documentElement/body.clientXXX   XXX= Height &amp;&amp; Width</code></p>
+<table>
+<thead>
+<tr>
+<th>window尺寸的方法</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>window.innerHeight/ window.innerWidth</td>
+<td>对于Internet Explorer、Chrome、Firefox、Opera 以及 Safari：<br />浏览器窗口的内部高度/宽度（包括滚动条）</td>
+</tr>
+<tr>
+<td>document.documentElement.clientHeight/clientWidth<br />document.body.clientHeight/clientWidth</td>
+<td>对于 Internet Explorer 8、7、6、5（不包括滚动条）</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// documentElement/body</span></span><br><span class="line"><span class="keyword">var</span> w=<span class="built_in">window</span>.innerWidth</span><br><span class="line">|| <span class="built_in">document</span>.documentElement.clientWidth</span><br><span class="line">|| <span class="built_in">document</span>.body.clientWidth;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> h=<span class="built_in">window</span>.innerHeight</span><br><span class="line">|| <span class="built_in">document</span>.documentElement.clientHeight</span><br><span class="line">|| <span class="built_in">document</span>.body.clientHeight;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>分辨率 1920 * 1080 </p>
+<p>console.log(window.innerHeight)<br>754</p>
+<p>console.log(window.innerWidth) // 包括滚动条<br>1536</p>
+<p>console.log(document.documentElement.clientHeight)<br>754</p>
+<p>console.log(document.documentElement.clientWidth)<br>1519</p>
+</blockquote>
+<p>window 默认方法</p>
+<p><code>open() 开 、close() 关 、moveTo() 移动 、resizeTo() 调整窗口大小</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">window.open()</td>
+<td align="center">打开新的窗口</td>
+</tr>
+<tr>
+<td align="center">window.close()</td>
+<td align="center">关闭新的窗口</td>
+</tr>
+<tr>
+<td align="center">window.moveTo()</td>
+<td align="center">移动新的窗口</td>
+</tr>
+<tr>
+<td align="center">window.resizeTo()</td>
+<td align="center">调整当前窗口的尺寸</td>
+</tr>
+</tbody></table>
+<h3 id="Screen-可用屏幕-screen-availWidth-screen-availHeight"><a href="#Screen-可用屏幕-screen-availWidth-screen-availHeight" class="headerlink" title="Screen 可用屏幕 screen.availWidth/screen.availHeight"></a>Screen <code>可用屏幕 screen.availWidth/screen.availHeight</code></h3><p>window.screen 对象包含有关<strong>用户屏幕的信息</strong></p>
+<table>
+<thead>
+<tr>
+<th align="left">方法</th>
+<th>属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">screen.availWidth/screen.availHeight</td>
+<td>可用屏幕的宽度</td>
+</tr>
+</tbody></table>
+<p>screen.availWidth 属性返回访问者<strong>屏幕的宽度，</strong>以像素计，减去界面特性，比如窗口任务栏。</p>
+<p>screen.availHeight 属性返回访问者<strong>屏幕的高度</strong>，以像素计，减去界面特性，比如窗口任务栏。</p>
+<blockquote>
+<p>console.log(screen.availHeight)<br>824</p>
+<p>console.log(window.screen.availWidth)<br>1536</p>
+</blockquote>
+<blockquote>
+<p>window和window Screen的区别</p>
+<p>window    window窗体的尺寸大小 随窗口的缩放而改变 innerXXX/clientXXX</p>
+<p>window  Srreen 屏幕的可用宽度或者高度 固定，不随窗口的缩放而改变 screen.availWidth/screen.availHeight</p>
+</blockquote>
+<h3 id="Location-获取当前页面的地址，重定向到新的页面"><a href="#Location-获取当前页面的地址，重定向到新的页面" class="headerlink" title="Location 获取当前页面的地址，重定向到新的页面"></a>Location <code>获取当前页面的地址，重定向到新的页面</code></h3><hr>
+<h3 id="Js刷新页面location-reload-window-location-replace-quot-url-quot-lt-meta-http-equiv-quot-refresh-quot-content-quot-5-quot-gt"><a href="#Js刷新页面location-reload-window-location-replace-quot-url-quot-lt-meta-http-equiv-quot-refresh-quot-content-quot-5-quot-gt" class="headerlink" title="Js刷新页面location.reload() window.location.replace(&quot;url&quot;) &lt;meta http-equiv=&quot;refresh&quot; content=&quot;5&quot;&gt;"></a>Js刷新页面<code>location.reload() window.location.replace(&quot;url&quot;) &lt;meta http-equiv=&quot;refresh&quot; content=&quot;5&quot;&gt;</code></h3><blockquote>
+<ul>
+<li><p>reload() 方法;</p>
+<p>reload()方法用于刷新当前文档。</p>
+<p>reload() 方法类似于你浏览器上的刷新页面按钮。</p>
+<p><code>location.reload();</code></p>
+</li>
+<li><p>replace() 方法;</p>
+<p><strong>replace() 方法</strong>可用一个新文档取代当前文档。</p>
+<p><code>window.location.replace(&quot;http://www.runoob.com&quot;)</code></p>
+</li>
+<li><p>页面自动刷新;</p>
+<p>页面自动刷新：把如下代码加入<head>区域中</p>
+<p>`<meta http-equiv="refresh" content="5"></p>
+</li>
+</ul>
+</blockquote>
+<p>window.location对象用于获取当前页面的地址（URL），并把浏览器重定向到新的页面</p>
+<p><code>port portocol reload() replace() assign() href = hostname + pathname</code></p>
+<p> <strong>location.reload() window.location.replace(“url”) <meta http-equiv="refresh" content="5"></strong></p>
+<p>location方法</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">location.reload()</td>
+<td align="center">重新加载页面</td>
+</tr>
+<tr>
+<td align="center">location.replace(“url”)</td>
+<td align="center">加载新的文档</td>
+</tr>
+<tr>
+<td align="center">location.replace(“url”)</td>
+<td align="center">加载新的文档</td>
+</tr>
+<tr>
+<td align="center">location.href = “url” /href</td>
+<td align="center">返回当前页面的URL</td>
+</tr>
+<tr>
+<td align="center">location.pathname</td>
+<td align="center">返回URL的路径名//返回当前页面的路径和文件名</td>
+</tr>
+<tr>
+<td align="center">location.hostname</td>
+<td align="center">返回 web 主机的域名</td>
+</tr>
+<tr>
+<td align="center">location.port</td>
+<td align="center">返回web主机的端口（80或443）</td>
+</tr>
+<tr>
+<td align="center">location.protocol</td>
+<td align="center">返回所使用的web协议</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>location.href URL = 域名+路径</p>
+<p>location.hostname 域名</p>
+<p>location.pathname 路径和文件名</p>
+<p>location.replace(“url”) 和 location.replace(“url”)的区别</p>
+<p>window.location.assign(url) ：  能返回原来的页面</p>
+<p>加载 URL 指定的新的 HTML 文档。 就相当于一个链接，跳转到指定的url，当前页面会转为新页面内容，可以点击后退返回上一个页面。</p>
+<p>window.location.replace(url) ：  返回不了原来的页面</p>
+<p>通过加载 URL 指定的文档来替换当前文档 ，这个方法是替换当前窗口页面，前后两个页面共用一个窗口，所以是没有后退返回上一页的</p>
+<p><a href="https://www.cnblogs.com/liu-l/p/3835714.html" target="_blank" rel="noopener">location.href、location.assign和location.replace的区别</a></p>
+<p>在写跳转页面的时候遇到个有意思的问题，RT的三个均能用来写跳转，总结了下它们之间的区别。</p>
+<p>1、window.location.href=“url”;    改变url地址。</p>
+<p>　　location.href是一个属性，要这样写：location.href=”url”</p>
+<p>2、window.location.assign(“url”)  加载新的文档，效果与location.href相当。 </p>
+<p>3、window.location.replace  将地址替换成新url，该方法通过指定URL替换当前缓存在历史里（客户端）的项目。</p>
+<p>与以上两者的区别在于：在replace之后，浏览历史就被清空了（href与assign方法会产生历史记录）。</p>
+<p>因此若<strong>使用replace页面跳转后是不能后退</strong>的。</p>
+</blockquote>
+<h3 id="History-浏览器的历史-back-forward"><a href="#History-浏览器的历史-back-forward" class="headerlink" title="History 浏览器的历史 back() forward()"></a>History <code>浏览器的历史 back() forward()</code></h3><hr>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">属性</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">history.back()</td>
+<td align="center">在浏览器点击后退按钮相同，加载历史列表的前一个URL</td>
+</tr>
+<tr>
+<td align="center">history.forward()</td>
+<td align="center">在浏览器中点击向前按钮相同，加载历史列表的下一个URL</td>
+</tr>
+<tr>
+<td align="center">history.length</td>
+<td align="center">历史记录的数量</td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history</span><br><span class="line"></span><br><span class="line">History &#123;<span class="attr">length</span>: <span class="number">5</span>, <span class="attr">scrollRestoration</span>: <span class="string">"auto"</span>, <span class="attr">state</span>: <span class="literal">null</span>&#125;</span><br><span class="line">length: <span class="number">5</span></span><br><span class="line">scrollRestoration: <span class="string">"auto"</span></span><br><span class="line">state: <span class="literal">null</span></span><br><span class="line">__proto__: History</span><br><span class="line">    length: (...)</span><br><span class="line">    scrollRestoration: (...)</span><br><span class="line">    state: (...)</span><br><span class="line">    go: ƒ go()</span><br><span class="line">    back: ƒ back()</span><br><span class="line">    forward: ƒ forward()</span><br><span class="line">    pushState: ƒ pushState()</span><br><span class="line">    replaceState: ƒ replaceState()</span><br><span class="line">    <span class="keyword">constructor</span>: ƒ History()</span><br><span class="line">    Symbol(Symbol.toStringTag): "History"</span><br><span class="line">    <span class="keyword">get</span> length: ƒ length()</span><br><span class="line">    <span class="keyword">get</span> scrollRestoration: ƒ scrollRestoration()</span><br><span class="line">    <span class="keyword">set</span> scrollRestoration: ƒ scrollRestoration()</span><br><span class="line">    <span class="keyword">get</span> state: ƒ state()</span><br><span class="line">    __proto__: Object</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Navigator-访问者浏览器的信息"><a href="#Navigator-访问者浏览器的信息" class="headerlink" title="Navigator 访问者浏览器的信息"></a>Navigator <code>访问者浏览器的信息</code></h3><hr>
+<p>window navigator对象包含有关访问者浏览器的信息</p>
+<p><code>appCodeName/Name/Version cookieEnable platform userAgent systemLanguage</code></p>
+<table>
+<thead>
+<tr>
+<th align="center">方法</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">navigator.appCodeName</td>
+<td align="center">浏览器代号</td>
+</tr>
+<tr>
+<td align="center">navigator.appName</td>
+<td align="center">浏览器名称</td>
+</tr>
+<tr>
+<td align="center">navigator.appVersion</td>
+<td align="center">浏览器版本</td>
+</tr>
+<tr>
+<td align="center">navigator.cookieEnabled</td>
+<td align="center">启用Cookies</td>
+</tr>
+<tr>
+<td align="center">navigator.platform</td>
+<td align="center">硬件平台</td>
+</tr>
+<tr>
+<td align="center">navigator.userAgent</td>
+<td align="center">用户代理</td>
+</tr>
+<tr>
+<td align="center">navigator.systemLanguage</td>
+<td align="center">用户代理语言</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id&#x3D;&quot;example&quot;&gt;&lt;&#x2F;div&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">txt &#x3D; &quot;&lt;p&gt;浏览器代号: &quot; + navigator.appCodeName + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;浏览器名称: &quot; + navigator.appName + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;浏览器版本: &quot; + navigator.appVersion + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;启用Cookies: &quot; + navigator.cookieEnabled + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;硬件平台: &quot; + navigator.platform + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;用户代理: &quot; + navigator.userAgent + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">txt+&#x3D; &quot;&lt;p&gt;用户代理语言: &quot; + navigator.systemLanguage + &quot;&lt;&#x2F;p&gt;&quot;;</span><br><span class="line">document.getElementById(&quot;example&quot;).innerHTML&#x3D;txt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">浏览器代号: Mozilla</span><br><span class="line">浏览器名称: Netscape</span><br><span class="line">浏览器版本: 5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;80.0.3987.163 Safari&#x2F;537.36</span><br><span class="line">启用Cookies: true</span><br><span class="line">硬件平台: Win32</span><br><span class="line">用户代理: Mozilla&#x2F;5.0 (Windows NT 10.0; Win64; x64) AppleWebKit&#x2F;537.36 (KHTML, like Gecko) Chrome&#x2F;80.0.3987.163 Safari&#x2F;537.36</span><br><span class="line">用户代理语言: undefined</span><br></pre></td></tr></table></figure>
+
+<h6 id="警告"><a href="#警告" class="headerlink" title="警告!!!"></a>警告!!!</h6><p><strong>来自 navigator 对象的信息具有误导性，不应该被用于检测浏览器版本</strong>，这是因为：</p>
+<ul>
+<li>navigator 数据可被浏览器使用者更改</li>
+<li>一些浏览器对测试站点会识别错误</li>
+<li>浏览器无法报告晚于浏览器发布的新操作系统</li>
+</ul>
+<h6 id="浏览器检测"><a href="#浏览器检测" class="headerlink" title="浏览器检测"></a>浏览器检测</h6><p>由于 navigator 可误导浏览器检测，使用对象检测可用来嗅探不同的浏览器。</p>
+<p>由于不同的浏览器支持不同的对象，您可以使用对象来检测浏览器。例如，由于只有 Opera 支持属性 “window.opera”，您可以据此识别出 Opera。</p>
+<p>例子：if (window.opera) {…some action…}</p>
+<h3 id="Cookie-Cookie用于存储web页面的用户信息-创建-读取-修改-删除"><a href="#Cookie-Cookie用于存储web页面的用户信息-创建-读取-修改-删除" class="headerlink" title="Cookie    Cookie用于存储web页面的用户信息 创建 读取 修改 删除"></a>Cookie    <code>Cookie用于存储web页面的用户信息 创建 读取 修改 删除</code></h3><hr>
+<p>JavaScript可以使用document。cookie==属性创建，读取，及删除== </p>
+<h4 id="1-创建三部曲-username-用户名-expires-cookie过期时间-path-cookie参数设置路径"><a href="#1-创建三部曲-username-用户名-expires-cookie过期时间-path-cookie参数设置路径" class="headerlink" title="1. 创建三部曲 ==username 用户名 expires cookie过期时间 path = / cookie参数设置路径=="></a>1. 创建三部曲 ==username 用户名 expires cookie过期时间 path = / cookie参数设置路径==</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">username 用户名</span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"username = John Doe"</span>;</span><br><span class="line"></span><br><span class="line">expires = 时间 为 cookie 添加一个过期时间（以 UTC 或 GMT 时间）</span><br><span class="line"></span><br><span class="line">path=<span class="regexp">/ 默认情况，cookie当前页面 </span></span><br><span class="line"><span class="regexp">document.cookie="username=John Doe; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/</span><span class="string">";</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-读取"><a href="#2-读取" class="headerlink" title="2. 读取"></a>2. 读取</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cookie = <span class="built_in">document</span>.cookie;</span><br></pre></td></tr></table></figure>
+
+<p>document.cookie 将以字符串的方式返回所有的 cookie，类型格式： cookie1=value; cookie2=value; cookie3=value;</p>
+<h4 id="3-修改-修改-cookie-类似于创建-cookie-修改expires过期时间-旧的-cookie-将被覆盖"><a href="#3-修改-修改-cookie-类似于创建-cookie-修改expires过期时间-旧的-cookie-将被覆盖" class="headerlink" title="3. 修改  ==修改 cookie 类似于创建 cookie 修改expires过期时间 旧的 cookie 将被覆盖=="></a>3. 修改  ==修改 cookie 类似于创建 cookie 修改expires过期时间 旧的 cookie 将被覆盖==</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//当前系统时间</span></span><br><span class="line"><span class="built_in">document</span>.cookie=<span class="string">"username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/"</span>;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-删除-expires-设置时间"><a href="#4-删除-expires-设置时间" class="headerlink" title="4. 删除    ==expires =设置时间=="></a>4. 删除    ==expires =设置时间==</h4><p>删除cookie只需要设置expires参数为以前的时间即可，设置为<code>Thu,01 Jan 1970:00:00:00 GMT</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=; expires=Thu, 01 Jan 1970 00:00:00 GMT"</span>;</span><br></pre></td></tr></table></figure>
+
+<p>删除Cookie时不必指定cookie的值</p>
+<h3 id="5-Cookie实例"><a href="#5-Cookie实例" class="headerlink" title="5. Cookie实例"></a>5. Cookie实例</h3><h4 id="完整代码"><a href="#完整代码" class="headerlink" title="完整代码"></a>完整代码</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置cookie值的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">setCookie</span>(<span class="params">cname,cvalue,exdays</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>(); <span class="comment">//Mon Apr 13 2020 14:38:03 GMT+0800 (中国标准时间)</span></span><br><span class="line">    d.setTime(d.getTime()+(exdays*<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span>));</span><br><span class="line">    <span class="comment">//Thu, 01 Jan 1970 00:00:00 GMT</span></span><br><span class="line">    <span class="comment">//document.cookie="username=John Smith; expires=Thu, 18 Dec 2043 12:00:00 GMT; path=/";</span></span><br><span class="line">    <span class="keyword">var</span> expires = <span class="string">"expires="</span>+d.toGMTString(); <span class="comment">//Mon, 13 Apr 2020 06:38:03 GMT</span></span><br><span class="line">    <span class="built_in">document</span>.cookie = cname+<span class="string">"="</span>+cvalue+<span class="string">"; "</span>+expires;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//获取cookie值的函数</span></span><br><span class="line"><span class="comment">//username=何伟亮; _ga=GA1.2.1390342908.1574751797; _gid=GA1.2.1758365235.1586703146; Hm_lvt_3eec0b7da6548cf07db3bc477ea905ee=1586661337,1586678516,1586701261,1586734558; SERVERID=3a4d90ce271dac423615bd00bfd9dc97|1586760084|1586759163; Hm_lpvt_3eec0b7da6548cf07db3bc477ea905ee=1586760086; _gat_gtag_UA_84264393_2=1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getCookie</span>(<span class="params">cname</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> name = cname + <span class="string">"="</span>;</span><br><span class="line">    <span class="keyword">var</span> ca = <span class="built_in">document</span>.cookie.split(<span class="string">';'</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>; i&lt;ca.length; i++) &#123;</span><br><span class="line">        <span class="keyword">var</span> c = ca[i].trim();</span><br><span class="line">        <span class="keyword">if</span> (c.indexOf(name)==<span class="number">0</span>) &#123; <span class="keyword">return</span> c.substring(name.length,c.length); &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 检测cookie值的函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkCookie</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> user=getCookie(<span class="string">"username"</span>);</span><br><span class="line">    <span class="keyword">if</span> (user!=<span class="string">""</span>)&#123;</span><br><span class="line">        alert(<span class="string">"欢迎 "</span> + user + <span class="string">" 再次访问"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        user = prompt(<span class="string">"请输入你的名字:"</span>,<span class="string">""</span>);</span><br><span class="line">          <span class="keyword">if</span> (user!=<span class="string">""</span> &amp;&amp; user!=<span class="literal">null</span>)&#123;</span><br><span class="line">            setCookie(<span class="string">"username"</span>,user,<span class="number">30</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="弹窗-alert-confirm-prompt"><a href="#弹窗-alert-confirm-prompt" class="headerlink" title="弹窗 alert() confirm() prompt()"></a>弹窗 <code>alert() confirm() prompt()</code></h3><hr>
+<p>JavaScript 中创建三种消息框：警告框、确定框、提示框</p>
+<h3 id="警告框-只有确定按钮"><a href="#警告框-只有确定按钮" class="headerlink" title="警告框 只有确定按钮"></a>警告框 <code>只有确定按钮</code></h3><p>警告框经常用于确保用户可以得到某些信息。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">window.alert(&#39;&#39;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="确定框-确定和取消按钮，确定返回true-取消false"><a href="#确定框-确定和取消按钮，确定返回true-取消false" class="headerlink" title="确定框    确定和取消按钮，确定返回true 取消false"></a>确定框    <code>确定和取消按钮，确定返回true 取消false</code></h3><p>确认框通常用于验证是否接受用户操作。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">window.confirm(&#39;&#39;);</span><br><span class="line">var r&#x3D;confirm(&quot;按下按钮&quot;);</span><br><span class="line">if (r&#x3D;&#x3D;true)</span><br><span class="line">&#123;</span><br><span class="line">    x&#x3D;&quot;你按下了\&quot;确定\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    x&#x3D;&quot;你按下了\&quot;取消\&quot;按钮!&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="提示框-用户输入"><a href="#提示框-用户输入" class="headerlink" title="提示框    用户输入"></a>提示框    <code>用户输入</code></h3><p>提示框经常用于提示用户在进入页面前输入某个值。</p>
+<p>当提示框出现后，用户需要输入某个值，然后点击确认或取消按钮才能继续操纵。</p>
+<p>如果用户点击确认，那么返回值为输入的值。如果用户点击取消，那么返回值为 null。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.prompt(&quot;sometext&quot;,&quot;defaultvalue&quot;); &#x2F;&#x2F;第一个提示词 第二个默认值</span><br><span class="line">var person&#x3D;prompt(&quot;请输入你的名字&quot;,&quot;Harry Potter&quot;);</span><br><span class="line">if (person!&#x3D;null &amp;&amp; person!&#x3D;&quot;&quot;)</span><br><span class="line">&#123;</span><br><span class="line">    x&#x3D;&quot;你好 &quot; + person + &quot;! 今天感觉如何?&quot;;</span><br><span class="line">    document.getElementById(&quot;demo&quot;).innerHTML&#x3D;x;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="换行"><a href="#换行" class="headerlink" title="换行"></a>换行</h3><p>弹窗使用 反斜杠 + “n”(\n) 来设置换行。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&quot;Hello\nHow are you?&quot;);</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="计时事件-setInterval-clearInterval-不停的执行-setTimeout-clearTimeout-执行一次"><a href="#计时事件-setInterval-clearInterval-不停的执行-setTimeout-clearTimeout-执行一次" class="headerlink" title="计时事件 setInterval()/clearInterval() 不停的执行 setTimeout()/clearTimeout()执行一次"></a>计时事件 <code>setInterval()/clearInterval() 不停的执行 setTimeout()/clearTimeout()执行一次</code></h3><hr>
+<p><font color="red" size="3" style="background:#F8F8F8">JavaScript做到在一个设定的时间间隔之后来执行代码，而不是在函数被调用后立即执行，这就是计时事件</font></p>
+<table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>setInterval(&quot;javascript function&quot;,milliseconds)/clearInterval(intervalVariable)</code></td>
+<td>间隔毫秒数不停的执行指定的代码不停执行</td>
+</tr>
+<tr>
+<td align="center"><code>setTimeout(&quot;javascript function&quot;,milliseconds)/clearTimeout(intervalVariable)</code></td>
+<td>在指定的好毫秒数后执行指定的代码一个</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>setInterval() 和 setTimeout() 是 HTML DOM Window对象的两个方法。</p>
+<p><strong>window.setInterval()</strong> 方法可以不使用 window 前缀，直接使用函数 <strong>setInterval()</strong>。</p>
+<p>setInterval() 第一个参数是函数（function）。</p>
+<p>第二个参数间隔的毫秒数</p>
+<p>两者的区别：</p>
+<p><code>setInterval() 不停的执行code</code></p>
+<p><code>setTimeout() 只执行 code 一次</code>。如果要多次调用，请使用 setInterval() 或者让 code 自身再次调用 setTimeout()。</p>
+<p>业务场景</p>
+<ul>
+<li><ul>
+<li>setTimeout用于延迟执行某方法或功能</li>
+<li>setInterval则一般用于刷新表单，对于一些表单的假实时指定时间刷新同步</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><h3 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h3><p><a href="https://www.jianshu.com/p/2f226461712a" target="_blank" rel="noopener">https://www.jianshu.com/p/2f226461712a</a></p>
+<p>键盘事件</p>
+<p>鼠标事件</p>
+<p>单击事件</p>
+<p>DOM事件</p>
+<p>什么是事件</p>
+<p>事件就是文档或浏览器中发生的一些特定的交互瞬间。</p>
+<p>两种事件</p>
+<p>HTML事件</p>
+<p>直接在HTML元素标签内添加事件，执行脚本</p>
+<p>语法：&lt;tag 事件&gt;</p>
+<p>DOM0级事件</p>
+<p>js事件</p>
+<p>判断鼠标的点击相互转换：</p>
+<p>方法一：判断</p>
+<p>事件绑定的几种方法</p>
+<p>方法一</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> inp = <span class="built_in">document</span>.getElementsByTagName(<span class="string">'input'</span>)[<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">    inp.onclick = myClick;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">myClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">       alert(<span class="string">'你点击了按钮'</span>);</span><br><span class="line"></span><br><span class="line">     &#125;</span><br><span class="line"><span class="comment">//document.getElementById('XX').onclick=function()&#123;&#125;;</span></span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">inp.onclick = <span class="function"><span class="keyword">function</span> <span class="title">myClick</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">     alert(<span class="string">'你点击了按钮'</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法三</p>
+<h3 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h3><p> var time = setInterval(characterTime, 1000);</p>
+<p>setInterval(方法,时间)</p>
+<p> clearInterval(time)清除的是setInterval的值而不是方法的</p>
+<p>setTimeout(characterTime, 1000);</p>
+<p>setTimeout(方法,时间)</p>
+<h2 id="立即执行函数IIFE"><a href="#立即执行函数IIFE" class="headerlink" title="立即执行函数IIFE"></a>立即执行函数<code>IIFE</code></h2><p><a href="https://segmentfault.com/a/1190000003985390" target="_blank" rel="noopener">https://segmentfault.com/a/1190000003985390</a></p>
+<p>IIFE（立刻调用函数表达式）是<code>一个定义时就会执行的Javascript函数</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    statements</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
+<p>这是一个被称为 <a href="https://developer.mozilla.org/en-US/docs/Glossary/Self-Executing_Anonymous_Function" target="_blank" rel="noopener">自执行匿名函数</a> 的设计模式，主要包含两部分。第一部分是包围在 <a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Grouping" target="_blank" rel="noopener"><code>圆括号运算符</code></a> <code>()</code> 里的一个匿名函数，这个匿名函数拥有独立的词法作用域。这不仅避免了外界访问此 IIFE 中的变量，而且又不会污染全局作用域。</p>
+<p>第二部分再一次使用 <code>()</code> 创建了一个立即执行函数表达式，JavaScript 引擎到此将直接执行函数。</p>
+<p>JavaScript—-&gt; ES6 —&gt; TS</p>
+<p><a href="https://blog.csdn.net/qq_38531678/article/details/84066673" target="_blank" rel="noopener">(6条消息)JavaScript、TypeScript、ES6三者之间的联系和区别_JavaScript_qq_38531678的博客-CSDN博客</a></p>
+<p>面向对象</p>
+<p>面向对象不是新的东西，它只是过程式代码的一-种高度封装，目的在于提高代码的开发效率和可维护性。</p>
+<p>继承及应用</p>
+<p>闭包</p>
+<p>递归和拷贝</p>
+<p>正则表达式</p>
+<p>表格</p>
+<p>类数组对象</p>
+<p><strong>NodeList、HTMLCollection、NamedNodeMap</strong></p>
+<p><strong>NodeList</strong></p>
+<p>Nodelist对象的特点</p>
+<ul>
+<li>NodeList是一种<strong>类数组对象</strong>，用来保存一组有序的节点</li>
+<li>可以通过方括号语法来访问NodeList的值，有<strong>item方法与length属性</strong></li>
+<li>它并不是Array的实例，<strong>没有数组对象的方法</strong></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> box = doucument.getElementById(<span class="string">"box"</span>);</span><br><span class="line"><span class="keyword">var</span> nodes = box.childNodes;</span><br><span class="line"><span class="built_in">console</span>.log(nodes);</span><br><span class="line"><span class="built_in">console</span>.log(nodes[<span class="number">1</span>]); <span class="built_in">console</span>.log(nodes.item[<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">//  nodelist ----&gt;array</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">makeArray</span>(<span class="params">nodeList</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">try</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(nodeList); <span class="comment">//解决IE浏览器不兼容的方法</span></span><br><span class="line">    &#125;<span class="keyword">catch</span>(e)&#123;</span><br><span class="line">        <span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>,len = nodeList.length;i &lt; len;i++)&#123;</span><br><span class="line">            arr.push(nodeList[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newNodeList = makeArray(nodes);</span><br><span class="line">newNodeList.push(<span class="string">"&lt;li&gt;节点四&lt;/li&gt;"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(newNodeList)</span><br></pre></td></tr></table></figure>
+
+<p>类数组对象HTMLCollection</p>
+<ul>
+<li>Ele.getElementsByTagName()</li>
+<li>document.script //script</li>
+<li>document.link //a标签</li>
+<li>document.images //images</li>
+<li>document.forms //forms表单</li>
+<li>tr.cells //td</li>
+<li>select.options //选项</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">console.log();</span><br><span class="line">console.log();</span><br><span class="line">console.log();</span><br><span class="line">console.log();</span><br><span class="line">console.log();</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>类数组对象NamedNodeMap</strong></p>
+<p><strong>Ele.attributes //获取元素的属性</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul id=<span class="string">"box"</span> data-url=<span class="string">"index.html"</span> node-action=<span class="string">"submit"</span>&gt;</span><br><span class="line">	&lt;li&gt;&lt;节点一/li&gt;</span><br><span class="line">	&lt;li&gt;节点二&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">	&lt;li&gt;节点三&lt;/</span>li&gt;</span><br><span class="line">&lt;<span class="regexp">/ul&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">var box = document.getElementById("box");</span></span><br><span class="line"><span class="regexp">var attrs = box.attributes;</span></span><br><span class="line"><span class="regexp">console.log(attrs);</span></span><br><span class="line"><span class="regexp">console.log(attrs.length);  /</span><span class="regexp">/3个属性</span></span><br><span class="line"><span class="regexp">console.log(attrs[0]);  /</span><span class="regexp">/id</span></span><br><span class="line"><span class="regexp">console.log(attrs.item(1)); /</span><span class="regexp">/data-url</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>类数组对象的动态性</strong></p>
+<ul>
+<li>NodeList、HTMLCollection、NamedNodeMap三个集合都是动态的，是有生命、有呼吸的对象</li>
+<li>它们实际上是基于DOM结构动态执行查询的结果，因此DOM结构的变化能自动反映这些对象中</li>
+<li>每当文档结构发生变化时，它们都会得到更新。因此，它们始终都会保持着最新、最准确的信息</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div&gt;&lt;/</span>div&gt;</span><br><span class="line">&lt;div&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ HTMLCollection类数组对象的动态性造成的，每次在循环的时候会重新计算div的个数 divs会和i一起递增</span></span><br><span class="line"><span class="regexp">var divs = document.getElementByTagName("div");</span></span><br><span class="line"><span class="regexp">var i = 0;</span></span><br><span class="line"><span class="regexp">while(i &lt; divs.length)&#123;</span></span><br><span class="line"><span class="regexp">	document.body.appendChild(document.createElement("div"));</span></span><br><span class="line"><span class="regexp">	i++;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/解决方法</span></span><br><span class="line"><span class="regexp">/</span><span class="regexp">/ 创建多三个div</span></span><br><span class="line"><span class="regexp">var divs = document.getElementByTagName("div");</span></span><br><span class="line"><span class="regexp">var length = divs.length;</span></span><br><span class="line"><span class="regexp">var i = 0;</span></span><br><span class="line"><span class="regexp">while(i &lt; length)&#123;</span></span><br><span class="line"><span class="regexp">	document.body.appendChild(document.createElement("div"));</span></span><br><span class="line"><span class="regexp">	i++;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>节点查找</p>
+<p>前三个所有浏览器都能用，后面三个较新的浏览器用</p>
+<p>一定要document,只能通过document对象获取，不能通过element对象获取</p>
+<p>document.getElementById()  通过ID属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var box &#x3D; document.getElementById(&quot;box&quot;);</span><br><span class="line">&#x2F;&#x2F;只能用doucument调用</span><br></pre></td></tr></table></figure>
+
+<p>解决IE浏览器下相同值下，没有办法正确找到id的属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;a name=<span class="string">"target"</span> &gt;这是一个错误的链接&lt;<span class="regexp">/a&gt;</span></span><br><span class="line"><span class="regexp">&lt;p id="target"&gt;这是一个正确的链接&lt;/</span>p&gt;</span><br><span class="line">&lt;input id=<span class="string">"btn"</span> value=<span class="string">"按钮"</span> /&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> ps = <span class="built_in">document</span>.getElementById(<span class="string">"target"</span>);</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">"input"</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> getElementById = <span class="function"><span class="keyword">function</span>(<span class="params">id</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">var</span> el = <span class="built_in">document</span>.getElementById(id);</span><br><span class="line">	<span class="keyword">if</span>(!+<span class="string">"\v1"</span>)&#123; <span class="comment">//利用各浏览器对转义字符  ‘\v’的解释 </span></span><br><span class="line">	<span class="comment">//IE浏览器 没有转义 得到字符 v  相当于 v1   其他浏览器  \v 解释为垂直的制表符，相当于空格  1</span></span><br><span class="line">	<span class="comment">// 加号把后面的字符串转换为数字  叹号取反</span></span><br><span class="line">	<span class="comment">// IE notanumber == &gt;true          其他浏览器 1 ===&gt; 0 ===&gt; false     </span></span><br><span class="line">		<span class="keyword">if</span>(el &amp;&amp; el.id === id)&#123;</span><br><span class="line">			<span class="keyword">return</span> el;</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		 	<span class="keyword">var</span> els = <span class="built_in">document</span>.all[id],</span><br><span class="line">		 	n = els.length;</span><br><span class="line">		 	<span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line">		 		<span class="keyword">if</span>(els[i].id === id)&#123;</span><br><span class="line">		 			<span class="keyword">return</span> els[i];</span><br><span class="line">		 		&#125;</span><br><span class="line">		 	&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> el;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(getElementById(<span class="string">"target"</span>).tagName);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>document.getElementsByName()    //s 返回的是一个集合 name属性</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div name=<span class="string">"mydiv"</span>&gt;&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;div name="mydiv"&gt;&lt;/</span>div&gt;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> mydiv = <span class="built_in">document</span>.getElementsByName(<span class="string">"mydiv"</span>);</span><br><span class="line"><span class="built_in">console</span>.log(mydiv.length);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>getElementsByTagName() //s 根据<strong>标签元素的名称</strong>获取元素</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> lis = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"li"</span>); <span class="comment">//元素不分大小写 Li</span></span><br><span class="line"><span class="keyword">var</span> inputs = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"input"</span>);</span><br><span class="line"><span class="keyword">var</span> comment = <span class="built_in">document</span>.getElementByTagName(<span class="string">"!"</span>); <span class="comment">// 获取注释</span></span><br><span class="line"><span class="keyword">var</span> all = <span class="built_in">document</span>.getElementByTagName(<span class="string">"*"</span>); <span class="comment">//获取页面上所有的元素</span></span><br><span class="line"><span class="built_in">console</span>.log(lis.length);</span><br><span class="line"><span class="built_in">console</span>.log(inputs[<span class="number">0</span>].vaule);</span><br><span class="line"><span class="built_in">console</span>.log(comment[<span class="number">0</span>].nodeValue);<span class="comment">// 获取注释的内容</span></span><br><span class="line"><span class="built_in">console</span>.log(comment[<span class="number">1</span>].nodeValue);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>;len = all.length.i &lt; len; i++)&#123;</span><br><span class="line">   <span class="built_in">console</span>.log(all[i].tagName); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>getElementsByClassName()  // 类名 class</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"hello"</span>&gt;&lt;<span class="regexp">/dv&gt;</span></span><br><span class="line"><span class="regexp">&lt;div class="hello world"&gt;&lt;/</span>dv&gt; <span class="comment">//&lt;div class="world hello"&gt;&lt;/dv&gt; 一样</span></span><br><span class="line"><span class="keyword">var</span> hellos = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"hello"</span>);</span><br><span class="line"><span class="keyword">var</span> hellosworlds= <span class="built_in">document</span>.getElementsByClassName(<span class="string">"hello world"</span>);</span><br></pre></td></tr></table></figure>
+
+<p><strong>IE8以下浏览器 不兼容获取类名</strong></p>
+<p>主流浏览器基本都支持这两个属性</p>
+<p><strong>querySelector</strong></p>
+<p>返回文档中匹配<strong>指定CSS选择器的一个元素</strong></p>
+<p><strong>querySelectorAll()</strong></p>
+<p>返回文 档中匹配<strong>指定CSS选择器的一组元素</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&lt;div id=<span class="string">"myDiv"</span>&gt;</span><br><span class="line">&lt;ul id=<span class="string">"myUl"</span>&gt;</span><br><span class="line">	&lt;li&gt;<span class="number">1</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">	&lt;li&gt;2&lt;/</span>li&gt;</span><br><span class="line">	&lt;li&gt;<span class="number">3</span>&lt;<span class="regexp">/li&gt;</span></span><br><span class="line"><span class="regexp">&lt;/u</span>l&gt;</span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">/</span><span class="comment">/**querySelector**</span></span><br><span class="line"><span class="comment">&lt;div class="foo:bar"&gt;&lt;/div&gt;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var myDiv = document.getElementById("myDiv");</span></span><br><span class="line"><span class="comment">var ul = myDiv.querySelector("myUl");</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var myDiv = myDiv.querySelector("myDiv");</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var li = myDiv.querySelector("li:first-child");</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var els = myDiv.querySelector("li,input");</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">var els2 = myDiv.querySelector(".foo:\bar"); //冒号要转义字符</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">//不存在的元素 ===》 null</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">//**querySelectorAll()**  获得一个集合</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">//不存在的元素 ===》 []</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//解决方法</span></span><br><span class="line"><span class="comment">// 创建多三个div</span></span><br><span class="line"><span class="keyword">var</span> divs = <span class="built_in">document</span>.querySelectorAll(<span class="string">"div"</span>);</span><br><span class="line"><span class="keyword">var</span> i = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span>(i &lt; divs.length)&#123;</span><br><span class="line">	<span class="built_in">document</span>.body.appendChild(<span class="built_in">document</span>.createElement(<span class="string">"div"</span>));</span><br><span class="line">	i++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="heweiliang 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="heweiliang 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/15/%E5%89%8D%E7%AB%AF/JavaScript/JavaScript/%E5%8F%82%E8%80%83%E6%89%8B%E5%86%8C%E5%AD%A6%E4%B9%A0/HTML%20DOM%20%E5%AF%B9%E8%B1%A1/" rel="prev" title="前端/JavaScript/JavaScript/参考手册学习/HTML DOM 对象">
+      <i class="fa fa-chevron-left"></i> 前端/JavaScript/JavaScript/参考手册学习/HTML DOM 对象
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/04/17/%E5%89%8D%E7%AB%AF/JavaScript/Regular/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="next" title="前端/JavaScript/Regular/正则表达式">
+      前端/JavaScript/Regular/正则表达式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM对象参考手册"><span class="nav-number">1.</span> <span class="nav-text">BOM对象参考手册</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Window对象"><span class="nav-number">1.0.1.</span> <span class="nav-text">Window对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-对象属性"><span class="nav-number">1.1.</span> <span class="nav-text">Window 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Window-对象方法"><span class="nav-number">1.2.</span> <span class="nav-text">Window 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigator对象"><span class="nav-number">1.2.1.</span> <span class="nav-text">Navigator对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigator-对象属性"><span class="nav-number">1.3.</span> <span class="nav-text">Navigator 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigator-对象方法"><span class="nav-number">1.4.</span> <span class="nav-text">Navigator 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen对象"><span class="nav-number">1.4.1.</span> <span class="nav-text">Screen对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Screen-对象属性"><span class="nav-number">1.5.</span> <span class="nav-text">Screen 对象属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#History对象"><span class="nav-number">1.5.1.</span> <span class="nav-text">History对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History-对象属性"><span class="nav-number">1.6.</span> <span class="nav-text">History 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#History-对象方法"><span class="nav-number">1.7.</span> <span class="nav-text">History 对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Location对象"><span class="nav-number">1.7.1.</span> <span class="nav-text">Location对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象"><span class="nav-number">1.8.</span> <span class="nav-text">Location 对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象属性"><span class="nav-number">1.9.</span> <span class="nav-text">Location 对象属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Location-对象方法"><span class="nav-number">1.10.</span> <span class="nav-text">Location 对象方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript存储对象"><span class="nav-number">1.11.</span> <span class="nav-text">JavaScript存储对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储对象属性"><span class="nav-number">1.11.1.</span> <span class="nav-text">存储对象属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储对象方法"><span class="nav-number">1.11.2.</span> <span class="nav-text">存储对象方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web-存储-API"><span class="nav-number">1.11.3.</span> <span class="nav-text">Web 存储 API</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Brower-BOM"><span class="nav-number">1.12.</span> <span class="nav-text">Brower BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#"><span class="nav-number">1.12.0.0.0.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window"><span class="nav-number">1.12.1.</span> <span class="nav-text">Window</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Window-浏览器窗口"><span class="nav-number">1.12.2.</span> <span class="nav-text">Window 浏览器窗口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Screen-可用屏幕-screen-availWidth-screen-availHeight"><span class="nav-number">1.12.3.</span> <span class="nav-text">Screen 可用屏幕 screen.availWidth&#x2F;screen.availHeight</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Location-获取当前页面的地址，重定向到新的页面"><span class="nav-number">1.12.4.</span> <span class="nav-text">Location 获取当前页面的地址，重定向到新的页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Js刷新页面location-reload-window-location-replace-quot-url-quot-lt-meta-http-equiv-quot-refresh-quot-content-quot-5-quot-gt"><span class="nav-number">1.12.5.</span> <span class="nav-text">Js刷新页面location.reload() window.location.replace(&quot;url&quot;) &lt;meta http-equiv&#x3D;&quot;refresh&quot; content&#x3D;&quot;5&quot;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#History-浏览器的历史-back-forward"><span class="nav-number">1.12.6.</span> <span class="nav-text">History 浏览器的历史 back() forward()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Navigator-访问者浏览器的信息"><span class="nav-number">1.12.7.</span> <span class="nav-text">Navigator 访问者浏览器的信息</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#警告"><span class="nav-number">1.12.7.0.0.1.</span> <span class="nav-text">警告!!!</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#浏览器检测"><span class="nav-number">1.12.7.0.0.2.</span> <span class="nav-text">浏览器检测</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie-Cookie用于存储web页面的用户信息-创建-读取-修改-删除"><span class="nav-number">1.12.8.</span> <span class="nav-text">Cookie    Cookie用于存储web页面的用户信息 创建 读取 修改 删除</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-创建三部曲-username-用户名-expires-cookie过期时间-path-cookie参数设置路径"><span class="nav-number">1.12.8.1.</span> <span class="nav-text">1. 创建三部曲 &#x3D;&#x3D;username 用户名 expires cookie过期时间 path &#x3D; &#x2F; cookie参数设置路径&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-读取"><span class="nav-number">1.12.8.2.</span> <span class="nav-text">2. 读取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-修改-修改-cookie-类似于创建-cookie-修改expires过期时间-旧的-cookie-将被覆盖"><span class="nav-number">1.12.8.3.</span> <span class="nav-text">3. 修改  &#x3D;&#x3D;修改 cookie 类似于创建 cookie 修改expires过期时间 旧的 cookie 将被覆盖&#x3D;&#x3D;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-删除-expires-设置时间"><span class="nav-number">1.12.8.4.</span> <span class="nav-text">4. 删除    &#x3D;&#x3D;expires &#x3D;设置时间&#x3D;&#x3D;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-Cookie实例"><span class="nav-number">1.12.9.</span> <span class="nav-text">5. Cookie实例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#完整代码"><span class="nav-number">1.12.9.1.</span> <span class="nav-text">完整代码</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#弹窗-alert-confirm-prompt"><span class="nav-number">1.12.10.</span> <span class="nav-text">弹窗 alert() confirm() prompt()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#警告框-只有确定按钮"><span class="nav-number">1.12.11.</span> <span class="nav-text">警告框 只有确定按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#确定框-确定和取消按钮，确定返回true-取消false"><span class="nav-number">1.12.12.</span> <span class="nav-text">确定框    确定和取消按钮，确定返回true 取消false</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提示框-用户输入"><span class="nav-number">1.12.13.</span> <span class="nav-text">提示框    用户输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换行"><span class="nav-number">1.12.14.</span> <span class="nav-text">换行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计时事件-setInterval-clearInterval-不停的执行-setTimeout-clearTimeout-执行一次"><span class="nav-number">1.12.15.</span> <span class="nav-text">计时事件 setInterval()&#x2F;clearInterval() 不停的执行 setTimeout()&#x2F;clearTimeout()执行一次</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#库"><span class="nav-number">1.13.</span> <span class="nav-text">库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件"><span class="nav-number">1.13.1.</span> <span class="nav-text">事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定时器"><span class="nav-number">1.13.2.</span> <span class="nav-text">定时器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#立即执行函数IIFE"><span class="nav-number">1.14.</span> <span class="nav-text">立即执行函数IIFE</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="heweiliang"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">heweiliang</p>
+  <div class="site-description" itemprop="description">heweiliang blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">96</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/yourname" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com">Title</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com">Title2</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com">Title3</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">heweiliang</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">376k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">5:42</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
