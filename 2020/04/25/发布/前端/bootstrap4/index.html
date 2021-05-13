@@ -1,0 +1,3778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Bootstrap4 基础、样式、组件、插件零、 bootstrap3与bootstrap4的区别 Bootstrap4 是 Bootstrap3 的最新版本，与 Bootstrap3 相比拥有了更多的具体的类以及把一些有关的部分变成了相关的组件。同时 Bootstrap.min.css 的体积减少了40%以上。 Bootstrap4 放弃了对 IE8 以及 iOS 6 的支持，现在仅仅支持 IE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Bootstrap4学习">
+<meta property="og:url" content="http://yoursite.com/2020/04/25/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/bootstrap4/index.html">
+<meta property="og:site_name" content="new blog">
+<meta property="og:description" content="Bootstrap4 基础、样式、组件、插件零、 bootstrap3与bootstrap4的区别 Bootstrap4 是 Bootstrap3 的最新版本，与 Bootstrap3 相比拥有了更多的具体的类以及把一些有关的部分变成了相关的组件。同时 Bootstrap.min.css 的体积减少了40%以上。 Bootstrap4 放弃了对 IE8 以及 iOS 6 的支持，现在仅仅支持 IE">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-04-25T06:48:52.055Z">
+<meta property="article:modified_time" content="2021-05-07T02:43:53.801Z">
+<meta property="article:author" content="hwl">
+<meta property="article:tag" content="Bootstrap4">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/04/25/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/bootstrap4/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Bootstrap4学习 | new blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="new blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">new blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/25/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/bootstrap4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="hwl">
+      <meta itemprop="description" content="new blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="new blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Bootstrap4学习<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/bootstrap4.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-04-25 14:48:52" itemprop="dateCreated datePublished" datetime="2020-04-25T14:48:52+08:00">2020-04-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-07 10:43:53" itemprop="dateModified" datetime="2021-05-07T10:43:53+08:00">2021-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%89%8D%E7%AB%AF/Bootstrap/" itemprop="url" rel="index"><span itemprop="name">Bootstrap</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>29k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>26 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Bootstrap4-基础、样式、组件、插件"><a href="#Bootstrap4-基础、样式、组件、插件" class="headerlink" title="Bootstrap4 基础、样式、组件、插件"></a>Bootstrap4 <code>基础、样式、组件、插件</code></h1><h2 id="零、-bootstrap3与bootstrap4的区别"><a href="#零、-bootstrap3与bootstrap4的区别" class="headerlink" title="零、 bootstrap3与bootstrap4的区别"></a>零、 bootstrap3与bootstrap4的区别</h2><ul>
+<li>Bootstrap4 是 Bootstrap3 的最新版本，与 Bootstrap3 相比拥有了更多的具体的类以及把一些有关的部分变成了相关的组件。同时 Bootstrap.min.css 的体积减少了40%以上。</li>
+<li>Bootstrap4 <code>放弃了对 IE8 以及 iOS 6 的支持，现在仅仅支持 IE9 以上 以及 iOS 7 以上版本的浏览器</code>。如果对于其中需要用到以前的浏览器，那么请使用bootstrap3。<h2 id="一、基础"><a href="#一、基础" class="headerlink" title="一、基础"></a>一、基础</h2><h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><h4 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 新 Bootstrap4 核心 CSS 文件 --&gt;</span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css"</span>&gt;</span><br><span class="line">&lt;!-- jQuery文件。务必在bootstrap.min.js 之前引入 --&gt;</span><br><span class="line">&lt;script src=<span class="string">"https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;!-- bootstrap.bundle.min.js 用于弹窗、提示、下拉菜单，包含了 popper.min.js --&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="https:/</span><span class="regexp">/cdn.staticfile.org/</span>popper.js/<span class="number">1.15</span><span class="number">.0</span>/umd/popper.min.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;!-- 最新的 Bootstrap4 核心 JavaScript 文件 --&gt;</span></span><br><span class="line"><span class="string">&lt;script src="</span>https:<span class="comment">//cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="本地"><a href="#本地" class="headerlink" title="本地"></a>本地</h4><a href="https://getbootstrap.com/docs/4.4/getting-started/download/" target="_blank" rel="noopener">Download · Bootstrap</a><h4 id="快速生成模板"><a href="#快速生成模板" class="headerlink" title="快速生成模板"></a>快速生成模板</h4><blockquote>
+<p>b4-$</p>
+</blockquote>
+<h4 id="移动设备优先"><a href="#移动设备优先" class="headerlink" title="移动设备优先"></a>移动设备优先</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>&gt;</span></span><br><span class="line">//width=device-width 表示宽度是设备屏幕的宽度。</span><br><span class="line">//initial-scale=1 表示初始的缩放比例。</span><br><span class="line">//shrink-to-fit=no 自动适应手机屏幕的宽度。</span><br></pre></td></tr></table></figure>
+<h4 id="容器类"><a href="#容器类" class="headerlink" title="容器类"></a>容器类</h4></li>
+<li>``.container` 类用于固定宽度并支持响应式布局的容器。 (固定宽度) </li>
+<li>``.container-fluid `类用于 100% 宽度，占据全部视口（viewport）的容器。(全屏宽度) <h3 id="网格系统"><a href="#网格系统" class="headerlink" title="网格系统"></a>网格系统</h3>Bootstrap 提供了一套响应式、移动设备优先的流式网格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多 12 列<br>Bootstrap 3 和 Bootstrap 4 最大的区别在于 Bootstrap 4 现在使用 flexbox（弹性盒子） 而不是浮动。 Flexbox 的一大优势是，没有指定宽度的网格列将自动设置为<strong>等宽与等高列</strong> 。<br><code>sm[576] - md(smd)[768] -lg[992] - xl(lgxl)[1200x]</code><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>设备</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.col-</td>
+<td>针对所有设备</td>
+</tr>
+<tr>
+<td>.col-sm-</td>
+<td>平板 - 屏幕宽度等于或大于 576px</td>
+</tr>
+<tr>
+<td>.col-md-</td>
+<td>桌面显示器 - 屏幕宽``度等于或大于 768px)</td>
+</tr>
+<tr>
+<td>.col-lg-</td>
+<td>大桌面显示器 - 屏幕宽度等于或大于 992px)</td>
+</tr>
+<tr>
+<td>.col-xl-</td>
+<td>超大桌面显示器 - 屏幕宽度等于或大于 1200px)</td>
+</tr>
+<tr>
+<td><table class="reference"></td>
+<td></td>
+</tr>
+<tr>
+<td><thead></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th></th></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-center"></td>
+<td></td>
+</tr>
+<tr>
+<td>超小设备<br></td>
+<td></td>
+</tr>
+<tr>
+<td><small>&lt;576px</small></td>
+<td></td>
+</tr>
+<tr>
+<td></th></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-center"></td>
+<td></td>
+</tr>
+<tr>
+<td>平板<br></td>
+<td></td>
+</tr>
+<tr>
+<td><small>≥576px</small></td>
+<td></td>
+</tr>
+<tr>
+<td></th></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-center"></td>
+<td></td>
+</tr>
+<tr>
+<td>桌面显示器<br></td>
+<td></td>
+</tr>
+<tr>
+<td><small>≥768px</small></td>
+<td></td>
+</tr>
+<tr>
+<td></th></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-center"></td>
+<td></td>
+</tr>
+<tr>
+<td>大桌面显示器<br></td>
+<td></td>
+</tr>
+<tr>
+<td><small>≥992px</small></td>
+<td></td>
+</tr>
+<tr>
+<td></th></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-center"></td>
+<td></td>
+</tr>
+<tr>
+<td>超大桌面显示器<br></td>
+<td></td>
+</tr>
+<tr>
+<td><small>≥1200px</small></td>
+<td></td>
+</tr>
+<tr>
+<td></th></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td></thead></td>
+<td></td>
+</tr>
+<tr>
+<td><tbody></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">容器最大宽度</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td>None (auto)</td></td>
+<td></td>
+</tr>
+<tr>
+<td><td>540px</td></td>
+<td></td>
+</tr>
+<tr>
+<td><td>720px</td></td>
+<td></td>
+</tr>
+<tr>
+<td><td>960px</td></td>
+<td></td>
+</tr>
+<tr>
+<td><td>1140px</td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">类前缀</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td><code>.col-</code></td></td>
+<td></td>
+</tr>
+<tr>
+<td><td><code>.col-sm-</code></td></td>
+<td></td>
+</tr>
+<tr>
+<td><td><code>.col-md-</code></td></td>
+<td></td>
+</tr>
+<tr>
+<td><td><code>.col-lg-</code></td></td>
+<td></td>
+</tr>
+<tr>
+<td><td><code>.col-xl-</code></td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">列数量和</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td colspan="5">12</td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">间隙宽度</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td colspan="5">30px</td>
+<td></td>
+</tr>
+<tr>
+<td>（一个列的每边分别 15px）</td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">可嵌套</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td colspan="5">Yes</td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td><tr></td>
+<td></td>
+</tr>
+<tr>
+<td><th class="text-nowrap" scope="row">列排序</th></td>
+<td></td>
+</tr>
+<tr>
+<td><td colspan="5">Yes</td></td>
+<td></td>
+</tr>
+<tr>
+<td></tr></td>
+<td></td>
+</tr>
+<tr>
+<td></tbody></td>
+<td></td>
+</tr>
+<tr>
+<td></table></td>
+<td></td>
+</tr>
+<tr>
+<td>创建相等宽度的列，Bootstrap 自动布局</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span>.col<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span>.col<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col"</span>&gt;</span>.col<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// 每行分12列 sm md lg xl</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container-fluid"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-3 col-md-6 col-lg-4 col-xl-2"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-9 col-md-6 col-lg-8 col-xl-10"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>#### 偏移列</td>
+<td></td>
+</tr>
+<tr>
+<td>偏移列通过 <code>offset-*-</code>类来设置。第一个星号( * )可以是 <strong>sm、md、lg、xl</strong>，表示屏幕设备类型，第二个星号( * )可以是 <strong>1</strong> 到 <strong>11</strong> 的数字。<code>offset-md-4</code></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 offset-md-3"</span>&gt;</span>.col-md-3 .offset-md-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-3 offset-md-3"</span>&gt;</span>.col-md-3 .offset-md-3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>## 二、样式</td>
+<td></td>
+</tr>
+<tr>
+<td>### 文字排版 font</td>
+<td></td>
+</tr>
+<tr>
+<td>默认值</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li><strong>font-size</strong> 为 16px, <strong>line-height</strong> 为 1.5</li>
+<li><strong>font-family</strong> 为 “Helvetica Neue”, Helvetica, Arial, sans-serif</li>
+<li><code>&lt;p&gt;</code>元素 margin-top: 0 、 margin-bottom: 1rem (16px)</li>
+<li>h1 到 h6<ul>
+<li>h1 2.5 rem = 40px</li>
+<li>h2 2rem = 32px</li>
+<li>h3 1.75rem = 28px</li>
+<li>h4 1.5rem = 24px</li>
+<li>h5 1.5rem = 24px</li>
+<li>h6 1rem = 16px、</li>
+<li><code>.display-=*</code> 6.5rem  5.5rem 4.5rem 3.5rem<table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;h1&gt; - &lt;h6&gt;</code></td>
+<td>HTML 标题（h1 到 h6）的样式</td>
+</tr>
+<tr>
+<td>标题类<br />.display-1, .display-2, .display-3, .display-4</td>
+<td>四个 Display 类来控制标题的样式</td>
+</tr>
+<tr>
+<td><code>&lt;small&gt;</code></td>
+<td>副标题，创建字号更小的颜色更浅的文本:</td>
+</tr>
+<tr>
+<td><code>&lt;mark&gt;</code></td>
+<td>高亮、黄色背景及有一定的内边距</td>
+</tr>
+<tr>
+<td><code>&lt;abbr&gt;</code></td>
+<td>缩略图、元素的样式为显示在文本底部的一条虚线边框</td>
+</tr>
+<tr>
+<td><code>&lt;blockquote&gt;上添加 .blockquote 类</code></td>
+<td>引用</td>
+</tr>
+<tr>
+<td><code>&lt;code&gt;、&lt;kbd&gt;、&lt;pre&gt;</code></td>
+<td>代码、键盘输入、代码块</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>.font-weight-bold、.font-weight-normal、.font-weight-light.font-italic</code></td>
+<td>加粗文本、普通文本、更细的文本、斜体文本</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.text-left、.text-center、.text-right、.text-justify</td>
+<td>text-justify设定文本对齐,段落中超出屏幕部分文字自动换行</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.text-lowercase、.text-uppercase、.text-capitalize</td>
+<td>小写、大写、首字母大写</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>.initialism</td>
+<td>显示在`` <abbr> `元素中的文本以小号字体展示，且可以将小写字母转换为大写字母</td>
+</tr>
+<tr>
+<td>.list-unstyled</td>
+<td>移除默认的列表样式，列表项中左对齐 ( <ul> 和 <ol> 中)。 这个类仅适用于直接子列表项 (如果需要移除嵌套的列表项，你需要在嵌套的列表中使用该样式)</td>
+</tr>
+<tr>
+<td>.list-inline、.list-inline-item</td>
+<td>将所有列表项放置同一行</td>
+</tr>
+<tr>
+<td>.pre-scrollable</td>
+<td>使 <code>&lt;pre&gt;</code> 元素可滚动，代码块区域最大高度为340px,一旦超出这个高度,就会在Y轴出现滚动条</td>
+</tr>
+<tr>
+<td>.lead</td>
+<td>让段落更突出</td>
+</tr>
+<tr>
+<td>.text-nowrap</td>
+<td>段落中超出屏幕部分不换行</td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"display-1"</span>&gt;</span>Display 1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>The <span class="tag">&lt;<span class="name">abbr</span> <span class="attr">title</span>=<span class="string">"World Health Organization"</span>&gt;</span>WHO<span class="tag">&lt;/<span class="name">abbr</span>&gt;</span> was founded in 1948.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-inline"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-inline-item"</span>&gt;</span>Coffee<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-inline-item"</span>&gt;</span>Tea<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-inline-item"</span>&gt;</span>Milk<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### 颜色 color</td>
+<td></td>
+</tr>
+<tr>
+<td>#### 文本颜色类</td>
+<td></td>
+</tr>
+<tr>
+<td>类名</td>
+<td>作用</td>
+</tr>
+<tr>
+<td>—————–</td>
+<td>——————————–</td>
+</tr>
+<tr>
+<td><code>.text-muted</code></td>
+<td>柔和的文本</td>
+</tr>
+<tr>
+<td><code>.text-white</code></td>
+<td>深灰色文字</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>.text-primary</code></td>
+<td>重要的文本</td>
+</tr>
+<tr>
+<td><code>.text-success</code></td>
+<td>执行成功的文本</td>
+</tr>
+<tr>
+<td><code>.text-info</code></td>
+<td>代表一些提示信息的文本</td>
+</tr>
+<tr>
+<td><code>.text-warning</code></td>
+<td>警告文本</td>
+</tr>
+<tr>
+<td><code>.text-danger</code></td>
+<td>危险操作文本</td>
+</tr>
+<tr>
+<td><code>.text-secondary</code></td>
+<td>副标题</td>
+</tr>
+<tr>
+<td><code>.text-dark</code></td>
+<td>浅灰色文本（白色背景上看不清楚）</td>
+</tr>
+<tr>
+<td><code>.text-light</code></td>
+<td>白色文本（白色背景上看不清楚）。</td>
+</tr>
+<tr>
+<td>#### 背景颜色类</td>
+<td></td>
+</tr>
+<tr>
+<td>类名</td>
+<td>作用</td>
+</tr>
+<tr>
+<td>—————</td>
+<td>——–</td>
+</tr>
+<tr>
+<td><code>.bg-primary</code></td>
+<td>重要</td>
+</tr>
+<tr>
+<td><code>.bg-success</code></td>
+<td>执行成功</td>
+</tr>
+<tr>
+<td><code>.bg-info</code></td>
+<td>信息提示</td>
+</tr>
+<tr>
+<td><code>.bg-warning</code></td>
+<td>警告背景</td>
+</tr>
+<tr>
+<td><code>.bg-danger</code></td>
+<td>危险背景</td>
+</tr>
+<tr>
+<td><code>.bg-secondary</code></td>
+<td>副标题</td>
+</tr>
+<tr>
+<td><code>.bg-dark</code></td>
+<td>深灰背景</td>
+</tr>
+<tr>
+<td><code>.bg-light</code></td>
+<td>浅灰背景</td>
+</tr>
+<tr>
+<td>背景颜色不会设置文本的颜色，你需要与 <code>.text-</code>类一起使用。</td>
+<td></td>
+</tr>
+<tr>
+<td>### 表格 tanle</td>
+<td></td>
+</tr>
+<tr>
+<td>类名</td>
+<td>作用</td>
+</tr>
+<tr>
+<td>——————————</td>
+<td>————————–</td>
+</tr>
+<tr>
+<td><code>.table</code></td>
+<td>基础表格</td>
+</tr>
+<tr>
+<td><code>.table-striped</code></td>
+<td>条纹表格</td>
+</tr>
+<tr>
+<td><code>.table-border</code></td>
+<td>带边框表格</td>
+</tr>
+<tr>
+<td><code>.table-hover</code></td>
+<td>鼠标悬停状态表格</td>
+</tr>
+<tr>
+<td><code>.table-dark</code></td>
+<td>黑色背景表格</td>
+</tr>
+<tr>
+<td><code>.table-dark</code>和<code>table-striped</code></td>
+<td>黑色条纹表格</td>
+</tr>
+<tr>
+<td><code>.table-dark</code>和<code>.table-hover</code></td>
+<td>鼠标悬停效果的黑色背景表格</td>
+</tr>
+<tr>
+<td><code>.thead-dark</code>和<code>.thead-light</code></td>
+<td>表头颜色</td>
+</tr>
+<tr>
+<td><code>.table-sm</code></td>
+<td>较小的表格</td>
+</tr>
+<tr>
+<td>表格颜色类</td>
+<td></td>
+</tr>
+<tr>
+<td>指定意义的颜色类：通过指定意义的颜色类可以为表格的行或者单元格设置颜色</td>
+<td></td>
+</tr>
+<tr>
+<td>可以指定<code>表格中的所有元素</code></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li>primary、sucess、danger、info、warning</li>
+<li>active、secondary、light、dark<table>
+<thead>
+<tr>
+<th align="left">类名</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>.table-primary</strong></td>
+<td align="left">蓝色: 指定这是一个重要的操作</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-success</strong></td>
+<td align="left">绿色: 指定这是一个允许执行的操作</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-danger</strong></td>
+<td align="left">红色: 指定这是可以危险的操作</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-info</strong></td>
+<td align="left">浅蓝色: 表示内容已变更</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-warning</strong></td>
+<td align="left">橘色: 表示需要注意的操作</td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><strong>.table-active</strong></td>
+<td align="left">灰色: 用于鼠标悬停效果</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-secondary</strong></td>
+<td align="left">灰色: 表示内容不怎么重要</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-light</strong></td>
+<td align="left">浅灰色，可以是表格行的背景</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-dark</strong></td>
+<td align="left">深灰色，可以是表格行的背景</td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-striped table-bordered table-hover table-dark table-responsive-md"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">响应式表格</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">创建响应式表格：在屏幕宽度小于 992px 时会创建水平滚动条，如果可视区域宽度大于 992px 则显示不同效果（没有滚动条）:</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">小于设置值、创建水平滚动条（大于设置值，无效）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类名</td>
+<td align="left">屏幕宽度</td>
+</tr>
+<tr>
+<td align="left">:———————–</td>
+<td align="left">:——-</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-responsive-sm</strong></td>
+<td align="left">&lt; 576px</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-responsive-md</strong></td>
+<td align="left">&lt; 768px</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-responsive-lg</strong></td>
+<td align="left">&lt; 992px</td>
+</tr>
+<tr>
+<td align="left"><strong>.table-responsive-xl</strong></td>
+<td align="left">&lt; 1200px</td>
+</tr>
+<tr>
+<td align="left">指定屏幕宽度下显示滚动条：<code>重点使用在table的父级元素上</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"table-responsive-sm"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table"</span>&gt;</span></span><br><span class="line">    ...</span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">表头颜色</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table "</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">thread</span> <span class="attr">class</span>=<span class="string">"thread-dark"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">thread</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">### 图像形状 img</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类名</td>
+<td align="left">屏幕作用</td>
+</tr>
+<tr>
+<td align="left">—————–</td>
+<td align="left">—————————</td>
+</tr>
+<tr>
+<td align="left"><code>.img-fluid</code></td>
+<td align="left">响应式图片</td>
+</tr>
+<tr>
+<td align="left"><code>.rounded</code></td>
+<td align="left"><code>圆角图片</code></td>
+</tr>
+<tr>
+<td align="left"><code>.rounded-circle</code></td>
+<td align="left"><code>椭圆图片</code></td>
+</tr>
+<tr>
+<td align="left"><code>.img-thumbnail</code></td>
+<td align="left"><code>椭圆图片</code>(图片有边框)</td>
+</tr>
+<tr>
+<td align="left">图片对齐方式</td>
+<td align="left"><code>.float-right、.float-left</code></td>
+</tr>
+<tr>
+<td align="left">## 三、组件</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">### 表单 <code>form</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">#### 按钮 <code>btn</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">按钮类可用于<code>a</code> 、<code>button</code> 、<code>input</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类名</td>
+<td align="left">作用</td>
+</tr>
+<tr>
+<td align="left">————————————————————</td>
+<td align="left">——————————–</td>
+</tr>
+<tr>
+<td align="left"><code>.btn</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>.btn-primary</code>、<code>.btn-secondary</code>、<code>.btn-info</code>、<code>.btn-warning</code>、<code>.btn-danger</code>、<code>.btn-dark</code>、<code>.btn-light</code>、<code>.btn-link</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>btn-outline-primary/info...8个情境色</code></td>
+<td align="left">按钮设置边框，只有边框和文字颜色</td>
+</tr>
+<tr>
+<td align="left"><code>.btn-lg 大.btn 中.btn-sm 小</code></td>
+<td align="left">不同大小的按钮</td>
+</tr>
+<tr>
+<td align="left"><code>.btn-block</code></td>
+<td align="left">块级按钮</td>
+</tr>
+<tr>
+<td align="left"><code>.active 和 .disabled</code></td>
+<td align="left">激活和禁用的按钮</td>
+</tr>
+<tr>
+<td align="left">#### 按钮组 <code>btn-gruop</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类名</td>
+<td align="left">方法</td>
+</tr>
+<tr>
+<td align="left">——————————</td>
+<td align="left">————–</td>
+</tr>
+<tr>
+<td align="left"><code>.btn-group</code></td>
+<td align="left">按钮组</td>
+</tr>
+<tr>
+<td align="left">`.btn-group-lg（大）</td>
+<td align="left">sm（小）`</td>
+</tr>
+<tr>
+<td align="left"><code>.btn-group-vertical</code></td>
+<td align="left">垂直按钮组</td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group btn-group-lg btn-group-vertical"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Apple<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Samsung<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Sony<span class="tag">&lt;/<span class="name">butto</span>	</span></span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">内嵌按钮组及下拉菜单</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Apple<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Samsung<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary dropdown-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></span><br><span class="line">       Sony</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Tablet<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Smartphone<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">拆分按钮下拉菜单</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Sony<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary dropdown-toggle dropdown-toggle-split"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"caret"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Tablet<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Smartphone<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">垂直按钮组及下拉菜单</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group-vertical"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Apple<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Samsung<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary dropdown-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></span><br><span class="line">       Sony</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Tablet<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Smartphone<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">#### 输入框组</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">#### 表单控件</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">#### 下拉菜单</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">类名</td>
+<td align="left">作用</td>
+</tr>
+<tr>
+<td align="left">————————</td>
+<td align="left">——————</td>
+</tr>
+<tr>
+<td align="left"><code>.dropdown-divider</code></td>
+<td align="left">水平分割线</td>
+</tr>
+<tr>
+<td align="left"><code>.dropdown-header</code></td>
+<td align="left">标题</td>
+</tr>
+<tr>
+<td align="left"><code>.active</code></td>
+<td align="left">下拉菜单中的可用项</td>
+</tr>
+<tr>
+<td align="left"><code>.disabled</code></td>
+<td align="left">下拉菜单的禁用项</td>
+</tr>
+<tr>
+<td align="left"><code>.dropdown-item</code></td>
+<td align="left">下拉菜单项</td>
+</tr>
+<tr>
+<td align="left"><code>.dropdown-menu</code></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><code>.dropdown-menu-right</code></td>
+<td align="left">下拉菜单的定位</td>
+</tr>
+<tr>
+<td align="left">下拉菜单弹出方向设置</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">指定向右弹出的下拉菜单</td>
+<td align="left"><code>dropright</code></td>
+</tr>
+<tr>
+<td align="left">指定向上弹出的上拉菜单</td>
+<td align="left"><code>dropup</code></td>
+</tr>
+<tr>
+<td align="left">指定向左边弹出的下拉菜单</td>
+<td align="left"><code>dropleft</code></td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.shejidaren.com/popper-js.html" target="_blank" rel="noopener">popper.js </a></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">Popper.js 是一个扩展性较好的 tooltips 提示类 JS 插件，不需要依赖 jQuery 库，大小仅为 3.5KB 左右，使用与配置相当简单</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left"><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>bootstrap 4 下来菜单依赖于 <code>popper.min.js</code></p>
+</blockquote>
+</li>
+<li><code>.dropdown</code></li>
+<li><code>.dropdown-toggle</code> 和 <code>data-toggle=&quot;dropdown&quot;</code></li>
+<li><code>.dropdown-menu &gt; .dropdown-item</code><br>下拉菜单是可切换的，是以列表格式显示链接的上下文菜单<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// dropdown &gt; button +  .dropdown-menu &gt; .dropdown-item</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown dropright"</span>&gt;</span> //dropup</span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary dropdown-toggle"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></span><br><span class="line">        Dropdown button</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-menu dropdown-menu-right"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span> <span class="attr">class</span>=<span class="string">"dropdown-header"</span>&gt;</span>Dropdown header<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item active"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Link 1<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item disabled"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Link 2<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-divider"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Link 3<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h5</span> <span class="attr">class</span>=<span class="string">"dropdown-header"</span>&gt;</span>Dropdown header<span class="tag">&lt;/<span class="name">h5</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Another link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+按钮设置下拉菜单<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"btn-group"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>Sony<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary dropdown-toggle dropdown-toggle-split"</span> <span class="attr">data-toggle</span>=<span class="string">"dropdown"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"caret"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"dropdown-menu"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Tablet<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"dropdown-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Smartphone<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="列表组-list-group"><a href="#列表组-list-group" class="headerlink" title="列表组 list-group"></a>列表组 <code>list-group</code></h4><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.list-group</code></td>
+<td>列表组</td>
+</tr>
+<tr>
+<td><code>.list-group-item</code></td>
+<td>列表项</td>
+</tr>
+<tr>
+<td><code>.active</code></td>
+<td>激活状态的列表项</td>
+</tr>
+<tr>
+<td><code>.disabled</code></td>
+<td>禁用的列表项</td>
+</tr>
+<tr>
+<td><code>.list-group-item-action</code></td>
+<td>链接列表项</td>
+</tr>
+<tr>
+<td><code>.list-group-item-8个颜色类</code></td>
+<td>多种颜色列表项</td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list-group"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item active"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span>    </span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item disabled"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item list-group-item-action"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"list-group-item list-group-item-success"</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>#### 自定义表单</td>
+<td></td>
+</tr>
+<tr>
+<td>### 导航 <code>nav navbar</code></td>
+<td></td>
+</tr>
+<tr>
+<td>#### Nav</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————————-</td>
+<td>—————————</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-a</strong></td>
+<td>Nav a</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-complete</strong></td>
+<td>Nav complete</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-a-variation</strong></td>
+<td>Nav tabs pills a variation</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-dropdown</strong></td>
+<td>Nav tabs pills dropdown</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-ul-variation</strong></td>
+<td>Nav tabs pills ul variation</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-ul</strong></td>
+<td>Nav ul</td>
+</tr>
+<tr>
+<td>#### Navbar</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————</td>
+<td>———————–</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-background-color</strong></td>
+<td>Navbar background color</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-background</strong></td>
+<td>Navbar background</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-default</strong></td>
+<td>Navbar default</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-minimal-a</strong></td>
+<td>Navbar minimal a</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-minimal-ul</strong></td>
+<td>Navbar minimal ul</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-non-responsive</strong></td>
+<td>Navbar non responsive</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-placement</strong></td>
+<td>Navbar placement</td>
+</tr>
+<tr>
+<td>#### 导航</td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li>基本导航  <code>b4-nav-ul</code><br><code>&lt;ul class=&quot;nav&quot;&gt; &lt;li class=&quot;nav-item&quot;&gt; &lt;a class=&quot;nav&quot;&gt;</code></li>
+<li>导航对齐方式<br><strong>.justify-content-center</strong> 类设置导航居中显示， <strong>.justify-content-end</strong> 类设置导航右对齐。</li>
+<li>垂直导航<br><strong>.flex-column</strong> 类用于创建垂直导航：</li>
+<li>选项卡<br>使用 <strong>.nav-tabs</strong> 类可以将导航转化为选项卡。然后对于选中的选项使用 .active 类来标记。</li>
+<li>胶囊导航<br><strong>.nav-pills</strong> 类可以将导航项设置成胶囊形状。</li>
+<li>导航等宽<br><strong>.nav-justified</strong> 类可以设置导航项齐行等宽显示</li>
+<li>胶囊下拉菜单</li>
+<li>选项卡下拉菜单</li>
+<li>动态选项卡<br>如果你要设置选项卡是动态可切换的，可以在每个链接上添加 <strong>data-toggle=”tab”</strong> 属性。 然后在每个选项对应的内容的上添加 <strong>.tab-pane</strong> 类。<br>如果你希望有淡入效果可以在 <strong>.tab-pane</strong> 后添加 <strong>.fade</strong>类:</li>
+<li>胶囊状动态选项卡<br>胶囊状动态选项卡只需要将以上实例的代码中 data-toggle 属性设置为 <strong>data-toggle=”pill”</strong>:<h4 id="导航栏"><a href="#导航栏" class="headerlink" title="导航栏"></a>导航栏</h4><h5 id="垂直导航栏"><a href="#垂直导航栏" class="headerlink" title="垂直导航栏"></a>垂直导航栏</h5>通过删除 <strong>.navbar-expand-xl|lg|md|sm</strong> 类来创建垂直导航栏:<h5 id="不同颜色导航栏"><a href="#不同颜色导航栏" class="headerlink" title="不同颜色导航栏"></a>不同颜色导航栏</h5>可以使用以下类来创建不同颜色导航栏：<strong>.bg-primary</strong>, <strong>.bg-success</strong>, <strong>.bg-info</strong>, <strong>.bg-warning</strong>, <strong>.bg-danger</strong>, <strong>.bg-secondary</strong>, <strong>.bg-dark</strong> 和 <strong>.bg-light</strong>)。<h5 id="品牌-Logo"><a href="#品牌-Logo" class="headerlink" title="品牌/Logo"></a>品牌/Logo</h5></li>
+</ul>
+<p><strong>.navbar-brand</strong> 类用于高亮显示品牌/Logo:</p>
+<h5 id="导航栏使用下拉菜单"><a href="#导航栏使用下拉菜单" class="headerlink" title="导航栏使用下拉菜单"></a>导航栏使用下拉菜单</h5><h5 id="导航栏的表单与按钮"><a href="#导航栏的表单与按钮" class="headerlink" title="导航栏的表单与按钮"></a>导航栏的表单与按钮</h5><p>导航栏的表单 <strong>** 元素使用 **class=”form-inline”</strong> 类来排版输入框与按钮：</p>
+<h5 id="导航栏文本"><a href="#导航栏文本" class="headerlink" title="导航栏文本"></a>导航栏文本</h5><p>使用 <strong>.navbar-text</strong> 类来设置导航栏上非链接文本，可以保证水平对齐，颜色与内边距一样。</p>
+<h5 id="固定导航栏"><a href="#固定导航栏" class="headerlink" title="固定导航栏"></a>固定导航栏</h5><p>导航栏可以固定在头部或者底部。<br>我们使用 <strong>.fixed-top</strong> 类来实现导航栏的固定：</p>
+<h5 id="折叠导航栏"><a href="#折叠导航栏" class="headerlink" title="折叠导航栏"></a>折叠导航栏</h5><p>通常，小屏幕上我们都会折叠导航栏，通过点击来显示导航选项。<br>要创建折叠导航栏，可以在按钮上添加 <strong>class=”navbar-toggler”, data-toggle=”collapse” 与 data-target=”#*thetarget*“</strong> 类。然后在设置了 <strong>class=”collapse navbar-collapse”</strong> 类的 div 上包裹导航内容（链接）, div 元素上的 id 匹配按钮 <strong>data-target</strong> 的上指定的 id:</p>
+<h4 id="面包屑导航-Breadcrumb"><a href="#面包屑导航-Breadcrumb" class="headerlink" title="面包屑导航 Breadcrumb"></a>面包屑导航 Breadcrumb</h4><p>面包屑导航是一种基于网站层次信息的显示方式。以博客为例，面包屑导航可以显示发布日期、类别或标签。它们表示当前页面在导航层次结构内的位置，是在用户界面中的一种导航辅助。<br>Bootstrap 中的面包屑导航是一个简单的带有 <strong>.breadcrumb</strong> class 的无序列表。分隔符会通过 CSS（bootstrap.min.css）中的 ::before 和 content 来添加，下面所示的 class 自动被添加：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item active"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item active"</span>&gt;</span>Library<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ol</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Library<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item active"</span>&gt;</span>Data<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">nav</span> <span class="attr">class</span>=<span class="string">"breadcrumb"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Library<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Data<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"breadcrumb-item active"</span>&gt;</span>Bootstrap<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="徽章badge"><a href="#徽章badge" class="headerlink" title="徽章badge"></a>徽章<code>badge</code></h3><p>徽章（Badges）主要用于突出显示新的或未读的项。<br>| 类名                                                         | 作用               |<br>| ———————————————————— | —————— |<br>| <code>.badge</code>                                                     |                    |<br>| <code>.badge-primary、.badge-secondary、.badge-success、.btn-danger、.btn-warning、.btn-info、.btn-light、.btn-dark</code> | 各种颜色类型的徽章 |<br>| <code>.badge-pill</code>                                                | 药丸形状徽章       |<br>徽章插入到元素内</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span></span><br><span class="line">  Messages <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"badge badge-light"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="进度条-progress"><a href="#进度条-progress" class="headerlink" title="进度条 progress"></a>进度条 <code>progress</code></h3><p>进度条可以显示用户任务的完成过程<br>使用 <code>progress</code>&gt; <code>progress-bar</code>（进度条标签）<br>| 类名                     | 作用                                    |<br>| ———————— | ————————————— |<br>| <code>bg-颜色类</code>              | 不同颜色的进度条                        |<br>| <code>height</code>                 | 默认：16px，进度条高度作用于 <code>progress</code> |<br>| <code>progress-bar</code>           | 进度条标签                              |<br>| <code>.progress-bar-striped</code>  | 条纹的进度条                            |<br>| <code>.progress-bar-animated</code> | 动画进度条                              |<br>混合色彩进度条</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress"</span> <span class="attr">style</span>=<span class="string">"height:50px"</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress-bar bg-danger progress-bar-animated progress-bar-striped"</span> <span class="attr">style</span>=<span class="string">"width: 30%;"</span>&gt;</span></span><br><span class="line">       Your Name</span><br><span class="line">   <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress-bar bg-warning"</span> <span class="attr">style</span>=<span class="string">"width:10%"</span>&gt;</span></span><br><span class="line">    Warning</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"progress-bar bg-danger"</span> <span class="attr">style</span>=<span class="string">"width:20%"</span>&gt;</span></span><br><span class="line">    Danger</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="分页-pagination"><a href="#分页-pagination" class="headerlink" title="分页 pagination"></a>分页 pagination</h3><p>内容过多，一般进行分页处理<br>| 类名                                | 作用               |<br>| ———————————– | —————— |<br>| <code>.pagination</code>                       | 分页               |<br>| <code>.page-item</code>                        | 分页项             |<br>| <code>.page-link</code>                        | 分页链接           |<br>| <code>.active</code>                           | 当前页码状态       |<br>| <code>.disabled</code>                         | 不可点击的分页链接 |<br>| <code>.pagination-lg &gt; pagination &gt; sm</code>  | 分页显示大小       |<br>| <code>.breadcrumb</code> 和 <code>.breadcrumb-item</code> | 面包屑导航         |</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pagination pagination-lg"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"page-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"page-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Previous<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"page-item active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"page-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"page-item disabled"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"page-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"page-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"page-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"page-item"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"page-link"</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Next<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="折叠-collapse"><a href="#折叠-collapse" class="headerlink" title="折叠 collapse"></a>折叠 <code>collapse</code></h3><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>.collapse</code></td>
+<td>折叠</td>
+</tr>
+<tr>
+<td><code>.show</code></td>
+<td>默认显示</td>
+</tr>
+<tr>
+<td><code>.data-parent</code></td>
+<td>确保所有的折叠元素在指定的父元素下</td>
+</tr>
+<tr>
+<td>实现内容的显示与隐藏</td>
+<td></td>
+</tr>
+<tr>
+<td>- <code>data-toggle=&quot;collapse&quot;</code>、<code>data-target=&quot;#id&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td>- <code>id=&quot;demo&quot; class=&quot;collapse&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">data-target</span>=<span class="string">"#demo"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"demo"</span> <span class="attr">class</span>=<span class="string">"collapse"</span>&gt;</span></span><br><span class="line">    折叠内容</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>手风琴</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"accordion"</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-header"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"card-link"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">href</span>=<span class="string">"#collapseOne"</span>&gt;</span></span><br><span class="line">                 选项一</span><br><span class="line">             <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"collapseOne"</span> <span class="attr">class</span>=<span class="string">"collapse show"</span> <span class="attr">data-parent</span>=<span class="string">"#accordion"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-body"</span>&gt;</span></span><br><span class="line">                Message1</span><br><span class="line">             <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-header"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"collapsed card-link"</span> <span class="attr">data-toggle</span>=<span class="string">"collapse"</span> <span class="attr">href</span>=<span class="string">"#collapseTwo"</span>&gt;</span></span><br><span class="line">                 选项二</span><br><span class="line">             <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"collapseTwo"</span> <span class="attr">class</span>=<span class="string">"collapse"</span> <span class="attr">data-parent</span>=<span class="string">"#accordion"</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-body"</span>&gt;</span></span><br><span class="line">               Message2</span><br><span class="line">             <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### Jumbotron    (超大屏幕)</td>
+<td></td>
+</tr>
+<tr>
+<td>Jumbotron（超大屏幕）会创建一个大的灰色背景框，里面可以设置一些特殊的内容和信息。</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron"</span>&gt;</span>   </span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Text<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>全屏幕的Jumbotron</td>
+<td></td>
+</tr>
+<tr>
+<td>创建一个没有圆角的全屏幕，可以在 ``.jumbotron-fluid `类里头的 div添加 <strong>.container</strong> 或 <strong>.container-fluid</strong> 类</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"jumbotron jumbotron-fluid"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">p</span>&gt;</span>Text<span class="tag">&lt;/<span class="name">p</span>&gt;</span>							</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### 卡片 card</td>
+<td></td>
+</tr>
+<tr>
+<td>Bootstrap4 的卡片类似 Bootstrap 3 中的面板、图片缩略图、well。</td>
+<td></td>
+</tr>
+<tr>
+<td>类名</td>
+<td>作用</td>
+</tr>
+<tr>
+<td>—————————————</td>
+<td>————————</td>
+</tr>
+<tr>
+<td><code>.card</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>.card-header .card-body  .card-footer</code></td>
+<td>头部和底部</td>
+</tr>
+<tr>
+<td><code>.bg-8种颜色类</code></td>
+<td>多种颜色卡片</td>
+</tr>
+<tr>
+<td><code>.card-title、.card-text、.card-link</code></td>
+<td>标题、文本和链接</td>
+</tr>
+<tr>
+<td><code>.card-img-top</code>、<code>.card-img-bottom</code></td>
+<td>图片卡片在文字上方、下方</td>
+</tr>
+<tr>
+<td><code>.card-img-overlay</code></td>
+<td>图片要设置为背景</td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card bg-info text-light"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-header"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"card-title"</span>&gt;</span>Card title<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"card-text"</span>&gt;</span>Some example text. Some example text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"card-link"</span>&gt;</span>Card link<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-body"</span>&gt;</span>内容</span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-footer"</span>&gt;</span>底部<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>图片卡片的图片的位置</td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card"</span> <span class="attr">style</span>=<span class="string">"width:400px"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"card-img-top"</span> <span class="attr">src</span>=<span class="string">"img_avatar1.png"</span> <span class="attr">alt</span>=<span class="string">"Card image"</span>&gt;</span></span><br><span class="line">    // card-img-bottom/top</span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"card-body"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h4</span> <span class="attr">class</span>=<span class="string">"card-title"</span>&gt;</span>John Doe<span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span> <span class="attr">class</span>=<span class="string">"card-text"</span>&gt;</span>Some example text.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>See Profile<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">img</span> <span class="attr">class</span>=<span class="string">"card-img-bottom"</span> <span class="attr">src</span>=<span class="string">"img_avatar1.png"</span> <span class="attr">alt</span>=<span class="string">"Card image"</span>&gt;</span></span><br><span class="line">    // card-img-bottom/top</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### 信息提示框 <code>alert</code></td>
+<td></td>
+</tr>
+<tr>
+<td>类名</td>
+<td>作用</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>————–</td>
+</tr>
+<tr>
+<td><code>.alert</code></td>
+<td>提示框</td>
+</tr>
+<tr>
+<td><code>.alert-success</code></td>
+<td>成功</td>
+</tr>
+<tr>
+<td><code>.alert-info</code></td>
+<td>信息</td>
+</tr>
+<tr>
+<td><code>.alert-warning</code></td>
+<td>警告</td>
+</tr>
+<tr>
+<td><code>.alert-danger</code></td>
+<td>危险</td>
+</tr>
+<tr>
+<td><code>.alert-primary</code></td>
+<td>首选</td>
+</tr>
+<tr>
+<td><code>.alert-secondary</code></td>
+<td>次要的</td>
+</tr>
+<tr>
+<td><code>.alert-light</code></td>
+<td>浅灰色</td>
+</tr>
+<tr>
+<td><code>.alert-dark</code></td>
+<td>深灰色</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>.alert-link</code></td>
+<td>提示框添加链接</td>
+</tr>
+<tr>
+<td><code>.alert-dismissible</code></td>
+<td>关闭提示框</td>
+</tr>
+<tr>
+<td><code>.fade</code>和<code>.show</code></td>
+<td>提示框动画</td>
+</tr>
+<tr>
+<td>提示框链接：<code>.alert-link</code></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class&#x3D;&quot;alert alert-success&quot;&gt;</span><br><span class="line">  &lt;strong&gt;成功!&lt;&#x2F;strong&gt; 你应该认真阅读 &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;alert-link&quot;&gt;这条信息&lt;&#x2F;a&gt;。</span><br><span class="line">&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>关闭提示框 <code>.alert-dismissible</code></td>
+<td></td>
+</tr>
+<tr>
+<td>- <code>.alert-dismissible</code></td>
+<td></td>
+</tr>
+<tr>
+<td>- 关闭按钮的链接添加<code>class=&quot;close&quot;</code> 和 <code>data-dismiss=&quot;alert&quot;</code></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"alert alert-success alert-dismissible"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"alert"</span>&gt;</span><span class="symbol">&amp;times;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span>成功!<span class="tag">&lt;/<span class="name">strong</span>&gt;</span> 指定操作成功提示信息。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>提示框动画 <code>.fade 和 .show</code></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"alert alert-light alert-dismissible fade show"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">class</span>=<span class="string">"close"</span> <span class="attr">data-dismiss</span>=<span class="string">"alert"</span>&gt;</span><span class="symbol">&amp;times;</span><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">strong</span>&gt;</span>浅灰色!<span class="tag">&lt;/<span class="name">strong</span>&gt;</span>浅灰色提示框。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></td>
+<td></td>
+</tr>
+<tr>
+<td>### 多媒体对象</td>
+<td></td>
+</tr>
+<tr>
+<td>## 四、插件</td>
+<td></td>
+</tr>
+<tr>
+<td>#### 滚动监听</td>
+<td></td>
+</tr>
+<tr>
+<td>#### 小工具</td>
+<td></td>
+</tr>
+<tr>
+<td>#### 四个框</td>
+<td></td>
+</tr>
+<tr>
+<td>##### 信息提示框</td>
+<td></td>
+</tr>
+<tr>
+<td>##### 模态框</td>
+<td></td>
+</tr>
+<tr>
+<td>##### 提示框</td>
+<td></td>
+</tr>
+<tr>
+<td>##### 弹出框</td>
+<td></td>
+</tr>
+<tr>
+<td>#### 轮播</td>
+<td></td>
+</tr>
+<tr>
+<td>类</td>
+<td>描述</td>
+</tr>
+<tr>
+<td>:—————————-</td>
+<td>:———————————————————–</td>
+</tr>
+<tr>
+<td><code>.carousel</code></td>
+<td>创建一个轮播</td>
+</tr>
+<tr>
+<td><code>.carousel-indicators</code></td>
+<td>为轮播添加一个指示符，就是轮播图底下的一个个小点，轮播的过程可以显示目前是第几张图。</td>
+</tr>
+<tr>
+<td><code>.carousel-inner</code></td>
+<td>添加要切换的图片</td>
+</tr>
+<tr>
+<td><code>.carousel-item</code></td>
+<td>指定每个图片的内容</td>
+</tr>
+<tr>
+<td><code>.carousel-control-prev</code></td>
+<td>添加左侧的按钮，点击会返回上一张。</td>
+</tr>
+<tr>
+<td><code>.carousel-control-next</code></td>
+<td>添加右侧按钮，点击会切换到下一张。</td>
+</tr>
+<tr>
+<td><code>.carousel-control-prev-icon</code></td>
+<td>与 .carousel-control-prev 一起使用，设置左侧的按钮</td>
+</tr>
+<tr>
+<td><code>.carousel-control-next-icon</code></td>
+<td>与 .carousel-control-next 一起使用，设置右侧的按钮</td>
+</tr>
+<tr>
+<td><code>.slide</code></td>
+<td>切换图片的过渡和动画效果，如果你不需要这样的效果，可以删除这个类。</td>
+</tr>
+<tr>
+<td># bootstrap速打技巧</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/JasonMortonNZ/bs3-sublime-plugin/blob/master/README.md" target="_blank" rel="noopener">Bootstrap 3 snippets使用文档</a></td>
+<td></td>
+</tr>
+<tr>
+<td>### Bootstrap 4, Font awesome 4, Font Awesome 5 Free &amp; Pro snippets使用方法</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://github.com/1tontech/bootstrap4-snippets/tree/master/vscode" target="_blank" rel="noopener">Bootstrap 4, Font awesome 4, Font Awesome 5 Free &amp; Pro snippets使用方法</a></td>
+<td></td>
+</tr>
+<tr>
+<td>## bootstrap3</td>
+<td></td>
+</tr>
+<tr>
+<td>### CDN</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————————</td>
+<td>————</td>
+</tr>
+<tr>
+<td>CDN link (both CSS &amp; JS)</td>
+<td>bs3-cdn</td>
+</tr>
+<tr>
+<td>CDN link (CSS only)</td>
+<td>bs3-cdn:css</td>
+</tr>
+<tr>
+<td>CDN link (JS only)</td>
+<td>bs3-cdn:js</td>
+</tr>
+<tr>
+<td>### Local</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————————–</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Link to local bootstrap files</td>
+<td>bs3-local</td>
+</tr>
+<tr>
+<td>### Templates</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———————</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>HTML5 Template Layout</td>
+<td>bs3-template:html5</td>
+</tr>
+<tr>
+<td>### Forms</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————</td>
+<td>——————-</td>
+</tr>
+<tr>
+<td>Form</td>
+<td>bs3-form</td>
+</tr>
+<tr>
+<td>Inline Form</td>
+<td>bs3-form:inline</td>
+</tr>
+<tr>
+<td>Horizontal Form</td>
+<td>bs3-form:horizontal</td>
+</tr>
+<tr>
+<td>### Tables</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————</td>
+<td>——————-</td>
+</tr>
+<tr>
+<td>Table</td>
+<td>bs3-table</td>
+</tr>
+<tr>
+<td>Bordered Table</td>
+<td>bs3-table:bordered</td>
+</tr>
+<tr>
+<td>Condensed Table</td>
+<td>bs3-table:condensed</td>
+</tr>
+<tr>
+<td>Hover Table</td>
+<td>bs3-table:hover</td>
+</tr>
+<tr>
+<td>Striped Table</td>
+<td>bs3-table:striped</td>
+</tr>
+<tr>
+<td>### Input Fields (Form fields)</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Note:</strong> you can add “ :h “ to the end of any input field snippet to make it compatible with Bootstrap 3 horizontal forms. <strong>E.g.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-input:text:h</td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-input:hidden:h</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>bs3-input:label</td>
+</tr>
+<tr>
+<td>Text Input</td>
+<td>bs3-input:text</td>
+</tr>
+<tr>
+<td>Email Input</td>
+<td>bs3-input:email</td>
+</tr>
+<tr>
+<td>Password Input</td>
+<td>bs3-input:password</td>
+</tr>
+<tr>
+<td>Hidden Input</td>
+<td>bs3-input:hidden</td>
+</tr>
+<tr>
+<td>Url Input</td>
+<td>bs3-input:url</td>
+</tr>
+<tr>
+<td>Color Input</td>
+<td>bs3-input:color</td>
+</tr>
+<tr>
+<td>Number Input</td>
+<td>bs3-input:number</td>
+</tr>
+<tr>
+<td>Range Input</td>
+<td>bs3-input:range</td>
+</tr>
+<tr>
+<td>Date Input</td>
+<td>bs3-input:date</td>
+</tr>
+<tr>
+<td>Week Input</td>
+<td>bs3-input:week</td>
+</tr>
+<tr>
+<td>Month Input</td>
+<td>bs3-input:month</td>
+</tr>
+<tr>
+<td>Time Input</td>
+<td>bs3-input:time</td>
+</tr>
+<tr>
+<td>Tel Input</td>
+<td>bs3-input:tel</td>
+</tr>
+<tr>
+<td>Search Input</td>
+<td>bs3-input:search</td>
+</tr>
+<tr>
+<td>Reset Input</td>
+<td>bs3-input:reset</td>
+</tr>
+<tr>
+<td>Submit Input</td>
+<td>bs3-input:submit</td>
+</tr>
+<tr>
+<td>Checkbox Input</td>
+<td>bs3-input:checkbox</td>
+</tr>
+<tr>
+<td>Radio Box Input</td>
+<td>bs3-input:radio</td>
+</tr>
+<tr>
+<td>Select Box</td>
+<td>bs3-select</td>
+</tr>
+<tr>
+<td>Textarea</td>
+<td>bs3-textarea</td>
+</tr>
+<tr>
+<td>### Alerts</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>——————-</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>Alert Box (Default)</td>
+<td>bs3-alert</td>
+</tr>
+<tr>
+<td>Danger Alert Box</td>
+<td>bs3-alert:danger</td>
+</tr>
+<tr>
+<td>Info Alert Box</td>
+<td>bs3-alert:info</td>
+</tr>
+<tr>
+<td>Success Alert Box</td>
+<td>bs3-alert:success</td>
+</tr>
+<tr>
+<td>Warning Alert Box</td>
+<td>bs3-alert:warning</td>
+</tr>
+<tr>
+<td>### Badges</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Badge (Default)</td>
+<td>bs3-badge</td>
+</tr>
+<tr>
+<td>### Breadcrumbs</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———–</td>
+<td>—————</td>
+</tr>
+<tr>
+<td>Breadcrumbs</td>
+<td>bs3-breadcrumbs</td>
+</tr>
+<tr>
+<td>### Carousel</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Carousel</td>
+<td>bs3-carousel</td>
+</tr>
+<tr>
+<td>### Buttons</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Note:</strong> all button snippets below can have any of the following options append to the end of the snippet *.</td>
+<td></td>
+</tr>
+<tr>
+<td>- :danger</td>
+<td></td>
+</tr>
+<tr>
+<td>- :default</td>
+<td></td>
+</tr>
+<tr>
+<td>- :disabled</td>
+<td></td>
+</tr>
+<tr>
+<td>- :info</td>
+<td></td>
+</tr>
+<tr>
+<td>- :primary</td>
+<td></td>
+</tr>
+<tr>
+<td>- :success</td>
+<td></td>
+</tr>
+<tr>
+<td>- :warning</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>An example:</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-button:success</td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-large-button:disabled</td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-block-button:warning</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————</td>
+<td>—————-</td>
+</tr>
+<tr>
+<td>Button</td>
+<td>bs3-button</td>
+</tr>
+<tr>
+<td>Block Button</td>
+<td>bs3-block-button</td>
+</tr>
+<tr>
+<td>Mini Button</td>
+<td>bs3-xs-button</td>
+</tr>
+<tr>
+<td>Small Button</td>
+<td>bs3-sm-button</td>
+</tr>
+<tr>
+<td>Large Button</td>
+<td>bs3-lg-button</td>
+</tr>
+<tr>
+<td>### Grid</td>
+<td></td>
+</tr>
+<tr>
+<td><strong>Note:</strong> The bs3-col snippet can be used both on its own or with the addition of a colon followed by the number of columns required: <strong>E.g.</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-col</td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-col:6</td>
+<td></td>
+</tr>
+<tr>
+<td>- bs3-col:12</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>Column</td>
+<td>bs3-col</td>
+</tr>
+<tr>
+<td>Row</td>
+<td>bs3-row</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>bs3-container</td>
+</tr>
+<tr>
+<td>### Icons</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>——————-</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>Glyphicon</td>
+<td>bs3-icon:glyphicon</td>
+</tr>
+<tr>
+<td>Icon (Font Awesome)</td>
+<td>bs3-icon</td>
+</tr>
+<tr>
+<td>### Images</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———————-</td>
+<td>———————</td>
+</tr>
+<tr>
+<td>Thumbnail</td>
+<td>bs3-thumbnail</td>
+</tr>
+<tr>
+<td>Thumbnail with content</td>
+<td>bs3-thumbnail:content</td>
+</tr>
+<tr>
+<td>### Labels</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————-</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>Label</td>
+<td>bs3-label</td>
+</tr>
+<tr>
+<td>Danger Label</td>
+<td>bs3-label:danger</td>
+</tr>
+<tr>
+<td>Info Label</td>
+<td>bs3-label:info</td>
+</tr>
+<tr>
+<td>Success Label</td>
+<td>bs3-label:success</td>
+</tr>
+<tr>
+<td>Warning Label</td>
+<td>bs3-label:warning</td>
+</tr>
+<tr>
+<td>### Pagination</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>—————-</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>Pager</td>
+<td>bs3-pager</td>
+</tr>
+<tr>
+<td>Aligned Pager</td>
+<td>bs3-pager:aligned</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>bs3-pagination</td>
+</tr>
+<tr>
+<td>Pagination:small</td>
+<td>bs3-pagination:sm</td>
+</tr>
+<tr>
+<td>Pagination:large</td>
+<td>bs3-pagination:lg</td>
+</tr>
+<tr>
+<td>### Navigation</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———————</td>
+<td>———————–</td>
+</tr>
+<tr>
+<td>Navbar (basic navbar)</td>
+<td>bs3-navbar</td>
+</tr>
+<tr>
+<td>Navbar Brand Element</td>
+<td>bs3-navbar:brand</td>
+</tr>
+<tr>
+<td>Navbar Button</td>
+<td>bs3-navbar:button</td>
+</tr>
+<tr>
+<td>Navbar Form</td>
+<td>bs3-navbar:form</td>
+</tr>
+<tr>
+<td>Navbar Link</td>
+<td>bs3-navbar:link</td>
+</tr>
+<tr>
+<td>Navbar Text</td>
+<td>bs3-navbar:text</td>
+</tr>
+<tr>
+<td>Navbar Fixed-Botton</td>
+<td>bs3-navbar:fixed-bottom</td>
+</tr>
+<tr>
+<td>Navbar Fixed-Top</td>
+<td>bs3-navbar:fixed-top</td>
+</tr>
+<tr>
+<td>Navbar Inverse</td>
+<td>bs3-navbar:inverse</td>
+</tr>
+<tr>
+<td>Navbar Responsive</td>
+<td>bs3-navbar:responsive</td>
+</tr>
+<tr>
+<td>Navbar Static-Top</td>
+<td>bs3-navbar:static-top</td>
+</tr>
+<tr>
+<td>### Jumbotron</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————————</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>Jumbotron (ex Hero Unit)</td>
+<td>bs3-jumbotron</td>
+</tr>
+<tr>
+<td>### Panels</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>———————————————–</td>
+</tr>
+<tr>
+<td>Panel</td>
+<td>bs3-panel</td>
+</tr>
+<tr>
+<td>Panel (contextual)</td>
+<td>bs3-panel:{warning,success,info,danger,primary}</td>
+</tr>
+<tr>
+<td>Panel (with heading)</td>
+<td>bs3-panel:heading</td>
+</tr>
+<tr>
+<td>Panel (with footer)</td>
+<td>bs3-panel:footer</td>
+</tr>
+<tr>
+<td>### List-groups</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————————-</td>
+<td>———————-</td>
+</tr>
+<tr>
+<td>List group</td>
+<td>bs3-list-group</td>
+</tr>
+<tr>
+<td>List group (with badges)</td>
+<td>bs3-list-group:badges</td>
+</tr>
+<tr>
+<td>List group (linked list)</td>
+<td>bs3-list-group:linked</td>
+</tr>
+<tr>
+<td>List group (with content)</td>
+<td>bs3-list-group:content</td>
+</tr>
+<tr>
+<td>### Media Objects</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————</td>
+<td>—————-</td>
+</tr>
+<tr>
+<td>Media Object</td>
+<td>bs3-media-object</td>
+</tr>
+<tr>
+<td>### Clearfix</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Clearfix</td>
+<td>bs3-clearfix</td>
+</tr>
+<tr>
+<td>### Wells</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>————</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Well</td>
+<td>bs3-well</td>
+</tr>
+<tr>
+<td>Well (small)</td>
+<td>bs3-well:sm</td>
+</tr>
+<tr>
+<td>Well (large)</td>
+<td>bs3-well:lg</td>
+</tr>
+<tr>
+<td>### Tabs</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>———</td>
+<td>————</td>
+</tr>
+<tr>
+<td>Tabs pane</td>
+<td>bs3-tabs</td>
+</tr>
+<tr>
+<td>### Input-groups</td>
+<td></td>
+</tr>
+<tr>
+<td>Component</td>
+<td>Snippet code</td>
+</tr>
+<tr>
+<td>——————————-</td>
+<td>————————–</td>
+</tr>
+<tr>
+<td>Input group</td>
+<td>bs3-input-group</td>
+</tr>
+<tr>
+<td>Input group(addon &amp; text-field)</td>
+<td>bs3-input-group:addon:text</td>
+</tr>
+<tr>
+<td>Input group (addon)</td>
+<td>bs3-input-group-addon</td>
+</tr>
+<tr>
+<td>Input group (button)</td>
+<td>bs3-input-group-btn</td>
+</tr>
+<tr>
+<td>Input group (text-field &amp; btn)</td>
+<td>bs3-input-group:text:btn</td>
+</tr>
+<tr>
+<td>## Bootstrap 4 snippets</td>
+<td></td>
+</tr>
+<tr>
+<td>#### Bootstrap master template</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——–</td>
+<td>————————-</td>
+</tr>
+<tr>
+<td>b4-<strong>$</strong></td>
+<td>Bootstrap master template</td>
+</tr>
+<tr>
+<td>#### Alert</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————-</td>
+<td>————————</td>
+</tr>
+<tr>
+<td>b4-<strong>alert-additional-content</strong></td>
+<td>Alert additional content</td>
+</tr>
+<tr>
+<td>b4-<strong>alert-closable</strong></td>
+<td>Alert closable</td>
+</tr>
+<tr>
+<td>b4-<strong>alert-default</strong></td>
+<td>Alert default</td>
+</tr>
+<tr>
+<td>b4-<strong>alert-dismissible</strong></td>
+<td>Alert dismissible</td>
+</tr>
+<tr>
+<td>b4-<strong>alert-link</strong></td>
+<td>Alert link</td>
+</tr>
+<tr>
+<td>#### Badge</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>b4-<strong>badge-button</strong></td>
+<td>Badge button</td>
+</tr>
+<tr>
+<td>b4-<strong>badge-default</strong></td>
+<td>Badge default</td>
+</tr>
+<tr>
+<td>b4-<strong>badge-heading</strong></td>
+<td>Badge heading</td>
+</tr>
+<tr>
+<td>b4-<strong>badge-link</strong></td>
+<td>Badge link</td>
+</tr>
+<tr>
+<td>b4-<strong>badge-pill</strong></td>
+<td>Badge pill</td>
+</tr>
+<tr>
+<td>#### Bgroup</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————-</td>
+<td>————————</td>
+</tr>
+<tr>
+<td>b4-<strong>bgroup-default</strong></td>
+<td>Bgroup default</td>
+</tr>
+<tr>
+<td>b4-<strong>bgroup-dropdown-vertical</strong></td>
+<td>Bgroup dropdown vertical</td>
+</tr>
+<tr>
+<td>b4-<strong>bgroup-dropdown</strong></td>
+<td>Bgroup dropdown</td>
+</tr>
+<tr>
+<td>b4-<strong>bgroup-size</strong></td>
+<td>Bgroup size</td>
+</tr>
+<tr>
+<td>b4-<strong>bgroup-toolbar</strong></td>
+<td>Bgroup toolbar</td>
+</tr>
+<tr>
+<td>#### Breadcrumb</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————-</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>b4-<strong>breadcrumb-default</strong></td>
+<td>Breadcrumb default</td>
+</tr>
+<tr>
+<td>b4-<strong>breadcrumb-list</strong></td>
+<td>Breadcrumb list</td>
+</tr>
+<tr>
+<td>#### Button</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>b4-<strong>button-a</strong></td>
+<td>Button a</td>
+</tr>
+<tr>
+<td>b4-<strong>button-block</strong></td>
+<td>Button block</td>
+</tr>
+<tr>
+<td>b4-<strong>button-checkbox</strong></td>
+<td>Button checkbox</td>
+</tr>
+<tr>
+<td>b4-<strong>button-default</strong></td>
+<td>Button default</td>
+</tr>
+<tr>
+<td>b4-<strong>button-disabled-a</strong></td>
+<td>Button disabled a</td>
+</tr>
+<tr>
+<td>b4-<strong>button-input</strong></td>
+<td>Button input</td>
+</tr>
+<tr>
+<td>b4-<strong>button-outline</strong></td>
+<td>Button outline</td>
+</tr>
+<tr>
+<td>b4-<strong>button-radio</strong></td>
+<td>Button radio</td>
+</tr>
+<tr>
+<td>b4-<strong>button-sizes</strong></td>
+<td>Button sizes</td>
+</tr>
+<tr>
+<td>b4-<strong>button-toggle</strong></td>
+<td>Button toggle</td>
+</tr>
+<tr>
+<td>#### Card</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>—————————–</td>
+<td>———————-</td>
+</tr>
+<tr>
+<td>b4-<strong>card-align</strong></td>
+<td>Card align</td>
+</tr>
+<tr>
+<td>b4-<strong>card-background-custom</strong></td>
+<td>Card background custom</td>
+</tr>
+<tr>
+<td>b4-<strong>card-background</strong></td>
+<td>Card background</td>
+</tr>
+<tr>
+<td>b4-<strong>card-blockquote</strong></td>
+<td>Card blockquote</td>
+</tr>
+<tr>
+<td>b4-<strong>card-border</strong></td>
+<td>Card border</td>
+</tr>
+<tr>
+<td>b4-<strong>card-columns</strong></td>
+<td>Card columns</td>
+</tr>
+<tr>
+<td>b4-<strong>card-decks</strong></td>
+<td>Card decks</td>
+</tr>
+<tr>
+<td>b4-<strong>card-default</strong></td>
+<td>Card default</td>
+</tr>
+<tr>
+<td>b4-<strong>card-grid</strong></td>
+<td>Card grid</td>
+</tr>
+<tr>
+<td>b4-<strong>card-groups</strong></td>
+<td>Card groups</td>
+</tr>
+<tr>
+<td>b4-<strong>card-head-foot</strong></td>
+<td>Card head foot</td>
+</tr>
+<tr>
+<td>b4-<strong>card-links</strong></td>
+<td>Card links</td>
+</tr>
+<tr>
+<td>b4-<strong>card-list</strong></td>
+<td>Card list</td>
+</tr>
+<tr>
+<td>b4-<strong>card-overlay</strong></td>
+<td>Card overlay</td>
+</tr>
+<tr>
+<td>b4-<strong>card-pill-head</strong></td>
+<td>Card pill head</td>
+</tr>
+<tr>
+<td>b4-<strong>card-subtitle</strong></td>
+<td>Card subtitle</td>
+</tr>
+<tr>
+<td>b4-<strong>card-tab-head</strong></td>
+<td>Card tab head</td>
+</tr>
+<tr>
+<td>#### Carousel</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————–</td>
+<td>—————-</td>
+</tr>
+<tr>
+<td>b4-<strong>carousel-caption</strong></td>
+<td>Carousel caption</td>
+</tr>
+<tr>
+<td>b4-<strong>carousel-default</strong></td>
+<td>Carousel default</td>
+</tr>
+<tr>
+<td>#### Collapse</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————-</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>b4-<strong>collapse-accordion</strong></td>
+<td>Collapse accordion</td>
+</tr>
+<tr>
+<td>b4-<strong>collapse-button</strong></td>
+<td>Collapse button</td>
+</tr>
+<tr>
+<td>b4-<strong>collapse-default</strong></td>
+<td>Collapse default</td>
+</tr>
+<tr>
+<td>#### Dropdown</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————-</td>
+<td>——————</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-alignment</strong></td>
+<td>Dropdown alignment</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-anchor</strong></td>
+<td>Dropdown anchor</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-button</strong></td>
+<td>Dropdown button</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-colored</strong></td>
+<td>Dropdown colored</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-default</strong></td>
+<td>Dropdown default</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-sized</strong></td>
+<td>Dropdown sized</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-split</strong></td>
+<td>Dropdown split</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-up-split</strong></td>
+<td>Dropdown up split</td>
+</tr>
+<tr>
+<td>b4-<strong>dropdown-up</strong></td>
+<td>Dropdown up</td>
+</tr>
+<tr>
+<td>#### Form</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————–</td>
+<td>————————-</td>
+</tr>
+<tr>
+<td>b4-<strong>form-checkbox-custom</strong></td>
+<td>Form checkbox custom</td>
+</tr>
+<tr>
+<td>b4-<strong>form-checkbox-inline</strong></td>
+<td>Form checkbox inline</td>
+</tr>
+<tr>
+<td>b4-<strong>form-checkbox-nolabel</strong></td>
+<td>Form checkbox nolabel</td>
+</tr>
+<tr>
+<td>b4-<strong>form-checkbox</strong></td>
+<td>Form checkbox</td>
+</tr>
+<tr>
+<td>b4-<strong>form-email</strong></td>
+<td>Form email</td>
+</tr>
+<tr>
+<td>b4-<strong>form-file-custom</strong></td>
+<td>Form file custom</td>
+</tr>
+<tr>
+<td>b4-<strong>form-file</strong></td>
+<td>Form file</td>
+</tr>
+<tr>
+<td>b4-<strong>form-grid</strong></td>
+<td>Form grid</td>
+</tr>
+<tr>
+<td>b4-<strong>form-group-text</strong></td>
+<td>Form group text</td>
+</tr>
+<tr>
+<td>b4-<strong>form-group</strong></td>
+<td>Form group</td>
+</tr>
+<tr>
+<td>b4-<strong>form-help-text-inline</strong></td>
+<td>Form help text inline</td>
+</tr>
+<tr>
+<td>b4-<strong>form-help-text</strong></td>
+<td>Form help text</td>
+</tr>
+<tr>
+<td>b4-<strong>form-hidden</strong></td>
+<td>Form hidden</td>
+</tr>
+<tr>
+<td>b4-<strong>form-inline</strong></td>
+<td>Form inline</td>
+</tr>
+<tr>
+<td>b4-<strong>form-input-sizing</strong></td>
+<td>Form input sizing</td>
+</tr>
+<tr>
+<td>b4-<strong>form-input-text</strong></td>
+<td>Form input text</td>
+</tr>
+<tr>
+<td>b4-<strong>form-input</strong></td>
+<td>Form input</td>
+</tr>
+<tr>
+<td>b4-<strong>form-multi-select-custom</strong></td>
+<td>Form multi select custom</td>
+</tr>
+<tr>
+<td>b4-<strong>form-multi-select</strong></td>
+<td>Form multi select</td>
+</tr>
+<tr>
+<td>b4-<strong>form-multil-select-sizing</strong></td>
+<td>Form multil select sizing</td>
+</tr>
+<tr>
+<td>b4-<strong>form-password</strong></td>
+<td>Form password</td>
+</tr>
+<tr>
+<td>b4-<strong>form-radio-custom</strong></td>
+<td>Form radio custom</td>
+</tr>
+<tr>
+<td>b4-<strong>form-radio-inline</strong></td>
+<td>Form radio inline</td>
+</tr>
+<tr>
+<td>b4-<strong>form-radio-nolabel</strong></td>
+<td>Form radio nolabel</td>
+</tr>
+<tr>
+<td>b4-<strong>form-radio</strong></td>
+<td>Form radio</td>
+</tr>
+<tr>
+<td>b4-<strong>form-reset</strong></td>
+<td>Form reset</td>
+</tr>
+<tr>
+<td>b4-<strong>form-select-custom</strong></td>
+<td>Form select custom</td>
+</tr>
+<tr>
+<td>b4-<strong>form-select-sizing</strong></td>
+<td>Form select sizing</td>
+</tr>
+<tr>
+<td>b4-<strong>form-select</strong></td>
+<td>Form select</td>
+</tr>
+<tr>
+<td>b4-<strong>form-submit</strong></td>
+<td>Form submit</td>
+</tr>
+<tr>
+<td>b4-<strong>form-textarea</strong></td>
+<td>Form textarea</td>
+</tr>
+<tr>
+<td>b4-<strong>form-validation</strong></td>
+<td>Form validation</td>
+</tr>
+<tr>
+<td>#### Igroup</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————–</td>
+<td>————————-</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-button</strong></td>
+<td>Igroup button</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-checkbox-radio</strong></td>
+<td>Igroup checkbox radio</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-dropdown-segmented</strong></td>
+<td>Igroup dropdown segmented</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-dropdown</strong></td>
+<td>Igroup dropdown</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-size</strong></td>
+<td>Igroup size</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-text-both</strong></td>
+<td>Igroup text both</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-text-prefix</strong></td>
+<td>Igroup text prefix</td>
+</tr>
+<tr>
+<td>b4-<strong>igroup-text-sufix</strong></td>
+<td>Igroup text sufix</td>
+</tr>
+<tr>
+<td>#### Jumbotron</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>b4-<strong>jumbotron-default</strong></td>
+<td>Jumbotron default</td>
+</tr>
+<tr>
+<td>b4-<strong>jumbotron-fluid</strong></td>
+<td>Jumbotron fluid</td>
+</tr>
+<tr>
+<td>#### List</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————-</td>
+<td>————</td>
+</tr>
+<tr>
+<td>b4-<strong>list-a</strong></td>
+<td>List a</td>
+</tr>
+<tr>
+<td>b4-<strong>list-badge</strong></td>
+<td>List badge</td>
+</tr>
+<tr>
+<td>b4-<strong>list-button</strong></td>
+<td>List button</td>
+</tr>
+<tr>
+<td>b4-<strong>list-colors</strong></td>
+<td>List colors</td>
+</tr>
+<tr>
+<td>b4-<strong>list-custom</strong></td>
+<td>List custom</td>
+</tr>
+<tr>
+<td>b4-<strong>list-default</strong></td>
+<td>List default</td>
+</tr>
+<tr>
+<td>#### Modal</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————-</td>
+<td>—————</td>
+</tr>
+<tr>
+<td>b4-<strong>modal-customize</strong></td>
+<td>Modal customize</td>
+</tr>
+<tr>
+<td>b4-<strong>modal-default</strong></td>
+<td>Modal default</td>
+</tr>
+<tr>
+<td>b4-<strong>modal-grid</strong></td>
+<td>Modal grid</td>
+</tr>
+<tr>
+<td>b4-<strong>modal-sizes</strong></td>
+<td>Modal sizes</td>
+</tr>
+<tr>
+<td>#### Nav</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————————-</td>
+<td>—————————</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-a</strong></td>
+<td>Nav a</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-complete</strong></td>
+<td>Nav complete</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-a-variation</strong></td>
+<td>Nav tabs pills a variation</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-dropdown</strong></td>
+<td>Nav tabs pills dropdown</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-tabs-pills-ul-variation</strong></td>
+<td>Nav tabs pills ul variation</td>
+</tr>
+<tr>
+<td>b4-<strong>nav-ul</strong></td>
+<td>Nav ul</td>
+</tr>
+<tr>
+<td>#### Navbar</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————————</td>
+<td>———————–</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-background-color</strong></td>
+<td>Navbar background color</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-background</strong></td>
+<td>Navbar background</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-default</strong></td>
+<td>Navbar default</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-minimal-a</strong></td>
+<td>Navbar minimal a</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-minimal-ul</strong></td>
+<td>Navbar minimal ul</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-non-responsive</strong></td>
+<td>Navbar non responsive</td>
+</tr>
+<tr>
+<td>b4-<strong>navbar-placement</strong></td>
+<td>Navbar placement</td>
+</tr>
+<tr>
+<td>#### Pagination</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>—————————</td>
+<td>——————–</td>
+</tr>
+<tr>
+<td>b4-<strong>pagination-alignment</strong></td>
+<td>Pagination alignment</td>
+</tr>
+<tr>
+<td>b4-<strong>pagination-default</strong></td>
+<td>Pagination default</td>
+</tr>
+<tr>
+<td>b4-<strong>pagination-sized</strong></td>
+<td>Pagination sized</td>
+</tr>
+<tr>
+<td>#### Popover</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————–</td>
+<td>——————-</td>
+</tr>
+<tr>
+<td>b4-<strong>popover-default</strong></td>
+<td>Popover default</td>
+</tr>
+<tr>
+<td>b4-<strong>popover-direction</strong></td>
+<td>Popover direction</td>
+</tr>
+<tr>
+<td>b4-<strong>popover-dismissable</strong></td>
+<td>Popover dismissable</td>
+</tr>
+<tr>
+<td>#### Progress</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————–</td>
+<td>—————-</td>
+</tr>
+<tr>
+<td>b4-<strong>progress-colored</strong></td>
+<td>Progress colored</td>
+</tr>
+<tr>
+<td>b4-<strong>progress-default</strong></td>
+<td>Progress default</td>
+</tr>
+<tr>
+<td>b4-<strong>progress-ie9</strong></td>
+<td>Progress ie9</td>
+</tr>
+<tr>
+<td>b4-<strong>progress-striped</strong></td>
+<td>Progress striped</td>
+</tr>
+<tr>
+<td>#### Scrollspy</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————</td>
+<td>—————–</td>
+</tr>
+<tr>
+<td>b4-<strong>scrollspy-default</strong></td>
+<td>Scrollspy default</td>
+</tr>
+<tr>
+<td>#### Tooltip</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————-</td>
+<td>—————</td>
+</tr>
+<tr>
+<td>b4-<strong>tooltip-default</strong></td>
+<td>Tooltip default</td>
+</tr>
+<tr>
+<td>#### Figure</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>———————</td>
+<td>————–</td>
+</tr>
+<tr>
+<td>b4-<strong>figure-default</strong></td>
+<td>Figure default</td>
+</tr>
+<tr>
+<td>#### Image</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>b4-<strong>image-default</strong></td>
+<td>Image default</td>
+</tr>
+<tr>
+<td>#### Table</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>b4-<strong>table-default</strong></td>
+<td>Table default</td>
+</tr>
+<tr>
+<td>b4-<strong>table-special</strong></td>
+<td>Table special</td>
+</tr>
+<tr>
+<td>#### Typography</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>————————————</td>
+<td>—————————–</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-blockquote-reverse</strong></td>
+<td>Typography blockquote reverse</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-blockquote</strong></td>
+<td>Typography blockquote</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-description-list</strong></td>
+<td>Typography description list</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-display-heading</strong></td>
+<td>Typography display heading</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-lead</strong></td>
+<td>Typography lead</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-list-inline</strong></td>
+<td>Typography list inline</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-list-unstyled</strong></td>
+<td>Typography list unstyled</td>
+</tr>
+<tr>
+<td>b4-<strong>typography-muted-text</strong></td>
+<td>Typography muted text</td>
+</tr>
+<tr>
+<td>#### Grid</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>—————————</td>
+<td>——————–</td>
+</tr>
+<tr>
+<td>b4-<strong>grid-col</strong></td>
+<td>Grid col</td>
+</tr>
+<tr>
+<td>b4-<strong>grid-container-fluid</strong></td>
+<td>Grid container fluid</td>
+</tr>
+<tr>
+<td>b4-<strong>grid-container</strong></td>
+<td>Grid container</td>
+</tr>
+<tr>
+<td>b4-<strong>grid-default</strong></td>
+<td>Grid default</td>
+</tr>
+<tr>
+<td>b4-<strong>grid-row</strong></td>
+<td>Grid row</td>
+</tr>
+<tr>
+<td>#### Media</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>——————–</td>
+<td>————-</td>
+</tr>
+<tr>
+<td>b4-<strong>media-bottom</strong></td>
+<td>Media bottom</td>
+</tr>
+<tr>
+<td>b4-<strong>media-default</strong></td>
+<td>Media default</td>
+</tr>
+<tr>
+<td>b4-<strong>media-list</strong></td>
+<td>Media list</td>
+</tr>
+<tr>
+<td>b4-<strong>media-middle</strong></td>
+<td>Media middle</td>
+</tr>
+<tr>
+<td>b4-<strong>media-nesting</strong></td>
+<td>Media nesting</td>
+</tr>
+<tr>
+<td>b4-<strong>media-right</strong></td>
+<td>Media right</td>
+</tr>
+<tr>
+<td>b4-<strong>media-top</strong></td>
+<td>Media top</td>
+</tr>
+<tr>
+<td>#### Responsive</td>
+<td></td>
+</tr>
+<tr>
+<td>Trigger</td>
+<td>Description</td>
+</tr>
+<tr>
+<td>—————————-</td>
+<td>———————</td>
+</tr>
+<tr>
+<td>b4-<strong>responsive-hide-down</strong></td>
+<td>Responsive hide down</td>
+</tr>
+<tr>
+<td>b4-<strong>responsive-hide-up</strong></td>
+<td>Responsive hide up</td>
+</tr>
+<tr>
+<td>b4-<strong>responsive-print-show</strong></td>
+<td>Responsive print show</td>
+</tr>
+<tr>
+<td>​</td>
+<td></td>
+</tr>
+<tr>
+<td>​</td>
+<td></td>
+</tr>
+</tbody></table>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="hwl 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="hwl 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Bootstrap4/" rel="tag"># Bootstrap4</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/17/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="正则表达式">
+      <i class="fa fa-chevron-left"></i> 正则表达式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/15/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/font/" rel="next" title="font">
+      font <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Bootstrap4-基础、样式、组件、插件"><span class="nav-number">1.</span> <span class="nav-text">Bootstrap4 基础、样式、组件、插件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#零、-bootstrap3与bootstrap4的区别"><span class="nav-number">1.1.</span> <span class="nav-text">零、 bootstrap3与bootstrap4的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、基础"><span class="nav-number">1.2.</span> <span class="nav-text">一、基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装使用"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CDN"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">CDN</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#本地"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">本地</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速生成模板"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">快速生成模板</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#移动设备优先"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">移动设备优先</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器类"><span class="nav-number">1.2.1.5.</span> <span class="nav-text">容器类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#网格系统"><span class="nav-number">1.2.2.</span> <span class="nav-text">网格系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#列表组-list-group"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">列表组 list-group</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导航栏"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">导航栏</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#垂直导航栏"><span class="nav-number">1.2.2.2.1.</span> <span class="nav-text">垂直导航栏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#不同颜色导航栏"><span class="nav-number">1.2.2.2.2.</span> <span class="nav-text">不同颜色导航栏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#品牌-Logo"><span class="nav-number">1.2.2.2.3.</span> <span class="nav-text">品牌&#x2F;Logo</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导航栏使用下拉菜单"><span class="nav-number">1.2.2.2.4.</span> <span class="nav-text">导航栏使用下拉菜单</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导航栏的表单与按钮"><span class="nav-number">1.2.2.2.5.</span> <span class="nav-text">导航栏的表单与按钮</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#导航栏文本"><span class="nav-number">1.2.2.2.6.</span> <span class="nav-text">导航栏文本</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#固定导航栏"><span class="nav-number">1.2.2.2.7.</span> <span class="nav-text">固定导航栏</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#折叠导航栏"><span class="nav-number">1.2.2.2.8.</span> <span class="nav-text">折叠导航栏</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面包屑导航-Breadcrumb"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">面包屑导航 Breadcrumb</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#徽章badge"><span class="nav-number">1.2.3.</span> <span class="nav-text">徽章badge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进度条-progress"><span class="nav-number">1.2.4.</span> <span class="nav-text">进度条 progress</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分页-pagination"><span class="nav-number">1.2.5.</span> <span class="nav-text">分页 pagination</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#折叠-collapse"><span class="nav-number">1.2.6.</span> <span class="nav-text">折叠 collapse</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hwl"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">hwl</p>
+  <div class="site-description" itemprop="description">new blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/heweiliang88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;heweiliang88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2226982020@qq.com" title="E-Mail → mailto:2226982020@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/yourname" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/heweiliang88" title="https:&#x2F;&#x2F;github.com&#x2F;heweiliang88" rel="noopener" target="_blank">Github</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://juejin.cn/user/465848662763837" title="https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;465848662763837" rel="noopener" target="_blank">掘金</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com">StackOverflow</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hwl</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">585k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8:52</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>

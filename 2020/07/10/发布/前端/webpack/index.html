@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="webpack 椤圭洰绠＄悊宸ュ叿瀛︿範鏃ュ織浜屻€囦簩銆囧勾浜旀湀浜屽崄浜屾棩浜屻€囦簩銆囧勾浜旀湀浜屽崄鍥涙棩 椤圭洰鏋勫缓宸ュ叿鍓嶇宸ョ▼鍖栤€斺€旀瀯寤哄伐鍏烽€夊瀷锛歡runt銆乬ulp銆亀ebpack - 鍓嶇 - 鎺橀噾 VSCode 鎻掍欢webpack浣跨敤babel transpiling (ES6)鍒涘缓涓€涓渶灏忕殑webpack閰嶇疆鏂囦欢銆�浣跨敤鍚姩鍛戒护闈㈡">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack">
+<meta property="og:url" content="http://yoursite.com/2020/07/10/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/webpack/index.html">
+<meta property="og:site_name" content="new blog">
+<meta property="og:description" content="webpack 椤圭洰绠＄悊宸ュ叿瀛︿範鏃ュ織浜屻€囦簩銆囧勾浜旀湀浜屽崄浜屾棩浜屻€囦簩銆囧勾浜旀湀浜屽崄鍥涙棩 椤圭洰鏋勫缓宸ュ叿鍓嶇宸ョ▼鍖栤€斺€旀瀯寤哄伐鍏烽€夊瀷锛歡runt銆乬ulp銆亀ebpack - 鍓嶇 - 鎺橀噾 VSCode 鎻掍欢webpack浣跨敤babel transpiling (ES6)鍒涘缓涓€涓渶灏忕殑webpack閰嶇疆鏂囦欢銆�浣跨敤鍚姩鍛戒护闈㈡">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/15/hSXd6A4kcICFTUE.jpg">
+<meta property="article:published_time" content="2020-07-10T10:07:40.956Z">
+<meta property="article:modified_time" content="2021-05-07T02:46:24.064Z">
+<meta property="article:author" content="hwl">
+<meta property="article:tag" content="鍓嶇">
+<meta property="article:tag" content="webpack">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/15/hSXd6A4kcICFTUE.jpg">
+
+<link rel="canonical" href="http://yoursite.com/2020/07/10/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/webpack/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>webpack | new blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="new blog" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">new blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-schedule">
+
+    <a href="/schedule/" rel="section"><i class="fa fa-fw fa-calendar"></i>日程表</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-fw fa-sitemap"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/yourname" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/10/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/webpack/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="hwl">
+      <meta itemprop="description" content="new blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="new blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          webpack<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/webpack.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-10 18:07:40" itemprop="dateCreated datePublished" datetime="2020-07-10T18:07:40+08:00">2020-07-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-05-07 10:46:24" itemprop="dateModified" datetime="2021-05-07T10:46:24+08:00">2021-05-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/webpack/" itemprop="url" rel="index"><span itemprop="name">webpack</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>38k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>35 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="webpack-椤圭洰绠＄悊宸ュ叿"><a href="#webpack-椤圭洰绠＄悊宸ュ叿" class="headerlink" title="webpack 椤圭洰绠＄悊宸ュ叿"></a>webpack 椤圭洰绠＄悊宸ュ叿</h1><h2 id="瀛︿範鏃ュ織"><a href="#瀛︿範鏃ュ織" class="headerlink" title="瀛︿範鏃ュ織"></a>瀛︿範鏃ュ織</h2><p>浜屻€囦簩銆囧勾浜旀湀浜屽崄浜屾棩<br>浜屻€囦簩銆囧勾浜旀湀浜屽崄鍥涙棩<br><img src="https://i.loli.net/2020/05/15/hSXd6A4kcICFTUE.jpg" alt="a90ns-z8nal"></p>
+<h2 id="椤圭洰鏋勫缓宸ュ叿"><a href="#椤圭洰鏋勫缓宸ュ叿" class="headerlink" title="椤圭洰鏋勫缓宸ュ叿"></a>椤圭洰鏋勫缓宸ュ叿</h2><p><a href="https://juejin.im/entry/5b5724d05188251aa01647fd" target="_blank" rel="noopener">鍓嶇宸ョ▼鍖栤€斺€旀瀯寤哄伐鍏烽€夊瀷锛歡runt銆乬ulp銆亀ebpack - 鍓嶇 - 鎺橀噾</a></p>
+<h2 id="VSCode-鎻掍欢"><a href="#VSCode-鎻掍欢" class="headerlink" title="VSCode 鎻掍欢"></a>VSCode 鎻掍欢</h2><h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>浣跨敤babel transpiling (ES6)鍒涘缓涓€涓渶灏忕殑webpack閰嶇疆鏂囦欢銆�<br>浣跨敤<br>鍚姩鍛戒护闈㈡澘(f1)骞舵煡鎵網ebpack Create銆傝繖灏�:<br>鐢╞abel缃崲鍒涘缓涓€涓獁ebpackage .config.js鏂囦欢銆俥xt鏌ユ壘app鎴杝rc鏂囦欢澶规潵璁剧疆鍏ュ彛鐐广€傚拰dist鎴杘ut for bundle path銆�<br>鏇存柊椤圭洰璁″垝銆俲son涓巄abel鍜宔s2015 libs銆�<br>榛樿鎯呭喌涓嬶紝濡傛灉鎵句笉鍒版枃浠跺す锛屽皢浣跨敤app鍜宒ist鏂囦欢澶广€�</p>
+<h4 id="webpack-snippets"><a href="#webpack-snippets" class="headerlink" title="webpack snippets"></a>webpack snippets</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wpstart   <span class="comment">// Build an empty webpack configuration content.</span></span><br><span class="line">wprequire <span class="comment">// Require webpack lib.</span></span><br><span class="line">wprex     <span class="comment">// Require Extract Plugin.</span></span><br><span class="line">wprule    <span class="comment">// Add a new loader</span></span><br><span class="line">wpochunk  <span class="comment">// Generate webpack.optimize.CommonsChunkPlugin code.</span></span><br><span class="line">wpougf    <span class="comment">// Generate webpack.optimize.UglifyJsPlugin code.</span></span><br><span class="line">wpodef    <span class="comment">// Generate webpack.DefinePlugin code.</span></span><br><span class="line">wpoex     <span class="comment">// Generate ExtractTextPlugin code.</span></span><br></pre></td></tr></table></figure>
+<p>Babel JavaScript<br>BaBel</p>
+<h2 id="鐩稿叧闃呰"><a href="#鐩稿叧闃呰" class="headerlink" title="鐩稿叧闃呰"></a>鐩稿叧闃呰</h2><p><a href="https://juejin.im/post/5a5f3513f265da3e5133239a" target="_blank" rel="noopener">webpack浣跨敤鏁欑▼</a><br><a href="https://juejin.im/post/5d2fd19be51d4576bc1a0eb0" target="_blank" rel="noopener">Webpack鍩烘湰浣跨敤</a><br><a href="https://juejin.im/post/5d031b2ae51d454d544abf43" target="_blank" rel="noopener">NPM浣犵湡鐨勪細鍚楋紵</a><br><a href="https://juejin.im/post/5d08d3d3f265da1b7e103a4d" target="_blank" rel="noopener">鍓嶇宸ョ▼鍖栵細浣犳墍闇€瑕佺殑npm鐭ヨ瘑鍌ㄥ閮藉湪杩欎簡 </a><br><a href="https://juejin.im/entry/5b5724d05188251aa01647fd" target="_blank" rel="noopener">鍓嶇宸ョ▼鍖栤€斺€旀瀯寤哄伐鍏烽€夊瀷锛歡runt銆乬ulp銆亀ebpack - 鍓嶇 </a><br><a href="https://blog.csdn.net/ShiMengRan107/article/details/101761922" target="_blank" rel="noopener">JSON鏂囦欢鍐呭鍔犳敞閲婄殑鍑犵鏂规硶</a></p>
+<h2 id="Grunt銆丟ulp銆亀ebpack"><a href="#Grunt銆丟ulp銆亀ebpack" class="headerlink" title="Grunt銆丟ulp銆亀ebpack"></a>Grunt銆丟ulp銆亀ebpack</h2><p>[Grunt: JavaScript 涓栫晫鐨勬瀯寤哄伐鍏� | Grunt 涓枃缃慮(<a href="https://www.gruntjs.net/" target="_blank" rel="noopener">https://www.gruntjs.net/</a>)<br>[gulp.js - 鍩轰簬娴�(stream)鐨勮嚜鍔ㄥ寲鏋勫缓宸ュ叿 | gulp.js 涓枃缃慮(<a href="https://www.gulpjs.com.cn/" target="_blank" rel="noopener">https://www.gulpjs.com.cn/</a>)<br>[webpack 涓枃鏂囨。 | webpack 涓枃缃慮(<a href="https://www.webpackjs.com/" target="_blank" rel="noopener">https://www.webpackjs.com/</a>)</p>
+<h2 id="cnpm-銆�-npm銆�-nvm銆�-yarn-銆乶rm-鍛戒护宸ュ叿"><a href="#cnpm-銆�-npm銆�-nvm銆�-yarn-銆乶rm-鍛戒护宸ュ叿" class="headerlink" title="cnpm 銆� npm銆� nvm銆� yarn 銆乶rm 鍛戒护宸ュ叿"></a>cnpm 銆� npm銆� nvm銆� yarn 銆乶rm 鍛戒护宸ュ叿</h2><blockquote>
+<p>nvm:    Node.js鐗堟湰鎺у埗 nvm version</p>
+<p>npm:     Node.js 瀹樻柟鎻愪緵鐨勫寘绠＄悊宸ュ叿 npm -v</p>
+<p>nrm :    npm闀滃儚绠＄悊宸ュ叿  (cnpm:     娣樺疂鐨刵pm 闀滃儚鐨勫姞閫�)  nrm -V</p>
+<p>yarn : facebook 鐨勪竴娆句笌npm 鍔熻兘鐩镐技鐨勫寘绠＄悊宸ュ叿</p>
+<p><a href="https://classic.yarnpkg.com/zh-Hans/" target="_blank" rel="noopener">Yarn</a>  yarn –version</p>
+</blockquote>
+<h2 id="Node-js鐨勫畨瑁�"><a href="#Node-js鐨勫畨瑁�" class="headerlink" title="Node.js鐨勫畨瑁�"></a>Node.js鐨勫畨瑁�</h2><h3 id="node-js-瀹夎"><a href="#node-js-瀹夎" class="headerlink" title="node.js 瀹夎"></a>node.js 瀹夎</h3><ul>
+<li>绗竴绉嶇洿鎺ュ畨瑁�</li>
+<li><a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">绗簩绉峮vm node鐗堟湰绠＄悊宸ュ叿锛堟帹鑽愶級</a></li>
+<li><a href="https://cloudintheking.github.io/2018/07/12/windows%E4%B8%8B%E5%AE%89%E8%A3%85nvm%E5%8F%8Anrm/" target="_blank" rel="noopener">windows涓嬪畨瑁卬vm鍙妌rm | fatboa</a><h4 id="settings-txt鏂囦欢鐨勯厤缃�"><a href="#settings-txt鏂囦欢鐨勯厤缃�" class="headerlink" title="settings.txt鏂囦欢鐨勯厤缃�"></a>settings.txt鏂囦欢鐨勯厤缃�</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root: D:\SoftWare\NodeJs\nvm &#x2F;&#x2F; nvm node鐗堟湰鎺у埗鐨勮蒋浠剁殑浣嶇疆</span><br><span class="line">path: D:\SoftWare\NodeJs\nodejs &#x2F;&#x2F;褰撳墠浣跨敤鐨刵ode鐨勪綅缃�</span><br><span class="line">arch: 64 </span><br><span class="line">proxy: none</span><br><span class="line">node_mirror: http:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;node&#x2F;</span><br><span class="line">npm_mirror: https:&#x2F;&#x2F;npm.taobao.org&#x2F;mirrors&#x2F;npm&#x2F;</span><br></pre></td></tr></table></figure>
+<h4 id="鐜鍙橀噺鐨勯厤缃�"><a href="#鐜鍙橀噺鐨勯厤缃�" class="headerlink" title="鐜鍙橀噺鐨勯厤缃�"></a>鐜鍙橀噺鐨勯厤缃�</h4>閰嶇疆nvm鍜孨ode.js鐜鍙橀噺</li>
+</ul>
+<ul>
+<li>NVM_HOME:D:\SoftWare\NodeJs\nvm 锛坣ode鐗堟湰鎺у埗杞欢nvm 鐨勪綅缃級</li>
+<li>NVM_SYMLINK: D:\SoftWare\NodeJs\nodejs  锛坣ode.js鐨勪綅缃� 绗﹀彿閾炬帴锛�<blockquote>
+<p>鐜鍙橀噺鐨勪綔鐢╬ath 璺緞 鍙互鍦ㄧ粓绔娇鐢ㄥ叏灞€鐨勪綔鐢ㄥ懡浠�<br>nodemon<br><a href="https://juejin.im/post/5b5005f7f265da0f66401fe7" target="_blank" rel="noopener">nodemon浣跨敤绠€浠� - 鎺橀噾</a></p>
+</blockquote>
+<h3 id="瀹夎閿欒"><a href="#瀹夎閿欒" class="headerlink" title="瀹夎閿欒"></a>瀹夎閿欒</h3><blockquote>
+<p>瑙ｅ喅鏂规硶涓€锛�</p>
+<p>nvm涓嶈兘瀹夎鍦╬rograms files锛屽洜涓虹┖鏍奸棶棰�<br>exit status 1: 鈥楥:\Program鈥� 锟斤拷锟斤拷锟节诧拷锟斤拷锟解部锟斤拷锟筋，也锟斤拷锟角匡拷锟斤拷锟叫的筹拷锟斤拷<br>锟斤拷锟斤拷锟斤拷锟斤拷锟侥硷拷锟斤拷</p>
+<p>鍙互閫氳繃鍦╪vm鏍圭洰褰曞皢program files鏇挎崲涓� progra<del>1锛屽涓嬶細<br>root: C:\progra</del>1\nvm<br>path: C:\progra~1\nodejs</p>
+<p>瑙ｅ喅鏂规硶浜岋細</p>
+<p>鏇存崲娌℃湁绌烘牸鐨勫畨瑁呯洰褰�</p>
+</blockquote>
+<h3 id="nvm甯哥敤鐨勫懡浠�"><a href="#nvm甯哥敤鐨勫懡浠�" class="headerlink" title="nvm甯哥敤鐨勫懡浠�"></a>nvm甯哥敤鐨勫懡浠�</h3></li>
+</ul>
+<ul>
+<li>nvm list 鏌ョ湅褰撳墠瀹夎鐨凬ode.js鎵€鏈夌増鏈�</li>
+<li>nvm install 鐗堟湰鍙� 瀹夎鎸囧畾鐗堟湰鐨凬ode.js nvm install latest 鏈€鏂扮増鏈�  nvm install <a href="mailto:node@13.5.0">node@13.5.0</a></li>
+<li>nvm uninstall 鐗堟湰鍙� 鍗歌浇鎸囧畾鐗堟湰鐨凬ode.js</li>
+<li>nvm use 鐗堟湰鍙� 閫夋嫨鎸囧畾鐗堟湰鐨凬ode.js nvm use node12.16.3<br><a href="https://github.com/nodejs/node" target="_blank" rel="noopener">nodejs/node: Node.js JavaScript runtime</a><h4 id="node-鐗堟湰"><a href="#node-鐗堟湰" class="headerlink" title="node 鐗堟湰"></a>node 鐗堟湰</h4><a href="https://nodejs.org/zh-cn/download/releases/" target="_blank" rel="noopener">浠ュ線鐨勭増鏈� | Node.js</a><br><a href="https://segmentfault.com/a/1190000011368506" target="_blank" rel="noopener">(…) 鐗堟湰鍛藉悕鍙婇檺瀹氳鍒欒瑙� - 涓汉鏂囩珷 - SegmentFault 鎬濆惁</a> <blockquote>
+<p>璇箟鍖栫増鏈懡鍚嶈鍒�</p>
+<p>[name].x.y.z-[state]</p>
+<p>x (涓荤増鏈彿(major))锛寉(娆＄増鏈彿(minor))锛寊(淇鍙�(patch))闈炶礋鏁存暟</p>
+<ul>
+<li><code>0.y.z</code> 琛ㄧず寮€鍙戦樁娈碉紝涓€鍒囧彲鑳介殢鏃舵敼鍙橈紝闈炵ǔ瀹氱増銆�</li>
+<li><code>1.0.0</code> 鐣屽畾姝ょ増鏈负鍒濆绋冲畾鐗堬紝鍚庨潰鐨勪竴鍒囨洿鏂伴兘鍩轰簬姝ょ増鏈繘琛屼慨鏀广€�</li>
+<li>`a(伪鎴朼    alpha 鐗�),b锛埼叉垨b    beta 鐗堬級,rc锛坮c    Release Candidate锛壩叉垨b    beta 鐗坄 鍒嗗埆琛ㄧず 鍐呮祴,鍏祴,鍙戣鐘舵€�</li>
+</ul>
+</blockquote>
+<h2 id="NPM-鍖呯鐞嗗伐鍏�"><a href="#NPM-鍖呯鐞嗗伐鍏�" class="headerlink" title="NPM 鍖呯鐞嗗伐鍏�"></a>NPM 鍖呯鐞嗗伐鍏�</h2>[npm 涓枃鏂囨。 | npm 涓枃缃慮(<a href="https://www.npmjs.cn/" target="_blank" rel="noopener">https://www.npmjs.cn/</a>)<br><a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm | build amazing things</a><br><a href="https://juejin.im/post/5de4856051882516e524b566" target="_blank" rel="noopener">npm鍛戒护璇﹁В </a><br><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html" target="_blank" rel="noopener">npm 甯哥敤鍛戒护璇﹁В </a><br>NPM(Node Package Manager)鏄疦ode.js 瀹樻柟鎻愪緵鐨勫寘绠＄悊宸ュ叿锛屾槸闅忓悓NodeJS涓€璧峰畨瑁呯殑鍖呯鐞嗗拰鍒嗗彂宸ュ叿锛屽畠寰堟柟渚胯JavaScript寮€鍙戣€呬笅杞姐€佸畨瑁呫€佷笂浼犱互鍙婄鐞嗗凡缁忓畨瑁呯殑鍖呫€�<blockquote>
+<ul>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-install" target="_blank" rel="noopener">npm install 瀹夎妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-uninstall" target="_blank" rel="noopener">npm uninstall 鍗歌浇妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-update" target="_blank" rel="noopener">npm update 鏇存柊妯″潡</a></li>
+<li>[npm outdated 妫€鏌ユā鍧楁槸鍚﹀凡缁忚繃鏃禲(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-outdated" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-outdated</a>)</li>
+<li>[npm ls 鏌ョ湅瀹夎鐨勬ā鍧梋(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-ls" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-ls</a>)</li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-init" target="_blank" rel="noopener">npm init 鍦ㄩ」鐩腑寮曞鍒涘缓涓€涓猵ackage.json鏂囦欢</a> -y</li>
+<li>[npm help 鏌ョ湅鏌愭潯鍛戒护鐨勮缁嗗府鍔(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-help" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-help</a>)</li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-root" target="_blank" rel="noopener">npm root 鏌ョ湅鍖呯殑瀹夎璺緞</a></li>
+<li>[npm config 绠＄悊npm鐨勯厤缃矾寰刔(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-config" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-config</a>)</li>
+<li>[npm cache 绠＄悊妯″潡鐨勭紦瀛榏(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-cache" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-cache</a>)</li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-start" target="_blank" rel="noopener">npm start 鍚姩妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-stop" target="_blank" rel="noopener">npm stop 鍋滄妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-restart" target="_blank" rel="noopener">npm restart 閲嶆柊鍚姩妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-test" target="_blank" rel="noopener">npm test 娴嬭瘯妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-version" target="_blank" rel="noopener">npm version 鏌ョ湅妯″潡鐗堟湰</a></li>
+<li>[npm view 鏌ョ湅妯″潡鐨勬敞鍐屼俊鎭痌(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-view" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-view</a>)</li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-adduser" target="_blank" rel="noopener">npm adduser 鐢ㄦ埛鐧诲綍</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-publish" target="_blank" rel="noopener">npm publish 鍙戝竷妯″潡</a></li>
+<li><a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-access" target="_blank" rel="noopener">npm access 鍦ㄥ彂甯冪殑鍖呬笂璁剧疆璁块棶绾у埆</a></li>
+<li>[npm package.json鏂囦欢鐨勮娉昡(<a href="https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-package.json" target="_blank" rel="noopener">https://www.cnblogs.com/PeunZhang/p/5553574.html#npm-package.json</a>)<br>涓巒pm 鍛戒护鐩稿叧鐨勪袱涓� node_module 鍜� package.json</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init    //鐢熸垚package.json鏂囦欢</span><br><span class="line">npm init -y //鐢熸垚榛樿鐨刾ackage.json鏂囦欢</span><br></pre></td></tr></table></figure>
+瀹夎锛氬叏灞€瀹夎涓庢湰鍦板畨瑁�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">npm install express -g // 鍏ㄥ眬瀹夎</span><br><span class="line">npm install express  // 鏈湴瀹夎 瀹夎妯″潡鍒伴」鐩洰褰曚笅</span><br><span class="line">npm install -save moduleName // dependencies(閮ㄧ讲鐜)</span><br><span class="line">// -save 鐨勬剰鎬濇槸灏嗘ā鍧楀畨瑁呭埌椤圭洰鐩綍涓嬶紝骞跺湪package鏂囦欢鐨刣ependencies鑺傜偣鍐欏叆渚濊禆銆�</span><br><span class="line">npm install -save-dev moduleName  // devDependencies(寮€鍙戠幆澧�) </span><br><span class="line">// -save-dev 鐨勬剰鎬濇槸灏嗘ā鍧楀畨瑁呭埌椤圭洰鐩綍涓嬶紝骞跺湪package鏂囦欢鐨刣evDependencies鑺傜偣鍐欏叆渚濊禆銆�</span><br><span class="line">npm install gulp --save-optional 鎴� npm install gulp -O //-O, --save-optional 瀹夎鍖呬俊鎭皢鍔犲叆鍒皁ptionalDependencies锛堝彲閫夐樁娈电殑渚濊禆锛�</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Express 鏄竴绉嶄繚鎸佹渶浣庣▼搴﹁妯＄殑鐏垫椿 Node.js Web 搴旂敤绋嬪簭妗嗘灦锛屼负 Web 鍜岀Щ鍔ㄥ簲鐢ㄧ▼搴忔彁渚涗竴缁勫己澶х殑鍔熻兘銆�<br>瀹夎涓嶅悓鐨勭増鏈�</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install moduleName@lastest 鏈€鏂扮増鏈�</span><br><span class="line">npm install moduleName@鐗堟湰鍙�</span><br></pre></td></tr></table></figure>
+鏌ョ湅npm 鐨勭増鏈�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm v</span><br></pre></td></tr></table></figure>
+鏌ョ湅鎵€鏈夋ā鍧楃殑鐗堟湰<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm version</span><br></pre></td></tr></table></figure>
+npm install 鍛戒护榛樿浼氬畨瑁� package.json 涓� dependencies 瀛楁鍜� devDependencies 瀛楁涓殑鎵€鏈夋ā鍧楋紝<br>濡傛灉浣跨敤 –production 鍙傛暟锛屽彲浠ュ彧瀹夎 dependencies 锛堢敓浜х幆澧冪殑渚濊禆锛夊瓧娈电殑妯″潡銆�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install --production</span><br><span class="line"><span class="comment"># 鎴栬€�</span></span><br><span class="line">NODE_ENV=production npm install</span><br></pre></td></tr></table></figure>
+娣诲姞–only=dev瀹夎椤圭洰鎵€闇€渚濊禆鏃讹紝鍙湁devDependencies瀛楁涓殑渚濊禆鍖呬細琚畨瑁咃紝dependencies瀛楁涓殑渚濊禆鍖呬笉浼氳瀹夎銆備笌娣诲姞–production鐨勬晥鏋滃垰濂界浉鍙嶃€�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --only=dev</span><br></pre></td></tr></table></figure>
+npm install 涔熸敮鎸佺洿鎺ヨ緭鍏ithub浠ｇ爜鍦板潃<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install  git://github.com/package/path.git// git鐨勫湴鍧€</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>妯″紡</th>
+<th>鍙€氳繃 require 浣跨敤</th>
+<th>娉ㄥ唽 PATH</th>
+<th>瀹夎鐩綍</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>鏈湴妯″紡</td>
+<td>鏄�</td>
+<td>鍚�</td>
+<td>褰撳墠椤圭洰鐨� node_modules 瀛愮洰褰�</td>
+</tr>
+<tr>
+<td>鍏ㄥ眬妯″紡</td>
+<td>鍚︼紙鍛戒护琛岄噷浣跨敤锛�</td>
+<td>鏄�</td>
+<td>瀹夎鍦╪ode杞欢鐨勫畨瑁呯洰褰曚笅</td>
+</tr>
+<tr>
+<td>npm鍛戒护</td>
+<td>瀹夎妯″潡浣嶇疆</td>
+<td>package.json</td>
+<td>npm install 鍒濆鍖栭」鐩椂涓嶄細涓嬭浇妯″潡</td>
+</tr>
+<tr>
+<td>————————————————————</td>
+<td>——————–</td>
+<td>——————————————————</td>
+<td>————————————</td>
+</tr>
+<tr>
+<td>npm install moduleName</td>
+<td>椤圭洰node_modules鐩綍</td>
+<td><code>涓嶄細灏嗘ā鍧椾緷璧栧啓鍏evDependencies鎴杁ependencies 鑺傜偣</code></td>
+<td>涓嶄細</td>
+</tr>
+<tr>
+<td>npm install -g moduleName</td>
+<td>鍏ㄥ眬</td>
+<td><code>涓嶄細灏嗘ā鍧椾緷璧栧啓鍏evDependencies鎴杁ependencies 鑺傜偣</code></td>
+<td>涓嶄細</td>
+</tr>
+<tr>
+<td>npm install moduleName  -save//绠€鍐欙細npm install moduleName -S</td>
+<td>椤圭洰node_modules鐩綍</td>
+<td>浼氬皢妯″潡渚濊禆鍐欏叆dependencies 鑺傜偣</td>
+<td>涓嬭浇鍒伴」鐩洰褰曚笅</td>
+</tr>
+<tr>
+<td>npm install  moduleName -save-dev// 绠€鍐�: npm install moduleName -D</td>
+<td>椤圭洰node_modules鐩綍</td>
+<td>. 浼氬皢妯″潡渚濊禆鍐欏叆devDependencies 鑺傜偣</td>
+<td>涓嬭浇鍒伴」鐩洰褰曚笅</td>
+</tr>
+<tr>
+<td>鍗歌浇妯″潡</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall express //鏈湴妯″潡</span><br><span class="line">npm uninstall -g &lt;package&gt; //鍏ㄥ眬妯″潡 锛堜竴鑸兘鏄竴浜涘伐鍏凤級</span><br><span class="line">npm uninstall 妯″潡锛氬垹闄ゆā鍧楋紝浣嗕笉鍒犻櫎妯″潡鐣欏湪package.json涓殑瀵瑰簲淇℃伅</span><br><span class="line">npm uninstall 妯″潡 --save 鍒犻櫎妯″潡锛屽悓鏃跺垹闄ゆā鍧楃暀鍦╬ackage.json涓璬ependencies涓嬬殑瀵瑰簲淇℃伅</span><br><span class="line">npm uninstall 妯″潡 --save-dev 鍒犻櫎妯″潡锛屽悓鏃跺垹闄ゆā鍧楃暀鍦╬ackage.json涓璬evDependencies涓嬬殑瀵瑰簲淇℃伅</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鍗歌浇瀹屼互鍚庢煡鐪嬩竴涓嬭妯″潡鏄惁瀛樺湪</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm ls</span><br><span class="line">npm list -g // 鏌ョ湅瀹夎淇℃伅</span><br><span class="line">npm list 鍛戒护涔熷彲浠ュ垪鍑哄崟涓ā鍧�</span><br><span class="line">npm list underscore</span><br><span class="line">npm list &lt;packagename&gt; </span><br><span class="line">PS C:\Users\by\Desktop\jsPang\awesomePos&gt; npm list element-ui</span><br><span class="line">awesome_pos@1.0.0 C:\Users\by\Desktop\jsPang\awesomePos</span><br><span class="line">`-- element-ui@2.2.2</span><br><span class="line">npm list &lt;packagename&gt; -g</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鏇存柊妯″潡</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update moduleName(express)</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鎼滅储妯″潡</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm search express</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>妯″潡鐨勫叿浣撲俊鎭�</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm info underscore &#x2F;&#x2F;鏌ョ湅underscore 妯″潡鐨勪俊鎭�</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>npm run</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>npm 涓嶄粎鍙互鐢ㄤ簬妯″潡绠＄悊锛岃繕鍙互鐢ㄤ簬鎵ц鑴氭湰銆俻ackage.json 鏂囦欢鏈変竴涓� scripts 瀛楁锛屽彲浠ョ敤浜庢寚瀹氳剼鏈懡浠わ紝渚� npm 鐩存帴璋冪敤銆�</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;lint&quot;: &quot;jshint **.js&quot;,</span><br><span class="line">    &quot;test&quot;: &quot;mocha test&#x2F;&quot;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>鐗堟湰鍙� <code>NPM浣跨敤璇箟鐗堟湰鍙锋潵绠＄悊浠ｇ爜</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>璇箟鐗堟湰鍙峰垎涓篨.Y.Z涓変綅锛屽垎鍒唬琛ㄤ富鐗堟湰鍙枫€佹鐗堟湰鍙峰拰琛ヤ竵鐗堟湰鍙枫€�</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</li>
+<li>濡傛灉鍙槸淇bug锛岄渶瑕佹洿鏂癦浣嶃€�</li>
+<li>濡傛灉鏄柊澧炰簡鍔熻兘锛屼絾鏄悜涓嬪吋瀹癸紝闇€瑕佹洿鏂癥浣嶃€�</li>
+<li>濡傛灉鏈夊ぇ鍙樺姩锛屽悜涓嬩笉鍏煎锛岄渶瑕佹洿鏂癤浣嶃€�<br>鐗堟湰鍙锋湁浜嗚繖涓繚璇佸悗锛屽湪鐢虫槑绗笁鏂瑰寘渚濊禆鏃讹紝闄や簡鍙緷璧栦簬涓€涓浐瀹氱増鏈彿澶栵紝杩樺彲渚濊禆浜庢煇涓寖鍥寸殑鐗堟湰鍙枫€備緥濡�”argv”: “0.0.x”琛ㄧず渚濊禆浜�0.0.x绯诲垪鐨勬渶鏂扮増argv銆�<h2 id="nrm闀滃儚鍒囨崲鍦板潃"><a href="#nrm闀滃儚鍒囨崲鍦板潃" class="headerlink" title="nrm闀滃儚鍒囨崲鍦板潃"></a>nrm闀滃儚鍒囨崲鍦板潃</h2></li>
+</ul>
+<p><strong>浣滅敤锛氭彁渚涗竴浜涙渶甯哥敤鐨凬PM鍖呴暅鍍忓湴鍧€锛岃兘澶熻鎴戜滑蹇€熺殑鍒囨崲瀹夎鍖呯殑鏈嶅姟鍣ㄥ湴鍧€锛�</strong><br>浠€涔堟槸闀滃儚锛氬師鏈寘鍒氫竴寮€濮嬪彧鏄瓨鍦ㄤ簬鍥藉鐨凬PM鏈嶅姟鍣紝浣嗘槸鐢变簬缃戠粶鍘熷洜锛岀粡甯歌闂笉鍒帮紝杩欐椂鍊欙紝鎴戜滑鍙互鍦ㄥ浗鍐呭垱寤轰竴涓拰瀹樼綉瀹屽叏涓€鏍风殑NPM鏈嶅姟鍣紝鍙笉杩囷紝鏁版嵁閮芥槸浠庝汉瀹堕偅閲屾嬁杩囨潵鐨勶紝闄ゆ涔嬪锛屼娇鐢ㄦ柟寮忓畬鍏ㄤ竴鏍凤細</p>
+<ul>
+<li>鍏ㄥ眬瀹夎nrm鍖卬pm <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i 杞欢鍖� -g</span><br><span class="line">npm i nrm -g </span><br><span class="line">npm i cnpm -g</span><br></pre></td></tr></table></figure></li>
+<li>鏌ョ湅褰撳墠鎵€鏈夊彲鐢ㄩ暅鍍忓湴鍧€浠ュ強褰撳墠鎵€浣跨敤鐨勯暅鍍忔簮鍦板潃<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure></li>
+<li>鍒囨崲涓嶅悓鐨勯暅鍍忔簮鍦板潃<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nrm use 闀滃儚婧愬湴鍧€</span><br><span class="line">nrm use npm </span><br><span class="line">nrm use taobo</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>nrm鍙槸鍗曠函鎻愪緵鍑犱釜甯哥敤鐨勪笅杞藉寘鐨刄RL鍦板潃锛屽苟鑳藉璁╂垜浠湪杩欏嚑涓湴鍧€涔嬮棿锛屽緢鏂逛究鐨勮繘琛屽垏鎹紝浣嗘槸锛屾垜浠瘡娆¤鍖呯殑鏃跺€欙紝浣跨敤鐨勮鍖呭伐鍏凤紝閮芥槸npm</p>
+</blockquote>
+<h2 id="鎬荤粨锛歸ebpack鍩烘湰閰嶇疆"><a href="#鎬荤粨锛歸ebpack鍩烘湰閰嶇疆" class="headerlink" title="鎬荤粨锛歸ebpack鍩烘湰閰嶇疆"></a>鎬荤粨锛歸ebpack鍩烘湰閰嶇疆</h2><h4 id="瀹夎"><a href="#瀹夎" class="headerlink" title="瀹夎"></a>瀹夎</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line">npm i webpack-cli -g</span><br><span class="line">npm i webpack -g</span><br><span class="line">npm i webpack-cli -D</span><br><span class="line">npm i webpack -D</span><br></pre></td></tr></table></figure>
+<h4 id="杩愯涓€-鍛戒护琛�-杈撳叆瀹屾暣璺緞杩愯-鎵嬪姩"><a href="#杩愯涓€-鍛戒护琛�-杈撳叆瀹屾暣璺緞杩愯-鎵嬪姩" class="headerlink" title="杩愯涓€ 鍛戒护琛�  杈撳叆瀹屾暣璺緞杩愯 鎵嬪姩"></a>杩愯涓€ 鍛戒护琛�  杈撳叆瀹屾暣璺緞杩愯 鎵嬪姩</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//1. 杩愯鐨勭涓€绉嶆柟娉�</span><br><span class="line">webpack .\src\main.js -o .\dist\bundle.js</span><br></pre></td></tr></table></figure>
+<h3 id="webpack-dev-server"><a href="#webpack-dev-server" class="headerlink" title="webpack-dev-server"></a>webpack-dev-server</h3><h4 id="杩愯浜岋細閰嶇疆webpack-config-js-杩愯-鎵嬪姩"><a href="#杩愯浜岋細閰嶇疆webpack-config-js-杩愯-鎵嬪姩" class="headerlink" title="杩愯浜岋細閰嶇疆webpack.config.js 杩愯 鎵嬪姩"></a>杩愯浜岋細閰嶇疆webpack.config.js 杩愯 鎵嬪姩</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack-dev-server -D</span><br><span class="line"><span class="comment">//webpack鏄熀浜嶯ode杩涜鏋勫缓鐨勶紝鎵€鏈夛紝webpack鐨勯厤缃枃浠朵腑锛屼换浣曞悎娉曠殑Node浠ｇ爜閮芥槸鏀寔鐨�</span></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="comment">// ES6鍐欐硶</span></span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> jqurey;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	entry.path.join(_dirname,<span class="string">'./src/main.js'</span>), <span class="comment">//杈撳嚭璺緞</span></span><br><span class="line">	output:&#123;</span><br><span class="line">		path:path.join(_dirname,<span class="string">'./dist'</span>),</span><br><span class="line">		filename:<span class="string">'bundle.js'</span> <span class="comment">//鎸囧畾杈撳嚭鏂囦欢鐨勫悕绉�</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">webpack</span><br></pre></td></tr></table></figure>
+<h4 id="杩愯涓夛細閰嶇疆package-json-script-杩愯-鑷姩杩愯"><a href="#杩愯涓夛細閰嶇疆package-json-script-杩愯-鑷姩杩愯" class="headerlink" title="杩愯涓夛細閰嶇疆package.json script 杩愯 鑷姩杩愯"></a>杩愯涓夛細閰嶇疆package.json script 杩愯 鑷姩杩愯</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack-dev-server -D</span><br><span class="line">script:</span><br><span class="line"><span class="string">"dev"</span>: <span class="string">"webpack-dev-server --open --port 3000 --contentBase src --hot"</span></span><br><span class="line">--open</span><br><span class="line">--port 3000</span><br><span class="line">--contentBase 鍐呭</span><br><span class="line">--hot</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+webpack-dev-server 涓殑script<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"./bist/bundle.js"</span>/&gt;</span><br><span class="line">&lt;script src=<span class="string">"./bundle.js"</span> /&gt;</span><br><span class="line">webpack-dev-server搴旇瀵煎叆鐨勬槸鍔犺浇鍒板唴瀛樹腑鐨刡undle鏂囦欢锛岃€屼笉鏄疄闄呯鐩樹腑鐨刡undle.js 鏂囦欢</span><br></pre></td></tr></table></figure>
+<h3 id="html-webpack-plugin-閰嶇疆index涓婚〉"><a href="#html-webpack-plugin-閰嶇疆index涓婚〉" class="headerlink" title="html-webpack-plugin 閰嶇疆index涓婚〉"></a>html-webpack-plugin 閰嶇疆index涓婚〉</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">npm i html-webpack-plugin -D</span><br><span class="line"><span class="comment">// 閰嶇疆鎻掍欢锛岄渶瑕佸湪瀵煎嚭鐨勫璞′腑锛宲lugins鎸傝浇鑺傜偣</span></span><br><span class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line">plugins:[</span><br><span class="line"><span class="comment">//鍒涘缓涓€涓湪鍐呭瓨涓紝鐢熸垚HTML椤甸潰鐨勬彃浠�</span></span><br><span class="line">   <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">   	template:path.join(_dirname,<span class="string">'./src/index.html'</span>,</span><br><span class="line">   	<span class="comment">//鎸囧畾妯℃澘椤甸潰锛屼細鏍规嵁鎸囧畾鐨勯〉闈㈣矾寰勶紝鍘荤敓鎴愬唴瀛樹腑鐨勯〉闈�</span></span><br><span class="line">   	filename:<span class="string">'index.html'</span> <span class="comment">//鎸囧畾鐢熸垚鐨勯〉闈㈢殑鍚嶇О</span></span><br><span class="line">   &#125;)</span><br><span class="line">]</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+閲嶇偣涓�<h4 id="loader-瀵煎叆鍏朵粬鏂囦欢"><a href="#loader-瀵煎叆鍏朵粬鏂囦欢" class="headerlink" title="loader  瀵煎叆鍏朵粬鏂囦欢"></a>loader  瀵煎叆鍏朵粬鏂囦欢</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">const</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">import</span> $ <span class="keyword">from</span> <span class="string">'jquery'</span> </span><br><span class="line"><span class="keyword">import</span> <span class="string">'./css/index.css'</span></span><br><span class="line"><span class="keyword">import</span> <span class="string">'boostrap/dist/css/bootstrap.css'</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: path.join(__dirname, <span class="string">'./src/main.js'</span>),</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname, <span class="string">'./dist/'</span>),</span><br><span class="line">        filename: <span class="string">'bundle.js'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        rules: [</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>] &#125;,</span><br><span class="line">            &#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.sass$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loaer'</span>, <span class="string">'sass-loader'</span>] &#125;,</span><br><span class="line">            &#123; <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader'</span> &#125;,</span><br><span class="line">            &#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=7631$name=[name].[ext]'</span>&#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">            template: path.join(__dirname, <span class="string">'./src/index.html'</span>),</span><br><span class="line">            filename:<span class="string">'index.html'</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="瀛椾綋"><a href="#瀛椾綋" class="headerlink" title="瀛椾綋"></a>瀛椾綋</h2><a href="https://zhuanlan.zhihu.com/p/28179203" target="_blank" rel="noopener">Web 瀛椾綋绠€浠�: TTF, OTF, WOFF, EOT $ SVG - 鐭ヤ箮</a><br>ttf TrueType瀛楀瀷鏂囦欢<br>瀛椾綋鏍煎紡鏈夊お澶氶€夋嫨锛屼笉骞哥殑鏄缁�<strong>娌℃湁涓€涓兘鍦ㄦ墍鏈夌殑娴忚鍣ㄤ笂閫氱敤</strong>銆傝繖鎰忓懗鐫€锛屼綘蹇呴』浣跨敤澶氱瀛椾綋鐨勬柟妗堟潵淇濇寔<strong>鐢ㄦ埛璺ㄥ钩鍙扮殑涓€鑷存€т綋楠�</strong>銆�<h2 id="webpack瀹夎鐨勫伐鍏�"><a href="#webpack瀹夎鐨勫伐鍏�" class="headerlink" title="webpack瀹夎鐨勫伐鍏�"></a>webpack瀹夎鐨勫伐鍏�</h2></li>
+<li>webpack</li>
+<li>webpack-cli webpack4.x鐗堟湰浠ヤ笂瑕佸畨瑁厀ebpack-cli</li>
+<li>plugin(鎻掍欢)<ul>
+<li>webpack-dev-server</li>
+<li>html-webpack-plugin</li>
+</ul>
+</li>
+<li>loader(鍔犺浇鍣�)<ul>
+<li>css銆乴ess銆乻css</li>
+<li>image</li>
+<li>font<h2 id="webpack-姒傚康鐨勫紩鍏�"><a href="#webpack-姒傚康鐨勫紩鍏�" class="headerlink" title="webpack-姒傚康鐨勫紩鍏�"></a>webpack-姒傚康鐨勫紩鍏�</h2><h3 id="缃戦〉涓細寮曠敤閭d簺甯哥敤鐨勯潤鎬佽祫婧�"><a href="#缃戦〉涓細寮曠敤閭d簺甯哥敤鐨勯潤鎬佽祫婧�" class="headerlink" title="缃戦〉涓細寮曠敤閭ｄ簺甯哥敤鐨勯潤鎬佽祫婧�"></a>缃戦〉涓細寮曠敤閭ｄ簺甯哥敤鐨勯潤鎬佽祫婧�</h3><table>
+<thead>
+<tr>
+<th>闈欐€佽祫婧�</th>
+<th align="center">鏂囦欢鍚庣紑</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JS</td>
+<td align="center">.js銆�.jsx銆�.coffee銆�.ts(TypeScript 绫� C# 璇█)</td>
+</tr>
+<tr>
+<td>CSS</td>
+<td align="center">css銆乴ess銆乻ass 銆�(.css銆�.less銆�.sass锛堟棫鐗堟湰锛夈€�.scss锛堟柊鐗堟湰锛�</td>
+</tr>
+<tr>
+<td>Images</td>
+<td align="center">.jpg銆�.png 銆�.gif銆�.bmp銆�.svg</td>
+</tr>
+<tr>
+<td>瀛椾綋鏂囦欢(font)</td>
+<td align="center">.svg 銆�.ttf 銆� .otf銆乪ot銆� .woff銆� .woff2</td>
+</tr>
+<tr>
+<td>妯℃澘鏂囦欢</td>
+<td align="center">.ejs銆�.jade銆�.vue[杩欐槸鍦╳ebpack涓畾涔夌粍浠剁殑鏂瑰紡锛屾帹鑽愯繖涔堢敤]</td>
+</tr>
+<tr>
+<td>### 缃戦〉寮曠敤闈欐€佽祫婧愬浜嗕互鍚庢湁浠€涔堥棶棰�</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li>缃戦〉鍔犺浇閫熷害鎱紝鍥犱负鎴戜滑瑕佸彂璧峰緢澶氱殑浜屾璇锋眰</li>
+<li>瑕佸鐞嗛敊缁煎鏉傜殑渚濊禆鍏崇郴<h3 id="瑙e喅闂"><a href="#瑙e喅闂" class="headerlink" title="瑙ｅ喅闂"></a>瑙ｅ喅闂</h3></li>
+</ul>
+<ol>
+<li>鍚堝苟銆佸帇缂┿€佺簿鐏靛浘锛圕SS Sprites(.绮剧伒)锛夈€佸浘鐗囩殑Base64缂栫爜锛堥€傜敤浜庡皬鍥剧墖锛�</li>
+<li>鍙互浣跨敤涔嬪墠瀛﹁繃鐨剅equireJS銆佷篃鍙互浣跨敤webpack瑙ｅ喅鍚勪釜鍖呬箣闂寸殑澶嶆潅渚濊禆鍏崇郴<br>鍥剧墖鐨勭浉鍏充紭鍖栭棶棰橈細 鍑忓皯http璇锋眰锛屽噺灏戝浘鐗囧崰鐢ㄧ殑绌洪棿<blockquote>
+<p>[銆愬墠绔敾鐣ャ€戯細鐜╄浆鍥剧墖Base64缂栫爜 - ChokCoco - 鍗氬鍥璢(<a href="https://www.cnblogs.com/coco1s/p/4375774.html" target="_blank" rel="noopener">https://www.cnblogs.com/coco1s/p/4375774.html</a>)</p>
+<p>鍥剧墖鐨� base64 缂栫爜灏辨槸鍙互灏嗕竴鍓浘鐗囨暟鎹紪鐮佹垚涓€涓插瓧绗︿覆锛屼娇鐢ㄨ瀛楃涓蹭唬鏇垮浘鍍忓湴鍧€銆� 鑺傜渷涓€涓� http 璇锋眰</p>
+<p><strong>濡傛灉鍥剧墖瓒冲灏忎笖鍥犱负鐢ㄥ鐨勭壒娈婃€ф棤娉曡鍒朵綔鎴愰洩纰у浘锛圕ssSprites锛夛紝鍦ㄦ暣涓綉绔欑殑澶嶇敤鎬у緢楂樹笖鍩烘湰涓嶄細琚洿鏂�</strong>銆�</p>
+<p><strong>浣跨敤base64鐩存帴鎶婂浘鐗囩紪鐮佹垚瀛楃涓插啓鍏SS鏂囦欢锛�</strong></p>
+<p>鍙湁 50 瀛楄妭鐨�2*2鐨勭殑鑳屾櫙鍥俱€傚皢鍏惰浆鍖栨垚 base64 缂栫爜锛屽彧鏈� 100 澶氫釜瀛楃锛岀浉姣斾竴涓� http 璇锋眰</p>
+<p> <strong>浣跨敤 Base64 涓嶄唬琛ㄦ€ц兘浼樺寲</strong></p>
+<p>鏄殑锛屼娇鐢� Base64 鐨勫ソ澶勬槸鑳藉鍑忓皯涓€涓浘鐗囩殑 HTTP 璇锋眰锛岀劧鑰岋紝涓庝箣鍚屾椂浠樺嚭鐨勪唬浠峰垯鏄� CSS 鏂囦欢浣撶Н鐨勫澶с€�</p>
+<p> CSS 鏂囦欢浣撶Н鐨勫澶ф剰鍛崇潃浠€涔堝憿锛熸剰鍛崇潃 CRP 鐨勯樆濉炪€�</p>
+<p>CRP锛圕ritical Rendering Path锛屽叧閿覆鏌撹矾寰勶級锛氬綋娴忚鍣ㄤ粠鏈嶅姟鍣ㄦ帴鏀跺埌涓€涓狧TML椤甸潰鐨勮姹傛椂锛屽埌灞忓箷涓婃覆鏌撳嚭鏉ヨ缁忚繃寰堝涓楠ゃ€傛祻瑙堝櫒瀹屾垚杩欎竴绯诲垪鐨勮繍琛岋紝鎴栬€呰娓叉煋鍑烘潵鎴戜滑甯稿父绉颁箣涓衡€�<strong>鍏抽敭娓叉煋璺緞</strong>鈥濄€�</p>
+<p>閫氫織鑰岃█锛屽氨鏄浘鐗囦笉浼氬鑷村叧閿覆鏌撹矾寰勭殑闃诲锛岃€岃浆鍖栦负 Base64 鐨勫浘鐗囧ぇ澶у鍔犱簡 CSS 鏂囦欢鐨勪綋绉紝CSS 鏂囦欢鐨勪綋绉洿鎺ュ奖鍝嶆覆鏌擄紝瀵艰嚧鐢ㄦ埛浼氶暱鏃堕棿娉ㄨ绌虹櫧灞忓箷銆侶TML 鍜� CSS 浼氶樆濉炴覆鏌擄紝鑰屽浘鐗囦笉浼氥€�</p>
+<p>椤甸潰瑙ｆ瀽 CSS 鐢熸垚鐨� CSSOM 鏃堕棿澧炲姞</p>
+<p><a href="https://segmentfault.com/a/1190000007686042" target="_blank" rel="noopener">(…) 娴呰皥 CSS Sprites 闆ⅶ鍥惧簲鐢� - 娴呰皥鍓嶇 - SegmentFault 鎬濆惁</a></p>
+<p><strong>浣跨敤CssSprites鍚堝苟涓轰竴寮犲ぇ鍥撅細</strong></p>
+<p>[CSS Sprite(绮剧伒鍥�)闆ⅶ鍥剧敤娉曡棰戞暀绋�-鎱曡缃慮(<a href="http://www.imooc.com/learn/93" target="_blank" rel="noopener">http://www.imooc.com/learn/93</a>)</p>
+</blockquote>
+<h3 id="瑙e喅涓婅堪鐨�2绉嶈В鍐虫柟妗�"><a href="#瑙e喅涓婅堪鐨�2绉嶈В鍐虫柟妗�" class="headerlink" title="瑙ｅ喅涓婅堪鐨�2绉嶈В鍐虫柟妗�"></a>瑙ｅ喅涓婅堪鐨�2绉嶈В鍐虫柟妗�</h3></li>
+<li>浣跨敤Gulp锛屾槸鍩轰簬task浠诲姟鐨勶紙灏忓阀鐏垫椿锛�</li>
+<li>浣跨敤Webpack锛屾槸鍩轰簬鏁翠釜椤圭洰杩涜鏋勫缓鐨�<ul>
+<li>webpack瀹樼綉</li>
+<li>瀹樼綉鐨勫浘鐗囦粙缁峸ebpack鎵撳寘鐨勮繃绋�</li>
+<li>鍊熷姪浜巜ebpack杩欎釜鍓嶇鑷姩鍖栨瀯寤哄伐鍏凤紝鍙互瀹岀編瀹炵幇璧勬簮鐨勫悎骞躲€佹墦鍖呫€佸帇缂┿€佹贩娣嗙瓑璇稿鍔熻兘<h3 id="webpack鐩綍"><a href="#webpack鐩綍" class="headerlink" title="webpack鐩綍"></a>webpack鐩綍</h3><blockquote>
+<p>src 婧愪唬鐮�</p>
+<p>鈥�    css</p>
+<p>鈥�    js</p>
+<p>鈥�    images</p>
+<p>鈥�    index.html</p>
+<p>鈥�    main.js 椤圭洰JS鍏ュ彛鏂囦欢</p>
+<p>dist  瀹屾垚椤圭洰锛屽彂甯冨畬鏁撮」鐩殑鏂囦欢澶�</p>
+</blockquote>
+<h2 id="webpack鏈€鍩烘湰鐭ヨ瘑"><a href="#webpack鏈€鍩烘湰鐭ヨ瘑" class="headerlink" title="webpack鏈€鍩烘湰鐭ヨ瘑"></a>webpack鏈€鍩烘湰鐭ヨ瘑</h2><h3 id="浠€涔堟槸webpack"><a href="#浠€涔堟槸webpack" class="headerlink" title="浠€涔堟槸webpack"></a>浠€涔堟槸webpack</h3></li>
+</ul>
+</li>
+</ol>
+<hr>
+<blockquote>
+<p>webpack 鐨勭増鏈�  webpack v4.43.0<br>[webpack 涓枃缃慮(<a href="https://www.webpackjs.com/guides/installation/" target="_blank" rel="noopener">https://www.webpackjs.com/guides/installation/</a>)<br><a href="https://www.webpackjs.com/" target="_blank" rel="noopener">webpack</a>鏄�<strong>鍓嶇鐨勪竴涓」鐩瀯寤哄伐鍏�</strong>銆佸畠鏄熀浜嶯ode.js寮€鍙戝嚭鏉ョ殑涓€涓墠绔伐鍏�<br>椤圭洰鍚嶄笉鑳戒笌鐜版湁鍖呭悕涓€鑷� webpack node vue react<br>webpack瀹夎 webpack 渚濊禆浜� webpack-cli </p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack-cli -g // 鍏ㄥ眬瀹夎</span><br><span class="line">npm install webpack@3.10.0 -g</span><br><span class="line">npm i webpack -g // 鍏ㄥ眬瀹夎</span><br><span class="line">//npm i webpack-cli -D ?</span><br><span class="line">cnpm i webpack -D // 瀹夎鍒板紑鍙戠幆澧冧緷璧栦腑 --save-dev</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>webpack  鍜� webpack-cli 鐨勫尯鍒� webpack-cli 鏄痺ebpack 鐨勫懡浠よ宸ュ叿</p>
+<p>浣跨敤Webpack 4.x鐨勫懡浠よ闇€瑕佸畨瑁呭崟鐙殑鍛戒护琛屽伐鍏�<br>鍦ㄩ」鐩腑鏍圭洰褰曚腑杩愯鍛戒护瀹夎鍒伴」鐩紑鍙戜緷璧栦腑</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack --save-dev // 寮€鍙戠幆澧冧緷璧�</span><br><span class="line">npm i webpack -D</span><br></pre></td></tr></table></figure>
+<p>鍒濆鍖栭」鐩�(浣跨敤npm绠＄悊椤圭洰涓殑渚濊禆鍖�)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br><span class="line">npm init</span><br></pre></td></tr></table></figure>
+<p>瀹夎jQuery</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i jquery -S  //--save 鐢熶骇渚濊禆</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>璇尯锛氬畨瑁呯殑鏄痡query 鍖� 鑰屼笉鏄� jQuery鍖� 杩欎袱涓寘涓嶆槸鍚屼竴涓増鏈�<br>webpack杩愯</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">webpack .\src\main.js -o .\dest\bundle.js</span><br><span class="line">webpack 瑕佹墦鍖呯殑鏂囦欢璺緞 -o 鎵撳寘濂界殑杈撳嚭鏂囦欢鐨勮矾寰�</span><br><span class="line">鍘熸潵webpack鐨勬墦鍖卌li鍛戒护宸叉敼涓猴細</span><br><span class="line">webpack &lt;entry&gt; [&lt;entry&gt;] -o &lt;output&gt;</span><br><span class="line">webpack .\src\main.js -o .\dist\bundle.js</span><br></pre></td></tr></table></figure>
+<p>webpack鐨勪綔鐢�</p>
+<ol>
+<li>webpack鑳藉澶勭悊JS鏂囦欢鐨勭浉浜掍緷璧栧叧绯伙紙鍙互鎶婃枃浠跺鍏ュ埌 main.js 涓級</li>
+<li>webpack鑳藉澶勭悊JS鐨勫吋瀹归棶棰橈紝鎶婇珮绾х殑銆佹祻瑙堝櫒涓嶈兘璇嗗埆鐨勮娉曡浆涓轰綆绾х殑銆佹祻瑙堝櫒鑳芥甯歌瘑鍒殑璇硶<br>瀵煎叆jquery<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">main.js 鏂囦欢</span><br><span class="line">import $ from <span class="string">'jquery'</span> 灏忓啓鍗曞紩鍙�</span><br></pre></td></tr></table></figure>
+ES6瀵煎叆璇硶<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ** <span class="keyword">from</span> ** <span class="comment">//鏄疎S6涓鍏ユā鍧楃殑鏂瑰紡</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> * = <span class="built_in">require</span>(<span class="string">'*'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤"><a href="#webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤" class="headerlink" title="webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤"></a>webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤</h3></li>
+</ol>
+<hr>
+<h4 id="webpack-config-js"><a href="#webpack-config-js" class="headerlink" title="webpack.config.js"></a><code>webpack.config.js</code></h4><p>Webpack鍏锋湁鍥涗釜鏍稿績鐨勬蹇碉紝鎯宠鍏ラ棬Webpack灏卞緱鍏堝ソ濂戒簡瑙ｈ繖鍥涗釜鏍稿績姒傚康銆傚畠浠垎鍒槸<code>Entry锛堝叆鍙ｏ級</code>銆乣Output锛堣緭鍑猴級<code>銆乣loader</code>鍜宍Plugins锛堟彃浠讹級<code>銆傛帴涓嬫潵璇︾粏浠嬬粛杩欏洓涓牳蹇冩蹇点€�</code>webpack.config.js `杩欎釜閰嶇疆鏂囦欢锛岃捣濮嬪氨鏄竴涓狫S鏂囦欢锛岄€氳繃Node涓殑妯″潡鎿嶄綔锛屽悜澶栨毚闇蹭簡涓€涓厤缃璞�</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="comment">// 鍦ㄩ厤缃枃浠朵腑锛岄渶瑕佹墜鍔ㄦ寚瀹氬叆鍙ｅ拰鍑哄彛 exports鍑哄彛</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line"><span class="comment">//	鍏ュ彛锛岃〃绀猴紝瑕佷娇鐢╳ebpack鎵撳寘閭ｄ釜鏂囦欢</span></span><br><span class="line">	entry:path.join(_dirname,<span class="string">'./src/main.js'</span>), </span><br><span class="line">	output:&#123; <span class="comment">// 杈撳嚭鏂囦欢鐩稿叧鐨勯厤缃�</span></span><br><span class="line">		path:path.join(_dirname,<span class="string">'./dist'</span>),<span class="comment">//鎸囧畾鎵撳寘濂界殑鏂囦欢锛岃緭鍑哄埌鍝釜鐩綍涓幓</span></span><br><span class="line">		filename:<span class="string">'bundle.js'</span> <span class="comment">//杈撳嚭鐨勬枃浠剁殑鍚嶇О</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="webpack杩愯鍛戒护琛�"><a href="#webpack杩愯鍛戒护琛�" class="headerlink" title="webpack杩愯鍛戒护琛�"></a>webpack杩愯鍛戒护琛�</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">webpack</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>鏂板缓webpack.config.js鏂囦欢<br>鎺у埗鍙拌緭鍑簑ebpack鍛戒护鎵ц鐨勬椂鍊欙紝webpack鍋氫簡浠ヤ笅鍑犳锛�</p>
+<ol>
+<li>棣栧厛锛寃ebpack 鍙戠幇锛屾垜浠苟娌℃湁閫氳繃鍛戒护鐨勫舰寮忥紝缁欎粬鎸囧畾鍏ュ彛鍜屽嚭鍙�</li>
+<li>webpack灏变細鍘婚」鐩殑鏍圭洰褰曚腑锛屾煡鎵句竴涓彨鍋歸ebpack.config.js鐨勯厤缃枃浠�</li>
+<li>褰撴壘鍒伴厤缃枃浠跺悗锛寃ebpack浼氭墽琛岃繖涓厤缃枃浠讹紝褰撹В鏋愭墽琛屽畬閰嶇疆鏂囦欢鍚庯紝灏卞緱鍒颁簡閰嶇疆鏂囦欢涓紝瀵煎嚭鐨勯厤缃璞�</li>
+<li>褰搘ebpack鎷垮埌閰嶇疆瀵硅薄鍚庯紝灏辨嬁鍒颁簡閰嶇疆瀵硅薄涓紝鎸囧畾鐨勫叆鍙ｅ拰鍑哄彛锛岀劧鍚庤繘琛屾墦鍖呮瀯寤�</li>
+</ol>
+</blockquote>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a><code>package.json</code></h4><p><strong>鍦ㄨ繖涓枃浠朵腑鎵惧埌鈥渟cripts鈥濊妭鐐瑰姞鍏ワ細</strong><br> <strong>“dev”: “webpack –mode development”, // 寮€鍙戠幆澧�</strong><br><strong>“build”: “webpack –mode production” // 鐢熶骇鐜</strong></p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"Webpack"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"test"</span>: <span class="string">"echo \"Error: no test specified\" $$ exit 1"</span>,</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack --mode development"</span>, <span class="comment">// 寮€鍙戠幆澧�</span></span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"webpack --mode production"</span> <span class="comment">// 鐢熶骇鐜</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"keywords"</span>: [],</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"jquery"</span>: <span class="string">"^3.4.1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="webpack涔媝lugin閰嶇疆鍜屼娇鐢�"><a href="#webpack涔媝lugin閰嶇疆鍜屼娇鐢�" class="headerlink" title="webpack涔媝lugin閰嶇疆鍜屼娇鐢�"></a>webpack涔媝lugin閰嶇疆鍜屼娇鐢�</h3><hr>
+<ul>
+<li>webpack-dev-server</li>
+<li>html-webpack-plugin<br>plugin 鎻掍欢锛涚浉鍏虫彃浠�<h4 id="webpack-dev-server鎻掍欢-鑷姩杩愯椤圭洰"><a href="#webpack-dev-server鎻掍欢-鑷姩杩愯椤圭洰" class="headerlink" title="webpack-dev-server鎻掍欢 鑷姩杩愯椤圭洰"></a>webpack-dev-server鎻掍欢 <code>鑷姩杩愯</code>椤圭洰</h4><blockquote>
+<p> “webpack”: “^3.10.0”,<br> “webpack-dev-server”: “^2.9.7”<br>瀹夎</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//鍓嶆彁瑕佸湪webpack瀹夎濂藉叏灞€瀹夎鐨剋ebpack 鍜� webpack</span><br><span class="line">npm install webpack-cli -D // webpack4.x浠ヤ笂鎵嶈鍛戒护琛屽伐鍏� 涓€瀹氳瀹夎</span><br><span class="line">npm install webpack@3.10.0 -D  // 寮€鍙戜緷璧�</span><br><span class="line">npm install webpack-dev-server@2.9.7 -D</span><br></pre></td></tr></table></figure>
+webpack-dev-server宸ュ叿锛屾潵杩涜<strong>鑷姩鎵撳寘缂栬瘧鐨勫姛鑳�</strong> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">npm i webpack-dev-server -D</span><br><span class="line">&#x2F;&#x2F;鎶婅繖涓伐鍏峰畨瑁呭埌椤圭洰鐨勬湰鍦板紑鍙戜緷璧�,鏈湴椤圭洰瀹夎锛屼笉鏄叏灞€瀹夎</span><br><span class="line">package.json</span><br><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">    &quot;test&quot;: &quot;echo \&quot;Error: no test specified\&quot; $$ exit 1&quot;,</span><br><span class="line">    &quot;dev&quot;: &quot;webpack-dev-server&quot;, &#x2F;&#x2F; &quot;dev&quot;: &quot;webpack --mode development&quot;, &#x2F;&#x2F; 寮€鍙戠幆澧�</span><br><span class="line">    &quot;build&quot;: &quot;webpack --mode production&quot;</span><br><span class="line">&#125;,</span><br><span class="line">npm run dev</span><br><span class="line">&quot;build&quot;: &quot;webpack --config webpack.dev.config.js&quot;,</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>webpack-dev-server杩欎釜宸ュ叿锛屽鏋滄兂瑕佹甯歌繍琛岋紝瑕佹眰锛屽湪鏈湴椤圭洰涓紝蹇呴』瀹夎webpack</p>
+<p>webpack-dev-server鎵撳寘鐢熸垚鐨刡undle.js鏂囦欢锛屽苟娌℃湁瀛樻斁鍒板疄闄呯殑鐗╃悊纾佺洏涓紝鑰屾槸瀛樻斁鍦ㄥ唴瀛樹腑锛岄」鐩牴鐩綍鎵句笉鍒版墦鍖呭ソ鐨刡undle.js鏂囦欢</p>
+<p>webpack-dev-server 鎶婃垜浠墦鍖呯敓鎴愮殑鏂囦欢锛屼互涓€绉嶈櫄鎷熺殑褰㈠紡锛屾墭绠″埌浜嗛」鐩殑鏍圭洰褰曚腑锛岃櫧鐒剁湅涓嶅埌瀹冿紝浣嗘槸锛屽彲浠ヨ涓哄拰dist src node_modules 鐩綍骞崇骇锛屾湁涓€涓湅涓嶅埌鐨勬枃浠讹紝鏄痓undle.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"/bundle.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h6 id="webpack-dev-server鐨勫父鐢ㄥ懡浠�"><a href="#webpack-dev-server鐨勫父鐢ㄥ懡浠�" class="headerlink" title="webpack-dev-server鐨勫父鐢ㄥ懡浠�"></a>webpack-dev-server鐨勫父鐢ㄥ懡浠�</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"dev"</span>:<span class="string">"webpack-dev-server --open --port 3000 --contentBase src --hot"</span></span><br><span class="line">webpack-dev-server --open --port 3000 --contentBase src </span><br><span class="line">--hot 鍑忓皯涓嶅繀瑕佺殑鏇存柊</span><br></pre></td></tr></table></figure>
+index鐨勮矾寰勮鏇存敼涓�<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src&#x3D;&quot;.&#x2F;bundle&quot;&gt;&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+<h6 id="webpack-dev-server鐨勯厤缃懡浠ょ殑"><a href="#webpack-dev-server鐨勯厤缃懡浠ょ殑" class="headerlink" title="webpack-dev-server鐨勯厤缃懡浠ょ殑"></a>webpack-dev-server鐨勯厤缃懡浠ょ殑</h6>webpack.config.js<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dev:<span class="string">'webpack-dev-server'</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line">--open --port <span class="number">3000</span> --contentBase src --hot</span><br><span class="line">devServer:&#123; <span class="comment">// 閰嶇疆dev-server鍛戒护鍙傛暟鐨勭浜屾褰㈠紡锛岀浉瀵规潵璇达紝杩欑鏂瑰紡楹荤儲涓€浜�</span></span><br><span class="line">    open:<span class="literal">true</span>, <span class="comment">//鑷姩鎵撳紑娴忚鍣�</span></span><br><span class="line">    port:<span class="number">3000</span>,<span class="comment">// 璁剧疆鍚姩鏃跺€欑殑杩愯绔彛</span></span><br><span class="line">    contentBase: <span class="string">'src'</span><span class="comment">//鎸囧畾鎵樼鐨勬牴鐩綍 src 瑕佸甫 鈥樷€� 鍙�</span></span><br><span class="line">    hot:<span class="literal">true</span> <span class="comment">// 鍚敤鐑洿鏂� </span></span><br><span class="line">&#125;</span><br><span class="line">plugins:[ <span class="comment">//鏁扮粍</span></span><br><span class="line">    <span class="keyword">new</span> webpack.HotModuleReplacementPlugin();</span><br><span class="line">    <span class="comment">//new 涓€涓儹鏇存柊鐨勬ā鍧楀璞� 杩欐槸鍚姩鏇存柊</span></span><br><span class="line">]</span><br><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
+<h4 id="webpack-dev-server鎶ラ敊1"><a href="#webpack-dev-server鎶ラ敊1" class="headerlink" title="webpack-dev-server鎶ラ敊1"></a>webpack-dev-server鎶ラ敊1</h4><a href="https://www.cnblogs.com/Smiled/p/9790649.html" target="_blank" rel="noopener">https://www.cnblogs.com/Smiled/p/9790649.html</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm WARN webpack-dev-server@3.10.3 requires a peer of webpack@^4.0.0 || ^5.0.0 but none is installed. You must install peer dependencies yourself.</span><br><span class="line">npm WARN webpack-dev-middleware@3.7.2 requires a peer of webpack@^4.0.0 but none is installed. You must install peer dependencies yourself.</span><br><span class="line">npm WARN Webpack@1.0.0 No description</span><br><span class="line">npm WARN Webpack@1.0.0 No repository field.</span><br><span class="line">npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@1.2.12 (node_modules\fsevents):  </span><br><span class="line">npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@1.2.12: wanted &#123;&quot;os&quot;:&quot;darwin&quot;,&quot;arch&quot;:&quot;any&quot;&#125; (current: &#123;&quot;os&quot;:&quot;win32&quot;,&quot;arch&quot;:&quot;x64&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">鍒犻櫎     </span><br><span class="line">鍦ㄥ叏灞€涓嬪垹闄�    </span><br><span class="line">npm  uninstall  webpack  -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno 1</span><br><span class="line">npm ERR! webmo@1.0.0 dev: &#96;webpack-dev-server --open --port 3000 --contentBase src --hot&#96; </span><br><span class="line">npm ERR! Exit status 1</span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Failed at the webmo@1.0.0 dev script.</span><br><span class="line">npm ERR! This is probably not a problem with npm. There is likely additional logging output above.</span><br><span class="line">npm ERR! A complete log of this run can be found in:</span><br><span class="line">npm ERR!     C:\Users\Administrator\AppData\Roaming\npm-cache\_logs\2020-05-22T07_10_16_880Z-debug.log</span><br></pre></td></tr></table></figure>
+鍦╒ue瀹夎webpack鏃讹紝閬囪浜嗕笂闈㈢殑鎻愮ず锛屽彲浠ュ畨瑁呬竴涓緝浣庣殑鐗堟湰锛�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install webpack@3.0.0 -g</span><br></pre></td></tr></table></figure>
+<h4 id="webpack-dev-server鎶ラ敊2"><a href="#webpack-dev-server鎶ラ敊2" class="headerlink" title="webpack-dev-server鎶ラ敊2"></a>webpack-dev-server鎶ラ敊2</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">npm ERR! code ELIFECYCLE</span><br><span class="line">npm ERR! errno 1</span><br><span class="line">npm ERR! Webpack@1.0.0 dev: &#96;webpack-dev-server&#96;</span><br><span class="line">npm ERR! Exit status 1</span><br><span class="line">npm ERR!</span><br><span class="line">npm ERR! Failed at the Webpack@1.0.0 dev script.</span><br><span class="line">npm ERR! This is probably not a problem with npm. There is likely additional logging output above.</span><br><span class="line">npm ERR! A complete log of this run can be found in:</span><br><span class="line">npm ERR!     D:\Program Files\NodeJs\dev\Node\Cache\_logs\2020-03-30T15_39_10_723Z-debug.log</span><br></pre></td></tr></table></figure>
+webpack-dev-server鐨勭増鏈お楂樼殑閿咃紝3.浠ヤ笂鐨勮繕鏄笉琛屻€傛墍浠ラ檷鍒�2.11.3涓€涓嬪乏鍙冲嵆鍙�<br>package.json<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"webpack"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"1.0.0"</span>,</span><br><span class="line">  <span class="attr">"description"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"main"</span>: <span class="string">"index.js"</span>,</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"webpack --mode production"</span>,</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"webpack-dev-server"</span>,</span><br><span class="line">    <span class="attr">"start"</span>: <span class="string">"webpack-dev-server --config webpack.dev.config.js --color --progress"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"author"</span>: <span class="string">""</span>,</span><br><span class="line">  <span class="attr">"license"</span>: <span class="string">"ISC"</span>,</span><br><span class="line">  <span class="attr">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"webpack"</span>: <span class="string">"^3.10.0"</span>,</span><br><span class="line">    <span class="attr">"webpack-dev-server"</span>: <span class="string">"^2.9.7"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+鍒犻櫎鍖� node_modules 鍜� package-lock.json<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i // 閲嶆柊瀹夎</span><br></pre></td></tr></table></figure>
+<h4 id="html-webpack-plugin鎻掍欢-鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉-鑷姩杩藉姞椤甸潰鍒颁富椤�"><a href="#html-webpack-plugin鎻掍欢-鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉-鑷姩杩藉姞椤甸潰鍒颁富椤�" class="headerlink" title="html-webpack-plugin鎻掍欢 鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉/ 鑷姩杩藉姞椤甸潰鍒颁富椤�"></a>html-webpack-plugin鎻掍欢 鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉/ 鑷姩杩藉姞椤甸潰鍒颁富椤�</h4><blockquote>
+<p>灏唅ndex.html椤甸潰涔熸斁鍒板唴瀛樹腑鍘�</p>
+<p>灏嗙墿鐞嗙鐩樹腑鐨刬ndex.html 椤甸潰鏀惧埌鍐呭瓨涓幓</p>
+<p>瀵煎叆鍦ㄥ唴瀛樹腑鐢熸垚html椤甸潰鐨勬彃浠�</p>
+</blockquote>
+<h6 id="html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�"><a href="#html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�" class="headerlink" title="html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�"></a>html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�</h6>瀵煎叆鍦ㄥ唴瀛樹腑鐢熸垚 HTML椤甸潰鐨勬彃浠�</li>
+</ul>
+<ol>
+<li>鑷姩鍦ㄥ唴瀛樹腑鏍规嵁鎸囧畾椤甸潰鐢熸垚涓€涓唴瀛樼殑椤甸潰</li>
+<li>鑷姩锛屾妸鎵撳寘濂界殑bundle.js杩藉姞鍒伴〉闈腑鍘�,涓嶇敤鑷姩寮曞叆<br>瀹夎鎻掍欢<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i html-webpack-plugin -D</span><br></pre></td></tr></table></figure>
+webpack.config.js 鏂囦欢鐨勯厤缃�<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 鍙鏄彃浠讹紝閮借鏀惧埌plugins 鑺傜偣涓幓</span></span><br><span class="line"><span class="keyword">const</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>)</span><br><span class="line"><span class="keyword">const</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="comment">// 瀵煎叆鍦ㄥ唴瀛樹腑鐢熸垚html椤甸潰鐨勬彃浠�</span></span><br><span class="line">devServer:&#123;</span><br><span class="line">&#125;,</span><br><span class="line"> webpack.Hot</span><br><span class="line"> htmlWebpackPlugin</span><br><span class="line">plugins:[</span><br><span class="line">     <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line"><span class="comment">//鍒涘缓涓€涓湪鍐呭瓨涓紝鐢熸垚HTML椤甸潰鐨勬彃浠�</span></span><br><span class="line">   <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">   	template:path.join(_dirname,<span class="string">'./src/index.html'</span>),</span><br><span class="line">   	<span class="comment">//鎸囧畾妯℃澘椤甸潰锛屼細鏍规嵁鎸囧畾鐨勯〉闈㈣矾寰勶紝鍘荤敓鎴愬唴瀛樹腑鐨勯〉闈�</span></span><br><span class="line">   	filename:<span class="string">'index123.html'</span> <span class="comment">//鎸囧畾鐢熸垚鐨勯〉闈㈢殑鍚嶇О </span></span><br><span class="line">   &#125;)</span><br><span class="line">]</span><br><span class="line"><span class="comment">//褰撲娇鐢╤tml-wabpack-plugin涔嬪悗锛屼笉鍦ㄩ渶瑕佹墜鍔ㄥ鐞哹undle.js鐨勫紩鐢ㄨ矾寰勶紝杩欎釜鎻掍欢锛屽凡缁忓府鎴戜滑鍒涘缓浜嗕竴涓悎閫傜殑script锛屽苟涓旓紝寮曠敤浜嗘纭殑璺緞</span></span><br></pre></td></tr></table></figure>
+<a href="https://blog.csdn.net/qq_31847185/article/details/81066537" target="_blank" rel="noopener">webpack-dev-server 鍑虹幇閿欒 webpack-dev-server Cannot GET /</a><br>index 鏂囦欢鏄湪src婧愭枃浠朵腑鐨�<br>鏂规涓€銆佺洿鎺ュ皢index.html鏂囦欢鏀惧叆dist涓�<blockquote>
+<p>鎴戠湅鐨剋ebpack3.x瑙嗛涓紝鑰佸笀鐩存帴灏唅ndex.html鏂囦欢鏀惧叆dist涓紝鍚屾牱鑳藉鐢熸垚棣栭〉銆�<br>鏂规浜岋紝浣跨敤HtmlWebpackPlugin鎻掍欢鐢熸垚棣栭〉<br>鍥犱负鍑洪敊锛屾墍浠ョ櫨搴︾殑鏃跺€欐壘鍒颁簡绗簩绉嶈В鍐虫柟妗堬紝鍗崇敤HtmlWebpackPlugin鎻掍欢鐢熸垚棣栭〉锛屽幓瀹樼綉鐬呬簡涓€鐪硷紝璨屼技瀹樼綉涔熸槸鐢ㄧ殑杩欎釜鎻掍欢锛屾墍浠ュ氨浜嗚В浜嗕竴涓嬨€�</p>
+</blockquote>
+<h3 id="loader鍔犺浇鍣�"><a href="#loader鍔犺浇鍣�" class="headerlink" title="loader鍔犺浇鍣�"></a>loader鍔犺浇鍣�</h3>CSS銆乴ess銆乻css</li>
+</ol>
+<ul>
+<li>npm i style-loader css-loader -D   <code>css</code></li>
+<li>npm i less-loader less -D<code>less</code></li>
+<li>npm i sass-loader node-sass -D<code>scss</code><br>image锛屽瓧浣�</li>
+<li>npm i url-loader file-loader -D<h3 id="loader閰嶇疆鍜屼娇鐢�-寮曞叆-JS锛坵ebpack-榛樿閮ㄥ垎锛夈€丆SS-less-scss-銆佸浘鐗�-銆佸瓧浣�"><a href="#loader閰嶇疆鍜屼娇鐢�-寮曞叆-JS锛坵ebpack-榛樿閮ㄥ垎锛夈€丆SS-less-scss-銆佸浘鐗�-銆佸瓧浣�" class="headerlink" title="loader閰嶇疆鍜屼娇鐢�  寮曞叆 JS锛坵ebpack 榛樿閮ㄥ垎锛夈€丆SS(less,scss) 銆佸浘鐗�  銆佸瓧浣�"></a>loader閰嶇疆鍜屼娇鐢�  寮曞叆 JS锛坵ebpack 榛樿閮ㄥ垎锛夈€丆SS(less,scss) 銆佸浘鐗�  銆佸瓧浣�</h3></li>
+</ul>
+<hr>
+<p>淇敼鏂囦欢webpack.config.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">npm i style-loader css-loader less-loader node-sass sass-loader -D <span class="comment">// 寮€鍙戜緷璧�</span></span><br><span class="line">cnpm i url-loader file-loader -D</span><br><span class="line"><span class="built_in">module</span>:&#123;</span><br><span class="line">	rules:[</span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css&amp;/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;,</span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.less&amp;/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;,</span><br><span class="line">        &#123;<span class="attr">test</span>:<span class="regexp">/\.scss$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>]&#125;,</span><br><span class="line">        &#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,</span><br><span class="line">        &#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=7631$name=[name].[ext]'</span>&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="涓€銆丆SS-less銆乻css"><a href="#涓€銆丆SS-less銆乻css" class="headerlink" title="涓€銆丆SS(less銆乻css)"></a>涓€銆丆SS(less銆乻css)</h4><hr>
+<h4 id="css-銆乴ess銆乻css銆佸瓧浣�"><a href="#css-銆乴ess銆乻css銆佸瓧浣�" class="headerlink" title="css 銆乴ess銆乻css銆佸瓧浣�"></a>css 銆乴ess銆乻css銆佸瓧浣�</h4><p>瀵煎叆main.js 鍏ュ彛鏂囦欢</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import &#39;.&#x2F;css&#x2F;index.css&#39;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./css/index.css'</span></span><br><span class="line">npm i style-loader css-loader -D</span><br><span class="line"><span class="comment">//妯″潡鐨勫尮閰嶈鍒�</span></span><br><span class="line"><span class="built_in">module</span>:&#123; <span class="comment">//閰嶇疆鎵€鏈夌涓夋柟loader妯″潡鐨�</span></span><br><span class="line">	rules;[ <span class="comment">//澶勭悊CSS鏂囦欢鐨刲oader</span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">	]	</span><br><span class="line">&#125;</span><br><span class="line">npm i less-loader less -D</span><br><span class="line"><span class="comment">//澶勭悊less鏂囦欢鐨刲oader</span></span><br><span class="line">	&#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;</span><br><span class="line">npm i sass-loader node-sass -D</span><br><span class="line"><span class="comment">//澶勭悊sass鏂囦欢鐨刲oader</span></span><br><span class="line">	&#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>,<span class="string">'sass-loader'</span>]&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader"><a href="#loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader" class="headerlink" title="loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader"></a>loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader</h4><p>浣跨敤import璇硶锛屽鍏SS鏍峰紡琛�</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./css/index.css</span></span><br></pre></td></tr></table></figure>
+<p>`娉ㄦ剰锛歸ebpack銆侀粯璁ゅ彧鑳芥墦鍖呭鐞咼S绫诲瀷鐨勬枃浠讹紝鏃犳硶澶勭悊鍏朵粬鐨勯潪JS绫诲瀷鐨勬枃浠禶<br>濡傛灉瑕佸鐞嗛潪JS绫诲瀷鐨勬枃浠讹紝鎴戜滑闇€瑕佹墜鍔ㄥ畨瑁呬竴浜涚涓夋柟loader鍔犺浇鍣�</p>
+<ol>
+<li>濡傛灉鎯宠鎵撳寘澶勭悊css鏂囦欢<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i style-loader css-loader -D</span><br></pre></td></tr></table></figure></li>
+<li>webpack.config.js閰嶇疆鏂囦欢<br>鏂板module閰嶇疆鑺傜偣锛屾湁涓€涓猺ules灞炴€э紝杩欎釜rules灞炴€ф槸涓暟缁勶紝杩欎釜鏁扮粍瀛樻斁锛岀涓夋柟鏂囦欢鐨勫尮閰嶅拰澶勭悊瑙勫垯<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>:&#123; <span class="comment">//杩欎釜鑺傜偣.閰嶇疆绗笁鏂规ā鍧楀姞杞藉櫒</span></span><br><span class="line">	rules:[ <span class="comment">//鎵€鏈夌涓夋柟妯″潡鐨勫尮閰嶈鍒�</span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">		<span class="comment">//閰嶇疆澶勭悊 .css鏂囦欢鐨勭涓夋柟loader瑙勫垯</span></span><br><span class="line">		<span class="comment">// 璋冪敤瑙勫垯浠庡彸鍒板乏  </span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>webpack 澶勭悊绗笁鏂规枃浠剁被鍨嬪緱杩囩▼</p>
+<ol>
+<li>涓嶆槸JS鏂囦欢锛岀劧鍚庡幓閰嶇疆閰嶇疆鏂囦欢涓煡鎵炬湁娌℃湁绗笁鏂圭殑loader瑙勫垯</li>
+<li>濡傛灉鎵惧埌瀵瑰簲鐨勮鍒欙紝灏变細鎶婂鐞嗙殑缁撴灉锛岀洿鎺ヤ氦缁檞ebpack浼氳皟鐢╨oader澶勭悊锛岃繖绉嶆枃浠剁被鍨�</li>
+<li>鍦ㄨ皟鐢╨oader鐨勬椂鍊欙紝鏄粠鍚庡線鍓嶈皟鐢ㄧ殑</li>
+<li>鏈€鍚庝竴涓猯oader璋冪敤瀹屾瘯锛屼細鎶婂鐞嗙粨鏋滐紝鐩存帴浜ょ粰webpack杩涜鎵撳寘鍚堝苟锛屾渶缁堣緭鍑哄埌bundle.js涓幓<br>鎶ラ敊</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ERROR in .&#x2F;src&#x2F;main.js</span><br><span class="line">Module not found: Error: Can&#39;t resolve &#39;.&#x2F;css&#x2F;index&#39; in &#39;d:\GitRepository\VsWorkSpace\WebFrame\Webpack\src&#39;</span><br><span class="line"> @ .&#x2F;src&#x2F;main.js 2:0-21</span><br><span class="line"> @ multi .&#x2F;node_modules&#x2F;_webpack-dev-server@2.11.5@webpack-dev-server&#x2F;client?http:&#x2F;&#x2F;127.0.0.1:8081 .&#x2F;src&#x2F;main.js</span><br></pre></td></tr></table></figure>
+<h4 id="loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader"><a href="#loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader" class="headerlink" title="loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader"></a>loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cnpm i less -D </span><br><span class="line">cnpm i less-loader _D</span><br><span class="line"><span class="built_in">module</span>:&#123; <span class="comment">//杩欎釜鑺傜偣.閰嶇疆绗笁鏂规ā鍧楀姞杞藉櫒</span></span><br><span class="line">	rules:[ <span class="comment">//鎵€鏈夌涓夋柟妯″潡鐨勫尮閰嶈鍒�</span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">		<span class="comment">//閰嶇疆澶勭悊 .css鏂囦欢鐨勭涓夋柟loader瑙勫垯</span></span><br><span class="line">		<span class="comment">// 璋冪敤瑙勫垯浠庡彸鍒板乏</span></span><br><span class="line">        <span class="comment">//閰嶇疆澶勭悊less鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">       	&#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;</span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader"><a href="#loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader" class="headerlink" title="loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader"></a>loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cnpm i node-sass -D</span><br><span class="line">cnpm i sass-loader -D</span><br><span class="line"><span class="built_in">module</span>:&#123; <span class="comment">//杩欎釜鑺傜偣.閰嶇疆绗笁鏂规ā鍧楀姞杞藉櫒</span></span><br><span class="line">	rules:[ <span class="comment">//鎵€鏈夌涓夋柟妯″潡鐨勫尮閰嶈鍒�</span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">		<span class="comment">//閰嶇疆澶勭悊 .css鏂囦欢鐨勭涓夋柟loader瑙勫垯</span></span><br><span class="line">		<span class="comment">// 璋冪敤瑙勫垯浠庡彸鍒板乏</span></span><br><span class="line">        <span class="comment">//閰嶇疆澶勭悊less鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">       	&#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;</span><br><span class="line">       	 <span class="comment">//閰嶇疆澶勭悊less鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">       	&#123;<span class="attr">test</span>:<span class="regexp">/\.sass$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>]&#125;</span><br><span class="line">       	 <span class="comment">//閰嶇疆澶勭悊sass鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="浜屻€佸瓧浣�"><a href="#浜屻€佸瓧浣�" class="headerlink" title="浜屻€佸瓧浣�"></a>浜屻€佸瓧浣�</h4></li>
+</ol>
+<hr>
+<h4 id="webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋"><a href="#webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋" class="headerlink" title="webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋"></a>webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋</h4><p> Bootstrap瀹夎</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">index.html</span><br><span class="line">  &lt;link rel=<span class="string">"stylesheet"</span> src=<span class="string">"/node_modules/bootstrap/dist/css/bootstrap.css"</span>&gt;</span><br><span class="line">main.js</span><br><span class="line">npm i boostrap@<span class="number">3</span> -S  <span class="comment">// 瑕佸畨瑁卋ootstrap 3</span></span><br><span class="line">cnpm i url-loader -D</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125; <span class="comment">//澶勭悊瀛椾綋鏂囦欢鐨刲oader</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//濡傛灉瑕侀€氳繃璺緞鐨勫舰寮忥紝鍘诲紩鍏ode_modules涓浉鍏崇殑鏂囦欢锛屽彲浠ョ洿鎺ョ渷鐣� 璺緞鍓嶉潰鐨刵ode_modules 杩欎竴灞傜洰褰曪紝鐩存帴鍐欏寘鐨勫悕绉帮紝鐒跺悗鍚庨潰璺熶笂鍏蜂綋鐨勬枃 浠惰矾寰�</span></span><br><span class="line"><span class="comment">// 涓嶅啓node_modules杩欎竴灞傜洰褰曪紝榛樿 灏变細鍘籲ode_modules涓煡鎵�</span></span><br><span class="line"><span class="built_in">module</span>:&#123; <span class="comment">//杩欎釜鑺傜偣.閰嶇疆绗笁鏂规ā鍧楀姞杞藉櫒</span></span><br><span class="line">	rules:[ <span class="comment">//鎵€鏈夌涓夋柟妯″潡鐨勫尮閰嶈鍒�</span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.css$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>]&#125;</span><br><span class="line">		<span class="comment">//閰嶇疆澶勭悊 .css鏂囦欢鐨勭涓夋柟loader瑙勫垯</span></span><br><span class="line">		<span class="comment">// 璋冪敤瑙勫垯浠庡彸鍒板乏</span></span><br><span class="line">        <span class="comment">//閰嶇疆澶勭悊less鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">       	&#123;<span class="attr">test</span>:<span class="regexp">/\.less$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'less-loader'</span>]&#125;</span><br><span class="line">       	 <span class="comment">//閰嶇疆澶勭悊scss鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">       	&#123;<span class="attr">test</span>:<span class="regexp">/\.scss$/</span>,<span class="attr">use</span>:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>]&#125;</span><br><span class="line">       	 <span class="comment">//閰嶇疆澶勭悊lass鏂囦欢鐨勭涓夋柟loader瑙勫垯 </span></span><br><span class="line">		&#123;<span class="attr">test</span>:<span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader'</span>&#125;,</span><br><span class="line">		<span class="comment">//澶勭悊瀛椾綋鏂囦欢鐨刲oader</span></span><br><span class="line">	]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>鐘敊璇�</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bootstrap 鏈変袱涓増鏈� 3銆�4 </span><br><span class="line">寮曞叆css瑕佸畨瑁� css-loader 鍜� style-loader 杩欎袱涓緷璧� </span><br><span class="line">濡傛灉涓嶆寚瀹氬畨瑁呴偅涔堬紝bootstrap 榛樿鐨勭増鏈氨鏄痓ootstrap4</span><br><span class="line">npm i 鍖� -g &#x2F;&#x2F; 榛樿鐨勭増鏈槸鏈€鏂扮殑</span><br></pre></td></tr></table></figure>
+<h4 id="涓夈€佸浘鐗�"><a href="#涓夈€佸浘鐗�" class="headerlink" title="涓夈€佸浘鐗�"></a>涓夈€佸浘鐗�</h4><hr>
+<p>榛樿鎯呭喌涓嬶紝webpack鏃犳硶澶勭悊CSS鏂囦欢涓殑url鍦板潃锛屼笉绠℃槸鍥剧墖杩樻槸瀛椾綋搴擄紝鍙鏄疷RL鍦板潃锛岄兘澶勭悊涓嶄簡</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">cnpm i url-loader file-loader -D</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=7631&amp;name=[name].[ext]'</span>&#125;</span><br><span class="line">&#123;<span class="attr">test</span>:<span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>,<span class="attr">use</span>:<span class="string">'url-loader?limit=7631&amp;name=[hash:8]-[name].[ext]'</span>&#125; </span><br><span class="line"><span class="comment">//娣诲姞hash鍊� 瑙ｅ喅涓嶅悓鐩綍鐨勪笉鍚屽浘鐗囧悕瀛楃浉鍚� 鍑虹幇鍐茬獊鐨勯棶棰�</span></span><br><span class="line"><span class="comment">// ?浼犲弬 7631鍥剧墖澶у皬鐨勫瓧</span></span><br><span class="line"><span class="comment">//name=[hash:8]-[name].[ext] 娣诲姞8浣峢ash鍊艰В鍐抽噸鍛藉悕</span></span><br><span class="line"><span class="comment">// name=[name].[ext] 淇濈暀鍘熸湰鐨勫悕绉� .[ext] 淇濈暀鏂囦欢鐨勫悗缂€鍚�</span></span><br><span class="line"><span class="comment">// limit 缁欏畾鐨勫€硷紝鏄浘鐗囩殑澶у皬锛屽崟浣嶆槸byte ,濡傛灉鎴戜滑寮曠敤鐨勫浘鐗囧ぇ浜庯紝鎴栫瓑浜庢洿瀹氱殑limit鍊硷紝鍒欎笉浼氳杞负base64鏍煎紡鐨勫瓧绗︿覆锛屽鏋滃浘鐗囧皬浜庣粰瀹氱殑limit鍊硷紝鍒欎細琚浆涓篵ase64鐨勫瓧绗︿覆</span></span><br><span class="line"><span class="comment">//鍥剧墖鐨勫悕绉版槸鍝堝笇鍊�</span></span><br><span class="line"><span class="comment">//澶勭悊鍥剧墖璺緞鐨刲oader</span></span><br></pre></td></tr></table></figure>
+<h4 id="鍥涖€丣S鏂囦欢锛圗S6-ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€�-webpack涓殑babel鐨勯厤缃�"><a href="#鍥涖€丣S鏂囦欢锛圗S6-ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€�-webpack涓殑babel鐨勯厤缃�" class="headerlink" title="鍥涖€丣S鏂囦欢锛圗S6\ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€� webpack涓殑babel鐨勯厤缃�"></a>鍥涖€丣S鏂囦欢锛圗S6\ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€� webpack涓殑babel鐨勯厤缃�</h4><hr>
+<p>`Babel,鍙互甯姪鎴戜滑灏嗛珮绾х殑璇硶杞负浣庣骇鐨勮娉昤<br>鍦╳ebpack涓紝鍙互杩愯濡備笅涓ゅ鍛戒护锛屽畨瑁呬袱濂楀寘锛屽幓瀹夎Babel鐩稿叧鐨刲oader鍔熻兘</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//绗竴濂楀寘 babel杞崲宸ュ叿</span><br><span class="line">npm i babel-core babel-loader babel-plugin-transform-runtime -D</span><br><span class="line">babel-core/loader plugin-transform-runtime </span><br><span class="line">//绗簩濂楀寘 璇硶鎻掍欢</span><br><span class="line">npm i babel-preset-env babel-preset-stage-0 -D</span><br><span class="line">babel-preset- env/stage-0</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">webpack閰嶇疆鏂囦欢锛屽湪<span class="built_in">module</span>鑺傜偣涓嬬殑rules鏁扮粍涓紝娣诲姞涓€涓柊鐨勫尮閰嶈鍒欙細</span><br><span class="line">&#123; <span class="attr">test</span>:<span class="regexp">/\.js$/</span>,<span class="attr">use</span>:<span class="string">'babel-loader'</span>,<span class="attr">exclude</span>:<span class="regexp">/node_modules/</span> &#125;</span><br><span class="line"><span class="comment">//exclude</span></span><br><span class="line">exclude:<span class="regexp">/node_modules/</span> </span><br><span class="line">娉ㄦ剰锛氬湪閰嶇疆balbe鐨刲oader瑙勫垯鐨勬椂鍊欙紝蹇呴』鎶妌ode_modules鐩綍锛岄€氳繃exclude閫夐」鎺掗櫎鎺�</span><br><span class="line">涓嶆帓闄ode_modules,鍒橞abel浼氭妸node_modules涓墍鏈夌殑绗笁鏂笿S鏂囦欢锛岄兘鎵撳寘缂栬瘧锛岃繖鏍凤紝浼氶潪甯告秷鑰桟PU,鍚屾椂锛屾墦鍖呴€熷害闈炲父鎱紱</span><br><span class="line">Babel鎶婃墍鏈塶ode_modeues涓殑JS瑁呮崲瀹屾瘯浜嗭紝椤圭洰涔熸棤娉曡繍琛�</span><br><span class="line">椤圭洰鏍圭洰褰曚腑锛屾柊寤轰竴涓�.babelrc 鐨凚abel閰嶇疆鏂囦欢锛岃繖涓厤缃枃浠讹紝灞炰簬<span class="built_in">JSON</span>鏍煎紡锛屽湪鍐�.babelrc閰嶇疆鐨勬椂鍊� ,蹇呴』绗﹀悎<span class="built_in">JSON</span>璇硶瑙勮寖锛涗笉鑳芥敞閲婏紝瀛楃涓插繀椤荤敤鍙屽紩鍙�</span><br><span class="line"><span class="comment">// presets  璇硶</span></span><br><span class="line">.babelrc鏂囦欢</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">"presets"</span>:[<span class="string">"env"</span>,<span class="string">"stage-0"</span>], <span class="comment">//璇硶</span></span><br><span class="line">	<span class="string">"plugins"</span>:[<span class="string">"transform-runtime"</span>] <span class="comment">//鎻掍欢</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span>鍏抽敭瀛楋紝鏄疎<span class="title">S6</span>涓彁渚涚殑鏂拌娉曪紝鏄敤鏉ュ疄鐜癊<span class="title">S6</span>涓潰鍚戝璞＄紪绋嬬殑鏂瑰紡</span></span><br><span class="line"><span class="class"><span class="title">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line"><span class="comment">//浣跨敤static鍏抽敭瀛楋紝鍙互瀹氫箟闈欐€佸睘鎬�</span></span><br><span class="line"><span class="comment">// 闈欐€佸睘鎬э紝灏辨槸鐩存帴閫氳繃绫诲悕锛岀洿鎺ヨ闂殑灞炴€�</span></span><br><span class="line"><span class="comment">//瀹炰緥灞炴€э細鍙兘閫氳繃绫荤殑瀹炰緥锛屾潵璁块棶鐨勫睘鎬э紝鍙仛瀹炰緥灞炴€�</span></span><br><span class="line">	<span class="keyword">static</span> info = &#123;<span class="attr">name</span>:<span class="string">'zs'</span>,<span class="attr">age</span>:<span class="number">20</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//Java C# 瀹炵幇闈㈠悜瀵硅薄鐨勬柟寮忓畬鍏ㄤ竴鏍蜂簡锛宑lass鏄粠鍚庣璇█涓€熼壌杩囨潵鐨勩€傛潵瀹炵幇闈㈠悜瀵硅薄</span></span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Person()</span><br><span class="line">conslole.log(Person.info&#125;)</span><br><span class="line">鍦╳ebpack涓紝榛樿鍙兘澶勭悊涓€閮ㄥ垎ES6鐨勬柊璇硶锛屼竴浜涙洿楂樼骇鐨凟S6璇硶鎴栬€匛S7璇硶锛寃ebpack鏄鐞嗕笉浜嗙殑;杩欐椂鍊欏氨闇€瑕佸€熷姪浜庣涓夋柟鐨刲oader,鏉ュ府鍔﹚ebpack 澶勭悊杩欎簺楂樼骇鐨勮娉曪紝褰撶涓夋柟loader鎶婇珮绾ц娉曡浆涓轰綆绾ц娉曚箣鍚庯紝浼氭妸缁撴灉浜ょ粰webpack鍘绘墦鍖呭埌bundle.js涓�</span><br><span class="line"><span class="comment">//閫氳繃babel,鍙互甯姪鎴戜滑灏嗛珮绾х殑璇硶杞负浣庣骇鐨勮娉�</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Animal</span>(<span class="params">name</span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line">Animal.info = <span class="number">123</span></span><br><span class="line"><span class="keyword">var</span> al = <span class="keyword">new</span> Aninal(<span class="string">'灏忚姳'</span>)</span><br><span class="line"><span class="comment">//闈欐€佸睘鎬�</span></span><br><span class="line"><span class="built_in">console</span>.log(Animal.info);</span><br><span class="line"><span class="comment">//瀹炰緥灞炴€�</span></span><br><span class="line"><span class="built_in">console</span>.log(al.name)</span><br></pre></td></tr></table></figure>
+<h3 id="webpack-Vue缁撳悎"><a href="#webpack-Vue缁撳悎" class="headerlink" title="webpack + Vue缁撳悎"></a>webpack + Vue缁撳悎</h3><hr>
+<h4 id="鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢"><a href="#鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢" class="headerlink" title="鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢"></a>鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"app"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>this is a p<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> login = &#123;</span></span><br><span class="line"><span class="handlebars"><span class="xml">        template: '<span class="tag">&lt;<span class="name">h1</span>&gt;</span>this is a h1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span>'</span></span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="actionscript">    <span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el: <span class="string">'#app'</span>,</span></span><br><span class="line">        data: &#123;&#125;,</span><br><span class="line">        methods: &#123;&#125;,</span><br><span class="line"><span class="actionscript">        <span class="comment">//娉ㄦ剰锛氳繖閲�</span></span></span><br><span class="line">        render(createElements) &#123;</span><br><span class="line"><span class="actionscript">            <span class="keyword">return</span> createElements(login)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="actionscript">        render:<span class="function"><span class="keyword">function</span><span class="params">(createElements)</span> </span>&#123;</span></span><br><span class="line"><span class="actionscript">           <span class="keyword">return</span> createElements(login)</span></span><br><span class="line">        &#125;,</span><br><span class="line"><span class="actionscript">        <span class="comment">//compontents:&#123;</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//  login</span></span></span><br><span class="line"><span class="actionscript">        <span class="comment">//&#125;</span></span></span><br><span class="line">    &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>render 涓� compontents 鐨勫尯鍒�</p>
+<p>render锛歳eturn 鐨勭粨鏋滐紝浼氭浛鎹㈤〉闈腑el鎸囧畾鐨勯偅涓鍣ㄧ殑鍐呭锛宑ompontents 鍒欎笉浼氭竻绌�</p>
+</blockquote>
+<h4 id="render鐨勫嚑绉嶅啓娉�"><a href="#render鐨勫嚑绉嶅啓娉�" class="headerlink" title="render鐨勫嚑绉嶅啓娉�"></a>render鐨勫嚑绉嶅啓娉�</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">render(createElements) &#123;</span><br><span class="line">	<span class="keyword">return</span> createElements(login)</span><br><span class="line">&#125;,</span><br><span class="line">render:<span class="function"><span class="keyword">function</span>(<span class="params">createElements</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> createElements(login)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// 绠€鍐欐柟娉�    </span></span><br><span class="line">render: <span class="function"><span class="params">c</span> =&gt;</span> c(login)</span><br></pre></td></tr></table></figure>
+<h4 id="濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�"><a href="#濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�" class="headerlink" title="濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�"></a>濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�</h4><h5 id="鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue"><a href="#鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue" class="headerlink" title="鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue"></a>鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue</h5><blockquote>
+<ol>
+<li>浣跨敤script鏍囩锛屽紩鍏ue鐨勫寘</li>
+<li>鍦╥ndex椤甸潰涓紝鍒涘缓涓€涓猧d涓篴ppdiv瀹瑰櫒</li>
+<li>閫氳繃newVue寰楀埌涓€涓獀m鐨勫疄渚�</li>
+</ol>
+</blockquote>
+<h5 id="鍦╳ebpack涓浣曚娇鐢╲ue"><a href="#鍦╳ebpack涓浣曚娇鐢╲ue" class="headerlink" title="鍦╳ebpack涓浣曚娇鐢╲ue"></a>鍦╳ebpack涓浣曚娇鐢╲ue</h5><blockquote>
+<p>娉ㄦ剰锛氬湪webpack 涓紝浣跨敤import Vue from’vue’瀵煎叆鐨刅ue鏋勯€犲嚱鏁帮紝鍔熻兘涓嶅畬鏁达紝鍙彁渚涗簡runtime-only鐨勬柟寮忥紝骞舵病鏈夋彁渚涘儚缃戦〉涓偅鏍风殑浣跨敤鏂瑰紡锛�<br>鍥為【鍖呯殑鏌ユ壘瑙勫垯:</p>
+<ol>
+<li>鎵鹃」鐩牴鐩綍涓湁娌℃湁node modules 鐨勬枃浠跺す</li>
+<li>鍦╪ode modules涓牴鎹寘鍚嶏紝鎵惧搴旂殑vue 鏂囦欢澶�</li>
+<li>鍦╲ue鏂囦欢澶逛腑锛屾壘涓€涓彨鍋歱ackage.json鐨勫寘閰嶆枃浠�</li>
+<li>鍦╬ackage.json 鏂囦欢涓紝鏌ユ壘涓€涓猰ain 灞炴€main灞炴€ф寚瀹氫簡杩欎釜鍖呭湪琚姞杞芥椂鍊欑殑鍏ュ彛鏂囦欢]<br>鏂规硶涓€ 銆佺洿鎺ュ湪寮曞叆vue涓璿ue,js</li>
+</ol>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">main.js 鍏ュ彛鏂囦欢</span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'../node_modules/vue/dist/vue.js'</span></span><br></pre></td></tr></table></figure>
+<p>鏂规硶浜�  鍦╳ebpack.config.js涓坊鍔爎esolve灞炴€э細</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vue浼氶粯璁ゅ鍏ue.runtime.common.js鏂囦欢</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line">resolve:&#123;</span><br><span class="line">    alias:&#123; <span class="comment">//淇敼Vue琚鍏ユ椂鍊欑殑鍖呯殑璺緞</span></span><br><span class="line">        <span class="string">"vue$"</span>:<span class="string">"vue/dist/vue.js"</span> </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>鏂规硶涓夈€佷慨鏀� node_modules涓� vue 鐨� package.json涓嬬殑 鍖呴厤缃枃浠�</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//ctrl+f 鏌ユ壘main鐨勫睘鎬�</span></span><br><span class="line">dist/vue.runtime.common.js =&gt; dist/vue.js</span><br></pre></td></tr></table></figure>
+<p>鏂规硶鍥涖€佺洿鎺ヤ娇鐢╲ue.runtime.common.js鏂囦欢锛� runtime-only鐨勬柟寮忥級 闇€瑕佸畨瑁呯涓夋柟loader<br>杩欑鏂规硶鑳界洿鎺ヨВ鏋恅`vue鍚庣紑鐨勬枃浠禶杩涜</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i vue -S</span><br><span class="line">npm i vue-loader vue-template-compiler -D</span><br><span class="line">npm i style-loader css-loader -D</span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line">鍗曠嫭鐨勬妸缁勪欢鐨勫唴瀹规柊寤烘垚.vue鏂囦欢</span><br></pre></td></tr></table></figure>
+<p>main.js</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// var login = &#123;</span></span><br><span class="line"><span class="comment">//   template: '&lt;h1&gt;杩欐槸login缁勪欢锛屾槸浣跨敤缃戦〉涓舰寮忓垱寤哄嚭鏉ョ殑缁勪欢&lt;/h1&gt;'</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// 1. 瀵煎叆 login 缁勪欢</span></span><br><span class="line"><span class="keyword">import</span> login <span class="keyword">from</span> <span class="string">'./login.vue'</span></span><br><span class="line"><span class="comment">// 榛樿锛寃ebpack 鏃犳硶鎵撳寘 .vue 鏂囦欢锛岄渶瑕佸畨瑁� 鐩稿叧鐨刲oader锛� </span></span><br><span class="line"><span class="comment">//  cnpm i vue-loader vue-template-compiler -D</span></span><br><span class="line"><span class="comment">//  鍦ㄩ厤缃枃浠朵腑锛屾柊澧瀕oader鍝﹂厤缃」 &#123; test:/\.vue$/, use: 'vue-loader' &#125;</span></span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">'#app'</span>,</span><br><span class="line">  data: &#123;</span><br><span class="line">    msg: <span class="string">'123'</span>  </span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">// components: &#123;</span></span><br><span class="line">  <span class="comment">//   login</span></span><br><span class="line">  <span class="comment">// &#125;</span></span><br><span class="line">  <span class="comment">/* render: function (createElements) &#123; // 鍦� webpack 涓紝濡傛灉鎯宠閫氳繃 vue锛� 鎶婁竴涓粍浠舵斁鍒伴〉闈腑鍘诲睍绀猴紝vm 瀹炰緥涓殑 render 鍑芥暟鍙互瀹炵幇</span></span><br><span class="line"><span class="comment">    return createElements(login)</span></span><br><span class="line"><span class="comment">  &#125; */</span></span><br><span class="line">  render: <span class="function"><span class="params">c</span> =&gt;</span> c(login)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">import</span> m222, &#123; title <span class="keyword">as</span> title123, content &#125; <span class="keyword">from</span> <span class="string">'./test.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(m222)</span><br><span class="line"><span class="built_in">console</span>.log(title123 + <span class="string">' --- '</span> + content)</span><br></pre></td></tr></table></figure>
+<h5 id="鍦╳ebpack涓厤缃�-vue-缁勪欢椤甸潰鐨勮В鏋�"><a href="#鍦╳ebpack涓厤缃�-vue-缁勪欢椤甸潰鐨勮В鏋�" class="headerlink" title="鍦╳ebpack涓厤缃�.vue 缁勪欢椤甸潰鐨勮В鏋�"></a>鍦╳ebpack涓厤缃�.vue 缁勪欢椤甸潰鐨勮В鏋�</h5><p>webpack鏃犳硶鎵撳寘.vue 鏂囦欢闇€瑕佸畨瑁� vue鐩稿叧鐨�1oader</p>
+<ol>
+<li>杩愯<code>cnpm i vue -S</code>灏唙ue瀹夎涓鸿繍琛屼緷璧栵紱</li>
+<li>杩愯<code>cnpm i vue-loader vue-template-compiler -D</code>灏嗚В鏋愯浆鎹ue鐨勫寘瀹夎涓哄紑鍙戜緷璧栵紱</li>
+<li>杩愯<code>cnpm i style-loader css-loader -D</code>灏嗚В鏋愯浆鎹SS鐨勫寘瀹夎涓哄紑鍙戜緷璧栵紝鍥犱负.vue鏂囦欢涓細鍐機SS鏍峰紡锛�</li>
+<li>鍦╜webpack.config.js<code>涓紝娣诲姞濡備笅</code>module`瑙勫垯锛�<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>: &#123;</span><br><span class="line">    rules: [</span><br><span class="line">     &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>] &#125;,</span><br><span class="line">     &#123; <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>, <span class="attr">use</span>: <span class="string">'vue-loader'</span> &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>鍒涘缓<code>App.js</code>缁勪欢椤甸潰锛�<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#96;&#96;&#96;</span><br><span class="line">6. 鍒涘缓&#96;main.js&#96;鍏ュ彛鏂囦欢锛�</span><br><span class="line">&#96;&#96;&#96;js</span><br><span class="line">&#x2F;&#x2F; 瀵煎叆 Vue 缁勪欢</span><br><span class="line">import Vue from &#39;vue&#39;</span><br><span class="line">&#x2F;&#x2F; 瀵煎叆 App缁勪欢</span><br><span class="line">import App from &#39;.&#x2F;components&#x2F;App.vue&#39;</span><br><span class="line">&#x2F;&#x2F; 鍒涘缓涓€涓� Vue 瀹炰緥锛屼娇鐢� render 鍑芥暟锛屾覆鏌撴寚瀹氱殑缁勪欢</span><br><span class="line">var vm &#x3D; new Vue(&#123;</span><br><span class="line">    el: &#39;#app&#39;,</span><br><span class="line">    render: c &#x3D;&gt; c(App)</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h5 id="vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴�-template-script-style"><a href="#vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴�-template-script-style" class="headerlink" title="vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴� template script style"></a>vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴� <code>template script style</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">login.vue </span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;杩欐槸鐧诲綍缁勪欢锛屼娇鐢� .vue 鏂囦欢瀹氫箟鍑烘潵鐨� --- &#123;&#123;msg&#125;&#125;&lt;&#x2F;h1&gt;</span><br><span class="line">  &lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;  </span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    &#x2F;&#x2F; 娉ㄦ剰锛氱粍浠朵腑鐨� data 蹇呴』鏄� function</span><br><span class="line">    return &#123;</span><br><span class="line">      msg: &quot;123&quot;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    show() &#123;</span><br><span class="line">      console.log(&quot;璋冪敤浜� login.vue 涓殑 show 鏂规硶&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">main.js</span><br><span class="line">import login from &#39;.&#x2F;login.vue&#39;</span><br></pre></td></tr></table></figure>
+<h4 id="export-default-鍜�-export鐨勪娇鐢ㄦ柟寮�"><a href="#export-default-鍜�-export鐨勪娇鐢ㄦ柟寮�" class="headerlink" title="export default 鍜� export鐨勪娇鐢ㄦ柟寮�"></a>export default 鍜� export鐨勪娇鐢ㄦ柟寮�</h4><blockquote>
+<p>杩欐槸Node 涓悜澶栨毚闇叉垚鍛樼殑褰㈠紡锛�<br>module.exports =()<br>鍦‥S6涓紝涔熼€氳繃瑙勮寖鐨勫舰寮忥紝瑙勫畾浜咵S6涓浣曞鍏ュ拰瀵煎嚭妯″潡</p>
+<p>ES6涓鍏ユā鍧楋紝浣跨敤import 妯″潡鍚嶇Оfrom妞嶅潡绀鸿瘑绗�    鈥檌mport鈥濊〃绀鸿矾寰勨€�<br>鍦‥S6涓紝浣跨敤export default鍜宔xport 鍚戝鏆撮湶鎴愬憳锛�</p>
+<p>鍦∟ode涓娇鐢�<br>var鍚嶇О= require锛堚€樻ā鍧楁爣璇嗙鈥欙級<br>module.exports 鍜� exports 鏉ユ毚闇叉垚鍛�</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">test.js </span><br><span class="line"><span class="comment">//绗竴绉�</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span>&#123;</span><br><span class="line">	name:<span class="string">'zs'</span>,</span><br><span class="line">	age:<span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//绗簩绉�</span></span><br><span class="line"><span class="keyword">var</span> info = &#123;</span><br><span class="line">    name:<span class="string">'zs'</span>,</span><br><span class="line">    age锛�<span class="number">20</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> info</span><br><span class="line"><span class="comment">// export default 鍚戝鏆撮湶鐨勬垚鍛樺彲浠ヤ娇鐢ㄤ换鎰忕殑鍙橀噺鏉ユ帴鏀�</span></span><br><span class="line"><span class="comment">// 鍦ㄤ竴涓ā鍧椾腑锛宔xport default 鍙厑璁稿悜澶栨毚闇�1娆�</span></span><br><span class="line"><span class="comment">//鍦ㄤ竴涓ā鍧椾腑锛屽彲浠ュ悓鏃朵娇鐢╡xport defaplt鍜宔xport 鍚戝鏆撮湶鎴愬憳  </span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">var</span> title = <span class="string">'灏忔槦鏄�'</span></span><br><span class="line"><span class="comment">// 浣跨敤export 鍚戝鏆撮湶鐨勬垚鍛橈紝鍙兘浣跨敤&#123;&#125;鐨勫舰寮忔潵鎺ユ敹锛岃繖绉嶅舰寮忥紝鍙仛[鎸夐渶瀵煎嚭]</span></span><br><span class="line">娉ㄦ剰锛宔xport 鍙互鍚戝鏆撮湶澶氫釜鎴愬憳锛屽悓鏃讹紝濡傛灉鏌愪簺鎴愬憳锛屾垜浠湪<span class="keyword">import</span> 鐨勬椂鍊欙紝涓嶉渶瑕侊紝鍒欏彲涓嶅湪&#123;&#125;涓畾涔�</span><br><span class="line">娉ㄦ剰锛氫娇鐢╡xport 瀵煎嚭鐨勬垚鍛橈紝蹇呴』涓ユ牸鎸夌収瀵煎嚭鏃跺€欑殑鍚嶇О锛屾潵浣跨敤锛坿鎸夐渶鎺ユ敹锛氭敞鎰忥細浣跨敤<span class="keyword">export</span> 瀵煎嚭鐨勬垚鍛橈紝濡傛灉灏辨兂鎹釜鍚嶇О鏉ユ帴鏀讹紝鍙互浣跨敤<span class="keyword">as</span>鏉ヨ捣鍒悕锛�</span><br><span class="line">main.js 瀵煎叆</span><br><span class="line"><span class="keyword">import</span> m,&#123; title <span class="keyword">as</span> title123 &#125; <span class="keyword">from</span> <span class="string">'./test.js'</span></span><br><span class="line"><span class="built_in">console</span>.log(m)</span><br><span class="line"><span class="built_in">console</span>.log(title)</span><br></pre></td></tr></table></figure>
+<h4 id="鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�"><a href="#鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�" class="headerlink" title="鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�"></a>鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�</h4><blockquote>
+<p>1.瀹夎vue鐨勫寘锛歝npm i vue -S<br>2.鐢变簬鍦╳ebpack涓紝鎺ㄨ崘浣跨敤.vue 杩欎釜缁勪欢妯℃澘鏂囦欢瀹氫箟缁勪欢锛屾墍浠ワ紝闇€瑕佸畨瑁呰兘瑙ｆ瀽杩欑鏂囦欢鐨刲oader </p>
+<p>cnpm i vue-1oader vue-template-complier -D<br>3.鍦╩ain.js 涓紝瀵煎叆vue妯″潡<br><code>import Vue from &#39;vue&#39;</code><br>4.瀹氫箟涓€涓�.vue 缁撳熬鐨勭粍浠讹紝鍏朵腑锛岀粍浠舵湁浜岄儴鍒嗙粍鎴愶細template script style<br>5.浣跨敤<code>import login from &#39;../login.vue&#39;</code>瀵煎叆杩欎釜缁勪欢<br>6銆佸垱寤篤m鐨勫疄渚媣ar Vm = new Vue锛坽el锛�’#app’锛宺ender锛欳 =&gt; c锛坥gin锛墋锛�<br>7.鍦ㄩ〉闈腑鍒涘缓涓€涓猧d涓篴pp 鐨刣iv鍏冪礌锛屼綔涓烘垜浠瑅m瀹炰緥瑕佹帶鍒剁殑鍖哄煙锛�<br>webpack.config.js</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 鐢变簬 webpack 鏄熀浜嶯ode杩涜鏋勫缓鐨勶紝鎵€鏈夛紝webpack鐨勯厤缃枃浠朵腑锛屼换浣曞悎娉曠殑Node浠ｇ爜閮芥槸鏀寔鐨�</span></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="comment">// 鍦ㄥ唴瀛樹腑锛屾牴鎹寚瀹氱殑妯℃澘椤甸潰锛岀敓鎴愪竴浠藉唴瀛樹腑鐨勯椤碉紝鍚屾椂鑷姩鎶婃墦鍖呭ソ鐨刡undle娉ㄥ叆鍒伴〉闈㈠簳閮�</span></span><br><span class="line"><span class="comment">// 濡傛灉瑕侀厤缃彃浠讹紝闇€瑕佸湪瀵煎嚭鐨勫璞′腑锛屾寕杞戒竴涓� plugins 鑺傜偣</span></span><br><span class="line"><span class="keyword">var</span> htmlWebpackPlugin = <span class="built_in">require</span>(<span class="string">'html-webpack-plugin'</span>)</span><br><span class="line"><span class="comment">// 褰撲互鍛戒护琛屽舰寮忚繍琛� webpack 鎴� webpack-dev-server 鐨勬椂鍊欙紝宸ュ叿浼氬彂鐜帮紝鎴戜滑骞舵病鏈夋彁渚� 瑕佹墦鍖� 鐨勬枃浠剁殑 鍏ュ彛 鍜� 鍑哄彛鏂囦欢锛屾鏃讹紝浠栦細妫€鏌ラ」鐩牴鐩綍涓殑閰嶇疆鏂囦欢锛屽苟璇诲彇杩欎釜鏂囦欢锛屽氨鎷垮埌浜嗗鍑虹殑杩欎釜 閰嶇疆瀵硅薄锛岀劧鍚庢牴鎹繖涓璞★紝杩涜鎵撳寘鏋勫缓</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: path.join(__dirname, <span class="string">'./src/main.js'</span>), <span class="comment">// 鍏ュ彛鏂囦欢</span></span><br><span class="line">  output: &#123; <span class="comment">// 鎸囧畾杈撳嚭閫夐」</span></span><br><span class="line">    path: path.join(__dirname, <span class="string">'./dist'</span>), <span class="comment">// 杈撳嚭璺緞</span></span><br><span class="line">    filename: <span class="string">'bundle.js'</span> <span class="comment">// 鎸囧畾杈撳嚭鏂囦欢鐨勫悕绉�</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [ <span class="comment">// 鎵€鏈墂ebpack  鎻掍欢鐨勯厤缃妭鐐�</span></span><br><span class="line">    <span class="keyword">new</span> htmlWebpackPlugin(&#123;</span><br><span class="line">      template: path.join(__dirname, <span class="string">'./src/index.html'</span>), <span class="comment">// 鎸囧畾妯℃澘鏂囦欢璺緞</span></span><br><span class="line">      filename: <span class="string">'index.html'</span> <span class="comment">// 璁剧疆鐢熸垚鐨勫唴瀛橀〉闈㈢殑鍚嶇О</span></span><br><span class="line">    &#125;)</span><br><span class="line">  ],</span><br><span class="line">  <span class="built_in">module</span>: &#123; <span class="comment">// 閰嶇疆鎵€鏈夌涓夋柟loader 妯″潡鐨�</span></span><br><span class="line">    rules: [ <span class="comment">// 绗笁鏂规ā鍧楃殑鍖归厤瑙勫垯</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.css$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>] &#125;, <span class="comment">// 澶勭悊 CSS 鏂囦欢鐨� loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.less$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'less-loader'</span>] &#125;, <span class="comment">// 澶勭悊 less 鏂囦欢鐨� loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.scss$/</span>, <span class="attr">use</span>: [<span class="string">'style-loader'</span>, <span class="string">'css-loader'</span>, <span class="string">'sass-loader'</span>] &#125;, <span class="comment">// 澶勭悊 scss 鏂囦欢鐨� loader</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.(jpg|png|gif|bmp|jpeg)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader?limit=7631&amp;name=[hash:8]-[name].[ext]'</span> &#125;, <span class="comment">// 澶勭悊 鍥剧墖璺緞鐨� loader</span></span><br><span class="line">      <span class="comment">// limit 缁欏畾鐨勫€硷紝鏄浘鐗囩殑澶у皬锛屽崟浣嶆槸 byte锛� 濡傛灉鎴戜滑寮曠敤鐨� 鍥剧墖锛屽ぇ浜庢垨绛変簬缁欏畾鐨� limit鍊硷紝鍒欎笉浼氳杞负base64鏍煎紡鐨勫瓧绗︿覆锛� 濡傛灉 鍥剧墖灏忎簬缁欏畾鐨� limit 鍊硷紝鍒欎細琚浆涓� base64鐨勫瓧绗︿覆</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.(ttf|eot|svg|woff|woff2)$/</span>, <span class="attr">use</span>: <span class="string">'url-loader'</span> &#125;, <span class="comment">// 澶勭悊 瀛椾綋鏂囦欢鐨� loader </span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.js$/</span>, <span class="attr">use</span>: <span class="string">'babel-loader'</span>, <span class="attr">exclude</span>: <span class="regexp">/node_modules/</span> &#125;, <span class="comment">// 閰嶇疆 Babel 鏉ヨ浆鎹㈤珮绾х殑ES璇硶</span></span><br><span class="line">      &#123; <span class="attr">test</span>: <span class="regexp">/\.vue$/</span>, <span class="attr">use</span>: <span class="string">'vue-loader'</span> &#125; <span class="comment">// 澶勭悊 .vue 鏂囦欢鐨� loader</span></span><br><span class="line">    ]</span><br><span class="line">  &#125;,</span><br><span class="line">  resolve: &#123;</span><br><span class="line">    alias: &#123; <span class="comment">// 淇敼 Vue 琚鍏ユ椂鍊欑殑鍖呯殑璺緞</span></span><br><span class="line">      <span class="comment">// "vue$": "vue/dist/vue.js"</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="vue璺敱"><a href="#vue璺敱" class="headerlink" title="vue璺敱"></a>vue璺敱</h4><h5 id="缁撳悎webpack浣跨敤vue-router"><a href="#缁撳悎webpack浣跨敤vue-router" class="headerlink" title="缁撳悎webpack浣跨敤vue-router"></a>缁撳悎webpack浣跨敤vue-router</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">main.js</span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> app <span class="keyword">from</span> <span class="string">'./App.vue'</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> account <span class="keyword">from</span> <span class="string">'./main/Account.vue'</span></span><br><span class="line"><span class="keyword">import</span> goodslist <span class="keyword">from</span> <span class="string">'./main/GoodsList.vue'</span></span><br><span class="line"><span class="comment">//濡傛灉鍦ㄤ竴涓ā鍧楀寲宸ョ▼涓娇鐢ㄥ畠锛屽繀椤昏閫氳繃Vvue.use锛堬級鏄庣‘鍦板畨瑁呰矾鐢卞姛鑳斤細</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"><span class="comment">// 鍒涘缓璺敱瀵硅薄</span></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes:[</span><br><span class="line">        &#123; <span class="attr">path</span>:<span class="string">'/account'</span>,<span class="attr">component</span>:account&#125;,</span><br><span class="line">        &#123; <span class="attr">path</span>:<span class="string">'/goodslist'</span>,<span class="attr">component</span>:goodslist&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">var</span> vm = <span class="keyword">new</span> Vue(&#123;</span><br><span class="line">	el:<span class="string">'#app'</span>,</span><br><span class="line">	render:<span class="function"><span class="params">c</span> =&gt;</span> c(app),</span><br><span class="line">    router  </span><br><span class="line">&#125;)</span><br><span class="line">App.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;</span><br><span class="line">    &lt;h1&gt;杩欐槸鐧诲綍缁勪欢锛屼娇鐢� .vue 鏂囦欢瀹氫箟鍑烘潵鐨� --- &#123;&#123;msg&#125;&#125;&lt;<span class="regexp">/h1&gt;</span></span><br><span class="line"><span class="regexp">	&lt;router-link to="/</span>account<span class="string">"&gt;Account&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">	&lt;router-link to="</span>/goodslist<span class="string">"&gt;Goodslist&lt;/router-link&gt;</span></span><br><span class="line"><span class="string">	&lt;router-view&gt;&lt;/router-view&gt;</span></span><br><span class="line"><span class="string">  &lt;/div&gt;</span></span><br><span class="line"><span class="string">&lt;/template&gt;  </span></span><br><span class="line"><span class="string">&lt;script&gt;</span></span><br><span class="line"><span class="string">export default &#123;</span></span><br><span class="line"><span class="string">  data() &#123;</span></span><br><span class="line"><span class="string">    // 娉ㄦ剰锛氱粍浠朵腑鐨� data 蹇呴』鏄� function</span></span><br><span class="line"><span class="string">    return &#123;</span></span><br><span class="line"><span class="string">      msg: "</span><span class="number">123</span><span class="string">"</span></span><br><span class="line"><span class="string">    &#125;;</span></span><br><span class="line"><span class="string">  &#125;,</span></span><br><span class="line"><span class="string">  methods: &#123;</span></span><br><span class="line"><span class="string">    show() &#123;</span></span><br><span class="line"><span class="string">      console.log("</span>璋冪敤浜� login.vue 涓殑 show 鏂规硶<span class="string">");</span></span><br><span class="line"><span class="string">    &#125;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">&#125;;</span></span><br><span class="line"><span class="string"> pp杩欎釜缁勪欢锛屾槸閫氳繃VM瀹炰緥鐨剅ender 鍑芥暟锛屾覆鏌撳嚭鏉ョ殑锛宺ender 鍑芥暟濡傛灉瑕佹覆鏌撶粍浠讹紝娓叉煋鍑烘潵鐨勭粍浠讹紝鍙兘鏀惧埌e1锛�#app'鎵€鎸囧畾鐨勫厓绱犱腑锛汭</span></span><br><span class="line"><span class="string">// Account鍜孏oodsList缁勪欢锛屾槸閫氳繃璺敱鍖归厤鐩戝惉鍒扮殑锛屾墍浠ワ紝杩欎袱涓粍浠讹紝鍙兘灞曠ず鍒板睘浜庤矾鐢辩殑&lt;outer-view&gt;&lt;/router-view&gt;涓幓</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;style&gt;</span></span><br><span class="line"><span class="string">&lt;/style&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">瀹夎 vue-router</span><br><span class="line">npm i vue-router -S</span><br></pre></td></tr></table></figure>
+<h5 id="webpack瀹炵幇children瀛愯矾鐢�"><a href="#webpack瀹炵幇children瀛愯矾鐢�" class="headerlink" title="webpack瀹炵幇children瀛愯矾鐢�"></a>webpack瀹炵幇children瀛愯矾鐢�</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 鍒涘缓璺敱瀵硅薄</span><br><span class="line">import login form &#39;.&#x2F;submon&#x2F;login.vue&#39;</span><br><span class="line">import register form &#39;.&#x2F;submon&#x2F;register&#39;</span><br><span class="line">var router &#x3D; new VueRouter(&#123;</span><br><span class="line">    routes:[</span><br><span class="line">        &#123; path:&#39;&#x2F;account&#39;,component:account,</span><br><span class="line">        	children:[</span><br><span class="line">        		&#123;path:&#39;login&#39;,component:login&#125;,</span><br><span class="line">        		&#123;path:&#39;register&#39;,component:register&#125;</span><br><span class="line">        	]</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123; path:&#39;&#x2F;goodslist&#39;,component:goodslist&#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="缁勪欢涓璼tyle鏍囩lang-璁剧疆scss鎴杔ess-灞炴€у拰scoped-灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�-灞炴€�"><a href="#缁勪欢涓璼tyle鏍囩lang-璁剧疆scss鎴杔ess-灞炴€у拰scoped-灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�-灞炴€�" class="headerlink" title="缁勪欢涓璼tyle鏍囩lang(璁剧疆scss鎴杔ess)灞炴€у拰scoped(灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�  )灞炴€�"></a>缁勪欢涓璼tyle鏍囩lang(璁剧疆scss鎴杔ess)灞炴€у拰scoped(灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�  )灞炴€�</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.vue 鏂囦欢</span><br><span class="line">&lt;style&gt; 鍏ㄥ眬鐨勬牱寮�</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&lt;style scoped&gt; 鏍峰紡搴旂敤浜庡綋鍓嶄綔鐢ㄥ煙</span><br><span class="line">&lt;&#x2F;style&gt;</span><br><span class="line">&#x2F;*鏅€氱殑style 鏍囩鍙敮鎸佹櫘閫氱殑鏍峰紡锛屽鏋滄兂瑕佸惎鐢╯css 鎴�1ess锛岄渶瑕佷负sty1e 鍏冪礌锛岃缃甽ang灞炴€�*&#x2F;</span><br><span class="line">鍙鍜变滑鐨剆tyle鏍囩锛屾槸鍦╲ue缁勪欢涓畾涔夌殑锛岄偅涔堬紝鎺ㄨ崘閮戒负style寮€鍚痵coped灞炴€�</span><br><span class="line">&lt;style lang&#x3D;&quot;scss&quot;&gt;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+scoped 灞炴€ч€夋嫨鍣ㄧ殑瀹炵幇鍘熺悊<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">鏍峰紡鐨剆coped 鏄€氳繃css鐨勫睘鎬ч€夋嫨鍣ㄥ疄鐜�</span><br><span class="line">娣诲姞div data-v-53d445f4鎴栬€呭叾浠栧睘鎬�</span><br></pre></td></tr></table></figure>
+<h5 id="鎶界璺敱妯″潡"><a href="#鎶界璺敱妯″潡" class="headerlink" title="鎶界璺敱妯″潡"></a>鎶界璺敱妯″潡</h5>鏂板缓router.js 鏂囦欢<br>鎶婃墍鏈夌殑璺敱浠ｇ爜澶嶅埗鍒皉outer.js 鏂囦欢<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 瀵煎叆 鑷畾涔夎矾鐢辨ā鍧�</span><br><span class="line">main.js 鏂囦欢瀵煎叆</span><br><span class="line">import router from &#39;.&#x2F;router.js&#39;</span><br></pre></td></tr></table></figure>
+<h2 id="鐩稿叧閰嶇疆鏂囦欢"><a href="#鐩稿叧閰嶇疆鏂囦欢" class="headerlink" title="鐩稿叧閰嶇疆鏂囦欢"></a>鐩稿叧閰嶇疆鏂囦欢</h2><h3 id="webpack-config-js-閰嶇疆鏂囦欢"><a href="#webpack-config-js-閰嶇疆鏂囦欢" class="headerlink" title="webpack.config.js 閰嶇疆鏂囦欢"></a>webpack.config.js 閰嶇疆鏂囦欢</h3><a href="https://webpack.docschina.org/configuration/" target="_blank" rel="noopener">webpack.config.js鏂囦欢閰嶇疆</a><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: path.join(__dirname, <span class="string">'./src/main.js'</span>),</span><br><span class="line">    output: &#123;</span><br><span class="line">        path:path.join(__dirname, <span class="string">'./dist/'</span>),</span><br><span class="line">        filename:<span class="string">'bundle.js'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="package-json鏂囦欢璇﹁В"><a href="#package-json鏂囦欢璇﹁В" class="headerlink" title="package.json鏂囦欢璇﹁В"></a><code>package.json鏂囦欢璇﹁В</code></h3><a href="https://juejin.im/post/5ebcd8b1e51d454dc20dd8a0" target="_blank" rel="noopener">閲嶆柊璁よ瘑 package.json </a><br><a href="https://github.com/ericdum/mujiang.info/issues/6/" target="_blank" rel="noopener">npm鐨刾ackage.json涓枃鏂囨。 </a><br>npm鍛戒护瀹夎鍖呭苟灏嗕俊鎭繚鎸佸埌椤圭洰鐨刾ackage.json鏂囦欢<br>閲嶇偣: <code>npm install &lt;package&gt;</code> 鍙槸涓嬭浇鍒版湰鍦皀ode_module妯″潡锛岃€屼笉鍔犺浇鍒� package.json 鏂囦欢涓�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install &lt;package...&gt; --save <span class="comment"># 鍐欏叆 dependencies 灞炴€�</span></span><br><span class="line">npm install &lt;package...&gt; --save-dev <span class="comment"># 鍐欏叆 devDependencies 灞炴€�</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>devDependencies</code> (寮€鍙戠幆澧冧娇鐢�) 涓� dependencies(鐢熶骇鐜浣跨敤) 鐨勫尯鍒�</p>
+<p>devDependencies锛歞evDependencies 鑺傜偣涓嬬殑妯″潡鏄垜浠湪寮€鍙戞椂闇€瑕佺敤鐨勶紝姣斿椤圭洰涓娇鐢ㄧ殑 gulp 锛屽帇缂ヽss銆乯s鐨勬ā鍧椼€傝繖浜涙ā鍧楀湪鎴戜滑鐨勯」鐩儴缃插悗鏄笉闇€瑕佺殑锛屾墍浠ユ垜浠彲浠ヤ娇鐢� -save-dev 鐨勫舰寮忓畨瑁呫€� 鎸囧畾浜嗛」鐩紑鍙戞墍闇€瑕佺殑妯″潡锛堝紑鍙戠幆澧冧娇鐢級</p>
+<p><code>dependencies</code>: 瀛楁鎸囧畾浜嗛」鐩繍琛屾墍渚濊禆鐨勬ā鍧楋紙鐢熶骇鐜浣跨敤锛�</p>
+<p><code>engines</code>鏈夋椂鍊欙紝鏂版媺涓€涓」鐩殑鏃跺€欙紝鐢变簬鍜屽叾浠栧紑鍙戜娇鐢ㄧ殑 <code>node</code> 鐗堟湰涓嶅悓锛屽鑷翠細鍑虹幇寰堝濂囧鎬€殑闂锛堝鏌愪簺渚濊禆瀹夎鎶ラ敊銆佷緷璧栧畨瑁呭畬椤圭洰璺戞璧锋潵绛夛級<code>package.json</code> 鐨� <code>engines</code> 瀛楁鏉ユ寚瀹氶」鐩� node 鐗堟湰</p>
+</blockquote>
+</li>
+</ol>
+<ul>
+<li>椤圭洰鍚嶇О銆侀」鐩瀯寤虹増鏈€佽鍙瘉鐨勫畾涔夛紱</li>
+<li>渚濊禆瀹氫箟锛堝寘鎷� <code>dependencies</code> 瀛楁锛宍devDependencies` 瀛楁锛夛紱</li>
+<li>浣跨敤<code>scripts</code>瀛楁鎸囧畾杩愯鑴氭湰鍛戒护鐨� <code>npm</code> 鍛戒护琛岀缉鍐欍€�<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  "name": "my-test", # 椤圭洰鍚嶇О</span><br><span class="line">  "version": "1.0.0", # 椤圭洰鐗堟湰锛堟牸寮忥細澶х増鏈�.娆¤鐗堟湰.灏忕増鏈級</span><br><span class="line">  "description": "", # 椤圭洰鎻忚堪</span><br><span class="line">  "main": "index.js", # 瀹氫箟鍏ュ彛鏂囦欢 榛樿index.js</span><br><span class="line">  "scripts": &#123; # 鎸囧畾杩愯鑴氭湰鍛戒护鐨� npm 鍛戒护琛岀缉鍐� 绠€鍖栫粓绔懡浠わ紙scripts锛�</span><br><span class="line">    "test": "echo \"Error: no test specified\" $$ exit 1"</span><br><span class="line">     <span class="comment">// "dev":"webpack-dev-server --open --port 3000 --hot" # npm run dev</span></span><br><span class="line">    <span class="comment">//   "start": "node index.js" #npm run start</span></span><br><span class="line">  &#125;,</span><br><span class="line">  "keywords": [], # 鍏抽敭璇�</span><br><span class="line">  "author": "", # 浣滆€�</span><br><span class="line">  "license": "ISC", # 璁稿彲璇�</span><br><span class="line">  "devDependencies": &#123;</span><br><span class="line">    <span class="comment">// 寮€鍙戠幆澧冧緷璧�   npm install 鍖呭悕 -D</span></span><br><span class="line">   &#125;,</span><br><span class="line">  "dependencies": &#123;</span><br><span class="line">     <span class="comment">// 鐢熶骇鐜渚濊禆   npm install 鍖呭悕 -S</span></span><br><span class="line">   &#125;,</span><br><span class="line">    "optionalDependencies": &#123;</span><br><span class="line">        "gulp": "^3.9.1"</span><br><span class="line">        <span class="comment">//锛堝彲閫夐樁娈电殑渚濊禆锛�  npm install 鍖呭悕 -O</span></span><br><span class="line">    &#125;</span><br><span class="line">   "engines": &#123;</span><br><span class="line">       "node": "&gt;= 8.16.0" #鎸囧畾椤圭洰 node 鐗堟湰锛坋ngines锛�</span><br><span class="line">	   "npm": "&gt;= 6.9.0" #鎸囧畾閫傜敤鐨� npm 鐗堟湰</span><br><span class="line">   &#125;,</span><br><span class="line">    "bin": &#123;</span><br><span class="line">      "my-app-cli": "./bin/cli.js"</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+瀹氫箟椤圭洰鍏ュ彛锛坢ain锛�</li>
+<li><code>main</code> 瀛楁鏄� <code>package.json</code> 涓殑鍙︿竴绉嶅厓鏁版嵁鍔熻兘锛屽畠鍙互鐢ㄦ潵鎸囧畾鍔犺浇鐨勫叆鍙ｆ枃浠躲€傚亣濡備綘鐨勯」鐩槸涓€涓� <code>npm</code> 鍖咃紝褰撶敤鎴峰畨瑁呬綘鐨勫寘鍚庯紝<code>require(&#39;my-module&#39;)</code> 杩斿洖鐨勬槸 <code>main</code> 瀛楁涓墍鍒楀嚭鏂囦欢鐨� <code>module.exports</code> 灞炴€с€�</li>
+<li>褰撲笉鎸囧畾<code>main</code> 瀛楁鏃讹紝榛樿鍊兼槸妯″潡鏍圭洰褰曚笅闈㈢殑<code>index.js</code> 鏂囦欢銆�<br>鑷畾涔夊懡浠わ紙bin锛�<br><code>bin</code> 瀛楁鐢ㄦ潵鎸囧畾鍚勪釜鍐呴儴鍛戒护瀵瑰簲鐨勫彲鎵ц鏂囦欢鐨勪綅缃€傚綋<code>package.json</code> 鎻愪緵浜� <code>bin</code> 瀛楁鍚庯紝鍗崇浉褰撲簬鍋氫簡涓€涓懡浠ゅ悕鍜屾湰鍦版枃浠跺悕鐨勬槧灏勩€�<br>褰撶敤鎴峰畨瑁呭甫鏈� <code>bin</code> 瀛楁鐨勫寘鏃讹紝</li>
+<li>濡傛灉鏄叏灞€瀹夎锛宍npm<code>灏嗕細浣跨敤绗﹀彿閾炬帴鎶婅繖浜涙枃浠堕摼鎺ュ埌</code>/use/local/node_modules/.bin/`锛�</li>
+<li>濡傛灉鏄湰鍦板畨瑁咃紝浼氶摼鎺ュ埌<code>./node_modules/.bin/</code>銆�<br>涓句釜 馃尠锛屽鏋滆浣跨敤 <code>my-app-cli</code> 浣滀负鍛戒护鏃讹紝鍙互閰嶇疆浠ヤ笅 <code>bin</code> 瀛楁锛�<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"bin"</span>: &#123;</span><br><span class="line">  <span class="string">"my-app-cli"</span>: <span class="string">"./bin/cli.js"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+涓婇潰浠ｇ爜鎸囧畾锛宍my-app-cli<code>鍛戒护瀵瑰簲鐨勫彲鎵ц鏂囦欢涓�</code>bin<code>瀛愮洰褰曚笅鐨�</code>cli.js<code>锛屽洜姝ゅ湪瀹夎浜�</code>my-app-cli<code>鍖呯殑椤圭洰涓紝灏卞彲浠ュ緢鏂逛究鍦板埄鐢�</code>npm`鎵ц鑴氭湰锛�<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;scripts&quot;: &#123;</span><br><span class="line">  start: &#39;node node_modules&#x2F;.bin&#x2F;my-app-cli&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>鍜︼紝鎬庝箞鐪嬭捣鏉ュ拰 vue create create-react-app涔嬬被鐨勫懡浠や笉澶儚锛熷師鍥狅細<ul>
+<li>褰撻渶瑕� <code>node</code> 鐜鏃跺氨闇€瑕佸姞涓� <code>node</code> 鍓嶇紑</li>
+<li>濡傛灉鍔犱笂 <code>node</code> 鍓嶇紑锛屽氨闇€瑕佹寚瀹� <code>my-app-cli</code> 鐨勮矾寰� -&gt; <code>node_modules/.bin</code>锛屽惁鍒� <code>node my-app-cli</code>浼氬幓鏌ユ壘褰撳墠璺緞涓嬬殑 <code>my-app-cli.js</code>锛岃繖鏍疯偗瀹氭槸涓嶅銆�</li>
+</ul>
+</li>
+<li>鑻ヨ瀹炵幇鍍� <code>vue create</code>/<code>create-react-app</code>涔嬬被鐨勫懡浠や竴鏍风畝渚跨殑鏂瑰紡锛屽垯鍙互鍦ㄤ笂鏂囨彁鍒扮殑 <code>bin</code> 瀛愮洰褰曚笅鍙墽琛屾枃浠禶cli.js` 涓殑绗竴琛屽啓鍏ヤ互涓嬪懡浠わ細<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/use/bin/env node</span></span><br></pre></td></tr></table></figure></li>
+<li>杩欒鍛戒护鐨勪綔鐢ㄦ槸鍛婅瘔绯荤粺鐢� <code>node</code> 瑙ｆ瀽锛岃繖鏍峰懡浠ゅ氨鍙互绠€鍐欐垚 <code>my-app-cli</code> 浜嗐€�</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="hwl 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="hwl 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+  <div class="followme">
+    <p>欢迎关注我的其它发布渠道</p>
+
+    <div class="social-list">
+
+        <div class="social-item">
+          <a target="_blank" class="social-link" href="/atom.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+
+            <span class="label">RSS</span>
+          </a>
+        </div>
+    </div>
+  </div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%8D%93%E5%B6%87%EE%81%AC/" rel="tag"># 鍓嶇</a>
+              <a href="/tags/webpack/" rel="tag"># webpack</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/07/10/%E5%8F%91%E5%B8%83/%E5%89%8D%E7%AB%AF/xml/" rel="prev" title="xml">
+      <i class="fa fa-chevron-left"></i> xml
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/19/%E5%8F%91%E5%B8%83/%E5%8D%9A%E5%AE%A2/GitBook/" rel="next" title="GitBook">
+      GitBook <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC81MDY1MC8yNzEzMw=="></div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-椤圭洰绠＄悊宸ュ叿"><span class="nav-number">1.</span> <span class="nav-text">webpack 椤圭洰绠＄悊宸ュ叿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#瀛︿範鏃ュ織"><span class="nav-number">1.1.</span> <span class="nav-text">瀛︿範鏃ュ織</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#椤圭洰鏋勫缓宸ュ叿"><span class="nav-number">1.2.</span> <span class="nav-text">椤圭洰鏋勫缓宸ュ叿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VSCode-鎻掍欢"><span class="nav-number">1.3.</span> <span class="nav-text">VSCode 鎻掍欢</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">webpack</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-snippets"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">webpack snippets</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鐩稿叧闃呰"><span class="nav-number">1.4.</span> <span class="nav-text">鐩稿叧闃呰</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grunt銆丟ulp銆亀ebpack"><span class="nav-number">1.5.</span> <span class="nav-text">Grunt銆丟ulp銆亀ebpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cnpm-銆�-npm銆�-nvm銆�-yarn-銆乶rm-鍛戒护宸ュ叿"><span class="nav-number">1.6.</span> <span class="nav-text">cnpm 銆� npm銆� nvm銆� yarn 銆乶rm 鍛戒护宸ュ叿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js鐨勫畨瑁�"><span class="nav-number">1.7.</span> <span class="nav-text">Node.js鐨勫畨瑁�</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js-瀹夎"><span class="nav-number">1.7.1.</span> <span class="nav-text">node.js 瀹夎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#settings-txt鏂囦欢鐨勯厤缃�"><span class="nav-number">1.7.1.1.</span> <span class="nav-text">settings.txt鏂囦欢鐨勯厤缃�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鐜鍙橀噺鐨勯厤缃�"><span class="nav-number">1.7.1.2.</span> <span class="nav-text">鐜鍙橀噺鐨勯厤缃�</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瀹夎閿欒"><span class="nav-number">1.7.2.</span> <span class="nav-text">瀹夎閿欒</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nvm甯哥敤鐨勫懡浠�"><span class="nav-number">1.7.3.</span> <span class="nav-text">nvm甯哥敤鐨勫懡浠�</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#node-鐗堟湰"><span class="nav-number">1.7.3.1.</span> <span class="nav-text">node 鐗堟湰</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NPM-鍖呯鐞嗗伐鍏�"><span class="nav-number">1.8.</span> <span class="nav-text">NPM 鍖呯鐞嗗伐鍏�</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nrm闀滃儚鍒囨崲鍦板潃"><span class="nav-number">1.9.</span> <span class="nav-text">nrm闀滃儚鍒囨崲鍦板潃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鎬荤粨锛歸ebpack鍩烘湰閰嶇疆"><span class="nav-number">1.10.</span> <span class="nav-text">鎬荤粨锛歸ebpack鍩烘湰閰嶇疆</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#瀹夎"><span class="nav-number">1.10.0.1.</span> <span class="nav-text">瀹夎</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#杩愯涓€-鍛戒护琛�-杈撳叆瀹屾暣璺緞杩愯-鎵嬪姩"><span class="nav-number">1.10.0.2.</span> <span class="nav-text">杩愯涓€ 鍛戒护琛�  杈撳叆瀹屾暣璺緞杩愯 鎵嬪姩</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-dev-server"><span class="nav-number">1.10.1.</span> <span class="nav-text">webpack-dev-server</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#杩愯浜岋細閰嶇疆webpack-config-js-杩愯-鎵嬪姩"><span class="nav-number">1.10.1.1.</span> <span class="nav-text">杩愯浜岋細閰嶇疆webpack.config.js 杩愯 鎵嬪姩</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#杩愯涓夛細閰嶇疆package-json-script-杩愯-鑷姩杩愯"><span class="nav-number">1.10.1.2.</span> <span class="nav-text">杩愯涓夛細閰嶇疆package.json script 杩愯 鑷姩杩愯</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#html-webpack-plugin-閰嶇疆index涓婚〉"><span class="nav-number">1.10.2.</span> <span class="nav-text">html-webpack-plugin 閰嶇疆index涓婚〉</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#loader-瀵煎叆鍏朵粬鏂囦欢"><span class="nav-number">1.10.2.1.</span> <span class="nav-text">loader  瀵煎叆鍏朵粬鏂囦欢</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#瀛椾綋"><span class="nav-number">1.11.</span> <span class="nav-text">瀛椾綋</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack瀹夎鐨勫伐鍏�"><span class="nav-number">1.12.</span> <span class="nav-text">webpack瀹夎鐨勫伐鍏�</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-姒傚康鐨勫紩鍏�"><span class="nav-number">1.13.</span> <span class="nav-text">webpack-姒傚康鐨勫紩鍏�</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缃戦〉涓細寮曠敤閭d簺甯哥敤鐨勯潤鎬佽祫婧�"><span class="nav-number">1.13.1.</span> <span class="nav-text">缃戦〉涓細寮曠敤閭ｄ簺甯哥敤鐨勯潤鎬佽祫婧�</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瑙e喅闂"><span class="nav-number">1.13.2.</span> <span class="nav-text">瑙ｅ喅闂</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#瑙e喅涓婅堪鐨�2绉嶈В鍐虫柟妗�"><span class="nav-number">1.13.3.</span> <span class="nav-text">瑙ｅ喅涓婅堪鐨�2绉嶈В鍐虫柟妗�</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack鐩綍"><span class="nav-number">1.13.4.</span> <span class="nav-text">webpack鐩綍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack鏈€鍩烘湰鐭ヨ瘑"><span class="nav-number">1.14.</span> <span class="nav-text">webpack鏈€鍩烘湰鐭ヨ瘑</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#浠€涔堟槸webpack"><span class="nav-number">1.14.1.</span> <span class="nav-text">浠€涔堟槸webpack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤"><span class="nav-number">1.14.2.</span> <span class="nav-text">webapack鏈€鍩烘湰鐨勯厤缃枃浠剁殑浣跨敤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-config-js"><span class="nav-number">1.14.2.1.</span> <span class="nav-text">webpack.config.js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack杩愯鍛戒护琛�"><span class="nav-number">1.14.2.2.</span> <span class="nav-text">webpack杩愯鍛戒护琛�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#package-json"><span class="nav-number">1.14.2.3.</span> <span class="nav-text">package.json</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack涔媝lugin閰嶇疆鍜屼娇鐢�"><span class="nav-number">1.14.3.</span> <span class="nav-text">webpack涔媝lugin閰嶇疆鍜屼娇鐢�</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-dev-server鎻掍欢-鑷姩杩愯椤圭洰"><span class="nav-number">1.14.3.1.</span> <span class="nav-text">webpack-dev-server鎻掍欢 鑷姩杩愯椤圭洰</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#webpack-dev-server鐨勫父鐢ㄥ懡浠�"><span class="nav-number">1.14.3.1.0.1.</span> <span class="nav-text">webpack-dev-server鐨勫父鐢ㄥ懡浠�</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#webpack-dev-server鐨勯厤缃懡浠ょ殑"><span class="nav-number">1.14.3.1.0.2.</span> <span class="nav-text">webpack-dev-server鐨勯厤缃懡浠ょ殑</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-dev-server鎶ラ敊1"><span class="nav-number">1.14.3.2.</span> <span class="nav-text">webpack-dev-server鎶ラ敊1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack-dev-server鎶ラ敊2"><span class="nav-number">1.14.3.3.</span> <span class="nav-text">webpack-dev-server鎶ラ敊2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html-webpack-plugin鎻掍欢-鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉-鑷姩杩藉姞椤甸潰鍒颁富椤�"><span class="nav-number">1.14.3.4.</span> <span class="nav-text">html-webpack-plugin鎻掍欢 鍦ㄥ唴瀛樹腑鐢熸垚涓婚〉&#x2F; 鑷姩杩藉姞椤甸潰鍒颁富椤�</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�"><span class="nav-number">1.14.3.4.0.1.</span> <span class="nav-text">html-webpack-plugin鎻掍欢鐨勪袱涓熀鏈搷浣�</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loader鍔犺浇鍣�"><span class="nav-number">1.14.4.</span> <span class="nav-text">loader鍔犺浇鍣�</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#loader閰嶇疆鍜屼娇鐢�-寮曞叆-JS锛坵ebpack-榛樿閮ㄥ垎锛夈€丆SS-less-scss-銆佸浘鐗�-銆佸瓧浣�"><span class="nav-number">1.14.5.</span> <span class="nav-text">loader閰嶇疆鍜屼娇鐢�  寮曞叆 JS锛坵ebpack 榛樿閮ㄥ垎锛夈€丆SS(less,scss) 銆佸浘鐗�  銆佸瓧浣�</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#涓€銆丆SS-less銆乻css"><span class="nav-number">1.14.5.1.</span> <span class="nav-text">涓€銆丆SS(less銆乻css)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css-銆乴ess銆乻css銆佸瓧浣�"><span class="nav-number">1.14.5.2.</span> <span class="nav-text">css 銆乴ess銆乻css銆佸瓧浣�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader"><span class="nav-number">1.14.5.3.</span> <span class="nav-text">loader閰嶇疆澶勭悊css鏍峰紡琛ㄧ殑绗笁鏂筶oader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader"><span class="nav-number">1.14.5.4.</span> <span class="nav-text">loader閰嶇疆澶勭悊less鏂囦欢鐨刲oader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader"><span class="nav-number">1.14.5.5.</span> <span class="nav-text">loader閰嶇疆澶勭悊scss鏂囦欢鐨刲oader</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浜屻€佸瓧浣�"><span class="nav-number">1.14.5.6.</span> <span class="nav-text">浜屻€佸瓧浣�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋"><span class="nav-number">1.14.5.7.</span> <span class="nav-text">webpack涓娇鐢╱rl-loader澶勭悊瀛椾綋</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#涓夈€佸浘鐗�"><span class="nav-number">1.14.5.8.</span> <span class="nav-text">涓夈€佸浘鐗�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鍥涖€丣S鏂囦欢锛圗S6-ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€�-webpack涓殑babel鐨勯厤缃�"><span class="nav-number">1.14.5.9.</span> <span class="nav-text">鍥涖€丣S鏂囦欢锛圗S6\ES7鍙婁互涓婄殑楂樼骇璇硶锛夈€� webpack涓殑babel鐨勯厤缃�</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-Vue缁撳悎"><span class="nav-number">1.14.6.</span> <span class="nav-text">webpack + Vue缁撳悎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢"><span class="nav-number">1.14.6.1.</span> <span class="nav-text">鍦ㄦ櫘閫氶〉闈腑浣跨敤render鍑芥暟娓叉煋缁勪欢</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#render鐨勫嚑绉嶅啓娉�"><span class="nav-number">1.14.6.2.</span> <span class="nav-text">render鐨勫嚑绉嶅啓娉�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�"><span class="nav-number">1.14.6.3.</span> <span class="nav-text">濡備綍鍦╳ebpack涓瀯寤洪」鐩腑锛屼娇鐢╒ue杩涜寮€鍙�</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue"><span class="nav-number">1.14.6.3.1.</span> <span class="nav-text">鍦ㄦ櫘閫氱綉椤典腑濡備綍浣跨敤vue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#鍦╳ebpack涓浣曚娇鐢╲ue"><span class="nav-number">1.14.6.3.2.</span> <span class="nav-text">鍦╳ebpack涓浣曚娇鐢╲ue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#鍦╳ebpack涓厤缃�-vue-缁勪欢椤甸潰鐨勮В鏋�"><span class="nav-number">1.14.6.3.3.</span> <span class="nav-text">鍦╳ebpack涓厤缃�.vue 缁勪欢椤甸潰鐨勮В鏋�</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴�-template-script-style"><span class="nav-number">1.14.6.3.4.</span> <span class="nav-text">vue缁勪欢鐢变笁涓儴鍒嗘瀯鎴� template script style</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#export-default-鍜�-export鐨勪娇鐢ㄦ柟寮�"><span class="nav-number">1.14.6.4.</span> <span class="nav-text">export default 鍜� export鐨勪娇鐢ㄦ柟寮�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�"><span class="nav-number">1.14.6.5.</span> <span class="nav-text">鎬荤粨姊崇悊锛歸ebpack涓浣曚娇鐢▂ue锛�</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#vue璺敱"><span class="nav-number">1.14.6.6.</span> <span class="nav-text">vue璺敱</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#缁撳悎webpack浣跨敤vue-router"><span class="nav-number">1.14.6.6.1.</span> <span class="nav-text">缁撳悎webpack浣跨敤vue-router</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#webpack瀹炵幇children瀛愯矾鐢�"><span class="nav-number">1.14.6.6.2.</span> <span class="nav-text">webpack瀹炵幇children瀛愯矾鐢�</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#缁勪欢涓璼tyle鏍囩lang-璁剧疆scss鎴杔ess-灞炴€у拰scoped-灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�-灞炴€�"><span class="nav-number">1.14.6.6.3.</span> <span class="nav-text">缁勪欢涓璼tyle鏍囩lang(璁剧疆scss鎴杔ess)灞炴€у拰scoped(灞€閮ㄤ綔鐢ㄥ煙鐨勬牱寮�  )灞炴€�</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#鎶界璺敱妯″潡"><span class="nav-number">1.14.6.6.4.</span> <span class="nav-text">鎶界璺敱妯″潡</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#鐩稿叧閰嶇疆鏂囦欢"><span class="nav-number">1.15.</span> <span class="nav-text">鐩稿叧閰嶇疆鏂囦欢</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#webpack-config-js-閰嶇疆鏂囦欢"><span class="nav-number">1.15.1.</span> <span class="nav-text">webpack.config.js 閰嶇疆鏂囦欢</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-json鏂囦欢璇﹁В"><span class="nav-number">1.15.2.</span> <span class="nav-text">package.json鏂囦欢璇﹁В</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="hwl"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">hwl</p>
+  <div class="site-description" itemprop="description">new blog</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">47</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/heweiliang88" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;heweiliang88" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2226982020@qq.com" title="E-Mail → mailto:2226982020@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://plus.google.com/yourname" title="Google → https:&#x2F;&#x2F;plus.google.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://stackoverflow.com/yourname" title="StackOverflow → https:&#x2F;&#x2F;stackoverflow.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title">
+      <i class="fa fa-fw fa-link"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://github.com/heweiliang88" title="https:&#x2F;&#x2F;github.com&#x2F;heweiliang88" rel="noopener" target="_blank">Github</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://juejin.cn/user/465848662763837" title="https:&#x2F;&#x2F;juejin.cn&#x2F;user&#x2F;465848662763837" rel="noopener" target="_blank">掘金</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://yoursite.com/" title="http:&#x2F;&#x2F;yoursite.com">StackOverflow</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hwl</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">585k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8:52</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+  <script defer src="/lib/three/three.min.js"></script>
+    <script defer src="/lib/three/three-waves.min.js"></script>
+    <script defer src="/lib/three/canvas_lines.min.js"></script>
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+NexT.utils.loadComments(document.querySelector('#lv-container'), () => {
+  window.livereOptions = {
+    refer: location.pathname.replace(CONFIG.root, '').replace('index.html', '')
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/Epsilon2.1.model.json"},"display":{"position":"left","width":300,"height":600},"mobile":{"show":false},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
