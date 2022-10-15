@@ -9,12 +9,10 @@ description: "我希望有个如你一般的人。 如这山间清晨一般明�
 keywords: 前端、免流、技术、运维、手机
 author: 记住
 language: zh-CN
-# timezone: "Asia/GondGuang"
 
 # URL
-## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://heweiliang88.github.io/
-root: /
+## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -30,23 +28,6 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  [
-    _posts/未发布/**/*,
-    _posts/爱好/未发布/*,
-    _posts/博客/未发布/*,
-    _posts/测试/未发布/*,
-    _posts/考试/未发布/*,
-    _posts/攻防/未发布/*,
-    _posts/古汉语/未发布/*,
-    _posts/后端/未发布/**/*,
-    _posts/计算机408/未发布/*,
-    _posts/经济/未发布/*,
-    _posts/前端/未发布/*,
-    _posts/数据库/未发布/*,
-    _posts/数项目/未发布/*,
-    _posts/运维/未发布/*,
-    _posts/面试/未发布/*,
-  ]
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -55,20 +36,32 @@ titlecase: false # Transform title into titlecase
 external_link:
   enable: true # Open external links in new tab
   field: site # Apply to the whole site
-  exclude: ""
+  exclude: ''
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  enable: false
+  preprocess: true
+  line_number: true
+  tab_replace: ''
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ""
-  per_page: 100
+  path: ''
+  per_page: 10
   order_by: -date
 
 # Category & Tag
@@ -84,15 +77,14 @@ meta_generator: true
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-
-# date_format: YYYY-MM-DD
-# time_format: HH:mm:ss
-# ## Use post's date for updated date unless set in front-matter
-# use_date_for_updated: false
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+## updated_option supports 'mtime', 'date', 'empty'
+updated_option: 'mtime'
 
 # Pagination
 ## Set per_page to 0 to disable pagination
-per_page: 9
+per_page: 10
 pagination_dir: page
 
 # Include / Exclude file(s)
@@ -102,108 +94,15 @@ exclude:
 ignore:
 
 # Extensions
-feed:
-  type: atom
-  path: atom.xml
-  limit: 20
-  hub:
-  content:
-  content_limit: 140
-  content_limit_delim: " "
-
-search:
-  path: search.xml
-  field: post
-  format: html
-  limit: 10000
-
-# hexo-tag-cloud
-tag_cloud:
-  textFont: Trebuchet MS, Helvetica
-  textColor: "#333"
-  textHeight: 25
-  outlineColor: "#E2E1D1"
-  maxSpeed: 0.1
-
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-# theme: landscape
-# theme: hexo-theme-next
 theme: oranges
 
-# live2d:
-#   enable: true
-#   pluginModelPath: assets/
-#   model:
-#     use: live2d-widget-model-haru #模板目录，在node_modules里
-#   display:
-#     position: left
-#     #  1:2
-#     width: 300
-#     height: 600
-#   mobile:
-#     show: true #是否在手机进行显示
-
-wordCount:
-  enable: true # 将这个值设置为 true 即可.
-  postWordCount: true
-  min2read: true
-  totalCount: true
-
-# theme: next
-# theme: matery
-
 # Deployment
-## Docs: https://hexo.io/docs/deployment.html
+## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
   repo:
     github: git@github.com:heweiliang88/heweiliang88.github.io.git
-    # gitee: git@gitee.com:heweiliang/heweiliang.git
-  branch: master
+  branch: gh-pages
 
-# 音乐播放器
-# aplayer:
-#   meting: true
-
-#  emoji表情
-# githubEmojis:
-#   enable: true
-#   className: github-emoji
-#   inject: true
-#   styles:
-#   customEmojis:
-
-# 代码光亮
-# highlight:
-#   enable: true
-#   line_number: true
-#   auto_detect: true
-#   tab_replace: ""
-#   wrap: true
-#   hljs: false
-highlight:
-  enable: true
-  auto_detect: true
-  line_number: true
-  line_threshold: 0
-  tab_replace: ""
-  exclude_languages:
-    - example
-  wrap: true
-  hljs: false
-prismjs:
-  enable: false
-  preprocess: true
-  line_number: true
-  line_threshold: 0
-  tab_replace: ""
-
-# [ele828/hexo-prism-plugin: Hexo plugin for code highlighting by prism.js, supporting JSX syntax](https://github.com/ele828/hexo-prism-plugin)
-prism_plugin:
-  mode: "preprocess" # realtime/preprocess
-  theme: "tomorrow"
-  line_number: true # default false
-  custom_css:
-#  aplayer:
-#    meting: true
