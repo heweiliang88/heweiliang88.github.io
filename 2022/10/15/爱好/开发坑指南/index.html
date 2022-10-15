@@ -11,11 +11,6 @@
   
   <title>
     
-      归档 
-      
-      
-      |
-    
      从你的全世界路过
   </title>
 
@@ -113,41 +108,122 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2022</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title"></div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2022-10-15 16:11:53
+        </span>
+        
+      </div>
+      <div class="markdown-body">
+        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ul>
+<li>在<code>.git</code>项目下不同目录存在多个<code>.git版本库</code> 会出现上传不了该目录的文件和<code>git commit </code>无法提交 ==Error Changes not staged for commit:==</li>
+<li><code>Git</code>主分支从 <code>master</code> 变为 <code>main</code></li>
+</ul>
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2022-10-15 16:11:53
+            </span>
+            
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/10/15/%E7%88%B1%E5%A5%BD/NAS/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="搭建轻量级家庭NAS服务器">
-        <div class="time-m-d">10-15</div>
-        <div class="title">
-          <a href="/2022/10/15/%E7%88%B1%E5%A5%BD/NAS/">
-            <span>搭建轻量级家庭NAS服务器</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="">
-        <div class="time-m-d">10-15</div>
-        <div class="title">
-          <a href="/2022/10/15/%E7%88%B1%E5%A5%BD/%E5%BC%80%E5%8F%91%E5%9D%91%E6%8C%87%E5%8D%97/">
-            <span></span>
-          </a>
-        </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -432,6 +508,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' +  + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F15%2F%25E7%2588%25B1%25E5%25A5%25BD%2F%25E5%25BC%2580%25E5%258F%2591%25E5%259D%2591%25E6%258C%2587%25E5%258D%2597%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/15/%E7%88%B1%E5%A5%BD/%E5%BC%80%E5%8F%91%E5%9D%91%E6%8C%87%E5%8D%97/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

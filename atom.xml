@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-10-15T16:07:42.169Z</updated>
+  <updated>2022-10-15T16:11:53.985Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>搭建轻量级家庭NAS服务器</title>
     <link href="http://example.com/2022/10/15/%E7%88%B1%E5%A5%BD/NAS/"/>
     <id>http://example.com/2022/10/15/%E7%88%B1%E5%A5%BD/NAS/</id>
-    <published>2022-10-15T16:07:42.169Z</published>
-    <updated>2022-10-15T16:07:42.169Z</updated>
+    <published>2022-10-15T16:11:53.985Z</published>
+    <updated>2022-10-15T16:11:53.985Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="NAS"><a href="#NAS" class="headerlink" title="NAS"></a>NAS</h1><h2 id="猫盘"><a href="#猫盘" class="headerlink" title="猫盘"></a>猫盘</h2><h2 id="群晖"><a href="#群晖" class="headerlink" title="群晖"></a>群晖</h2><p>Nas系统：</p><p>NAS（Network Attached Storage：网络附属存储）按字面简单说就是连接在网络上，具备资料存储功能的装置，因此也称为“<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E5%AD%98%E5%82%A8%E5%99%A8/9485387">网络存储器</a>”。它是一种专用数据<a href="https://baike.baidu.com/item/%E5%AD%98%E5%82%A8%E6%9C%8D%E5%8A%A1%E5%99%A8">存储服务器</a>。它以数据为中心，将存储设备与服务器彻底分离，集中管理数据，从而释放带宽、提高性能、降低总拥有成本、保护投资。其成本远远低于使用服务器存储，而效率却远远高于后者。NAS服务器提供一个中央场所让你可以存储、访问和共享本地网络，有可能还可以是互联网上的–上的文件和文档。</p><ul><li>FreeNAS：FreeNAS 可能是最流行的开源 NAS 项目。它是一个 FreeBSD 7.2 版本加上网络接口、PHP 脚本和基于 m0n0wall 的手册。FreeNAS 根据 BSD 许可证进行发布。它可以安装到紧凑型闪存、USB 闪存或硬盘驱动器上，或直接从一个 LiveCD 上启动。</li><li>CryptoNAS：CryptoNAS(过去的 CryptoBox)这个 NAS 项目专注于磁盘加密。它提供基于 Linux 的 LiveCD。这个 LiveCD 包含了加密功能和 NAS 服务器。此外，它们还提供一个可以安装到现有 Linux 服务器上的软件包，为磁盘加密增加用户友好型的基于互联网的前端。它们根据 GPL(通用公共许可证)进行授权许可。</li><li>Openfiler：Openfiler 是另一种多功能 NAS 服务器，就像 FreeNAS。它是一种采用 rPath 的 Linux 版本。Openfiler 根据 GPLv2 许可证进行发布。它可以安装到个人电脑或服务器上，此外它还可以作为虚拟机实例来运行。</li><li>NASLite-M2：NASLite-M2 是 Server Elements 开发的，是少数几个商业 Linux NAS 发布之一。它的 ISO CD 镜像文件的下载费用为 34.95 美元。不幸的是，它不能免费发布。</li><li>NanoNAS：NanoNAS 也是来自 Server Elements，而且是 NASLite 服务器的最精简版本。它也是基于 Linux 的，不过是商业软件，因此不能免费发布。你可以花 9.95 美元下载该软件。</li><li>OpenMediaVault</li></ul><p>Nas品牌</p><ul><li>威联通</li><li>华芸</li><li>群晖</li></ul><p>OpenMediaVault，简称OMV，是开源NAS解决方案之一，更是黑群晖之外的最佳选择。</p><p>硬件组装</p><ul><li>机箱 <ul><li>蜗牛星际</li></ul></li><li>硬盘  <ul><li>Nas 5T硬盘</li></ul></li><li>主板<ul><li>j3455 主板</li></ul></li><li>电源 <ul><li>250W</li></ul></li><li>内存<ul><li>8G内存</li></ul></li><li>CPU</li></ul><p>功耗的计算</p>]]></content>
     
@@ -37,6 +37,26 @@
     
     
     <category term="NAS" scheme="http://example.com/tags/NAS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://example.com/2022/10/15/%E7%88%B1%E5%A5%BD/%E5%BC%80%E5%8F%91%E5%9D%91%E6%8C%87%E5%8D%97/"/>
+    <id>http://example.com/2022/10/15/%E7%88%B1%E5%A5%BD/%E5%BC%80%E5%8F%91%E5%9D%91%E6%8C%87%E5%8D%97/</id>
+    <published>2022-10-15T16:11:53.985Z</published>
+    <updated>2022-10-15T16:11:53.985Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ul><li>在<code>.git</code>项目下不同目录存在多个<code>.git版本库</code> 会出现上传不了该目录的文件和<code>git commit </code>无法提交 ==Error Changes not staged for commit:==</li><li><code>Git</code>主分支从 <code>master</code> 变为 <code>main</code></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
     
   </entry>
   
