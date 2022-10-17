@@ -11,7 +11,7 @@
   
   <title>
     
-      archive_a: 2022/10 
+      (syntax)vite 
       
       
       |
@@ -115,68 +115,191 @@
 
 
       <div class="flex-container">
-        <!-- 归档页，展示本站所有文章，按照年份降序归类，url形式：https://yoursite/archives/ -->
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
 
-<!-- last: 按年份把文章分组，当前遍历到的年份 -->
-<!-- now: 当前遍历到的文章的发布年份 -->
 
-<div class="container archives">
-  <div class="post-list">
-    
-        <!-- 后续文章的发布年份呈现 -->
-        <div class="content-title">
-          <h2>
-            <span>2022</span>
-          </h2>
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">(syntax)vite</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2022-10-17 08:46:11
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/vue/" title="vue">
+                    #vue
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E8%AF%AD%E6%B3%95/" title="语法">
+                    #语法
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h2 id="vite"><a href="#vite" class="headerlink" title="vite"></a>vite</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/why.html">Vite 官方中文文档</a></p>
+</blockquote>
+<blockquote>
+<ul>
+<li>安装<ul>
+<li>vue create =&gt; npm create vite</li>
+<li><code>npm create vite@latest</code></li>
+<li><code>pnpm create vite my-vue-app --template vue</code></li>
+</ul>
+</li>
+<li>配置syntax<ul>
+<li>vite<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/config/">配置 Vite | Vite 官方中文文档</a></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> { defineConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span><br><span class="hljs-keyword">import</span> vue <span class="hljs-keyword">from</span> <span class="hljs-string">'@vitejs/plugin-vue'</span><br><br><span class="hljs-comment">// https://vitejs.dev/config/</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>({<br>  <span class="hljs-attr">plugins</span>: [<span class="hljs-title function_">vue</span>()]<br>})<br></code></pre></td></tr></tbody></table></figure>
+</blockquote>
+<ul>
+<li><p>web开发构建工具</p>
+<ul>
+<li>一个开发服务器 基于原生ES模块 模块热更新(HMR)</li>
+<li>一套构建指令 Rollup打包 预配置的 输出用于生产环境的高度优化过的静态资源</li>
+</ul>
+</li>
+<li><p>现实问题：缓慢的服务器启动[将应用中的模块区分为 **依赖** <a target="_blank" rel="noopener" href="https://esbuild.github.io/">esbuild</a> <a target="_blank" rel="noopener" href="https://cn.vitejs.dev/guide/dep-pre-bundling.html">预构建依赖</a>。和 <strong>源码</strong> <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules">原生 ESM</a> {ES Module} 两类，改进了开发服务器启动时间] 缓慢的更新(打包器支持了动态模块热替换（HMR）)</p>
+</li>
+</ul>
+<p>安装</p>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm create vite@latest  // npm init vite-app &lt;project-name&gt;<br>yarn create vite  // yarn create vite-app &lt;project-name&gt;<br>pnpm create vite<br><span class="hljs-comment"># npm 6.x</span><br>npm create vite@latest my-vue-app --template vue<br><span class="hljs-comment"># npm 7+, extra double-dash is needed:</span><br>npm create vite@latest my-vue-app -- --template vue<br><span class="hljs-comment"># yarn</span><br>yarn create vite my-vue-app --template vue<br><span class="hljs-comment"># pnpm</span><br>pnpm create vite my-vue-app --template vue<br>// 上面vue替代 vanilla，vanilla-ts，vue，vue-ts，react，react-ts，preact，preact-ts，lit，lit-ts，svelte，svelte-ts<br>// 社区模板<br>npx degit user/project my-project<br><br>npx vite // npx vite build<br><span class="hljs-string">"scripts"</span>: {<br>    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"vite"</span>, // 启动开发服务器，别名：`vite dev`，`vite serve`<br>    <span class="hljs-string">"build"</span>: <span class="hljs-string">"vite build"</span>, // 为生产环境构建产物<br>    <span class="hljs-string">"preview"</span>: <span class="hljs-string">"vite preview"</span> // 本地预览生产构建产物<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<p>vite.config.js</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> { defineConfig, loadEnv } <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(<span class="hljs-function">(<span class="hljs-params">{ command, mode }</span>) =&gt;</span> {<br>  <span class="hljs-comment">// 根据当前工作目录中的 `mode` 加载 .env 文件</span><br>  <span class="hljs-comment">// 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。</span><br>  <span class="hljs-keyword">const</span> env = <span class="hljs-title function_">loadEnv</span>(mode, process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">''</span>)<br>  <span class="hljs-keyword">return</span> {<br>    <span class="hljs-comment">// vite 配置</span><br>    <span class="hljs-attr">define</span>: {<br>      <span class="hljs-attr">__APP_ENV__</span>: env.<span class="hljs-property">APP_ENV</span><br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure>
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/10/17/vue-cli/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2022-10-17 08:46:11
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/vue/" title="vue">
+                        #vue
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E8%AF%AD%E6%B3%95/" title="语法">
+                        #语法
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/10/17/bug/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
         </div>
       
-      <div class="post-item" title="(tool)Mac使用">
-        <div class="time-m-d">10-17</div>
-        <div class="title">
-          <a href="/2022/10/17/Mac/">
-            <span>(tool)Mac使用</span>
-          </a>
-        </div>
-      </div>
+    </div>
     
-      <div class="post-item" title="(syntax)axios">
-        <div class="time-m-d">10-17</div>
-        <div class="title">
-          <a href="/2022/10/17/axios/">
-            <span>(syntax)axios</span>
-          </a>
-        </div>
-      </div>
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#vite"><span class="toc-text">vite</span></a></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
     
-      <div class="post-item" title="(bug)Bug">
-        <div class="time-m-d">10-17</div>
-        <div class="title">
-          <a href="/2022/10/17/bug/">
-            <span>(bug)Bug</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="(syntax)vite">
-        <div class="time-m-d">10-17</div>
-        <div class="title">
-          <a href="/2022/10/17/vite/">
-            <span>(syntax)vite</span>
-          </a>
-        </div>
-      </div>
-    
-      <div class="post-item" title="(syntax)vue-cli">
-        <div class="time-m-d">10-17</div>
-        <div class="title">
-          <a href="/2022/10/17/vue-cli/">
-            <span>(syntax)vue-cli</span>
-          </a>
-        </div>
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
       </div>
     
   </div>
-</div>
+
 
         
 <div class="footer">
@@ -461,6 +584,24 @@
 
 
         
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + (syntax)vite + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F17%2Fvite%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/17/vite/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
   
   
 <script src="/js/shares.js"></script>

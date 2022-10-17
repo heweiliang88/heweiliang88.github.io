@@ -11,8 +11,8 @@
   
   <title>
     
-      Hello 
-      
+      标签 
+       : 语法
       
       |
     
@@ -80,6 +80,8 @@
     </a>
     <div class="nickname"><a href="/">cloud</a></div>
   </div>
+  <h1 style="text-align:center;margin-bottom: 40px;" id="jinrishici-sentence">正在加载今日诗词....</h1>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
   <div class="navbar">
     <ul>
       
@@ -113,125 +115,39 @@
 
 
       <div class="flex-container">
-        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
-<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+        <!-- 标签详情页，展示某个标签下的文章列表，url形式：https://yoursite/tags/某个标签/ -->
 
-
-  <!-- LaTex Display -->
-
-  
-    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
-  
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    }
-  </script>
-
-
-
-
-
-  <!-- clipboard -->
-
-  
-    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
-  
-  
-<script src="/js/codeCopy.js"></script>
-
-
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
-  <div class="container post-details" id="post-details">
-    <div class="post-content">
-      <div class="post-title">Hello</div>
-      <div class="post-attach">
-        <span class="post-pubtime">
-          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2022-10-16 08:52:23
-        </span>
-        
-      </div>
-      <div class="markdown-body">
-        <p>Mac 环境变量设置</p>
-<ul>
-<li><code>/etc/profile  &gt; /etc/paths 全局  &gt;  ~/.bash_profile 用户  &gt;  ~/.bash_login  &gt;  ~/.profile ~/.bashrc</code><ul>
-<li><code>/etc/profile 与 /etc/paths 系统级别环境变量</code><ul>
-<li><code>/etc/paths</code>  全局配置</li>
-<li><code>/etc/profile </code>  全局（公有）配置</li>
-</ul>
-</li>
-<li><code>~/.bash_profile  &gt;  ~/.bash_login  &gt;  ~/.profile  &gt; ~/.bashrc 用户级别环境变量</code><ul>
-<li>``~/.echo ‘PATH=”$PATH:./node_modules/.bin”‘ &gt;&gt; ~/.profile` 当前用户生效  要重启  /.bash_profile文件存在，则后面的几个文件就会被忽略不读了</li>
-<li>``~/.profile`  为系统的每个用户设置环境信息（登陆时执行）</li>
-<li><code> ~/.bashrc</code>  修改这个文件不用重启，重新打开一个bash即可生效</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$PATH</span>:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;</span><br><span class="line">// 全局配置</span><br><span class="line"><span class="built_in">touch</span> /etc/paths.d/xxxfile</span><br><span class="line">vim xxxfile</span><br><span class="line">/usr/local/xxx/bin  //启动路径</span><br><span class="line">// 系统文件</span><br><span class="line">vim ~/.bash_profile   //  ./.profile </span><br><span class="line"><span class="built_in">source</span> .bash_profile</span><br><span class="line">// 别名 设置常用缩写  </span><br><span class="line"><span class="built_in">alias</span> xx = <span class="string">'xxxx'</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$PATH</span> // 查看Path</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'PATH="$PATH:./node_modules/.bin"'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"></span><br><span class="line">// mac .bash_profile </span><br><span class="line"><span class="built_in">alias</span> ll=<span class="string">'ls -l'</span> <span class="comment"># 别名</span></span><br><span class="line"><span class="built_in">export</span> PATH=/opt/local/bin:/opt/local/sbin:<span class="variable">$PATH</span> <span class="comment"># path</span></span><br><span class="line"></span><br><span class="line">// 快速打开Hexo博客文章</span><br><span class="line"><span class="built_in">alias</span> note=<span class="string">'cd /Users/administrator/Workspace/Blog/source/_posts'</span></span><br><span class="line"><span class="built_in">alias</span> typora=<span class="string">'note &amp;&amp; open -a /Applications/Typora.app'</span></span><br><span class="line">// 上传Blog文件</span><br><span class="line"><span class="built_in">alias</span> push=<span class="string">'cd /Users/administrator/Workspace/Blog &amp;&amp; npm run git</span></span><br></pre></td></tr></tbody></table></figure>
-
-
-      </div>
-      
-        <div class="prev-or-next">
-          <div class="post-foot-next">
-            
-              <a href="/2022/10/16/%E7%88%B1%E5%A5%BD/NAS/" target="_self">
-                <i class="iconfont icon-chevronleft"></i>
-                <span>上一页</span>
-              </a>
-            
-          </div>
-          <div class="post-attach">
-            <span class="post-pubtime">
-              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2022-10-16 08:52:23
-            </span>
-            
-          </div>
-          <div class="post-foot-prev">
-            
-              <a href="/2022/10/16/Mac/" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-    </div>
-    
-
-    
-      <div class="comments-container">
-        
-
-
-
-
-
-
-
-      </div>
-    
+<div class="container tag-details">
+  <div class="content-title">
+    <h2>
+      <span>语法</span>
+    </h2>
   </div>
-
+  
+    <div class="post-list">
+      <div class="post-item" title="(syntax)vite">
+        <span class="time-m-d">2022-10-17</span>
+        <a href="/2022/10/17/vite/">
+          <span>(syntax)vite</span>
+        </a>
+      </div>
+    </div>
+  
+    <div class="post-list">
+      <div class="post-item" title="(syntax)vue-cli">
+        <span class="time-m-d">2022-10-17</span>
+        <a href="/2022/10/17/vue-cli/">
+          <span>(syntax)vue-cli</span>
+        </a>
+      </div>
+    </div>
+  
+  <nav class="post-navigation">
+    
+    <span class="page-num">1 / 1</span>
+    
+  </nav>
+</div>
 
         
 <div class="footer">
@@ -516,24 +432,6 @@
 
 
         
-  
-    <div class="share-icon tools-bar-item">
-      <a href="javascript: void(0)" id="share-icon">
-        <i class="iconfont iconshare"></i>
-      </a>
-      <div class="share-content hidden">
-        
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + Hello + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F16%2Fhexo%2F + '" target="_blank" title="Twitter">
-            <i class="iconfont icon-twitter"></i>
-          </a>
-        
-        
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/16/hexo/" target="_blank" title="Facebook">
-            <i class="iconfont icon-facebooksquare"></i>
-          </a>
-        
-      </div>
-    </div>
   
   
 <script src="/js/shares.js"></script>

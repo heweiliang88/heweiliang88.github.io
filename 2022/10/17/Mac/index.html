@@ -11,6 +11,11 @@
   
   <title>
     
+      (tool)Mac使用 
+      
+      
+      |
+    
      从你的全世界路过
   </title>
 
@@ -75,6 +80,8 @@
     </a>
     <div class="nickname"><a href="/">cloud</a></div>
   </div>
+  <h1 style="text-align:center;margin-bottom: 40px;" id="jinrishici-sentence">正在加载今日诗词....</h1>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
   <div class="navbar">
     <ul>
       
@@ -153,18 +160,131 @@
   <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
   <div class="container post-details" id="post-details">
     <div class="post-content">
-      <div class="post-title"></div>
+      <div class="post-title">(tool)Mac使用</div>
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2022-10-16 03:25:27
+          2022-10-17 08:46:11
         </span>
         
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E5%B7%A5%E5%85%B7/" title="工具">
+                    #工具
+                  </a>
+                </span>
+                
+              </span>
+          
       </div>
       <div class="markdown-body">
-        <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><ul>
-<li>在<code>.git</code>项目下不同目录存在多个<code>.git版本库</code> 会出现上传不了该目录的文件和<code>git commit </code>无法提交 ==Error Changes not staged for commit:==</li>
-<li><code>Git</code>主分支从 <code>master</code> 变为 <code>main</code></li>
+        <h2 id="Mac快捷键"><a href="#Mac快捷键" class="headerlink" title="Mac快捷键"></a>Mac快捷键</h2><ul>
+<li>截图  Command - [control] - shift - 4 - [Space]</li>
+<li>Command +  H（Hide） M(Small)  Option + /H  Tab   ` <ul>
+<li>Command + control + F 全屏   Command + option +m  最小化当前程序的所有窗口</li>
+</ul>
+</li>
+<li>复制 无格式  Command＋Shift＋V</li>
+<li>剪贴  Command+C  Command＋Option＋V</li>
+<li>删除   Command + Backspace   Command + Delete  删除  清空废纸篓  Command + shift + Backspace  Command + Delete + Shift  清空垃圾桶</li>
+<li>复制路径 Command</li>
+<li>Command  + D 复制   J 显示   上  返回上一级目录 下  进入一层/打开所选项   [ ]  前进回退   . 设置</li>
+<li>Shift – Command –  +  . 隐藏文件   A (应用程序 App)   H (用户)  C(电脑)  D(桌面)  F(最近文件)   G （前往文件夹）  L  (下载)</li>
+<li>撤销 Command   Z</li>
+<li>sudo killall -HUP mDNSResponder</li>
+<li>ipconfig /flushdns</li>
+<li>Mac 壁纸 <code>/System/Library/Desktop Pictures</code></li>
+</ul>
+<p>Mac工具</p>
+<ul>
+<li>brew</li>
+<li>curl</li>
+<li>mtr📕</li>
+</ul>
+<p>安装软件</p>
+<ul>
+<li>macOS 不允许未知来源开发者的应用<ul>
+<li><code>sudo spctl --master-disable</code>  安全性与隐私”   允许“任何来源</li>
+<li>用 Finder 找到应用程序，用右键菜单打开</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mac环境变量设置"><a href="#Mac环境变量设置" class="headerlink" title="Mac环境变量设置"></a>Mac环境变量设置</h2><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">zsh --vesion<br>cat /etc/shells <br></code></pre></td></tr></tbody></table></figure>
+
+<p>bash</p>
+<ul>
+<li><code>/etc/profile  &gt; /etc/paths 全局  &gt;  ~/.bash_profile 用户  &gt;  ~/.bash_login  &gt;  ~/.profile ~/.bashrc</code><ul>
+<li><code>/etc/profile 与 /etc/paths 系统级别环境变量</code><ul>
+<li><code>/etc/paths</code>  全局配置</li>
+<li><code>/etc/profile </code>  全局（公有）配置</li>
+</ul>
+</li>
+<li><code>~/.bash_profile  &gt;  ~/.bash_login  &gt;  ~/.profile  &gt; ~/.bashrc 用户级别环境变量</code><ul>
+<li>``~/.echo ‘PATH=”$PATH:./node_modules/.bin”‘ &gt;&gt; ~/.profile` 当前用户生效  要重启  /.bash_profile文件存在，则后面的几个文件就会被忽略不读了</li>
+<li>``~/.profile`  为系统的每个用户设置环境信息（登陆时执行）</li>
+<li><code> ~/.bashrc</code>  修改这个文件不用重启，重新打开一个bash即可生效</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>用法<ul>
+<li>设置命令别名</li>
+<li>设置自定义指令操作</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">export</span> PATH=<span class="hljs-variable">$PATH</span>:&lt;PATH 1&gt;:&lt;PATH 2&gt;:&lt;PATH 3&gt;:------:&lt;PATH N&gt;<br>// 全局配置<br><span class="hljs-built_in">touch</span> /etc/paths.d/xxxfile<br>vim xxxfile<br>/usr/local/xxx/bin  //启动路径<br>// 系统文件<br>vim ~/.bash_profile   //  ./.profile <br><span class="hljs-built_in">source</span> .bash_profile<br>// 别名 设置常用缩写  <br><span class="hljs-built_in">alias</span> xx = <span class="hljs-string">'xxxx'</span><br><span class="hljs-built_in">echo</span> <span class="hljs-variable">$PATH</span> // 查看Path<br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">'PATH="$PATH:./node_modules/.bin"'</span> &gt;&gt; ~/.bash_profile<br><br>// mac .bash_profile <br><span class="hljs-built_in">alias</span> ll=<span class="hljs-string">'ls -l'</span> <span class="hljs-comment"># 别名</span><br><span class="hljs-built_in">export</span> PATH=/opt/local/bin:/opt/local/sbin:<span class="hljs-variable">$PATH</span> <span class="hljs-comment"># 设置path</span><br><br>// 用Typora打开Hexo博客文章<br><span class="hljs-built_in">alias</span> note=<span class="hljs-string">'cd /Users/administrator/Workspace/Blog/source/_posts'</span><br><span class="hljs-built_in">alias</span> typora=<span class="hljs-string">'note &amp;&amp; open -a /Applications/Typora.app'</span><br>// 上传Blog文章<br><span class="hljs-built_in">alias</span> push=<span class="hljs-string">'cd /Users/administrator/Workspace/Blog &amp;&amp; npm run git</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>zsh</p>
+<ul>
+<li>安装了<code>oh my zsh</code>后， <code>.bash_profile</code> 文件中的环境变量就无法起到作用</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">vim ~/.zshrc<br>// 添加<br><span class="hljs-built_in">source</span> ~/.bash_profile<br>// zsh中配置<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>oh my zsh<ul>
+<li>z 是oh-my-zsh默认就装好的，会记录输入过的路径名，z+某个目录直接跳转到该目录</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 主体<br>ZSH_THEME=<span class="hljs-string">"random"</span><br><span class="hljs-built_in">cd</span> ~/.oh-my-zsh/themes &amp;&amp; <span class="hljs-built_in">ls</span><br>plugins=() 插件<br><br>plugins=(<br>	git<br>	autojump<br>	zsh-autosuggestions // 自动补全<br>	zsh-syntax-highlighting  // 高亮<br>	zsh-z<br>)<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>oh my zsh 插件</li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.mintimate.cn/2021/02/05/configZsh/">Linux/Mac如何配置zsh并使用Oh-my-zsh？让你的终端更加好用 - 雨月空间站</a></p>
+<p><a target="_blank" rel="noopener" href="https://asmcn.icopy.site/awesome/awesome-zsh-plugins/">ZSH 插件 - 超赞合集 awesome list chinese</a></p>
+</blockquote>
+<p>Google</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/biaochenxuying/blog/issues/58">提升 google 使用效率的 30个快捷键、16个扩展插件与 11个前端调试方法 · Issue #58 · biaochenxuying/blog</a></p>
+</blockquote>
+<p>Linux</p>
+<ul>
+<li><p>ls  <code>-w</code> 显示中文，<code>-l</code> 详细信息， <code>-a</code> 包括隐藏文件</p>
+</li>
+<li><p><code>&gt; &gt;&gt; </code></p>
+<ul>
+<li><code>&gt;</code> 是定向输出到文件，如果文件不存在，就创建文件；如果文件存在，就将其清空；一般我们备份清理日志文件的时候，就是这种方法：先备份日志，再用<code>&gt;</code>，将日志文件清空（文件大小变成0字节）</li>
+<li><code>&gt;&gt;</code> 这个是将输出内容追加到目标文件中。如果文件不存在，就创建文件；如果文件存在，则将新的内容追加到那个文件的末尾，该文件中的原有内容不受影响。</li>
+</ul>
+</li>
+<li><p>cp   cp 参数 源文件 目标文件  参数R表示对目录进行递归操作</p>
+</li>
+<li><p>rm 参数 文件 rm -rf 文件夹</p>
+</li>
+<li><p>mv 移动</p>
+</li>
+<li><p>chmod 参数 权限  文件  (#add  ch代表change)   文件权限</p>
+<ul>
+<li>chmod -R 755  /System/Library/Extensions  R 表示递归，755表示各用户的权限</li>
+</ul>
+</li>
+<li><p>chown 参数  用户:组 文件  文件所有者</p>
+</li>
 </ul>
 
       </div>
@@ -172,20 +292,31 @@
         <div class="prev-or-next">
           <div class="post-foot-next">
             
+              <a href="/2022/10/17/axios/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
           </div>
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2022-10-16 03:25:27
+              2022-10-17 08:46:11
             </span>
             
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E5%B7%A5%E5%85%B7/" title="工具">
+                        #工具
+                      </a>
+                    </span>
+                    
+                  </span>
+              
           </div>
           <div class="post-foot-prev">
-            
-              <a href="/2022/10/16/%E7%88%B1%E5%A5%BD/NAS/" target="_self">
-                <span>下一页</span>
-                <i class="iconfont icon-chevronright"></i>
-              </a>
             
           </div>
         </div>
@@ -199,7 +330,7 @@
     <div class="title">目录</div>
     <div class="catalog-content">
       
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git"><span class="toc-text">Git</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="toc-text">Mac快捷键</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="toc-text">Mac环境变量设置</span></a></li></ol>
       
     </div>
   </div>
@@ -515,12 +646,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' +  + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F16%2F%25E7%2588%25B1%25E5%25A5%25BD%2F%25E5%25BC%2580%25E5%258F%2591%25E5%259D%2591%25E6%258C%2587%25E5%258D%2597%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + (tool)Mac%E4%BD%BF%E7%94%A8 + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F17%2FMac%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/16/%E7%88%B1%E5%A5%BD/%E5%BC%80%E5%8F%91%E5%9D%91%E6%8C%87%E5%8D%97/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/17/Mac/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
