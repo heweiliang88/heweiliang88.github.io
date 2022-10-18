@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN" color-mode="light">
+
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="前端、免流、技术、运维、手机" />
+  <meta name="author" content="记住" />
+  <meta name="description" content="我希望有个如你一般的人。 如这山间清晨一般明亮清爽的人， 如奔赴古城道路上阳光一般的人， 温暖而不炙热，覆盖我所有肌肤。 由起点到夜晚，由山野到书房， 一切问题的答案都很简单。 我希望有个如你一般的人，贯彻未来，数遍生命的公路牌。" />
+  
+  
+  <title>
+    
+      (syntax)pinia 
+      
+      
+      |
+    
+     从你的全世界路过
+  </title>
+
+  
+    <link rel="apple-touch-icon" href="/images/avatar.png">
+    <link rel="icon" href="/images/avatar.png">
+  
+
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+
+  <!-- hexo site css -->
+  <link rel="stylesheet" href="/css/main.css" />
+  <link rel="stylesheet" href="//at.alicdn.com/t/font_1886449_67xjft27j1l.css" />
+  <!-- 代码块风格 -->
+  
+    
+<link rel="stylesheet" href="/css/figcaption/mac-block.css">
+
+  
+
+  <!-- jquery3.3.1 -->
+  
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  
+
+  <!-- fancybox -->
+  
+    <link href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" rel="stylesheet">
+    <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+  
+  
+<script src="/js/fancybox.js"></script>
+
+
+  
+
+  
+
+  <script>
+    var html = document.documentElement
+    const colorMode = localStorage.getItem('color-mode')
+    if (colorMode) {
+      document.documentElement.setAttribute('color-mode', colorMode)
+    }
+  </script>
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="从你的全世界路过" type="application/atom+xml">
+</head>
+
+
+  <body>
+    <div id="app">
+      <div class="header">
+  <div class="avatar">
+    <a href="/">
+      <!-- 头像取消懒加载，添加no-lazy -->
+      
+        <img src="/images/avatar.png" alt="">
+      
+    </a>
+    <div class="nickname"><a href="/">cloud</a></div>
+  </div>
+  <h1 style="text-align:center;margin-bottom: 40px;" id="jinrishici-sentence">正在加载今日诗词....</h1>
+  <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+  <div class="navbar">
+    <ul>
+      
+        <li class="nav-item" data-path="/">
+          <a href="/">Home</a>
+        </li>
+      
+        <li class="nav-item" data-path="/archives/">
+          <a href="/archives/">Archives</a>
+        </li>
+      
+        <li class="nav-item" data-path="/tags/">
+          <a href="/tags/">Tags</a>
+        </li>
+      
+        <li class="nav-item" data-path="/friends/">
+          <a href="/friends/">Friends</a>
+        </li>
+      
+        <li class="nav-item" data-path="/about/">
+          <a href="/about/">About</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+
+<script src="/js/activeNav.js"></script>
+
+
+
+      <div class="flex-container">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+
+  <!-- LaTex Display -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    }
+  </script>
+
+
+
+
+
+  <!-- clipboard -->
+
+  
+    <script async type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.10/dist/clipboard.min.js"></script>
+  
+  
+<script src="/js/codeCopy.js"></script>
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  <!-- 文章内容页 url形式：https://yoursite/文章标题/ -->
+  <div class="container post-details" id="post-details">
+    <div class="post-content">
+      <div class="post-title">(syntax)pinia</div>
+      <div class="post-attach">
+        <span class="post-pubtime">
+          <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+          2022-10-18 04:18:04
+        </span>
+        
+              <span class="post-tags">
+                <i class="iconfont icon-tags mr-10" title="标签"></i>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/vue/" title="vue">
+                    #vue
+                  </a>
+                </span>
+                
+                <span class="span--tag mr-8">
+                  <a href="/tags/%E8%AF%AD%E6%B3%95/" title="语法">
+                    #语法
+                  </a>
+                </span>
+                
+              </span>
+          
+      </div>
+      <div class="markdown-body">
+        <h1 id="pinia"><a href="#pinia" class="headerlink" title="pinia"></a>pinia</h1><h2 id="piniaApi"><a href="#piniaApi" class="headerlink" title="piniaApi"></a><em>pinia</em>Api</h2><blockquote>
+<p>pinia vs vuex</p>
+<ul>
+<li>抛弃传统的 <code>Mutation</code> ，只有 <code>state, getter</code> 和 <code>action</code> ，简化状态管理库</li>
+<li>不需要嵌套模块，符合 Vue3 的 Composition api，让代码扁平化</li>
+<li>TS支持</li>
+<li>代码自动分割</li>
+<li>小 1K</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>store 仓库</p>
+<ul>
+<li>state 数据<ul>
+<li>定义 <code>export const mainStore = defineStore('main',{ state:{}  })</code></li>
+<li>使用<ul>
+<li><code>const store = mainStore()</code></li>
+<li><code>const { name } = storeToRefs(store)</code></li>
+</ul>
+</li>
+<li>修改<ul>
+<li><code>store.属性名</code> 单个数据修改</li>
+<li><code>store.$path</code>多个数据修改（类似辅助函数）<ul>
+<li><code>$path((state)=&gt;{ })</code>  + <code>$path({})</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>getters 计算<ul>
+<li>定义 <code> export const mainStore = definStore('main',{ getters:{} })</code></li>
+<li>使用 导入 + 文件名() + <code>store.getters名</code></li>
+</ul>
+</li>
+<li>actions 方法<ul>
+<li>定义 <code>export const mainStore = definStore('main',{ actions:{} })</code></li>
+<li>使用  导入 + 文件名() + store.action方法()</li>
+</ul>
+</li>
+<li>store 文件分割</li>
+</ul>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">// vue-cli vue create<br>vue create &lt;project-name&gt;<br>// vite  xxx create vite<br>npm/yarn/pnpm create vite my-vue-app --template vue   <br>// xxx create vite 项目名  --temlate vue<br>yarn add pinia<br>npm i pinia<br>// vue2<br>npm i @vue/composition-api<br>// vue-cli<br>vue add vue-cli-plugin-pinia<br></code></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// vue3</span><br><span class="hljs-comment">// main.js</span><br><span class="hljs-comment">// vuex createStore</span><br><span class="hljs-keyword">import</span> <span class="hljs-title class_">App</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'./App.vue'</span><br><span class="hljs-keyword">import</span> { createApp } <span class="hljs-keyword">from</span> <span class="hljs-string">'vue'</span><br><span class="hljs-keyword">import</span> { createPinia } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><span class="hljs-keyword">const</span> app = <span class="hljs-title function_">creaetApp</span>(<span class="hljs-title class_">App</span>)<br><span class="hljs-keyword">const</span> pinia = <span class="hljs-title function_">createPinia</span>()<br>app.<span class="hljs-title function_">use</span>(pinia).<span class="hljs-title function_">mount</span>(<span class="hljs-string">'#app'</span>)<br><br><span class="hljs-comment">// vue2</span><br><span class="hljs-comment">// main.js</span><br><span class="hljs-comment">// vuex new Vue({ store }) // store文件导入</span><br><span class="hljs-keyword">import</span> { createPinia, <span class="hljs-title class_">PiniaVuePlugin</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><span class="hljs-title class_">Vue</span>.<span class="hljs-title function_">use</span>(<span class="hljs-title class_">PiniaVuePlugin</span>)<br><span class="hljs-keyword">const</span> pinia = <span class="hljs-title function_">createPinia</span>()<br><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Vue</span>({<br>  <span class="hljs-attr">el</span>: <span class="hljs-string">'#app'</span>,<br>  pinia,<br>})<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="state数据"><a href="#state数据" class="headerlink" title="state数据"></a>state数据</h2><blockquote>
+<ul>
+<li>定义 <code>export const mainStore = defineStore('main',{ state:{}  })</code></li>
+<li>使用<ul>
+<li><code>const store = mainStore()</code></li>
+<li><code>const { name } = storeToRefs(store)</code></li>
+</ul>
+</li>
+<li>修改<ul>
+<li><code>store.属性名</code> 单个数据修改</li>
+<li><code>store.$path</code>多个数据修改（类似辅助函数）<ul>
+<li><code>$path((state)=&gt;{ })</code>  + <code>$path({})</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<p>定义</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// pinia main.js</span><br><span class="hljs-keyword">import</span> { createPinia } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><span class="hljs-title function_">createApp</span>(<span class="hljs-title class_">App</span>).<span class="hljs-title function_">use</span>(<span class="hljs-title function_">createPinia</span>()).<span class="hljs-title function_">mount</span>(<span class="hljs-string">'#app'</span>)<br><br><span class="hljs-comment">// vuex  stores.js</span><br><span class="hljs-keyword">import</span> { createStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'vuex'</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">createStore</span>({ <span class="hljs-attr">state</span>:{} })<br><br><span class="hljs-comment">// pinia stores.js 定义</span><br><span class="hljs-comment">// 可以添加别名</span><br><span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><span class="hljs-comment">// 第一个参数唯一名称 </span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mainStore = <span class="hljs-title function_">defineStore</span>(<span class="hljs-string">'main'</span>,{<br>  <span class="hljs-attr">state</span>:<span class="hljs-function">() =&gt;</span> { <br>    <span class="hljs-keyword">return</span>{  <span class="hljs-attr">count</span>:<span class="hljs-number">100</span>  }   <br>  },<br>  <span class="hljs-attr">getters</span>:{},<br>  <span class="hljs-attr">actions</span>: {<br>    <span class="hljs-title function_">increment</span>(<span class="hljs-params"></span>) {<br>    	<span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span>++<br>    },<br>  },<br>})<br><br><span class="hljs-comment">// xxx.vue 使用 setup()</span><br><span class="hljs-keyword">import</span> { mainStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'@/stores.js'</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {<br>  <span class="hljs-title function_">setup</span>(<span class="hljs-params"></span>) {<br>    <span class="hljs-keyword">const</span> store = <span class="hljs-title function_">mainStore</span>()<br>    store.<span class="hljs-property">count</span>++<br>    store.$patch({ <span class="hljs-attr">count</span>: store.<span class="hljs-property">count</span> + <span class="hljs-number">1</span> })<br>    store.<span class="hljs-title function_">increment</span>() <br>    <span class="hljs-keyword">const</span> store = <span class="hljs-title function_">useStore</span>()<br>    <span class="hljs-keyword">return</span>{<br>      store<br>    }<br>  },<br>}<br><br></code></pre></td></tr></tbody></table></figure>
+
+<p>使用(解构store)</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js">{{ store.<span class="hljs-property">count</span><span class="hljs-comment">//count }}</span><br><br><span class="hljs-comment">// setup</span><br>&lt;script setup&gt;<br>  <span class="hljs-keyword">import</span> { storeToRefs } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br>  <span class="hljs-keyword">import</span> { mainStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'@/stores.js</span><br><span class="hljs-string">  const store = mainStore()</span><br><span class="hljs-string">  const { count } = storeToRefs(store) </span><br><span class="hljs-string">&lt;/script&gt;  </span><br><span class="hljs-string">  </span><br><span class="hljs-string">// 响应式调用</span><br><span class="hljs-string">import { storeToRefs, } from '</span>pinia<span class="hljs-string">'</span><br><span class="hljs-string">export default defineComponent({</span><br><span class="hljs-string">  setup(){</span><br><span class="hljs-string">    const store = useStore()</span><br><span class="hljs-string">    const { name, doubleCount } = storeToRefs(store) // 添加响应式属性</span><br><span class="hljs-string">    const { count } = storeToRefs(store) OR const { count } = store ES解构没有响应性</span><br><span class="hljs-string">    return{</span><br><span class="hljs-string">      name,</span><br><span class="hljs-string">      doubleCount</span><br><span class="hljs-string">    }</span><br><span class="hljs-string">  }</span><br><span class="hljs-string">})</span><br></code></pre></td></tr></tbody></table></figure>
+
+<p>修改</p>
+<ul>
+<li><code>store.属性名</code> 单个数据修改</li>
+<li><code>store.$path</code>多个数据修改（类似辅助函数）<ul>
+<li><code>$path((state)=&gt;{ })</code>  + <code>$path({})</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// xxx.vue</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">add</span> = (<span class="hljs-params"></span>) =&gt; {<br>  store.<span class="hljs-property">count</span>++<br>}<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">plus</span> = (<span class="hljs-params"></span>) =&gt;{<br>  store.$path({ <br>  	<span class="hljs-attr">count</span>:store.<span class="hljs-property">count</span> + <span class="hljs-number">100</span>,<br>    <span class="hljs-attr">msg</span>:<span class="hljs-string">'Hello'</span> + store.<span class="hljs-property">msg</span> <br>  })<br>}<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">del</span> = (<span class="hljs-params"></span>) =&gt;{<br>  store.$path(<span class="hljs-function">(<span class="hljs-params">state</span>) =&gt;</span> { <br>  	state.<span class="hljs-property">count</span> = state.<span class="hljs-property">count</span> + <span class="hljs-number">100</span>,<br>    state.<span class="hljs-property">msg</span> = state.<span class="hljs-property">msg</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">10</span>? <span class="hljs-string">'true'</span> : <span class="hljs-string">'false'</span> <br>  })<br>}<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="getters计算"><a href="#getters计算" class="headerlink" title="getters计算"></a>getters计算</h2><blockquote>
+<ul>
+<li>定义 <code> export const mainStore = definStore('main',{ getters:{} })</code></li>
+<li>使用 导入 + 文件名() + <code>store.getters名</code></li>
+</ul>
+</blockquote>
+<ul>
+<li>与vue的计算属性集合一样 有缓存 值没有改变多次调用同一个</li>
+</ul>
+<p>定义</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mainStore = <span class="hljs-title function_">definStore</span>(<span class="hljs-string">'main'</span>,{<br>  <span class="hljs-attr">state</span>:<span class="hljs-function">()=&gt;</span>{ <br>  	<span class="hljs-keyword">return</span>{<br>      <span class="hljs-attr">msg</span>:<span class="hljs-string">'Message'</span>,<br>      <span class="hljs-attr">count</span>:<span class="hljs-number">1000</span><br>    }<br>  },<br>  <span class="hljs-attr">getters</span>:{<br>    <span class="hljs-title function_">reduceCount</span>(<span class="hljs-params"></span>){<br>      state.<span class="hljs-property">count</span>-- <span class="hljs-comment">//  this.count--</span><br>      <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">'-1'</span>)<br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure>
+
+<p>使用</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;h1&gt; store.<span class="hljs-property">reduceCount</span> &lt;/h1&gt;<br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> store.reduceCount <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span> store.reduceCount <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br><br><span class="hljs-keyword">import</span> { mainStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'./stores.js'</span><br><span class="hljs-keyword">const</span> store = <span class="hljs-title function_">mainStore</span>()<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(store)<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="actions方法"><a href="#actions方法" class="headerlink" title="actions方法"></a>actions方法</h2><blockquote>
+<ul>
+<li>定义 <code>export const mainStore = definStore('main',{ actions:{} })</code></li>
+<li>使用  store.action方法()</li>
+</ul>
+</blockquote>
+<p>定义</p>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> mainStore = <span class="hljs-title function_">definStore</span>(<span class="hljs-string">'main'</span>,{<br>  <span class="hljs-attr">state</span>:<span class="hljs-function">()=&gt;</span>{ <br>  	<span class="hljs-keyword">return</span>{<br>      <span class="hljs-attr">msg</span>:<span class="hljs-string">'Message'</span>,<br>      <span class="hljs-attr">count</span>:<span class="hljs-number">1000</span><br>    }<br>  },<br>  <span class="hljs-attr">getters</span>:{},<br>  <span class="hljs-attr">actions</span>:{<br>    <span class="hljs-title function_">addCounter</span>(<span class="hljs-params"></span>){<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span>++<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-property">msg</span> = <span class="hljs-string">`Hello<span class="hljs-subst">${<span class="hljs-variable language_">this</span>.msg}</span> `</span>+ <span class="hljs-variable language_">this</span>.<span class="hljs-property">count</span><br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure>
+
+<ul>
+<li>使用</li>
+</ul>
+<figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;h1&gt;{{ store.msg }}&lt;/h1&gt;<br>&lt;button @click="actionClickk"&gt;Action&lt;/button&gt;<br><br>&lt;script setup&gt;<br>	 import { mainStore } from './store.js'<br>   const store = mainStore()<br>   // 变更action<br>   const actionClick = () =&gt;{<br>     	store.addCounter()<br>   }<br>&lt;/script&gt;<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="store仓库"><a href="#store仓库" class="headerlink" title="store仓库"></a>store仓库</h2><ul>
+<li>分离store文件<ul>
+<li>使用 导入 + 文件().xxx //</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">// use.js</span><br><span class="hljs-keyword">import</span> { defineStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'pinia'</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">userStore</span>(<span class="hljs-string">'user'</span>,{<br>  <span class="hljs-attr">state</span>:<span class="hljs-function">()=&gt;</span>{<br>    <span class="hljs-keyword">return</span>{<br>       <span class="hljs-attr">msg</span>:<span class="hljs-string">"Hello Pinia"</span><br>    }<br>  }<br>})<br><span class="hljs-comment">// store.js</span><br><span class="hljs-keyword">import</span> { userStore } <span class="hljs-keyword">from</span> <span class="hljs-string">'./use.js'</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> <span class="hljs-title function_">mainStore</span>(<span class="hljs-string">'main'</span>,{<br>  <span class="hljs-attr">getters</span>:{<br>    <span class="hljs-title function_">addYear</span>(<span class="hljs-params"></span>){<br>       <span class="hljs-comment">// return this.msg + new Date()</span><br>       <span class="hljs-keyword">return</span> <span class="hljs-title function_">userStore</span>().<span class="hljs-property">msg</span> + <span class="hljs-keyword">new</span> <span class="hljs-title class_">Date</span>()<br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure>
+
+
+
+
+
+
+
+
+
+
+      </div>
+      
+        <div class="prev-or-next">
+          <div class="post-foot-next">
+            
+              <a href="/2022/10/18/vite/" target="_self">
+                <i class="iconfont icon-chevronleft"></i>
+                <span>上一页</span>
+              </a>
+            
+          </div>
+          <div class="post-attach">
+            <span class="post-pubtime">
+              <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
+              2022-10-18 04:18:04
+            </span>
+            
+                  <span class="post-tags">
+                    <i class="iconfont icon-tags mr-10" title="标签"></i>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/vue/" title="vue">
+                        #vue
+                      </a>
+                    </span>
+                    
+                    <span class="span--tag mr-8">
+                      <a href="/tags/%E8%AF%AD%E6%B3%95/" title="语法">
+                        #语法
+                      </a>
+                    </span>
+                    
+                  </span>
+              
+          </div>
+          <div class="post-foot-prev">
+            
+              <a href="/2022/10/18/bug/" target="_self">
+                <span>下一页</span>
+                <i class="iconfont icon-chevronright"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+    </div>
+    
+  <div id="btn-catalog" class="btn-catalog">
+    <i class="iconfont icon-catalog"></i>
+  </div>
+  <div class="post-catalog hidden" id="catalog">
+    <div class="title">目录</div>
+    <div class="catalog-content">
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#pinia"><span class="toc-text">pinia</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#piniaApi"><span class="toc-text">piniaApi</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#state%E6%95%B0%E6%8D%AE"><span class="toc-text">state数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#getters%E8%AE%A1%E7%AE%97"><span class="toc-text">getters计算</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#actions%E6%96%B9%E6%B3%95"><span class="toc-text">actions方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#store%E4%BB%93%E5%BA%93"><span class="toc-text">store仓库</span></a></li></ol></li></ol>
+      
+    </div>
+  </div>
+
+  
+<script src="/js/catalog.js"></script>
+
+
+
+
+    
+      <div class="comments-container">
+        
+
+
+
+
+
+
+
+      </div>
+    
+  </div>
+
+
+        
+<div class="footer">
+  <div class="social">
+    <ul>
+      
+        <li>
+          <a title="github" target="_blank" rel="noopener" href="https://github.com/heweiliang88">
+            <i class="iconfont icon-github"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="email" href="">
+            <i class="iconfont icon-envelope"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="facebook" href="">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="twitter" href="">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="wechat" href="">
+            <i class="iconfont icon-wechat"></i>
+          </a>
+        </li>
+      
+        <li>
+          <a title="weibo" href="">
+            <i class="iconfont icon-weibo"></i>
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Copyright © 2022 cloud</a>
+        
+    </div>
+  
+    
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/zchengsite/hexo-theme-oranges">Theme by Oranges | Powered by Hexo</a>
+        
+    </div>
+  
+  
+</div>
+
+      </div>
+
+      <div class="tools-bar">
+        <div class="back-to-top tools-bar-item hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+        
+  <div class="search-icon tools-bar-item" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-title">
+        <span class="search-icon-input">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-search"></i>
+          </a>
+        </span>
+        
+          <input type="text" class="search-input" id="search-input" placeholder="搜索...">
+        
+        <span class="search-close-icon" id="search-close-icon">
+          <a href="javascript: void(0)">
+            <i class="iconfont icon-close"></i>
+          </a>
+        </span>
+      </div>
+      <div class="search-result" id="search-result"></div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    inputArea.onclick = function() {
+      getSearchFile()
+      this.onclick = null
+    }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        // inputArea.focus()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'>首次搜索，正在载入索引文件，请稍后……<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'>" + orig_data_title + "</a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<p class=\"search-result-abstract\">" + match_content + "...</p>"
+                }
+                str += "</li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>没有找到内容，请尝试更换检索词。<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>未找到search.xml文件，具体请参考：<a href='https://github.com/zchengsite/hexo-theme-oranges#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>请求失败，尝试重新刷新页面或稍后重试。<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
+
+
+
+
+        
+  <div class="tools-bar-item theme-icon" id="switch-color-scheme">
+    <a href="javascript: void(0)">
+      <i id="theme-icon" class="iconfont icon-moon"></i>
+    </a>
+  </div>
+
+  
+<script src="/js/colorscheme.js"></script>
+
+
+
+
+
+        
+  
+    <div class="share-icon tools-bar-item">
+      <a href="javascript: void(0)" id="share-icon">
+        <i class="iconfont iconshare"></i>
+      </a>
+      <div class="share-content hidden">
+        
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + (syntax)pinia + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F18%2Fpinia%2F + '" target="_blank" title="Twitter">
+            <i class="iconfont icon-twitter"></i>
+          </a>
+        
+        
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/18/pinia/" target="_blank" title="Facebook">
+            <i class="iconfont icon-facebooksquare"></i>
+          </a>
+        
+      </div>
+    </div>
+  
+  
+<script src="/js/shares.js"></script>
+
+
+
+      </div>
+    </div>
+  </body>
+</html>

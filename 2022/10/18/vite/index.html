@@ -164,7 +164,7 @@
       <div class="post-attach">
         <span class="post-pubtime">
           <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-          2022-10-17 18:07:38
+          2022-10-18 04:18:04
         </span>
         
               <span class="post-tags">
@@ -195,6 +195,7 @@
 <li>vue create =&gt; npm create vite</li>
 <li><code>npm create vite@latest</code></li>
 <li><code>pnpm create vite my-vue-app --template vue</code></li>
+<li><code>pnpm create vite my-vue-app --template vue-ts</code></li>
 </ul>
 </li>
 <li>配置syntax<ul>
@@ -215,7 +216,7 @@
 </li>
 </ul>
 <p>安装</p>
-<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm create vite@latest  // npm init vite-app &lt;project-name&gt;<br>yarn create vite  // yarn create vite-app &lt;project-name&gt;<br>pnpm create vite<br><span class="hljs-comment"># npm 6.x</span><br>npm create vite@latest my-vue-app --template vue<br><span class="hljs-comment"># npm 7+, extra double-dash is needed:</span><br>npm create vite@latest my-vue-app -- --template vue<br><span class="hljs-comment"># yarn</span><br>yarn create vite my-vue-app --template vue<br><span class="hljs-comment"># pnpm</span><br>pnpm create vite my-vue-app --template vue<br>// 上面vue替代 vanilla，vanilla-ts，vue，vue-ts，react，react-ts，preact，preact-ts，lit，lit-ts，svelte，svelte-ts<br>// 社区模板<br>npx degit user/project my-project<br><br>npx vite // npx vite build<br><span class="hljs-string">"scripts"</span>: {<br>    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"vite"</span>, // 启动开发服务器，别名：`vite dev`，`vite serve`<br>    <span class="hljs-string">"build"</span>: <span class="hljs-string">"vite build"</span>, // 为生产环境构建产物<br>    <span class="hljs-string">"preview"</span>: <span class="hljs-string">"vite preview"</span> // 本地预览生产构建产物<br>}<br></code></pre></td></tr></tbody></table></figure>
+<figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm create vite@latest  // npm init vite-app &lt;project-name&gt;<br>yarn create vite  // yarn create vite-app &lt;project-name&gt;<br>pnpm create vite<br><span class="hljs-comment"># npm 6.x</span><br>npm create vite@latest my-vue-app --template vue<br><span class="hljs-comment"># npm 7+, extra double-dash is needed:</span><br>npm create vite@latest my-vue-app -- --template vue<br><br>npm create vite my-vue-app -- --template vue // 多一个--<br>npm/yarn/pnpm create vite my-vue-app --template vue<br><br>// 上面vue替代 vanilla，vanilla-ts，vue，vue-ts，react，react-ts，preact，preact-ts，lit，lit-ts，svelte，svelte-ts<br>// 社区模板<br>npx degit user/project my-project<br><br>npx vite // npx vite build<br><span class="hljs-string">"scripts"</span>: {<br>    <span class="hljs-string">"dev"</span>: <span class="hljs-string">"vite"</span>, // 启动开发服务器，别名：`vite dev`，`vite serve`<br>    <span class="hljs-string">"build"</span>: <span class="hljs-string">"vite build"</span>, // 为生产环境构建产物<br>    <span class="hljs-string">"preview"</span>: <span class="hljs-string">"vite preview"</span> // 本地预览生产构建产物<br>}<br></code></pre></td></tr></tbody></table></figure>
 
 <p>vite.config.js</p>
 <figure class="highlight js"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> { defineConfig, loadEnv } <span class="hljs-keyword">from</span> <span class="hljs-string">'vite'</span><br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineConfig</span>(<span class="hljs-function">(<span class="hljs-params">{ command, mode }</span>) =&gt;</span> {<br>  <span class="hljs-comment">// 根据当前工作目录中的 `mode` 加载 .env 文件</span><br>  <span class="hljs-comment">// 设置第三个参数为 '' 来加载所有环境变量，而不管是否有 `VITE_` 前缀。</span><br>  <span class="hljs-keyword">const</span> env = <span class="hljs-title function_">loadEnv</span>(mode, process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">''</span>)<br>  <span class="hljs-keyword">return</span> {<br>    <span class="hljs-comment">// vite 配置</span><br>    <span class="hljs-attr">define</span>: {<br>      <span class="hljs-attr">__APP_ENV__</span>: env.<span class="hljs-property">APP_ENV</span><br>    }<br>  }<br>})<br></code></pre></td></tr></tbody></table></figure>
@@ -226,7 +227,7 @@
         <div class="prev-or-next">
           <div class="post-foot-next">
             
-              <a href="/2022/10/17/vue-cli/" target="_self">
+              <a href="/2022/10/18/vue-cli/" target="_self">
                 <i class="iconfont icon-chevronleft"></i>
                 <span>上一页</span>
               </a>
@@ -235,7 +236,7 @@
           <div class="post-attach">
             <span class="post-pubtime">
               <i class="iconfont icon-updatetime mr-10" title="更新时间"></i>
-              2022-10-17 18:07:38
+              2022-10-18 04:18:04
             </span>
             
                   <span class="post-tags">
@@ -258,7 +259,7 @@
           </div>
           <div class="post-foot-prev">
             
-              <a href="/2022/10/17/bug/" target="_self">
+              <a href="/2022/10/18/pinia/" target="_self">
                 <span>下一页</span>
                 <i class="iconfont icon-chevronright"></i>
               </a>
@@ -591,12 +592,12 @@
       </a>
       <div class="share-content hidden">
         
-          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + (syntax)vite + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F17%2Fvite%2F + '" target="_blank" title="Twitter">
+          <a class="share-item" href="https://twitter.com/intent/tweet?text=' + (syntax)vite + '&url=' + http%3A%2F%2Fexample.com%2F2022%2F10%2F18%2Fvite%2F + '" target="_blank" title="Twitter">
             <i class="iconfont icon-twitter"></i>
           </a>
         
         
-          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/17/vite/" target="_blank" title="Facebook">
+          <a class="share-item" href="https://www.facebook.com/sharer.php?u=http://example.com/2022/10/18/vite/" target="_blank" title="Facebook">
             <i class="iconfont icon-facebooksquare"></i>
           </a>
         
