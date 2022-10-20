@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /生活/
+Disallow: /笔记/
+Disallow: /草稿/
+Disallow: /个人/
